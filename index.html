@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <!-- 基础信息 -->
+    <meta charset="utf-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="force-rendering" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="無名の主页">
+    <meta name="keywords" content="無名,个人主页">
+    <meta name="author" content="無名">
+    <title>無名の主页</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="./css/font.css">
+    <link rel="stylesheet" type="text/css" href="./css/loading.css">
+    <link rel="stylesheet" type="text/css" href="./css/animation.css">
+    <link rel="icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+    <!-- 引入 Izitoast -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
+    <!-- 引入 Fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css"
+        media="all">
+    <!--引入Aplayer-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>-->
+    <!-- 引入 jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <!-- 百度统计 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?14e9f35ff8bc67fd4bcb5f07a6e6655a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- IE 淘汰计划 -->
+    <script>
+        if ( /*@cc_on!@*/ false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href =
+            "/upgrade-your-browser/index.html?referrer=" + encodeURIComponent(window.location.href);
+    </script>
+</head>
+
+<body>
+    <!--加载动画-->
+    <div id="loading-box">
+        <div class="loading-left-bg"></div>
+        <div class="loading-right-bg"></div>
+        <div class="spinner-box">
+            <div class="loader">
+                <div class="inner one"></div>
+                <div class="inner two"></div>
+                <div class="inner three"></div>
+            </div>
+            <div class="loading-word">
+                <p class="loading-title">無名の主页</p>加载中
+            </div>
+        </div>
+    </div>
+    <!--加载动画结束-->
+    <section id="section" class="section">
+        <main id="main" class="main">
+            <div class="container" id="container">
+                <div class="row">
+                    <div class="col left">
+                        <!--基本信息-->
+                        <div class="main-left">
+                            <!--Logo-->
+                            <div class="main-img">
+                                <img src="./img/logo.png" alt="img">
+                                <div class="img-title">
+                                    <span class="img-title">imsyy</span>
+                                    <span class="img-text">.top</span>
+                                </div>
+                            </div>
+                            <!--介绍信息-->
+                            <div class="message cards" onclick="switchMore()">
+                                <div class="des" id="des"><i class="iconfont icon-yinhao-copy-copy"></i>
+                                    <p class="des-title"><span id="change">Hello&nbsp;World&nbsp;!</span><br /><span
+                                            id="change1">一个建立于 21 世纪的小站，存活于互联网的边缘</span></p>
+                                    <i class="iconfont icon-yinhao-copy"></i>
+                                </div>
+                            </div>
+                            <!--社交链接-->
+                            <div class="social" id="social">
+                                <a href="https://github.com/imsyy" class="link" id="github" target="_blank">
+                                    <i class="iconfont icon-github"></i>
+                                </a>
+                                <a href="http://wpa.qq.com/msgrd?v=3&uin=1539250352&site=qq&menu=yes" class="link"
+                                    id="qq" target="_blank">
+                                    <i class="iconfont icon-QQ"></i>
+                                </a>
+                                <a href="mailto:one@imsyy.top" class="link" id="email">
+                                    <i class="iconfont icon-youxiang"></i>
+                                </a>
+                                <a href="https://t.me/bottom_user" class="link" id="telegram" target="_blank">
+                                    <i class="iconfont icon-telegram"></i>
+                                </a>
+                                <a href="https://twitter.com/iimmsyy" class="link" id="twitter" target="_blank">
+                                    <i class="iconfont icon-twitter"></i>
+                                </a>
+                                <a id="link-text">通过这里联系我</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col right">
+                        <div class="main-right">
+                            <!--功能区-->
+                            <div class="row rightone">
+                                <div class="col hitokotos">
+                                    <!--一言-->
+                                    <div class="hitokoto cards" id="hitokoto">
+                                        <div class="hitokoto-ico"><i class="fad fa-comment-alt-lines"></i>&nbsp;一言</div>
+                                        <div class="hitokoto-all">
+                                            <div class="hitokoto-text"><span id="hitokoto_text">每一个人都应该明确自己的方向和位置</span>
+                                            </div>
+                                            <div class="hitokoto-from">-「&nbsp;<span id="from_text">無名</span>&nbsp;」
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col times">
+                                    <!--时间-->
+                                    <div class="time cards">
+                                        <div class="timeshow" id="time"></div>
+                                        <div class="weather">
+                                            <span id="city_text">天气</span>&nbsp;<span
+                                                id="wea_text">加载失败</span>&nbsp;<span id="tem_night">*</span>°C~<span
+                                                id="tem_day">*</span>°C&nbsp;<span id="win_text">风向</span><span
+                                                id="win_speed">*</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--分隔线-->
+                            <div class="line">
+                                <i class="fad fa-grip-lines-vertical"></i>
+                                <span class="line-text">网站列表</span>
+                            </div>
+                            <!--网站链接-->
+                            <div class="link">
+                                <!--第一组-->
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="https://blog.imsyy.top/" target="_blank">
+                                            <div class="link-card cards">
+                                                <i class="fad fa-blog"></i>
+                                                <span class="link-name">博客</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col 2">
+                                        <a href="https://web.imsyy.top/" target="_blank">
+                                            <div class="link-card cards">
+                                                <i class="fad fa-spider-web"></i>
+                                                <span class="link-name">网址导航</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="https://music.imsyy.top/" target="_blank">
+                                            <div class="link-card cards">
+                                                <i class="fad fa-list-music"></i>
+                                                <span class="link-name">音乐</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--第二组-->
+                                <div class="row" style="margin-top: 1.5rem;">
+                                    <div class="col">
+                                        <a href="https://lab.imsyy.top/" target="_blank">
+                                            <div class="link-card cards">
+                                                <i class="fad fa-flask"></i>
+                                                <span class="link-name">实验室</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col 2">
+                                        <a href="https://share.imsyy.top/" target="_blank">
+                                            <div class="link-card cards">
+                                                <i class="fad fa-cloud-download"></i>
+                                                <span class="link-name">网盘</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="https://blog.imsyy.top/about/" target="_blank">
+                                            <div class="link-card cards">
+                                                <i class="fad fa-info-circle"></i>
+                                                <span class="link-name">关于</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--展开菜单按钮-->
+                <div class="menu">
+                    <a class="munu-button cards" id="menu" onclick="switchMenu()"><i class="fad fa-bars"></i></a>
+                </div>
+                <!--第二屏 Logo-->
+                <div class="logo" style="display: none;">
+                    <a>imsyy.top</a>
+                </div>
+                <!--更多内容-->
+                <div class="more cards">
+                    <i class="fad fa-comment-alt-dots"></i>
+                    <p class="text" style="margin-top: 1.5rem;">还没想好要写些啥</p>
+                </div>
+            </div>
+        </main>
+        <footer id="footer" class="fixed-bottom footer">
+            <div class="power">Copyright&nbsp;&copy;&nbsp;2020
+                <script>
+                    document.write(' - ' + (new Date()).getFullYear())
+                </script>&nbsp;無名&nbsp;|&nbsp;<a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备20013231-2号</a>
+            </div>
+        </footer>
+    </section>
+    <!-- JS -->
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

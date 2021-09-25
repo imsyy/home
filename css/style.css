@@ -1,0 +1,287 @@
+@charset"utf-8";
+/*全局样式*/
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+a,
+p {
+    text-decoration: none;
+    transition: 0.3s;
+    color: #efefef;
+    user-select: none;
+}
+
+a:hover {
+    color: white;
+}
+
+.cards {
+    transition: 0.5s;
+}
+
+.cards:hover {
+    transform: scale(1.01);
+    transition: 0.5s;
+}
+
+.cards:active {
+    transform: scale(0.95);
+    transition: 0.5s;
+}
+
+/*页面样式*/
+section {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 20%);
+    display: flex;
+    /*align-items: center;*/
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.row {
+    align-items: center;
+    width: 100%;
+}
+
+.main-left {
+    /*transform: translateY(240px);*/
+    transform: translateY(40px);
+}
+/*
+.main-right {
+    transform: translateY(38%);
+}
+*/
+.row.rightone {
+    display: flex;
+    align-items: center;
+}
+
+/*头像*/
+.main-img {
+    display: flex;
+    align-items: center;
+}
+
+.main-img img {
+    border-radius: 50%;
+    width: 120px;
+}
+
+.img-title {
+    width: 100%;
+    margin-left: 12px;
+    font-family: Pacifico-Regular;
+    transform: translateY(-8%);
+}
+
+span.img-title {
+    font-size: 5rem;
+}
+
+span.img-text {
+    font-size: 2rem;
+}
+
+/*简介*/
+.message {
+    background: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(10px);
+    /*margin: 0.5rem;*/
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 3.5rem;
+    max-width: 460px;
+}
+
+.des {
+    display: flex;
+    justify-content: space-between;
+}
+
+p.des-title {
+    margin: 1rem 1rem;
+    line-height: 2rem;
+    font-family: Pacifico-Regular;
+}
+
+i.iconfont.icon-yinhao-copy {
+    align-self: flex-end;
+}
+
+/*社交链接*/
+.social {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    max-width: 460px;
+}
+
+.link i {
+    font-size: 1.75rem;
+    margin: 0px 10px;
+}
+
+#link-text {
+    display: none;
+    flex: 1;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+/*一言*/
+.hitokoto {
+    width: 100%;
+    background: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.hitokoto-all {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hitokoto-from {
+    margin-top: 10px;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+/*时间卡片*/
+.time {
+    width: 100%;
+    background: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+span.time-text {
+    font-size: 3.25rem;
+    letter-spacing: 2px;
+    font-family: UnidreamLED;
+}
+
+/*链接卡片*/
+.line {
+    margin: 1rem 0.25rem;
+    margin-top: 2rem;
+    font-size: 1.10rem;
+}
+
+.link-card {
+    height: 100px;
+    width: 100%;
+    border-radius: 6px;
+    background: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.link-card:hover {
+    background: rgb(0 0 0 / 40%);
+    transition: 0.5s;
+}
+
+/*更多页面*/
+.more {
+    display: none;
+    width: 46%;
+    z-index: 999;
+    position: fixed;
+    height: 82%;
+    right: 4%;
+    background: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(10px);
+    top: 7%;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.mores .more {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    animation: fade;
+    -webkit-animation: fade 0.3s;
+    -moz-animation: fade 0.3s;
+    -o-animation: fade 0.3s;
+    -ms-animation: fade 0.3s;
+}
+
+i.fad.fa-comment-alt-dots {
+    font-size: 2.75rem;
+}
+
+.mores .col.right {
+    display: none;
+}
+
+/*页脚样式*/
+footer {
+    text-align: center;
+    height: 46px;
+    backdrop-filter: blur(10px);
+    background: rgb(0 0 0 / 25%);
+}
+
+.power {
+    line-height: 46px;
+    opacity: 0.8;
+}
+
+/*弹窗样式*/
+.iziToast {
+    background: rgb(0 0 0 / 45%) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.iziToast-body .iziToast-message {
+    line-height: 18px !important;
+}
+
+.iziToast:after {
+    box-shadow: none !important;
+}
+
+.iziToast-message.slideIn {
+    margin-top: 5px !important;
+}
+
+.iziToast-message {
+    word-break: break-all !important;
+}
+
+.iziToast>.iziToast-close {
+    background: url(https://cdn.jsdelivr.net/gh/imsyy/file/pic/close.png) no-repeat 50% 50% !important;
+    background-size: 8px !important;
+}

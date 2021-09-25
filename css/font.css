@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "iconfont";
+    src: url('../font/font_2831425_80aedhvquju.woff2') format('woff2'),
+        url('../font/font_2831425_80aedhvquju.woff') format('woff'),
+        url('../font/font_2831425_80aedhvquju.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Pacifico-Regular";
+    src: url('../font/Pacifico-Regular.ttf');
+}
+
+@font-face {
+    font-family: "UnidreamLED";
+    src: url('../font/UnidreamLED.ttf');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-youxiang:before {
+    content: "\e605";
+}
+
+.icon-github:before {
+    content: "\e691";
+}
+
+.icon-telegram1:before {
+    content: "\e731";
+}
+
+.icon-QQ:before {
+    content: "\e882";
+}
+
+.icon-twitter:before {
+    content: "\e883";
+}
+
+.icon-github1:before {
+    content: "\e799";
+}
+
+.icon-weixin:before {
+    content: "\e600";
+}
+
+.icon-telegram:before {
+    content: "\e8db";
+}
+
+.icon-yinhao-copy:before {
+    content: "\e608";
+}
+
+.icon-yinhao-copy-copy:before {
+    content: "\e62e";
+}

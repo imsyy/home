@@ -1,0 +1,225 @@
+@charset"utf-8";
+
+/*小于1400px时*/
+@media (max-width: 1400px) {
+
+    /*时钟显示*/
+    span#win_text,
+    span#win_speed {
+        display: none;
+    }
+}
+
+/*小于1200px时*/
+@media (max-width: 1200px) {
+
+    /*总布局*/
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm {
+        max-width: 1100px !important;
+    }
+
+    /*天气模块*/
+    .weather {
+        display: none;
+    }
+
+    .weekday {
+        display: none;
+    }
+}
+
+/*小于992px时*/
+@media (max-width: 992px) {
+
+    /*一言*/
+    .col.hitokotos {
+        display: none;
+    }
+
+    /*日期显示*/
+    .weekday {
+        display: inline;
+    }
+
+    /*标题文字*/
+    .main-img img {
+        width: 110px;
+    }
+
+    span.img-title {
+        font-size: 4.75rem;
+    }
+
+    span.img-text {
+        font-size: 1.75rem;
+    }
+}
+
+/*小于789px时*/
+@media (max-width: 789px) {
+
+    /*标题文字*/
+    span.img-text {
+        display: none;
+    }
+}
+
+/*小于768px时*/
+@media (max-width: 768px) {
+
+    /*标题文字*/
+    .main-img img {
+        width: 100px;
+    }
+
+    span.img-title {
+        font-size: 4.5rem;
+    }
+}
+
+/*小于660px时*/
+@media (max-width: 660px) {
+
+    /*左侧栏高度*/
+    .main-left {
+        transform: translateY(20px);
+    }
+
+    /*右侧栏隐藏*/
+    .col.right {
+        display: none;
+    }
+
+    /*标题文字*/
+    span.img-text {
+        display: inline;
+    }
+
+    /*简介*/
+    .message {
+        max-width: 100%;
+        pointer-events: none;
+    }
+
+    /*
+    .des {
+        justify-content: space-between;
+    }
+    */
+    
+    /*社交链接*/
+    .social {
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    #link-text {
+        display: none !important;
+    }
+
+    .link i {
+        margin: 0px 20px;
+    }
+
+    /*菜单栏按钮*/
+    .menu {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 84%;
+    }
+
+    .munu-button {
+        padding: 5px 20px;
+        background: rgb(0 0 0 / 20%);
+        backdrop-filter: blur(10px);
+        border-radius: 6px;
+        font-size: 1.25rem;
+        transition: 0.5s;
+    }
+
+    /*页脚文字*/
+    footer {
+        font-size: 0.85rem;
+    }
+
+}
+
+@media (min-width: 660px) {
+    .menu {
+        display: none !important;
+    }
+}
+
+/*小于390px时*/
+@media (max-width: 390px) {
+    .main-img img {
+        display: none;
+    }
+}
+
+
+/*
+菜单按钮
+*/
+.menus .col.left {
+    display: none;
+}
+
+.menus .col.right {
+    display: block !important;
+    transition: 0.5s;
+    padding: 0rem 0.75rem;
+}
+
+/*功能区调整*/
+.menus .col.hitokotos {
+    display: block;
+}
+
+.menus .col.times {
+    display: none;
+}
+
+/*边界布局*/
+.menus .row {
+    --bs-gutter-x: 0rem;
+}
+
+.menus .col.\32 {
+    margin: 0 0.75rem;
+}
+
+.menus .logo {
+    display: inline !important;
+    position: fixed;
+    top: 8%;
+    font-family: 'Pacifico-Regular';
+    font-size: 1.75rem;
+}
+
+/*切换动画*/
+.hitokoto,
+.time,
+.link-card,
+.message {
+    animation: fade-in 0.5;
+    -webkit-animation: fade-in 0.5s;
+    -moz-animation: fade-in 0.5s;
+    -o-animation: fade-in 0.5s;
+    -ms-animation: fade-in 0.5s;
+}
+
+.logo,
+.line,
+.main-img,
+.social {
+    animation: fade 0.5;
+    -webkit-animation: fade 0.5s;
+    -moz-animation: fade 0.5s;
+    -o-animation: fade 0.5s;
+    -ms-animation: fade 0.5s;
+}
