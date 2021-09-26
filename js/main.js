@@ -205,7 +205,7 @@ window.addEventListener('load', function () {
             document.getElementById("container").classList.remove('menus');
         }
         //移动端隐藏更多页面
-        if (window.innerWidth <= 660) {
+        if (window.innerWidth <= 990) {
             document.getElementById("container").classList.remove('mores');
             document.getElementById("change").innerHTML = "Hello&nbsp;World&nbsp;!";
             document.getElementById("change1").innerHTML = "一个建立于 21 世纪的小站，存活于互联网的边缘";

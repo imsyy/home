@@ -206,7 +206,7 @@
 .time,
 .link-card,
 .message {
-    animation: fade-in 0.5;
+    animation: fade-in;
     -webkit-animation: fade-in 0.5s;
     -moz-animation: fade-in 0.5s;
     -o-animation: fade-in 0.5s;

@@ -223,12 +223,12 @@ span.time-text {
     backdrop-filter: blur(10px);
     top: 7%;
     border-radius: 6px;
-    padding: 20px;
+    padding: 30px;
 }
 
 .mores .more {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
     animation: fade;
@@ -238,12 +238,48 @@ span.time-text {
     -ms-animation: fade 0.3s;
 }
 
-i.fad.fa-comment-alt-dots {
-    font-size: 2.75rem;
-}
-
 .mores .col.right {
     display: none;
+}
+
+.close {
+    left: auto;
+    top: 4px;
+    right: 8px;
+    font-size: 1.45rem;
+}
+
+/*进度条*/
+.progress {
+    width: 100%;
+    height: 20px;
+    align-items: center;
+    background: rgb(255 255 255 / 25%) !important;
+    backdrop-filter: blur(5px);
+}
+
+.progress-bar {
+    font-family: 'UnidreamLED';
+    background-color: #efefef !important;
+    color: rgb(86 77 89) !important;
+    font-size: 0.95rem;
+    height: 20px;
+}
+
+/*时间胶囊*/
+
+.date {
+    width: 100%;
+}
+
+.date-text {
+    margin: 1rem 0rem 0.5rem 0rem;
+}
+
+/*更多页面链接*/
+
+.mores .link-card {
+    height: 48px !important;
 }
 
 /*页脚样式*/

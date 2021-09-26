@@ -29,10 +29,8 @@
     <!-- 引入 Fontawesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css"
         media="all">
-    <!--引入Aplayer-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>-->
+    <!--引入 Vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
     <!-- 引入 jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <!-- 百度统计 -->
@@ -218,8 +216,74 @@
                 </div>
                 <!--更多内容-->
                 <div class="more cards">
-                    <i class="fad fa-comment-alt-dots"></i>
-                    <p class="text" style="margin-top: 1.5rem;">还没想好要写些啥</p>
+                    <div class="close fixed-top" onclick="switchMore()"><i class="fad fa-times-circle"></i></div>
+                    <div class="line" style="margin-top: 1rem;">
+                        <i class="fad fa-grip-lines-vertical"></i>
+                        <span class="line-text">时间胶囊</span>
+                        <i class="fad fa-grip-lines-vertical"></i>
+                    </div>
+                    <div class="date" id="date">
+                        <p class="date-text" style="margin-top: 0rem;">今日已经度过了大约&nbsp;{{hour}}&nbsp;小时</p>
+                        <div v-html="jinduT()" class="marginbottom"></div>
+                        <p class="date-text">本周已经度过了&nbsp;{{week}}&nbsp;天，今天是第&nbsp;{{curweek}}&nbsp;天</p>
+                        <div v-html="jinduZ()" class="marginbottom"></div>
+                        <p class="date-text">本月已经度过了&nbsp;{{day}}&nbsp;天，今天是第&nbsp;{{curday}}&nbsp;天</p>
+                        <div v-html="jinduD()" class="marginbottom"></div>
+                        <p class="date-text">{{year}}&nbsp;年已经度过了&nbsp;{{month}}&nbsp;个月，度过了&nbsp;{{outday}}&nbsp;天</p>
+                        <div v-html="jinduY()" class="marginbottom"></div>
+                    </div>
+                    <div class="line">
+                        <i class="fad fa-grip-lines-vertical"></i>
+                        <span class="line-text">杂七杂八</span>
+                        <i class="fad fa-grip-lines-vertical"></i>
+                    </div>
+                    <!--网站链接-->
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://status.imsyy.top/" target="_blank">
+                                <div class="link-card cards">
+                                    <span class="link-name">站点监测</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col 2">
+                            <a href="https://player.imsyy.top/" target="_blank">
+                                <div class="link-card cards">
+                                    <span class="link-name">播放器</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="https://write.imsyy.top/" target="_blank">
+                                <div class="link-card cards">
+                                    <span class="link-name">Markdown</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 1.5rem;">
+                        <div class="col">
+                            <a href="https://img.imsyy.top/" target="_blank">
+                                <div class="link-card cards">
+                                    <span class="link-name">图片站</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col 2">
+                            <a href="https://file.imsyy.top/" target="_blank">
+                                <div class="link-card cards">
+                                    <span class="link-name">文件站</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a>
+                                <div class="link-card cards">
+                                    <span class="link-name">还没搞</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -233,6 +297,7 @@
     </section>
     <!-- JS -->
     <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/time.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
