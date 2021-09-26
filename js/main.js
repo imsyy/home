@@ -213,3 +213,10 @@ window.addEventListener('load', function () {
     })
 
 })
+
+//更多页面显示关闭按钮
+$("#more").hover(function(){
+    document.getElementById("close").style.cssText = "display: block";
+},function(){
+    document.getElementById("close").style.cssText = "display: none";
+})

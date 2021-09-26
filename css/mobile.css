@@ -34,6 +34,11 @@
 /*小于992px时*/
 @media (max-width: 992px) {
 
+    /*简介不可点击*/
+    .message {
+        pointer-events: none;
+    }
+
     /*一言*/
     .col.hitokotos {
         display: none;
@@ -109,7 +114,7 @@
         justify-content: space-between;
     }
     */
-    
+
     /*社交链接*/
     .social {
         max-width: 100%;
@@ -216,7 +221,8 @@
 .logo,
 .line,
 .main-img,
-.social {
+.social,
+.close {
     animation: fade 0.5;
     -webkit-animation: fade 0.5s;
     -moz-animation: fade 0.5s;

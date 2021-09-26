@@ -242,7 +242,10 @@ span.time-text {
     display: none;
 }
 
+/*关闭按钮*/
+
 .close {
+    display: none;
     left: auto;
     top: 4px;
     right: 8px;
