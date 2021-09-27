@@ -70,7 +70,7 @@
     <section id="section" class="section">
         <main id="main" class="main">
             <div class="container" id="container">
-                <div class="row">
+                <div class="row" id="row">
                     <div class="col left">
                         <!--基本信息-->
                         <div class="main-left">
@@ -211,12 +211,14 @@
                     <a class="munu-button cards" id="menu" onclick="switchMenu()"><i class="fad fa-bars"></i></a>
                 </div>
                 <!--第二屏 Logo-->
-                <div class="logo" style="display: none;">
+                <div class="logo" style="display: none">
                     <a>imsyy.top</a>
                 </div>
                 <!--更多内容-->
                 <div class="more cards" id="more">
-                    <div class="close fixed-top" onclick="switchMore()" id="close"><i class="fad fa-times-circle"></i></div>
+                    <!--关闭按钮-->
+                    <div class="close fixed-top" onclick="switchMore()" id="close"><i class="fad fa-times-circle"></i>
+                    </div>
                     <div class="line" style="margin-top: 1rem;">
                         <i class="fad fa-grip-lines-vertical"></i>
                         <span class="line-text">时间胶囊</span>
@@ -272,16 +274,38 @@
                         <div class="col 2">
                             <a href="https://file.imsyy.top/" target="_blank">
                                 <div class="link-card cards">
-                                    <span class="link-name">文件站</span>
+                                    <span class="link-name">文件库</span>
                                 </div>
                             </a>
                         </div>
                         <div class="col">
-                            <a>
+                            <a onclick="openBox()">
                                 <div class="link-card cards">
-                                    <span class="link-name">还没搞</span>
+                                    <span class="link-name">更多</span>
                                 </div>
                             </a>
+                        </div>
+                    </div>
+                </div>
+                <!--更多页面-->
+                <div class="box" id="box" style="display: none">
+                    <div class="box-wrapper">
+                        <!--关闭按钮-->
+                        <div class="closebox fixed-top" onclick="closeBox()">
+                            <i class="fad fa-times-circle"></i>
+                        </div>
+                        <!--更新日志-->
+                        <div class="img-title">
+                            <span class="img-title">imsyy</span>
+                            <span class="img-text">.top</span>
+                            <span class="img-text">&nbsp;&nbsp;v&nbsp;1.2</span>
+                        </div>
+                        <div class="upnote">
+                            <span class="uptext"><i class="fad fa-plus-circle"></i>&nbsp;点击左侧简介可弹出隐藏页面</span>
+                            <span class="uptext"><i class="fad fa-plus-circle"></i>&nbsp;新增时间胶囊（ 时光进度条 ）</span>
+                            <span class="uptext"><i class="fad fa-plus-circle"></i>&nbsp;隐藏页面新增更多页面弹窗</span>
+                            <span class="uptext"><i class="fad fa-wrench"></i>&nbsp;星期进度条显示错误</span>
+                            <span class="uptext"><i class="fad fa-wrench"></i>&nbsp;移动端动画及细节</span>
                         </div>
                     </div>
                 </div>

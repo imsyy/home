@@ -222,7 +222,8 @@
 .line,
 .main-img,
 .social,
-.close {
+.close,
+#link-text {
     animation: fade 0.5;
     -webkit-animation: fade 0.5s;
     -moz-animation: fade 0.5s;

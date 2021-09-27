@@ -1,4 +1,5 @@
 @charset"utf-8";
+
 /*全局样式*/
 html,
 body {
@@ -66,6 +67,7 @@ main {
     /*transform: translateY(240px);*/
     transform: translateY(40px);
 }
+
 /*
 .main-right {
     transform: translateY(38%);
@@ -111,6 +113,7 @@ span.img-text {
     border-radius: 6px;
     margin-top: 3.5rem;
     max-width: 460px;
+    cursor:pointer;
 }
 
 .des {
@@ -213,7 +216,7 @@ span.time-text {
 
 /*更多页面*/
 .more {
-    display: none;
+    display: none !important;
     width: 46%;
     z-index: 999;
     position: fixed;
@@ -227,7 +230,7 @@ span.time-text {
 }
 
 .mores .more {
-    display: flex;
+    display: flex !important;
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
@@ -250,6 +253,10 @@ span.time-text {
     top: 4px;
     right: 8px;
     font-size: 1.45rem;
+}
+
+.close:hover {
+    transform: scale(1.2);
 }
 
 /*进度条*/
@@ -283,6 +290,59 @@ span.time-text {
 
 .mores .link-card {
     height: 48px !important;
+}
+
+/*box*/
+
+.box {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1996;
+    background-color: rgba(0, 0, 0, .5);
+    backdrop-filter: blur(20px);
+    animation: fade 0.3s;
+}
+
+.box-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 1997;
+    width: 80%;
+    height: 80%;
+    background: rgb(255 255 255 / 40%);
+    border-radius: 6px;
+    -webkit-animation: fade .3s;
+    animation: fade .3s;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.upnote {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+    font-size: 1.25rem;
+}
+
+.closebox {
+    left: auto;
+    top: 4px;
+    right: 8px;
+    font-size: 1.45rem;
+}
+
+.closebox:hover {
+    transform: scale(1.2);
 }
 
 /*页脚样式*/

@@ -6,7 +6,7 @@ iziToast.settings({
     position: 'topLeft',
     transitionIn: 'bounceInRight',
     transitionOut: 'fadeOutLeft',
-    displayMode: '2',
+    displayMode: 'replace',
     layout: '2',
     titleColor: '#efefef',
     messageColor: '#efefef',
@@ -46,8 +46,8 @@ color: rgb(30,152,255);
 var title1 = '無名の主页'
 var title2 = 'imsyy.top'
 var content = `
-版 本 号：1.1.0
-更新日期：2021-09-26 19:39:21
+版 本 号：1.2.0
+更新日期：2021-09-27 19:39:21
 
 更新说明：
 1. 新增 点击左侧简介弹出更多页面
@@ -237,6 +237,19 @@ function switchMore() {
     }
 }
 
+//更多弹窗页面
+function openBox() {
+    document.getElementById("box").style.cssText = "display: block";
+    document.getElementById("row").style.cssText = "display: none";
+    document.getElementById("more").style.cssText = "display: none!important";
+}
+
+function closeBox() {
+    document.getElementById("box").style.cssText = "display: none";
+    document.getElementById("row").style.cssText = "display: flex";
+    document.getElementById("more").style.cssText = "display: flex";
+}
+
 //监听网页宽度
 window.addEventListener('load', function () {
     //console.log(window.innerWidth);
@@ -262,3 +275,13 @@ $("#more").hover(function(){
 },function(){
     document.getElementById("close").style.cssText = "display: none";
 })
+
+//屏蔽右键
+document.oncontextmenu = function(){
+    iziToast.info({
+        icon: 'fad fa-do-not-enter',
+        title: '温馨提醒',
+        message: '为了浏览体验，本站禁用右键'
+    });
+    return false;
+}
