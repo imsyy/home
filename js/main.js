@@ -19,6 +19,48 @@ iziToast.info({
     message: '还存在亿些小问题 ~ <a href="./old/" style="color:#efefef">返回旧版</a>'
 });
 
+//控制台输出
+/*
+let date = '2021-09-27 21:32'
+let a = 'background: #606060; color: #fff; border-radius: 3px 0 0 3px;'
+let b = 'background: #1475B2; color: #fff; border-radius: 0 3px 3px 0;'
+console.log(`%c Update Time %c ${date} `, a, b)
+*/
+/* 样式代码 */
+var styleTitle1 = `
+font-size: 20px;
+font-weight: 600;
+color: rgb(244,167,89);
+`
+var styleTitle2 = `
+font-style: oblique;
+font-size:14px;
+color: rgb(244,167,89);
+font-weight: 400;
+`
+var styleContent = `
+color: rgb(30,152,255);
+`
+
+/* 内容代码 */
+var title1 = '無名の主页'
+var title2 = 'imsyy.top'
+var content = `
+版 本 号：1.1.0
+更新日期：2021-09-26 19:39:21
+
+更新说明：
+1. 新增 点击左侧简介弹出更多页面
+2. 新增 时间胶囊 （ 时光进度条 ）
+3. 优化 移动端动画及细节
+4. 修复 星期进度条显示错误
+
+主页:  https://imsyy.top
+Github:  https://github.com/imsyy/home
+`
+console.log(`%c${title1} %c${title2}
+%c${content}`, styleTitle1, styleTitle2, styleContent)
+
 //获取一言
 fetch('https://v1.hitokoto.cn')
     .then(response => response.json())
