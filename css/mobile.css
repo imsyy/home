@@ -230,3 +230,14 @@
     -o-animation: fade 0.5s;
     -ms-animation: fade 0.5s;
 }
+
+/*
+移动端功能区切换
+*/
+.mobile .col.hitokotos {
+    display: none;
+}
+
+.mobile .col.times {
+    display: block;
+}

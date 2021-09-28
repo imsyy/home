@@ -252,12 +252,13 @@ function closeBox() {
 
 //监听网页宽度
 window.addEventListener('load', function () {
-    //console.log(window.innerWidth);
     window.addEventListener('resize', function () {
-        //console.log(window.innerWidth);
         //关闭移动端样式
         if (window.innerWidth >= 600) {
             document.getElementById("container").classList.remove('menus');
+            document.getElementById("menu").innerHTML = "<i class='fad fa-bars'></i>";
+            //移除移动端切换功能区
+            document.getElementById("rightone").classList.remove('mobile');
         }
         //移动端隐藏更多页面
         if (window.innerWidth <= 990) {
@@ -266,18 +267,29 @@ window.addEventListener('load', function () {
             document.getElementById("change1").innerHTML = "一个建立于 21 世纪的小站，存活于互联网的边缘";
         }
     })
-
 })
 
+//移动端切换功能区
+function changeMore() {
+    var more = document.cookie.replace(/(?:(?:^|.*;\s*)more\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+    if (more == '0') {
+        document.getElementById("rightone").classList.add('mobile');
+        document.cookie = "more=1;path=/";
+    } else {
+        document.getElementById("rightone").classList.remove('mobile');
+        document.cookie = "more=0;path=/";
+    }
+}
+
 //更多页面显示关闭按钮
-$("#more").hover(function(){
+$("#more").hover(function () {
     document.getElementById("close").style.cssText = "display: block";
-},function(){
+}, function () {
     document.getElementById("close").style.cssText = "display: none";
 })
 
 //屏蔽右键
-document.oncontextmenu = function(){
+document.oncontextmenu = function () {
     iziToast.info({
         icon: 'fad fa-do-not-enter',
         title: '温馨提醒',
