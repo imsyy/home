@@ -207,6 +207,7 @@
 }
 
 /*切换动画*/
+/*
 .hitokoto,
 .time,
 .link-card,
@@ -217,12 +218,16 @@
     -o-animation: fade-in 0.5s;
     -ms-animation: fade-in 0.5s;
 }
-
+*/
 .logo,
 .line,
 .main-img,
 .social,
 .close,
+.hitokoto,
+.time,
+.link-card,
+.message,
 #link-text {
     animation: fade 0.5;
     -webkit-animation: fade 0.5s;
