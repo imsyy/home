@@ -22,15 +22,15 @@ var vm = new Vue({
             var myHours = myDate.getHours(); // 获取当前小时(0-23)
             var myMinu = myDate.getMinutes(); // 获取当前分钟(0-59)
             var mySec = myDate.getSeconds(); // 获取当前秒数(0-59)
-            var myWeek = myDate.getDay() - 1; //获取当前星期几(0-6)
+            var myWeek = myDate.getDay(); //获取当前星期几(0-6)
 
             this.hour = myHours;
             this.year = myYear;
             this.month = myMonth - 1;
             this.day = myDay - 1;
             this.curday = myDay;
-            this.week = myWeek;
-            this.curweek = myWeek +1;
+            this.week = myWeek + 6;
+            this.curweek = myWeek + 7;
             this.minute = myMinu;
             this.age = myYear - this.yearForYour;
         },

@@ -1,14 +1,7 @@
 @charset"utf-8";
 
 /*小于1400px时*/
-@media (max-width: 1400px) {
-
-    /*时钟显示*/
-    span#win_text,
-    span#win_speed {
-        display: none;
-    }
-}
+@media (max-width: 1400px) {}
 
 /*小于1200px时*/
 @media (max-width: 1200px) {
@@ -21,11 +14,6 @@
         max-width: 1100px !important;
     }
 
-    /*天气模块*/
-    .weather {
-        display: none;
-    }
-
     .weekday {
         display: none;
     }
@@ -34,10 +22,11 @@
 /*小于992px时*/
 @media (max-width: 992px) {
 
-    /*简介不可点击*/
+    /*简介不可点击
     .message {
         pointer-events: none;
     }
+    */
 
     /*一言*/
     .col.hitokotos {
@@ -60,6 +49,25 @@
 
     span.img-text {
         font-size: 1.75rem;
+    }
+}
+
+/*小于840px时*/
+@media (max-width: 840px) {
+
+    
+    /*社交链接*/
+    .social {
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    #link-text {
+        display: none !important;
+    }
+
+    .link i {
+        margin: 0px 20px;
     }
 }
 
@@ -115,20 +123,6 @@
     }
     */
 
-    /*社交链接*/
-    .social {
-        max-width: 100%;
-        justify-content: center;
-    }
-
-    #link-text {
-        display: none !important;
-    }
-
-    .link i {
-        margin: 0px 20px;
-    }
-
     /*菜单栏按钮*/
     .menu {
         display: flex;
@@ -144,6 +138,11 @@
         border-radius: 6px;
         font-size: 1.25rem;
         transition: 0.5s;
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
     }
 
     /*页脚文字*/
@@ -156,6 +155,12 @@
 @media (min-width: 660px) {
     .menu {
         display: none !important;
+    }
+
+    /*时钟显示*/
+    span#win_text,
+    span#win_speed {
+        display: none;
     }
 }
 
@@ -200,6 +205,7 @@
 
 .menus .logo {
     display: inline !important;
+    text-align: center;
     position: fixed;
     top: 8%;
     font-family: 'Pacifico-Regular';

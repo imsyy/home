@@ -46,14 +46,15 @@ color: rgb(30,152,255);
 var title1 = '無名の主页'
 var title2 = 'imsyy.top'
 var content = `
-版 本 号：1.2.0
-更新日期：2021-09-27 19:39:21
+版 本 号：1.3.0
+更新日期：2021-10-02 14:26:31
 
 更新说明：
 1. 新增 点击左侧简介弹出更多页面
-2. 新增 时间胶囊 （ 时光进度条 ）
+2. 修复 时间胶囊（ 时光进度条 ）
 3. 优化 移动端动画及细节
-4. 修复 星期进度条显示错误
+4. 优化 Js 文件优化
+5. 修复 星期进度条显示错误
 
 主页:  https://imsyy.top
 Github:  https://github.com/imsyy/home
@@ -159,133 +160,140 @@ window.addEventListener('load', function () {
 }, false)
 
 //链接提示文字
-window.onload = function () {
-    var link = document.getElementById("social");
-    link.onmouseover = function () {
-        document.getElementById("social").style.cssText = "background: rgb(0 0 0 / 25%);backdrop-filter: blur(5px);border-radius: 6px;transition: all 0.5s";
-        document.getElementById("link-text").style.cssText = "display: block;transition: all 0.5s";
-    };
-    link.onmouseout = function () {
-        document.getElementById("social").style.cssText = "background: none;backdrop-filter: none;border-radius: 6px;transition: all 0.5s";
-        document.getElementById("link-text").style.cssText = "display: none;transition: all 0.5s";
-    }
+$("#social").mouseover(function () {
+    $("#social").css({
+        "background": "rgb(0 0 0 / 25%)",
+        'border-radius': '6px',
+        "backdrop-filter": "blur(5px)"
+    });
+    $("#link-text").css({
+        "display": "block",
+    });
+}).mouseout(function () {
+    $("#social").css({
+        "background": "none",
+        "border-radius": "6px",
+        "backdrop-filter": "none"
+    });
+    $("#link-text").css({
+        "display": "none"
+    });
+});
 
-    var link = document.getElementById("github");
-    link.onmouseover = function () {
-        document.getElementById("link-text").innerHTML = "去 Github 看看";
-    };
-    link.onmouseout = function () {
-        document.getElementById("link-text").innerHTML = "通过这里联系我";
-    }
-    var link1 = document.getElementById("qq");
-    link1.onmouseover = function () {
-        document.getElementById("link-text").innerHTML = "有什么事吗";
-    };
-    link1.onmouseout = function () {
-        document.getElementById("link-text").innerHTML = "通过这里联系我";
-    }
-    var link2 = document.getElementById("email");
-    link2.onmouseover = function () {
-        document.getElementById("link-text").innerHTML = "来封 Email";
-    };
-    link2.onmouseout = function () {
-        document.getElementById("link-text").innerHTML = "通过这里联系我";
-    }
-    var link3 = document.getElementById("telegram");
-    link3.onmouseover = function () {
-        document.getElementById("link-text").innerHTML = "你懂的 ~";
-    };
-    link3.onmouseout = function () {
-        document.getElementById("link-text").innerHTML = "通过这里联系我";
-    }
-    var link4 = document.getElementById("twitter");
-    link4.onmouseover = function () {
-        document.getElementById("link-text").innerHTML = "你懂的 ~";
-    };
-    link4.onmouseout = function () {
-        document.getElementById("link-text").innerHTML = "通过这里联系我";
-    }
-};
-
-//菜单栏切换
-function switchMenu() {
-    var menu = document.cookie.replace(/(?:(?:^|.*;\s*)menu\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
-    if (menu == '0') {
-        document.getElementById("container").classList.add('menus');
-        document.getElementById("menu").innerHTML = "<i class='fad fa-times'></i>";
-        document.cookie = "menu=1;path=/";
-    } else {
-        document.getElementById("container").classList.remove('menus');
-        document.getElementById("menu").innerHTML = "<i class='fad fa-bars'></i>";
-        document.cookie = "menu=0;path=/";
-    }
-}
+$("#github").mouseover(function () {
+    $("#link-text").html("去 Github 看看");
+}).mouseout(function () {
+    $("#link-text").html("通过这里联系我");
+});
+$("#qq").mouseover(function () {
+    $("#link-text").html("有什么事吗");
+}).mouseout(function () {
+    $("#link-text").html("通过这里联系我");
+});
+$("#email").mouseover(function () {
+    $("#link-text").html("来封 Email");
+}).mouseout(function () {
+    $("#link-text").html("通过这里联系我");
+});
+$("#telegram").mouseover(function () {
+    $("#link-text").html("你懂的 ~");
+}).mouseout(function () {
+    $("#link-text").html("通过这里联系我");
+});
+$("#twitter").mouseover(function () {
+    $("#link-text").html("你懂的 ~");
+}).mouseout(function () {
+    $("#link-text").html("通过这里联系我");
+});
 
 //更多页面切换
-function switchMore() {
-    var more = document.cookie.replace(/(?:(?:^|.*;\s*)more\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
-    if (more == '0') {
-        document.getElementById("container").classList.add('mores');
-        document.getElementById("change").innerHTML = "Oops&nbsp;!";
-        document.getElementById("change1").innerHTML = "哎呀，这都被你发现了（ 再点击一次可关闭 ）";
-        document.cookie = "more=1;path=/";
+var shoemore = false;
+$('#switchmore').on('click', function () {
+    shoemore = !shoemore;
+    if (shoemore && $(document).width() >= 990) {
+        $('#container').attr('class', 'container mores');
+        $("#change").html("Oops&nbsp;!");
+        $("#change1").html("哎呀，这都被你发现了（ 再点击一次可关闭 ）");
     } else {
-        document.getElementById("container").classList.remove('mores');
-        document.getElementById("change").innerHTML = "Hello&nbsp;World&nbsp;!";
-        document.getElementById("change1").innerHTML = "一个建立于 21 世纪的小站，存活于互联网的边缘";
-        document.cookie = "more=0;path=/";
+        $('#container').attr('class', 'container');
+        $("#change").html("Hello&nbsp;World&nbsp;!");
+        $("#change1").html("一个建立于 21 世纪的小站，存活于互联网的边缘");
     }
-}
+});
+
+//更多页面关闭按钮
+$('#close').on('click', function () {
+    $('#container').attr('class', 'container');
+    $("#change").html("Hello&nbsp;World&nbsp;!");
+    $("#change1").html("一个建立于 21 世纪的小站，存活于互联网的边缘");
+});
+
+//菜单栏切换
+var switchmenu = false;
+$('#switchmenu').on('click', function () {
+    switchmenu = !switchmenu;
+    if (switchmenu) {
+        $('#row').attr('class', 'row menus');
+        $("#menu").html("<i class='fad fa-times'></i>");
+    } else {
+        $('#row').attr('class', 'row');
+        $("#menu").html("<i class='fad fa-bars'></i>");
+    }
+});
 
 //更多弹窗页面
-function openBox() {
-    document.getElementById("box").style.cssText = "display: block";
-    document.getElementById("row").style.cssText = "display: none";
-    document.getElementById("more").style.cssText = "display: none!important";
-}
-
-function closeBox() {
-    document.getElementById("box").style.cssText = "display: none";
-    document.getElementById("row").style.cssText = "display: flex";
-    document.getElementById("more").style.cssText = "display: flex";
-}
+$('#openmore').on('click', function () {
+    $('#box').css("display", "block");
+    $('#row').css("display", "none");
+    $('#more').css("cssText", "display:none !important");
+});
+$('#closemore').on('click', function () {
+    $('#box').css("display", "none");
+    $('#row').css("display", "flex");
+    $('#more').css("display", "flex");
+});
 
 //监听网页宽度
 window.addEventListener('load', function () {
     window.addEventListener('resize', function () {
         //关闭移动端样式
         if (window.innerWidth >= 600) {
-            document.getElementById("container").classList.remove('menus');
-            document.getElementById("menu").innerHTML = "<i class='fad fa-bars'></i>";
+            $('#row').attr('class', 'row');
+            $("#menu").html("<i class='fad fa-bars'></i>");
             //移除移动端切换功能区
-            document.getElementById("rightone").classList.remove('mobile');
+            $('#rightone').attr('class', 'row rightone');
         }
-        //移动端隐藏更多页面
+
         if (window.innerWidth <= 990) {
-            document.getElementById("container").classList.remove('mores');
-            document.getElementById("change").innerHTML = "Hello&nbsp;World&nbsp;!";
-            document.getElementById("change1").innerHTML = "一个建立于 21 世纪的小站，存活于互联网的边缘";
+            //移动端隐藏更多页面
+            $('#container').attr('class', 'container');
+            $("#change").html("Hello&nbsp;World&nbsp;!");
+            $("#change1").html("一个建立于 21 世纪的小站，存活于互联网的边缘");
+
+            //移动端隐藏弹窗页面
+            $('#box').css("display", "none");
+            $('#row').css("display", "flex");
+            $('#more').css("display", "flex");
         }
     })
 })
 
 //移动端切换功能区
-function changeMore() {
-    var more = document.cookie.replace(/(?:(?:^|.*;\s*)more\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
-    if (more == '0') {
-        document.getElementById("rightone").classList.add('mobile');
-        document.cookie = "more=1;path=/";
+var changemore = false;
+$('#changemore').on('click', function () {
+    changemore = !changemore;
+    if (changemore) {
+        $('#rightone').attr('class', 'row menus mobile');
     } else {
-        document.getElementById("rightone").classList.remove('mobile');
-        document.cookie = "more=0;path=/";
+        $('#rightone').attr('class', 'row menus');
     }
-}
+});
 
 //更多页面显示关闭按钮
 $("#more").hover(function () {
-    document.getElementById("close").style.cssText = "display: block";
+    $('#close').css("display", "block");
 }, function () {
-    document.getElementById("close").style.cssText = "display: none";
+    $('#close').css("display", "none");
 })
 
 //屏蔽右键
