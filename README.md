@@ -20,7 +20,6 @@
 * [iziToast](https://izitoast.marcelodolza.com/)
 * [iconfont](https://www.iconfont.cn/)
 * [Font Awesome](https://fontawesome.com/)
-* [vue.js](https://v3.vuejs.org/)
 * [jQuery](https://jquery.com/)
 
 ### API
