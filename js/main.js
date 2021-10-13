@@ -277,7 +277,13 @@ window.addEventListener('load', function () {
         }
     })
 })
-
+/*
+document.getElementById("theme-toggle").addEventListener("click", () => {
+    document.body.className.includes("dark") ? (document.body.classList.remove('dark'),
+        localStorage.setItem("pref-theme", 'light')) : (document.body.classList.add('dark'),
+        localStorage.setItem("pref-theme", 'dark'))
+})
+*/
 //移动端切换功能区
 var changemore = false;
 $('#changemore').on('click', function () {

@@ -29,8 +29,8 @@
     <!-- 引入 Fontawesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css"
         media="all">
-    <!--引入 Vue-->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <!--引入 Vue
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>-->
     <!-- 引入 jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <!-- 百度统计 -->
@@ -226,14 +226,30 @@
                         <i class="fad fa-grip-lines-vertical"></i>
                     </div>
                     <div class="date" id="date">
-                        <p class="date-text" style="margin-top: 0rem;">今日已经度过了大约&nbsp;{{hour}}&nbsp;小时</p>
-                        <div v-html="jinduT()" class="marginbottom"></div>
-                        <p class="date-text">本周已经度过了&nbsp;{{week}}&nbsp;天，今天是第&nbsp;{{curweek}}&nbsp;天</p>
-                        <div v-html="jinduZ()" class="marginbottom"></div>
-                        <p class="date-text">本月已经度过了&nbsp;{{day}}&nbsp;天，今天是第&nbsp;{{curday}}&nbsp;天</p>
-                        <div v-html="jinduD()" class="marginbottom"></div>
-                        <p class="date-text">{{year}}&nbsp;年已经度过了&nbsp;{{month}}&nbsp;个月，度过了&nbsp;{{outday}}&nbsp;天</p>
-                        <div v-html="jinduY()" class="marginbottom"></div>
+                        <div class="item" id="dayProgress">
+                            <div class="date-text" style="margin-top: 0rem;">今日已经度过了&nbsp;<span></span>&nbsp;小时</div>
+                            <div class="progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                        <div class="item" id="weekProgress">
+                            <div class="date-text">本周已经度过了&nbsp;<span></span>&nbsp;天</div>
+                            <div class="progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                        <div class="item" id="monthProgress">
+                            <div class="date-text">本月已经度过了&nbsp;<span></span>&nbsp;天</div>
+                            <div class="progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                        <div class="item" id="yearProgress">
+                            <div class="date-text">今年已经度过了&nbsp;<span></span>&nbsp;个月</div>
+                            <div class="progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="line">
                         <i class="fad fa-grip-lines-vertical"></i>

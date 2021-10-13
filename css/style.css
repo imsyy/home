@@ -114,7 +114,7 @@ span.img-text {
     border-radius: 6px;
     margin-top: 3.5rem;
     max-width: 460px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .des {
@@ -260,7 +260,7 @@ span.time-text {
     transform: scale(1.2);
 }
 
-/*进度条*/
+/*时间胶囊*/
 .progress {
     width: 100%;
     height: 20px;
@@ -276,8 +276,6 @@ span.time-text {
     font-size: 0.95rem;
     height: 20px;
 }
-
-/*时间胶囊*/
 
 .date {
     width: 100%;
