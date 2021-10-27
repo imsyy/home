@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>请升级您的浏览器</title>
+    <meta name="description" content="这是一个旧版IE升级提示页" />
+    <script src="./js/er3eport.js"></script>
+    <link rel="icon" type="image/png" href="./favicon.ico" />
+    <base href="./" target="_blank">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <link type="text/css" rel="stylesheet" href="./css/support.style.css" />
+    <script>
+        var l = window.location, s = l.search.substr(1),
+            r = '', dr = document.referrer, r1 = s.match(/(^|&)referrer=((http|https)[^&]*)/), r2 = s.match(/^referrer=((http|https)\:\/\/.*)$/);
+        if (r2 !== null) r = r2[1]; else if (r1 !== null) r = r1[2];
+        if (r === '' && dr !== '' && dr.match(/\/(?:.*\.dmeng\.net|(?:(?:(?:www|m|wap|cn|search)\.)?(?:google|baidu|sogou|bing|so|yahoo|yandex|duckduckgo)\.com(?:\.[a-z]+)?))/) === null) {
+            l.href = l.protocol + '//' + l.hostname + l.pathname + '?referrer=' + encodeURIComponent(dr) + '&' + s;
+        }
+        var url = decodeURIComponent(r);
+        if (url.indexOf(window.location.hostname + '/') != -1) url = '';
+        var targetUrlHTML = '';
+        if (url !== '') {
+            var m = url.match(/^(https?\:\/\/[^/]+\/)index\.html$/);
+            targetUrlHTML = '&nbsp;<a href="' + url + '" onclick="alert(\'点击右键“复制快捷方式”（复制链接）到更先进的浏览器访问。\');return false;" rel="noreferrer">' + (m ? m[1] : url) + '</a>&nbsp;';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="page">
+        <h1>是时候升级你的浏览器了</h1>
+        <p>你正在使用旧版 Internet Explorer（ IE11 及以下版本或使用该内核的浏览器 ）。这意味着在升级浏览器前，你将无法访问此网站。</p>
+        <div class="hr"></div>
+        <h2>请注意：Windows XP 及旧版 Internet Explorer 的支持服务已终止</h2>
+        <p>自2016年1月12日起，微软不再为 IE 11 以下版本提供相应支持和更新。没有关键的浏览器安全更新，您的电脑可能易受有害病毒、间谍软件和其他恶意软件的攻击，它们可以窃取或损害您的业务数据和信息。请参阅 <a
+                href="./end-of-ie-support/index.html">微软对旧版 Internet Explorer 的支持服务已终止的说明</a> 。</p>
+        <div class="hr"></div>
+        <h2>更先进的浏览器</h2>
+        <p class="targetline">推荐使用以下浏览器的最新版本。如果你的电脑已有以下浏览器的最新版本则直接使用该浏览器或开启极速模式访问即可。</p>
+        <!-- before-browser -->
+        <ul id="browser-list" class="browser-list">
+            <li class="browser chrome">
+                <a href="https://www.google.cn/chrome/thank-you.html?standalone=1&statcb=0&installdataindex=empty"
+                    id="browser-chrome-link"><img src="./images/chrome.png" width="34" height="34" alt="谷歌浏览器" />谷歌浏览器
+                    <span id="browser-chrome-badge">Google Chrome</span></a>
+            </li>
+            <li class="browser firefox">
+                <a href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win&lang=zh-CN"
+                    id="browser-firefox-link"><img src="./images/firefox.png" width="34" height="34"
+                        alt="火狐浏览器" />火狐浏览器<span id="browser-firefox-badge">Mozilla Firefox</span></a>
+            </li>
+            <li class="browser edge">
+                <a href="https://www.microsoft.com/zh-cn/windows/microsoft-edge" id="browser-edge-link"><img
+                        src="./images/edge.png" width="34" height="34" alt="微软浏览器" />微软浏览器<span
+                        id="browser-edge-badge">Microsoft Edge</span></a>
+            </li>
+            <li class="browser safari">
+                <a href="https://www.apple.com.cn/safari/" id="browser-safari-link"><img
+                        src="./images/safari.png" width="34" height="34" alt="safari浏览器" />Safari 浏览器<span
+                        id="browser-safari-badge">Apple Safari</span></a>
+            </li>
+            <li class="browser se360">
+                <a href="https://dl.360safe.com/netunion/20140425/360se%2b75526%2bn1abed0ce91.exe"
+                    id="browser-se360-link"><img src="./images/se360.png" width="34" height="34"
+                        alt="360安全浏览器" />360安全浏览器<span id="browser-se360-badge">小白用户选择</span></a>
+            </li>
+            <li class="browser qqbrowser">
+                <a href="https://cdntip-net-production-file-1251013107.file.myqcloud.com/myapp/rcps/d/85000/QQBrowser_subid@100002_urlid@100002.exe"
+                    id="browser-qqbrowser-link"><img src="./images/qqbrowser.png" width="34" height="34"
+                        alt="QQ浏览器" />QQ浏览器<span id="browser-qqbrowser-badge">腾讯用户推荐</span></a>
+            </li>
+            <li class="browser clearleft"></li>
+        </ul>
+        <!-- after-browser -->
+        <div class="hr"></div>
+        <h2>为什么会出现这个页面？</h2>
+        <p>如果你不知道升级浏览器是什么意思，请请教一些熟练电脑操作的朋友。如果你使用的不是 IE6 / 7 / 8 / 9 / 10，而是 Google Chrome、Safari、Microsoft Edge、火狐浏览器等，出现这个页面可能是因为你使用的不是该浏览器的最新版本，升级至最新即可。
+        </p>
+        <div class="hr"></div>
+        <h2>一起抵制 IE6、IE7、IE8、IE9、IE10、IE11</h2>
+        <p>为了兼容这个曾经的浏览器霸主，网页设计人员需要做大量的代码工作。对于普通用户而言，低版本 IE 更是一个岌岌可危的安全隐患，在 Windows 历史上几次大的木马病毒事件都是利用 IE 漏洞进行传播。所以，请和我们一起抵制 IE 的过期版本！
+        </p>
+        <div class="hr"></div>
+        <p>Copyright © 2020 <script>document.write(' - ' + (new Date()).getFullYear())</script> <a href="https://imsyy.top/">無名</a> . All Rights Reserved</p>
+    </div>
+    <div style="display:none !important">
+        <script id="hello-world-js" src="./js/hello.world.js"></script>
+    </div>
+</body>
+
+</html>
