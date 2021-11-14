@@ -121,6 +121,7 @@ function time() {
 }
 
 //必应壁纸
+/*
 var url = 'https://bird.ioliu.cn/v1/?url=https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8';
 var imgUrls = JSON.parse(sessionStorage.getItem("imgUrls"));
 var index = sessionStorage.getItem("index");
@@ -152,6 +153,12 @@ if (imgUrls == null) {
     $section.css("background-size", "cover");
     sessionStorage.setItem("index", index);
 }
+*/
+//临时更换图片 api
+var $section = $('#section');
+var url = "https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images";
+$section.css("background", "url('" + url + "') center center no-repeat #666");
+$section.css("background-size", "cover");
 
 //加载动画
 window.addEventListener('load', function () {

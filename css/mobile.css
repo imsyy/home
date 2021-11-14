@@ -93,8 +93,8 @@
     }
 }
 
-/*小于660px时*/
-@media (max-width: 660px) {
+/*小于720px时*/
+@media (max-width: 720px) {
 
     /*左侧栏高度*/
     .main-left {
@@ -152,11 +152,23 @@
 
 }
 
-@media (min-width: 660px) {
+/*小于390px时*/
+@media (max-width: 390px) {
+    .main-img img {
+        display: none;
+    }
+}
+
+
+/* 大于720px时 */
+@media (min-width: 720px) {
     .menu {
         display: none !important;
     }
+}
 
+/* 大于992px时 */
+@media (min-width: 992px) {
     /*时钟显示*/
     span#win_text,
     span#win_speed {
@@ -164,10 +176,12 @@
     }
 }
 
-/*小于390px时*/
-@media (max-width: 390px) {
-    .main-img img {
-        display: none;
+/* 大于1400px时 */
+@media (min-width: 1400px) {
+    /*时钟显示*/
+    span#win_text,
+    span#win_speed {
+        display: inline !important;
     }
 }
 
