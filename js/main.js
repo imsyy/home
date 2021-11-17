@@ -156,7 +156,7 @@ if (imgUrls == null) {
 */
 //临时更换图片 api
 var $section = $('#section');
-var url = "https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images";
+var url = "https://api.ixiaowai.cn/gqapi/gqapi.php";
 $section.css("background", "url('" + url + "') center center no-repeat #666");
 $section.css("background-size", "cover");
 
