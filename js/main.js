@@ -74,7 +74,7 @@ fetch('https://v1.hitokoto.cn')
     .catch(console.error)
 
 //获取天气
-fetch('https://www.tianqiapi.com/free/day?appid=43986679&appsecret=TksqGZT7')
+fetch('https://www.tianqiapi.com/free/day?appid=43986679&appsecret=TksqGZT7&unescape=1')
     .then(response => response.json())
     .then(data => {
         const wea = document.getElementById('wea_text')
@@ -155,10 +155,12 @@ if (imgUrls == null) {
 }
 */
 //临时更换图片 api
+/*
 var $section = $('#section');
 var url = "https://api.ixiaowai.cn/gqapi/gqapi.php";
 $section.css("background", "url('" + url + "') center center no-repeat #666");
 $section.css("background-size", "cover");
+*/
 
 //加载动画
 window.addEventListener('load', function () {

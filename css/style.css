@@ -36,6 +36,12 @@ a:hover {
     transition: 0.5s;
 }
 
+#section {
+    background-image: url(https://api.ixiaowai.cn/gqapi/gqapi.php), url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 /*页面样式*/
 section {
     display: block;
