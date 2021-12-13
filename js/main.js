@@ -13,12 +13,6 @@ iziToast.settings({
     iconColor: '#efefef',
 });
 
-iziToast.info({
-    icon: 'fad fa-vial',
-    title: '新版站点试运行',
-    message: '还存在亿些小问题 ~ <a href="./old/" style="color:#efefef">返回旧版</a>'
-});
-
 //控制台输出
 /*
 let date = '2021-09-27 21:32'
@@ -320,3 +314,25 @@ document.oncontextmenu = function () {
     });
     return false;
 }
+
+//自动变灰
+var myDate = new Date;
+  var mon = myDate.getMonth() + 1;
+  var date = myDate.getDate();
+  var days = ['4.4', '5.12', '7.7', '9.9', '9.18', '12.13'];
+  for (var day of days) {
+    var d = day.split('.');
+    if (mon == d[0] && date == d[1]) {
+      document.write(
+        '<style>html{-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);_filter:none}</style>'
+      )
+      $("#change").html("Silence&nbsp;in&nbsp;silence");
+      $("#change1").html("今天是国家纪念日，全站已切换为黑白模式");
+      iziToast.info({
+          timeout: 14000,
+          icon: 'fad fa-candle-holder',
+          title: '今天是国家纪念日',
+          message: '历史不会忘记，人民永远铭记！'
+      });
+    }
+  }
