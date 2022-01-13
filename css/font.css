@@ -1,16 +1,16 @@
 @font-face {
     font-family: "Pacifico-Regular";
-    src: url('../font/Pacifico-Regular.ttf');
+    src: url('../font/Pacifico-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "UnidreamLED";
-    src: url('../font/UnidreamLED.ttf');
+    src: url('https://s-bj-2127-file.oss.dogecdn.com/font/UnidreamLED.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "PingFangSC";
-    src: url('../font/PingFangSC.woff2');
+    src: url('https://s-bj-2127-file.oss.dogecdn.com/font/PingFangSC.woff2') format('woff2');
 }
 
 @font-face {
