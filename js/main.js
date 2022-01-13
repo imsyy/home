@@ -40,15 +40,16 @@ color: rgb(30,152,255);
 var title1 = '無名の主页'
 var title2 = 'imsyy.top'
 var content = `
-版 本 号：1.3.0
-更新日期：2021-10-02 14:26:31
+版 本 号：1.4.0
+更新日期：2022-01-12 14:38:34
 
 更新说明：
-1. 新增 点击左侧简介弹出更多页面
-2. 修复 时间胶囊（ 时光进度条 ）
-3. 优化 移动端动画及细节
-4. 优化 Js 文件优化
-5. 修复 星期进度条显示错误
+1. 新增 部分页面样式调整
+2. 新增 动态跟随鼠标样式
+3. 修复 部分控件无法点击
+4. 优化 移动端动画及细节
+5. 优化 页面加载缓慢
+6. 修复 时光胶囊显示错误
 
 主页:  https://imsyy.top
 Github:  https://github.com/imsyy/home
@@ -57,7 +58,7 @@ console.log(`%c${title1} %c${title2}
 %c${content}`, styleTitle1, styleTitle2, styleContent)
 
 //获取一言
-fetch('https://v1.hitokoto.cn')
+fetch('https://v1.hitokoto.cn?max_length=24')
     .then(response => response.json())
     .then(data => {
         const hitokoto = document.getElementById('hitokoto_text')
@@ -237,10 +238,10 @@ $('#switchmenu').on('click', function () {
     switchmenu = !switchmenu;
     if (switchmenu) {
         $('#row').attr('class', 'row menus');
-        $("#menu").html("<i class='fad fa-times'></i>");
+        $("#menu").html("<i class='iconfont icon-times'></i>");
     } else {
         $('#row').attr('class', 'row');
-        $("#menu").html("<i class='fad fa-bars'></i>");
+        $("#menu").html("<i class='iconfont icon-bars'>");
     }
 });
 
@@ -262,7 +263,7 @@ window.addEventListener('load', function () {
         //关闭移动端样式
         if (window.innerWidth >= 600) {
             $('#row').attr('class', 'row');
-            $("#menu").html("<i class='fad fa-bars'></i>");
+            $("#menu").html("<i class='iconfont icon-bars'>");
             //移除移动端切换功能区
             $('#rightone').attr('class', 'row rightone');
         }

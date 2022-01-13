@@ -27,10 +27,8 @@
     <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
     <!-- 引入 Izitoast -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
-    <!-- 引入 Fontawesome -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css"
-        media="all">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js">
+    </script>
     <!--引入 Vue
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>-->
     <!-- 引入 jQuery -->
@@ -116,7 +114,7 @@
                     </div>
                     <!--第二屏 Logo-->
                     <div class="logo cards" style="display: none" id="changemore">
-                        <a>imsyy.top</a>
+                        <a class="logo-text">imsyy.top</a>
                     </div>
                     <div class="col right">
                         <div class="main-right">
@@ -125,7 +123,7 @@
                                 <div class="col hitokotos">
                                     <!--一言-->
                                     <div class="hitokoto cards" id="hitokoto">
-                                        <div class="hitokoto-ico"><i class="fad fa-comment-alt-lines"></i>&nbsp;一言</div>
+                                        <!--<div class="hitokoto-ico"><i class="iconfont icon-comment-alt-lines"></i>&nbsp;&nbsp;一言</div>-->
                                         <div class="hitokoto-all">
                                             <div class="hitokoto-text"><span id="hitokoto_text">每一个人都应该明确自己的方向和位置</span>
                                             </div>
@@ -149,7 +147,7 @@
                             </div>
                             <!--分隔线-->
                             <div class="line">
-                                <i class="fad fa-grip-lines-vertical"></i>
+                                <i class="iconfont icon-link"></i>
                                 <span class="line-text">网站列表</span>
                             </div>
                             <!--网站链接-->
@@ -159,23 +157,23 @@
                                     <div class="col">
                                         <a href="https://blog.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fad fa-blog"></i>
+                                                <i class="iconfont icon-blog-solid"></i>
                                                 <span class="link-name">博客</span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col 2">
-                                        <a href="https://web.imsyy.top/" target="_blank">
+                                        <a href="https://drive.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fad fa-spider-web"></i>
-                                                <span class="link-name">网址导航</span>
+                                                <i class="iconfont icon-cloud"></i>
+                                                <span class="link-name">网盘</span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a href="https://music.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fad fa-list-music"></i>
+                                                <i class="iconfont icon-music-list"></i>
                                                 <span class="link-name">音乐</span>
                                             </div>
                                         </a>
@@ -186,23 +184,23 @@
                                     <div class="col">
                                         <a href="https://lab.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fad fa-flask"></i>
+                                                <i class="iconfont icon-lab"></i>
                                                 <span class="link-name">实验室</span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col 2">
-                                        <a href="https://drive.imsyy.top/" target="_blank">
+                                        <a href="https://web.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fad fa-cloud-download"></i>
-                                                <span class="link-name">网盘</span>
+                                                <i class="iconfont icon-navigation1"></i>
+                                                <span class="link-name">网址导航</span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a href="https://photo.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fad fa-image"></i>
+                                                <i class="iconfont icon-photo"></i>
                                                 <span class="link-name">相册</span>
                                             </div>
                                         </a>
@@ -214,18 +212,18 @@
                 </div>
                 <!--展开菜单按钮-->
                 <div class="menu" id="switchmenu">
-                    <a class="munu-button cards" id="menu"><i class="fad fa-bars"></i></a>
+                    <a class="munu-button cards" id="menu"><i class="iconfont icon-bars"></i></a>
                 </div>
                 <!--更多内容-->
-                <div class="more cards" id="more">
+                <div class="more" id="more">
                     <!--关闭按钮-->
                     <div class="close fixed-top" id="close">
-                        <i class="fad fa-times-circle"></i>
+                        <i class="iconfont icon-close"></i>
                     </div>
                     <div class="line" style="margin-top: 1rem;">
-                        <i class="fad fa-grip-lines-vertical"></i>
+                        <i class="iconfont icon-right-copy"></i>
                         <span class="line-text">时间胶囊</span>
-                        <i class="fad fa-grip-lines-vertical"></i>
+                        <i class="iconfont icon-right"></i>
                     </div>
                     <div class="date" id="date">
                         <div class="item" id="dayProgress">
@@ -254,9 +252,9 @@
                         </div>
                     </div>
                     <div class="line">
-                        <i class="fad fa-grip-lines-vertical"></i>
+                        <i class="iconfont icon-right-copy"></i>
                         <span class="line-text">杂七杂八</span>
-                        <i class="fad fa-grip-lines-vertical"></i>
+                        <i class="iconfont icon-right"></i>
                     </div>
                     <!--网站链接-->
                     <div class="row">
@@ -277,7 +275,7 @@
                         <div class="col">
                             <a href="https://write.imsyy.top/" target="_blank">
                                 <div class="link-card cards">
-                                    <span class="link-name">Markdown</span>
+                                    <span class="link-name">编辑器</span>
                                 </div>
                             </a>
                         </div>
@@ -311,22 +309,23 @@
                     <div class="box-wrapper">
                         <!--关闭按钮-->
                         <div class="closebox fixed-top" id="closemore">
-                            <i class="fad fa-times-circle"></i>
+                            <i class="iconfont icon-close"></i>
                         </div>
                         <!--更新日志-->
                         <div class="img-title">
                             <span class="img-title">imsyy</span>
                             <span class="img-text">.top</span>
-                            <span class="img-text">&nbsp;&nbsp;v&nbsp;1.3</span>
+                            <span class="img-text">&nbsp;&nbsp;v&nbsp;1.4</span>
                         </div>
                         <div class="upnote">
-                            <span class="uptext"><i class="fad fa-plus-circle"></i>&nbsp;点击左侧简介可弹出更多页面</span>
-                            <span class="uptext"><i class="fad fa-plus-circle"></i>&nbsp;修复时间胶囊（ 时光进度条 ）</span>
-                            <span class="uptext"><i class="fad fa-plus-circle"></i>&nbsp;隐藏页面新增全屏弹窗</span>
-                            <span class="uptext"><i class="fad fa-wrench"></i>&nbsp;星期进度条显示错误</span>
-                            <span class="uptext"><i class="fad fa-wrench"></i>&nbsp;移动端动画及细节</span>
-                            <span class="uptext"><i class="fad fa-wrench"></i>&nbsp;Js&nbsp;文件优化</span>
-                            <span class="uptext"><i class="fad fa-undo-alt"></i>&nbsp;<a href="./old/"
+                            <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;点击左侧简介可弹出更多页面</span>
+                            <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;修复时间胶囊（ 时光进度条 ）</span>
+                            <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;隐藏页面新增全屏弹窗</span>
+                            <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;新增动态跟随鼠标样式</span>
+                            <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;时光胶囊显示错误</span>
+                            <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;移动端动画及细节</span>
+                            <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;图标由 Fontawesome 改为 Iconfont</span>
+                            <span class="uptext"><i class="iconfont icon-undo"></i>&nbsp;<a href="./old/"
                                     style="color:#efefef">返回旧版站点</a></span>
                         </div>
                     </div>

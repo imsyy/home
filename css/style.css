@@ -16,6 +16,7 @@ p {
     transition: 0.3s;
     color: #efefef;
     user-select: none;
+    font-family: 'PingFangSC';
 }
 
 a:hover {
@@ -96,19 +97,24 @@ main {
     width: 120px;
 }
 
+.main-img img:hover {
+    transform: rotate(360deg);
+}
+
 .img-title {
     width: 100%;
     margin-left: 12px;
-    font-family: Pacifico-Regular;
     transform: translateY(-8%);
 }
 
 span.img-title {
     font-size: 5rem;
+    font-family: 'Pacifico-Regular' !important;
 }
 
 span.img-text {
     font-size: 2rem;
+    font-family: 'Pacifico-Regular' !important;
 }
 
 /*简介*/
@@ -131,7 +137,11 @@ span.img-text {
 p.des-title {
     margin: 1rem 1rem;
     line-height: 2rem;
-    font-family: Pacifico-Regular;
+    font-size: 1.10rem;
+}
+
+span#change {
+    font-family: 'Pacifico-Regular' !important;
 }
 
 i.iconfont.icon-yinhao-copy {
@@ -151,6 +161,10 @@ i.iconfont.icon-yinhao-copy {
     margin: 0px 10px;
 }
 
+.social .link i:hover {
+    color: #707070;
+}
+
 #link-text {
     display: none;
     flex: 1;
@@ -165,6 +179,10 @@ i.iconfont.icon-yinhao-copy {
     backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 6px;
+    height: 165px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .hitokoto-all {
@@ -173,10 +191,15 @@ i.iconfont.icon-yinhao-copy {
     flex-direction: column;
 }
 
+.hitokoto-text {
+    font-size: 1.2rem;
+}
+
 .hitokoto-from {
     margin-top: 10px;
     font-weight: bold;
     align-self: flex-end;
+    font-size: 1.10rem;
 }
 
 /*时间卡片*/
@@ -189,21 +212,35 @@ i.iconfont.icon-yinhao-copy {
     text-align: center;
     display: flex;
     flex-direction: column;
+    height: 165px;
+    font-size: 1.10rem;
 }
 
 span.time-text {
     font-size: 3.25rem;
     letter-spacing: 2px;
-    font-family: UnidreamLED;
+    font-family: 'UnidreamLED' !important;
 }
 
-/*链接卡片*/
+/*分割线*/
 .line {
     margin: 1rem 0.25rem;
     margin-top: 2rem;
-    font-size: 1.10rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
 }
 
+span.line-text {
+    font-size: 1.35rem;
+    margin: 0px 6px;
+}
+
+i.iconfont.icon-link {
+    font-size: 1.4rem;
+}
+
+/*链接卡片*/
 .link-card {
     height: 100px;
     width: 100%;
@@ -212,13 +249,26 @@ span.time-text {
     backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.link-card i {
+    margin-left: 0px;
+    font-size: 2.2rem;
 }
 
 .link-card:hover {
     background: rgb(0 0 0 / 40%);
     transition: 0.5s;
+}
+
+span.link-name {
+    font-size: 1.2rem;
+}
+
+.link-card:hover span.link-name {
+    font-size: 1.25rem;
 }
 
 /*更多页面*/
@@ -276,7 +326,7 @@ span.time-text {
 }
 
 .progress-bar {
-    font-family: 'UnidreamLED';
+    font-family: 'UnidreamLED' !important;
     background-color: #efefef !important;
     color: rgb(86 77 89) !important;
     font-size: 0.95rem;
@@ -341,13 +391,22 @@ span.time-text {
 
 .closebox {
     left: auto;
-    top: 4px;
-    right: 8px;
-    font-size: 1.45rem;
+    top: 10px;
+    right: 16px;
 }
 
 .closebox:hover {
     transform: scale(1.2);
+}
+
+i.iconfont.icon-close {
+    font-size: 1.45rem;
+}
+
+/*移动端页面切换按钮*/
+i.iconfont.icon-bars,
+i.iconfont.icon-times {
+    font-size: 1.25rem;
 }
 
 /*页脚样式*/

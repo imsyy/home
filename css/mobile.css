@@ -50,12 +50,22 @@
     span.img-text {
         font-size: 1.75rem;
     }
+
+    /*链接卡片文字*/
+    span.link-name {
+        display: none !important;
+    }
+
+    .link-card i {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
 }
 
 /*小于840px时*/
 @media (max-width: 840px) {
 
-    
+
     /*社交链接*/
     .social {
         max-width: 100%;
@@ -123,6 +133,17 @@
     }
     */
 
+    /*链接卡片*/
+    .link-card {
+        align-items: center !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    span.link-name {
+        display: block !important;
+    }
+
     /*菜单栏按钮*/
     .menu {
         display: flex;
@@ -169,6 +190,7 @@
 
 /* 大于992px时 */
 @media (min-width: 992px) {
+
     /*时钟显示*/
     span#win_text,
     span#win_speed {
@@ -178,6 +200,7 @@
 
 /* 大于1400px时 */
 @media (min-width: 1400px) {
+
     /*时钟显示*/
     span#win_text,
     span#win_speed {
@@ -222,8 +245,12 @@
     text-align: center;
     position: fixed;
     top: 8%;
-    font-family: 'Pacifico-Regular';
     font-size: 1.75rem;
+}
+
+/*第二屏logo*/
+.logo-text {
+    font-family: 'Pacifico-Regular' !important;
 }
 
 /*切换动画*/

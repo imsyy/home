@@ -1,11 +1,4 @@
 @font-face {
-    font-family: "iconfont";
-    src: url('../font/font_2831425_80aedhvquju.woff2') format('woff2'),
-        url('../font/font_2831425_80aedhvquju.woff') format('woff'),
-        url('../font/font_2831425_80aedhvquju.ttf') format('truetype');
-}
-
-@font-face {
     font-family: "Pacifico-Regular";
     src: url('../font/Pacifico-Regular.ttf');
 }
@@ -15,12 +8,89 @@
     src: url('../font/UnidreamLED.ttf');
 }
 
+@font-face {
+    font-family: "PingFangSC";
+    src: url('../font/PingFangSC.woff2');
+}
+
+@font-face {
+    font-family: "iconfont";
+    /* Project id 2831425 */
+    src: url('../font/font_2831425_ekwvaabvo8l.woff2') format('woff2'),
+        url('../font/font_2831425_ekwvaabvo8l.woff') format('woff'),
+        url('../font/font_2831425_ekwvaabvo8l.ttf') format('truetype');
+}
+
 .iconfont {
     font-family: "iconfont" !important;
     font-size: 16px;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-undo:before {
+    content: "\e875";
+}
+
+.icon-wrench-fill:before {
+    content: "\e86e";
+}
+
+.icon-plus:before {
+    content: "\e653";
+}
+
+.icon-right:before {
+    content: "\e613";
+}
+
+.icon-right-copy:before {
+    content: "\ebd4";
+}
+
+.icon-times:before {
+    content: "\e857";
+}
+
+.icon-bars:before {
+    content: "\e61f";
+}
+
+.icon-link:before {
+    content: "\e603";
+}
+
+.icon-close:before {
+    content: "\e656";
+}
+
+.icon-photo:before {
+    content: "\ebd3";
+}
+
+.icon-navigation1:before {
+    content: "\e637";
+}
+
+.icon-cloud:before {
+    content: "\e624";
+}
+
+.icon-lab:before {
+    content: "\e88d";
+}
+
+.icon-blog-solid:before {
+    content: "\e631";
+}
+
+.icon-comment-alt-lines:before {
+    content: "\e679";
+}
+
+.icon-music-list:before {
+    content: "\e699";
 }
 
 .icon-youxiang:before {
