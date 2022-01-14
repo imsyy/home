@@ -1,7 +1,7 @@
 //弹窗样式
 iziToast.settings({
     timeout: 10000,
-    icon: 'Fontawesome',
+    //icon: 'Fontawesome',
     closeOnEscape: 'true',
     position: 'topLeft',
     transitionIn: 'bounceInRight',
@@ -309,7 +309,8 @@ $("#more").hover(function () {
 //屏蔽右键
 document.oncontextmenu = function () {
     iziToast.info({
-        icon: 'fad fa-do-not-enter',
+        //icon: 'fad fa-do-not-enter',
+        iconUrl: './img/warn.png',
         title: '温馨提醒',
         message: '为了浏览体验，本站禁用右键'
     });
