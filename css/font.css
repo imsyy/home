@@ -15,9 +15,10 @@
 
 @font-face {
     font-family: "iconfont";
-    src: url('../font/font_2831425_ekwvaabvo8l.woff2') format('woff2'),
-        url('../font/font_2831425_ekwvaabvo8l.woff') format('woff'),
-        url('../font/font_2831425_ekwvaabvo8l.ttf') format('truetype');
+    /* Project id 2831425 */
+    src: url('//at.alicdn.com/t/font_2831425_312vsfjkcz9.woff2?t=1642345600138') format('woff2'),
+        url('//at.alicdn.com/t/font_2831425_312vsfjkcz9.woff?t=1642345600138') format('woff'),
+        url('//at.alicdn.com/t/font_2831425_312vsfjkcz9.ttf?t=1642345600138') format('truetype');
 }
 
 .iconfont {
@@ -26,6 +27,26 @@
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-music:before {
+    content: "\e986";
+}
+
+.icon-next-one:before {
+    content: "\e609";
+}
+
+.icon-next-one-copy:before {
+    content: "\ebd5";
+}
+
+.icon-pause:before {
+    content: "\e733";
+}
+
+.icon-play:before {
+    content: "\e65c";
 }
 
 .icon-undo:before {

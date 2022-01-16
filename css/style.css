@@ -203,6 +203,18 @@ i.iconfont.icon-yinhao-copy {
     font-size: 1.10rem;
 }
 
+.close-music {
+    display: none;
+    justify-content: center;
+    background: rgb(0 0 0 / 25%);
+    padding: 4px 0px;
+    animation: fade;
+    -webkit-animation: fade 0.5s;
+    -moz-animation: fade 0.5s;
+    -o-animation: fade 0.5s;
+    -ms-animation: fade 0.5s;
+}
+
 /*时间卡片*/
 .time {
     width: 100%;
@@ -349,6 +361,10 @@ span.link-name {
 }
 
 /*box*/
+.box-left {
+    flex: 0 44%;
+    min-width: 400px;
+}
 
 .box {
     position: fixed;
@@ -377,8 +393,8 @@ span.link-name {
     animation: fade .3s;
     padding: 40px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .upnote {
@@ -402,6 +418,150 @@ span.link-name {
 
 i.iconfont.icon-close {
     font-size: 1.45rem;
+}
+
+/*Aplayer*/
+.box-right {
+    flex: 0 54%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.aplayer {
+    background: transparent !important;
+    width: 100%;
+    border-radius: 6px !important;
+    margin-right: 18px;
+}
+
+.aplayer.aplayer-withlrc .aplayer-pic {
+    border-radius: 6px !important;
+}
+
+/*歌曲名称*/
+.aplayer .aplayer-info .aplayer-music .aplayer-title {
+    font-size: 16px !important;
+}
+
+/*音乐列表*/
+.aplayer.aplayer-withlist .aplayer-list {
+    margin-top: 8px;
+}
+
+.aplayer .aplayer-list ol li.aplayer-list-light {
+    background: #ffffff57 !important;
+    border-radius: 6px !important;
+}
+
+.aplayer .aplayer-list ol li:hover {
+    background: #ffffff57 !important;
+    border-radius: 6px !important;
+}
+
+.aplayer .aplayer-list ol li {
+    border-top: 1px solid transparent !important;
+}
+
+.aplayer.aplayer-withlist .aplayer-info {
+    border-bottom: 1px solid transparent !important;
+}
+
+/*控制面板 - Bug*/
+.aplayer .aplayer-info .aplayer-controller {
+    display: none !important;
+}
+
+/*歌词间距*/
+.aplayer .aplayer-lrc {
+    margin: 4px 0 0px !important;
+    height: 34px !important;
+}
+
+/*歌词大小*/
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+    font-size: 14.5px !important;
+}
+
+/*全局字体颜色*/
+.aplayer .aplayer-info .aplayer-music .aplayer-title,
+.aplayer .aplayer-info .aplayer-music .aplayer-author,
+.aplayer .aplayer-lrc p,
+span.aplayer-list-title,
+span.aplayer-list-author,
+span.aplayer-list-index {
+    color: white !important;
+}
+
+/*全局背景*/
+.aplayer .aplayer-lrc:after,
+.aplayer .aplayer-lrc:before {
+    background: transparent !important;
+}
+
+/*Aplayer结束*/
+
+/*音乐播放器*/
+#music {
+    display: none;
+}
+
+.music {
+    width: 100%;
+    background: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 6px;
+    height: 165px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.music-all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.music-button {
+    display: flex;
+    align-items: center;
+}
+
+.music-control {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+i.iconfont.icon-play,
+i.iconfont.icon-pause {
+    font-size: 2.25rem;
+}
+
+i#last,
+i#next {
+    font-size: 2.0rem;
+}
+
+.music-text {
+    font-size: 1.15rem;
+    text-overflow: ellipsis;
+    max-width: 160px;
+}
+
+#music-open,
+#music-close {
+    background: rgb(255 255 255 / 20%);
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin: 0px 6px;
 }
 
 /*移动端页面切换按钮*/

@@ -31,6 +31,11 @@
     </script>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Aplayer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
     <!-- 百度统计 -->
     <script>
         var _hmt = _hmt || [];
@@ -121,11 +126,36 @@
                                 <div class="col hitokotos">
                                     <!--一言-->
                                     <div class="hitokoto cards" id="hitokoto">
-                                        <!--<div class="hitokoto-ico"><i class="iconfont icon-comment-alt-lines"></i>&nbsp;&nbsp;一言</div>-->
+                                        <!--切换音乐-->
+                                        <div class="close-music fixed-top" id="close-music">
+                                            <i class="iconfont icon-music"></i>
+                                            <span>&nbsp;打开音乐播放器</span>
+                                        </div>
+                                        <!--切换音乐结束-->
                                         <div class="hitokoto-all">
                                             <div class="hitokoto-text"><span id="hitokoto_text">每一个人都应该明确自己的方向和位置</span>
                                             </div>
                                             <div class="hitokoto-from">-「&nbsp;<span id="from_text">無名</span>&nbsp;」
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--音乐-->
+                                    <div class="music cards" id="music">
+                                        <div class="music-all">
+                                            <div class="music-button">
+                                                <div id="music-open">音乐列表</div>
+                                                <div id="music-close">回到一言</div>
+                                            </div>
+                                            <div class="music-control">
+                                                <i class="iconfont icon-next-one-copy" id="last"></i>
+                                                <div id="play">
+                                                    <i class="iconfont icon-play"></i>
+                                                </div>
+                                                <i class="iconfont icon-next-one" id="next"></i>
+                                            </div>
+                                            <div class="music-text">
+                                                <span id="music-name">未播放音乐</span>
+                                                <span id="music-artist"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -310,22 +340,27 @@
                             <i class="iconfont icon-close"></i>
                         </div>
                         <!--更新日志-->
-                        <div class="img-title">
-                            <span class="img-title">imsyy</span>
-                            <span class="img-text">.top</span>
-                            <span class="img-text">&nbsp;&nbsp;v&nbsp;1.4</span>
+                        <div class="box-left">
+                            <div class="img-title">
+                                <span class="img-title">imsyy</span>
+                                <span class="img-text">.top</span>
+                                <span class="img-text">&nbsp;&nbsp;v&nbsp;1.4</span>
+                            </div>
+                            <div class="upnote">
+                                <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;点击左侧简介可弹出更多页面</span>
+                                <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;修复时间胶囊（ 时光进度条 ）</span>
+                                <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;隐藏页面新增全屏弹窗</span>
+                                <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;新增动态跟随鼠标样式</span>
+                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;时光胶囊显示错误</span>
+                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;移动端动画及细节</span>
+                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;图标由 Fontawesome 改为
+                                    Iconfont</span>
+                                <span class="uptext"><i class="iconfont icon-undo"></i>&nbsp;<a href="./old/"
+                                        style="color:#efefef">返回旧版站点</a></span>
+                            </div>
                         </div>
-                        <div class="upnote">
-                            <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;点击左侧简介可弹出更多页面</span>
-                            <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;修复时间胶囊（ 时光进度条 ）</span>
-                            <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;隐藏页面新增全屏弹窗</span>
-                            <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;新增动态跟随鼠标样式</span>
-                            <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;时光胶囊显示错误</span>
-                            <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;移动端动画及细节</span>
-                            <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;图标由 Fontawesome 改为
-                                Iconfont</span>
-                            <span class="uptext"><i class="iconfont icon-undo"></i>&nbsp;<a href="./old/"
-                                    style="color:#efefef">返回旧版站点</a></span>
+                        <div class="box-right">
+                            <div id="aplayer"></div>
                         </div>
                     </div>
                 </div>
@@ -347,6 +382,7 @@
     <script type="text/javascript" src="./js/time.js"></script>
     <script type="text/javascript" src="./js/cursor.js"></script>
     <script type="text/javascript" src="./js/lantern.js"></script>
+    <script type="text/javascript" src="./js/music.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 </body>
 
