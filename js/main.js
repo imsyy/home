@@ -13,14 +13,16 @@ iziToast.settings({
     iconColor: '#efefef',
 });
 
+//百度统计
+var _hmt = _hmt || [];
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?14e9f35ff8bc67fd4bcb5f07a6e6655a";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+
 //控制台输出
-/*
-let date = '2021-09-27 21:32'
-let a = 'background: #606060; color: #fff; border-radius: 3px 0 0 3px;'
-let b = 'background: #1475B2; color: #fff; border-radius: 0 3px 3px 0;'
-console.log(`%c Update Time %c ${date} `, a, b)
-*/
-/* 样式代码 */
 var styleTitle1 = `
 font-size: 20px;
 font-weight: 600;
@@ -35,8 +37,6 @@ font-weight: 400;
 var styleContent = `
 color: rgb(30,152,255);
 `
-
-/* 内容代码 */
 var title1 = '無名の主页'
 var title2 = 'imsyy.top'
 var content = `
@@ -319,22 +319,22 @@ document.oncontextmenu = function () {
 
 //自动变灰
 var myDate = new Date;
-  var mon = myDate.getMonth() + 1;
-  var date = myDate.getDate();
-  var days = ['4.4', '5.12', '7.7', '9.9', '9.18', '12.13'];
-  for (var day of days) {
+var mon = myDate.getMonth() + 1;
+var date = myDate.getDate();
+var days = ['4.4', '5.12', '7.7', '9.9', '9.18', '12.13'];
+for (var day of days) {
     var d = day.split('.');
     if (mon == d[0] && date == d[1]) {
-      document.write(
-        '<style>html{-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);_filter:none}</style>'
-      )
-      $("#change").html("Silence&nbsp;in&nbsp;silence");
-      $("#change1").html("今天是国家纪念日，全站已切换为黑白模式");
-      iziToast.info({
-          timeout: 14000,
-          icon: 'fad fa-candle-holder',
-          title: '今天是国家纪念日',
-          message: '历史不会忘记，人民永远铭记！'
-      });
+        document.write(
+            '<style>html{-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);_filter:none}</style>'
+        )
+        $("#change").html("Silence&nbsp;in&nbsp;silence");
+        $("#change1").html("今天是国家纪念日，全站已切换为黑白模式");
+        iziToast.info({
+            timeout: 14000,
+            icon: 'fad fa-candle-holder',
+            title: '今天是国家纪念日',
+            message: '历史不会忘记，人民永远铭记！'
+        });
     }
-  }
+}

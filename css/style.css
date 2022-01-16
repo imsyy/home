@@ -161,10 +161,11 @@ i.iconfont.icon-yinhao-copy {
     margin: 0px 10px;
 }
 
+/*
 .social .link i:hover {
-    color: #707070;
+    font-size: 2.5rem;
 }
-
+*/
 #link-text {
     display: none;
     flex: 1;
