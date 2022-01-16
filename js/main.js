@@ -323,7 +323,8 @@ for (var day of days) {
         $("#change1").html("今天是国家纪念日，全站已切换为黑白模式");
         iziToast.info({
             timeout: 14000,
-            icon: 'fad fa-candle-holder',
+            //icon: 'fad fa-candle-holder',
+            iconUrl: './img/candle.png',
             title: '今天是国家纪念日',
             message: '历史不会忘记，人民永远铭记！'
         });
