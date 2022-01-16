@@ -13,15 +13,6 @@ iziToast.settings({
     iconColor: '#efefef',
 });
 
-//百度统计
-var _hmt = _hmt || [];
-(function () {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?14e9f35ff8bc67fd4bcb5f07a6e6655a";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
-
 //控制台输出
 var styleTitle1 = `
 font-size: 20px;
