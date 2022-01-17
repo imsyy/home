@@ -17,6 +17,11 @@
     .weekday {
         display: none;
     }
+
+    /*音乐播放器*/
+    .music-text {
+        max-width: 170px !important;
+    }
 }
 
 /*小于992px时*/
@@ -135,13 +140,24 @@
 
     /*链接卡片*/
     .link-card {
+        height: 80px !important;
         align-items: center !important;
         flex-direction: column !important;
         justify-content: center !important;
     }
 
+    .link-card i {
+        font-size: 1.75rem;
+    }
+
     span.link-name {
         display: block !important;
+        font-size: 1.05rem;
+    }
+
+    span.line-text,
+    i.iconfont.icon-link {
+        font-size: 1.20rem;
     }
 
     /*菜单栏按钮*/
@@ -169,6 +185,16 @@
     /*页脚文字*/
     footer {
         font-size: 0.85rem;
+    }
+
+    /*音乐播放器*/
+    .music-text {
+        max-width: 100% !important;
+    }
+
+    /*隐藏鼠标样式*/
+    #cursor {
+        background: transparent !important;
     }
 
 }

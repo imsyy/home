@@ -1,12 +1,3 @@
-/* 右键音乐图标 */
-document.getElementById("music").onmousedown = function (e) {
-    if (e.button == 2 && $(document).width() >= 990) {
-        $('#box').css("display", "block");
-        $('#row').css("display", "none");
-        $('#more').css("cssText", "display:none !important");
-    }
-}
-
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     order: 'random',
@@ -332,14 +323,15 @@ const ap = new APlayer({
 
 /* 音乐通知及控制 */
 ap.on('play', function () {
+    music = $(".aplayer-title").text() + $(".aplayer-author").text();
     iziToast.info({
         iconUrl: './img/play.png',
+        displayMode: 'replace',
         title: '音乐通知',
-        message: '音乐开始播放'
+        message: '正在播放：' + '&nbsp;' + music
     });
     $("#play").html("<i class='iconfont icon-pause'>");
-    $("#music-name").html($(".aplayer-title").text());
-    $("#music-artist").html($(".aplayer-author").text());
+    $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
 });
 
 ap.on('pause', function () {
@@ -347,15 +339,15 @@ ap.on('pause', function () {
 });
 
 /* 一言与音乐切换 */
-$('#close-music').on('click', function () {
+$('#open-music').on('click', function () {
     $('#hitokoto').css("display", "none");
     $('#music').css("display", "flex");
 });
 
 $("#hitokoto").hover(function () {
-    $('#close-music').css("display", "flex");
+    $('#open-music').css("display", "flex");
 }, function () {
-    $('#close-music').css("display", "none");
+    $('#open-music').css("display", "none");
 })
 
 $('#music-close').on('click', function () {
@@ -366,26 +358,19 @@ $('#music-close').on('click', function () {
 /* 上下曲 */
 $('#play').on('click', function () {
     ap.toggle();
-    $("#music-name").html($(".aplayer-title").text());
-    $("#music-artist").html($(".aplayer-author").text());
+    $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
 });
 
 $('#last').on('click', function () {
     ap.skipBack();
-    $("#music-name").html($(".aplayer-title").text());
-    $("#music-artist").html($(".aplayer-author").text());
+    $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
 });
 
 $('#next').on('click', function () {
     ap.skipForward();
-    $("#music-name").html($(".aplayer-title").text());
-    $("#music-artist").html($(".aplayer-author").text());
+    $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
 });
-/*
-$("#a").click(function () {
-    $("#b").toggle()
-})
-*/
+
 /* 打开音乐列表 */
 $('#music-open').on('click', function () {
     if ($(document).width() >= 990) {

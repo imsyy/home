@@ -49,6 +49,7 @@ section {
     position: fixed;
     width: 100%;
     height: 100%;
+    min-height: 600px;
 }
 
 main {
@@ -203,16 +204,107 @@ i.iconfont.icon-yinhao-copy {
     font-size: 1.10rem;
 }
 
-.close-music {
+.open-music {
     display: none;
     justify-content: center;
-    background: rgb(0 0 0 / 25%);
+    background: rgb(0 0 0 / 15%);
     padding: 4px 0px;
     animation: fade;
     -webkit-animation: fade 0.5s;
     -moz-animation: fade 0.5s;
     -o-animation: fade 0.5s;
     -ms-animation: fade 0.5s;
+}
+
+.open-music:hover {
+    background: rgb(0 0 0 / 30%);
+}
+
+/*音乐播放器卡片*/
+#music {
+    display: none;
+}
+
+.music {
+    width: 100%;
+    background: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 6px;
+    height: 165px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    animation: fade;
+    -webkit-animation: fade 0.3s;
+    -moz-animation: fade 0.3s;
+    -o-animation: fade 0.3s;
+    -ms-animation: fade 0.3s;
+}
+
+.music-all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.music-button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.music-control {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+i.iconfont.icon-play,
+i.iconfont.icon-pause {
+    font-size: 2.25rem;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+i.iconfont.icon-play:hover,
+i.iconfont.icon-pause:hover {
+    background: rgb(255 255 255 / 20%);
+    padding: 6px;
+    border-radius: 6px;
+}
+
+i#last,
+i#next {
+    font-size: 2.0rem;
+}
+
+.music-text {
+    font-size: 1.15rem;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+#music-open,
+#music-close {
+    background: rgb(255 255 255 / 15%);
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin: 0px 6px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+#music-open:hover,
+#music-close:hover {
+    background: rgb(255 255 255 / 30%);
 }
 
 /*时间卡片*/
@@ -416,7 +508,8 @@ span.link-name {
     transform: scale(1.2);
 }
 
-i.iconfont.icon-close {
+i.iconfont.icon-close,
+i.iconfont.icon-github1 {
     font-size: 1.45rem;
 }
 
@@ -502,68 +595,6 @@ span.aplayer-list-index {
 
 /*Aplayer结束*/
 
-/*音乐播放器*/
-#music {
-    display: none;
-}
-
-.music {
-    width: 100%;
-    background: rgb(0 0 0 / 25%);
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 6px;
-    height: 165px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.music-all {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 100%;
-}
-
-.music-button {
-    display: flex;
-    align-items: center;
-}
-
-.music-control {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-i.iconfont.icon-play,
-i.iconfont.icon-pause {
-    font-size: 2.25rem;
-}
-
-i#last,
-i#next {
-    font-size: 2.0rem;
-}
-
-.music-text {
-    font-size: 1.15rem;
-    text-overflow: ellipsis;
-    max-width: 160px;
-}
-
-#music-open,
-#music-close {
-    background: rgb(255 255 255 / 20%);
-    padding: 2px 8px;
-    border-radius: 6px;
-    margin: 0px 6px;
-}
-
 /*移动端页面切换按钮*/
 i.iconfont.icon-bars,
 i.iconfont.icon-times {
@@ -587,6 +618,10 @@ footer {
 .iziToast {
     background: rgb(0 0 0 / 45%) !important;
     backdrop-filter: blur(10px) !important;
+}
+
+.iziToast>.iziToast-body .iziToast-title {
+    font-size: 16px !important;
 }
 
 .iziToast-body .iziToast-message {

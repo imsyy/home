@@ -16,9 +16,9 @@
 @font-face {
     font-family: "iconfont";
     /* Project id 2831425 */
-    src: url('//at.alicdn.com/t/font_2831425_312vsfjkcz9.woff2?t=1642345600138') format('woff2'),
-        url('//at.alicdn.com/t/font_2831425_312vsfjkcz9.woff?t=1642345600138') format('woff'),
-        url('//at.alicdn.com/t/font_2831425_312vsfjkcz9.ttf?t=1642345600138') format('truetype');
+    src: url('../font/font_2831425_312vsfjkcz9.woff') format('woff2'),
+        url('../font/font_2831425_312vsfjkcz9.woff') format('woff'),
+        url('../font/font_2831425_312vsfjkcz9.ttf') format('truetype');
 }
 
 .iconfont {

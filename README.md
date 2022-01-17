@@ -12,8 +12,8 @@
 - [x] 日期及时间
 - [x] 天气信息
 - [x] 时光进度条
+- [x] 音乐插件
 
-* [ ] 音乐插件
 * [ ] 没想好
 
 ### 插件
@@ -23,6 +23,7 @@
 * [Iconfont](https://www.iconfont.cn/)
 * [Font Awesome](https://fontawesome.com/)
 * [jQuery](https://jquery.com/)
+* [Aplayer](https://aplayer.js.org/)
 
 ### API
 
