@@ -614,6 +614,11 @@ footer {
     opacity: 0.8;
 }
 
+.lrc-show {
+    /*播放音乐时底栏歌词*/
+    font-size: 1.15rem;
+}
+
 /*弹窗样式*/
 .iziToast {
     background: rgb(0 0 0 / 45%) !important;

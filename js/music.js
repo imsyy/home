@@ -3,7 +3,7 @@ const ap = new APlayer({
     order: 'random',
     preload: 'auto',
     listMaxHeight: '336px',
-    volume: 0.5,
+    volume: 0.3,
     mutex: true,
     lrcType: 3,
     audio: [{
@@ -125,6 +125,46 @@ const ap = new APlayer({
             cover: "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000",
             lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E7%BB%99%E6%88%91%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4.lrc",
             theme: "#e3ae55"
+        },
+        {
+            name: "霍元甲",
+            artist: "周杰伦",
+            url: "https://s-sh-2127-music.oss.dogecdn.com/song%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E9%9C%8D%E5%85%83%E7%94%B2.mp3",
+            cover: "https://y.qq.com/music/photo_new/T002R300x300M000000OixvE1YjIqd_3.jpg?max_age=2592000",
+            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E9%9C%8D%E5%85%83%E7%94%B2.lrc",
+            theme: "#295249"
+        },
+        {
+            name: "兰亭序",
+            artist: "周杰伦",
+            url: "https://s-sh-2127-music.oss.dogecdn.com/song%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E5%85%B0%E4%BA%AD%E5%BA%8F.mp3",
+            cover: "https://y.qq.com/music/photo_new/T002R300x300M000002Neh8l0uciQZ_1.jpg?max_age=2592000",
+            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E5%85%B0%E4%BA%AD%E5%BA%8F.lrc",
+            theme: "#e3ae55"
+        },
+        {
+            name: "枫",
+            artist: "周杰伦",
+            url: "https://s-sh-2127-music.oss.dogecdn.com/song%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E6%9E%AB.mp3",
+            cover: "https://y.qq.com/music/photo_new/T002R300x300M0000024bjiL2aocxT_1.jpg?max_age=2592000",
+            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E6%9E%AB.lrc",
+            theme: "#171513"
+        },
+        {
+            name: "断了的弦",
+            artist: "周杰伦",
+            url: "https://s-sh-2127-music.oss.dogecdn.com/song%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E6%96%AD%E4%BA%86%E7%9A%84%E5%BC%A6.mp3",
+            cover: "https://y.qq.com/music/photo_new/T002R300x300M000001BGzMs369FzU_1.jpg?max_age=2592000",
+            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E6%96%AD%E4%BA%86%E7%9A%84%E5%BC%A6.lrc",
+            theme: "#0057a7"
+        },
+        {
+            name: "天涯过客",
+            artist: "周杰伦",
+            url: "https://s-sh-2127-music.oss.dogecdn.com/song%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E5%A4%A9%E6%B6%AF%E8%BF%87%E5%AE%A2.mp3",
+            cover: "https://y.qq.com/music/photo_new/T002R300x300M000001uqejs3d6EID_1.jpg?max_age=2592000",
+            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E5%91%A8%E6%9D%B0%E4%BC%A6-%E5%A4%A9%E6%B6%AF%E8%BF%87%E5%AE%A2.lrc",
+            theme: "#b88e16"
         },
         {
             name: "千里之外",
@@ -332,10 +372,17 @@ ap.on('play', function () {
     });
     $("#play").html("<i class='iconfont icon-pause'>");
     $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
+    if ($(document).width() >= 990) {
+        window.lrc = setInterval(function () {
+            $("#lrc").html("<span class='lrc-show'><i class='iconfont icon-music'></i> " + $(".aplayer-lrc-current").text() + " <i class='iconfont icon-music'></i></span>");
+        }, 500);
+    }
 });
 
 ap.on('pause', function () {
     $("#play").html("<i class='iconfont icon-play'>");
+    clearInterval(window.lrc);
+    $("#lrc").html("Copyright © 2020-2022 <a href='https://imsyy.top'>無名</a> & Made by <a href='https://github.com/imsyy/home' target='_blank'>imsyy</a>");
 });
 
 /* 一言与音乐切换 */
