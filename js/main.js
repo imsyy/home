@@ -1,3 +1,9 @@
+//加载动画
+window.addEventListener('load', function () {
+    $('#loading-box').attr('class', 'loaded');
+    $('#section').css("cssText", "transform: scale(1) !important;opacity: 1 !important");
+}, false)
+
 //弹窗样式
 iziToast.settings({
     timeout: 10000,
@@ -12,41 +18,6 @@ iziToast.settings({
     messageColor: '#efefef',
     iconColor: '#efefef',
 });
-
-//控制台输出
-var styleTitle1 = `
-font-size: 20px;
-font-weight: 600;
-color: rgb(244,167,89);
-`
-var styleTitle2 = `
-font-style: oblique;
-font-size:14px;
-color: rgb(244,167,89);
-font-weight: 400;
-`
-var styleContent = `
-color: rgb(30,152,255);
-`
-var title1 = '無名の主页'
-var title2 = 'imsyy.top'
-var content = `
-版 本 号：1.5.0
-更新日期：2022-01-16 14:38:34
-
-更新说明：
-1. 新增 音乐播放器
-2. 新增 动态跟随鼠标样式
-3. 修复 部分控件无法点击
-4. 优化 移动端动画及细节
-5. 优化 页面加载缓慢
-6. 修复 时光胶囊显示错误
-
-主页:  https://imsyy.top
-Github:  https://github.com/imsyy/home
-`
-console.log(`%c${title1} %c${title2}
-%c${content}`, styleTitle1, styleTitle2, styleContent)
 
 //获取一言
 fetch('https://v1.hitokoto.cn?max_length=24')
@@ -147,12 +118,6 @@ var url = "https://api.ixiaowai.cn/gqapi/gqapi.php";
 $section.css("background", "url('" + url + "') center center no-repeat #666");
 $section.css("background-size", "cover");
 */
-
-//加载动画
-window.addEventListener('load', function () {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loading-box').classList.add("loaded")
-}, false)
 
 //链接提示文字
 $("#social").mouseover(function () {
@@ -330,3 +295,43 @@ for (var day of days) {
         });
     }
 }
+
+//控制台输出
+var styleTitle1 = `
+font-size: 20px;
+font-weight: 600;
+color: rgb(244,167,89);
+`
+var styleTitle2 = `
+font-size:12px;
+color: rgb(244,167,89);
+`
+var styleContent = `
+color: rgb(30,152,255);
+`
+var title1 = '無名の主页'
+var title2 = `
+ _____ __  __  _______     ____     __
+|_   _|  \\/  |/ ____\\ \\   / /\\ \\   / /
+  | | | \\  / | (___  \\ \\_/ /  \\ \\_/ / 
+  | | | |\\/| |\\___ \\  \\   /    \\   /  
+ _| |_| |  | |____) |  | |      | |   
+|_____|_|  |_|_____/   |_|      |_|                                                     
+`
+var content = `
+版 本 号：1.5.2
+更新日期：2022-01-20
+
+更新说明：
+1. 新增 音乐播放器
+2. 新增 开屏载入动画
+3. 修复 部分边距不一致
+4. 优化 移动端动画及细节
+5. 优化 页面加载缓慢
+6. 修复 时光胶囊显示错误
+
+主页:  https://imsyy.top
+Github:  https://github.com/imsyy/home
+`
+console.log(`%c${title1} %c${title2}
+%c${content}`, styleTitle1, styleTitle2, styleContent)

@@ -11,7 +11,7 @@
     .container-lg,
     .container-md,
     .container-sm {
-        max-width: 1100px !important;
+        max-width: 1000px !important;
     }
 
     .weekday {
@@ -27,15 +27,30 @@
 /*小于992px时*/
 @media (max-width: 992px) {
 
-    /*简介不可点击
-    .message {
-        pointer-events: none;
+    /*总布局*/
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm {
+        max-width: 900px !important;
     }
-    */
+
+    .col.left {
+        margin-right: 0.75rem;
+    }
+
+    .col.right {
+        margin-left: 0.75rem;
+    }
 
     /*一言*/
     .col.hitokotos {
         display: none;
+    }
+
+    /*时间卡片*/
+    .col.times {
+        margin-left: 0rem;
     }
 
     /*日期显示*/
@@ -116,9 +131,19 @@
         transform: translateY(20px);
     }
 
+    /*左侧栏边距*/
+    .col.left {
+        margin-right: 0rem;
+    }
+
     /*右侧栏隐藏*/
     .col.right {
         display: none;
+    }
+
+    /*右侧栏边距*/
+    .col.right {
+        margin-left: 0rem;
     }
 
     /*标题文字*/
@@ -185,6 +210,11 @@
     /*页脚文字*/
     footer {
         font-size: 0.85rem;
+    }
+
+    /*一言边距*/
+    .col.hitokotos {
+        margin-right: 0rem;
     }
 
     /*音乐播放器*/

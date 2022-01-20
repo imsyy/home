@@ -6,7 +6,7 @@
     height: 100%;
     background-color: rgb(81 81 81 / 80%);
     transition: all 0.7s cubic-bezier(0.42, 0, 0, 1.01);
-    backdrop-filter: blur(40px);
+    backdrop-filter: blur(10px);
 }
 
 #loading-box .loading-right-bg {
