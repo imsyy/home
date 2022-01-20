@@ -294,7 +294,7 @@ i#next {
 .music-text {
     font-size: 1.15rem;
     text-overflow: ellipsis;
-    max-width: 200px;
+    max-width: 220px;
     overflow-x: hidden;
     white-space: nowrap;
 }

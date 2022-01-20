@@ -23,29 +23,21 @@ iziToast.settings({
 fetch('https://v1.hitokoto.cn?max_length=24')
     .then(response => response.json())
     .then(data => {
-        const hitokoto = document.getElementById('hitokoto_text')
-        const from = document.getElementById('from_text')
-        hitokoto.innerText = data.hitokoto
-        from.innerText = data.from
+        $('#hitokoto_text').text(data.hitokoto)
+        $('#from_text').text(data.from)
     })
     .catch(console.error)
 
 //获取天气
-fetch('https://www.tianqiapi.com/free/day?appid=43986679&appsecret=TksqGZT7&unescape=1')
+fetch('https://www.yiketianqi.com/free/day?appid=43986679&appsecret=TksqGZT7&unescape=1')
     .then(response => response.json())
     .then(data => {
-        const wea = document.getElementById('wea_text')
-        const city = document.getElementById('city_text')
-        const tem_night = document.getElementById('tem_night')
-        const tem_day = document.getElementById('tem_day')
-        const win = document.getElementById('win_text')
-        const win_speed = document.getElementById('win_speed')
-        wea.innerText = data.wea
-        city.innerText = data.city
-        tem_night.innerText = data.tem_night
-        tem_day.innerText = data.tem_day
-        win.innerText = data.win
-        win_speed.innerText = data.win_speed
+        $('#wea_text').text(data.wea)
+        $('#city_text').text(data.city)
+        $('#tem_night').text(data.tem_night)
+        $('#tem_day').text(data.tem_day)
+        $('#win_text').text(data.win)
+        $('#win_speed').text(data.win_speed)
     })
     .catch(console.error)
 
@@ -76,48 +68,6 @@ function time() {
     document.getElementById("time").innerHTML = y + "&nbsp;年&nbsp;" + mm + "&nbsp;月&nbsp;" + d + "&nbsp;日&nbsp;" + "<span class='weekday'>" + weekday[day] + "</span><br>" + "<span class='time-text'>" + h + ":" + m + ":" + s + "</span>";
     t = setTimeout(time, 1000);
 }
-
-//必应壁纸
-/*
-var url = 'https://bird.ioliu.cn/v1/?url=https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8';
-var imgUrls = JSON.parse(sessionStorage.getItem("imgUrls"));
-var index = sessionStorage.getItem("index");
-var $section = $('#section');
-if (imgUrls == null) {
-    imgUrls = new Array();
-    index = 0;
-    $.get(url, function (result) {
-        images = result.images;
-        for (let i = 0; i < images.length; i++) {
-            const item = images[i];
-            imgUrls.push(item.url);
-        }
-        var imgUrl = imgUrls[index];
-        var url = "https://www.bing.com" + imgUrl;
-        $section.css("background", "url('" + url + "') center center no-repeat #666");
-        $section.css("background-size", "cover");
-        sessionStorage.setItem("imgUrls", JSON.stringify(imgUrls));
-        sessionStorage.setItem("index", index);
-    });
-} else {
-    if (index == 7)
-        index = 0;
-    else
-        index++;
-    var imgUrl = imgUrls[index];
-    var url = "https://www.bing.com" + imgUrl;
-    $section.css("background", "url('" + url + "') center center no-repeat #666");
-    $section.css("background-size", "cover");
-    sessionStorage.setItem("index", index);
-}
-*/
-//临时更换图片 api
-/*
-var $section = $('#section');
-var url = "https://api.ixiaowai.cn/gqapi/gqapi.php";
-$section.css("background", "url('" + url + "') center center no-repeat #666");
-$section.css("background-size", "cover");
-*/
 
 //链接提示文字
 $("#social").mouseover(function () {
@@ -237,13 +187,7 @@ window.addEventListener('load', function () {
         }
     })
 })
-/*
-document.getElementById("theme-toggle").addEventListener("click", () => {
-    document.body.className.includes("dark") ? (document.body.classList.remove('dark'),
-        localStorage.setItem("pref-theme", 'light')) : (document.body.classList.add('dark'),
-        localStorage.setItem("pref-theme", 'dark'))
-})
-*/
+
 //移动端切换功能区
 var changemore = false;
 $('#changemore').on('click', function () {
