@@ -52,8 +52,9 @@ section {
     height: 100%;
     min-height: 600px;
     transform: scale(1.10);
-    transition: 1.5s;
+    transition: ease 1.25s;
     opacity: 0;
+    filter: blur(10px);
 }
 
 main {
