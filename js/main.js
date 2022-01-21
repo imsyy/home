@@ -4,6 +4,10 @@ window.addEventListener('load', function () {
     $('#section').css("cssText", "transform: scale(1) !important;opacity: 1 !important;filter: blur(0px) !important");
 }, false)
 
+setTimeout(function () {
+    $('#loading-text').html("字体及文件加载可能需要一定时间")
+}, 2000);
+
 //弹窗样式
 iziToast.settings({
     timeout: 10000,

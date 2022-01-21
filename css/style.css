@@ -17,7 +17,7 @@ p {
     transition: 0.3s;
     color: #efefef;
     user-select: none;
-    font-family: 'PingFangSC';
+    font-family: 'MiSans';
 }
 
 a:hover {
@@ -140,10 +140,10 @@ span.img-text {
     justify-content: space-between;
 }
 
-p.des-title {
+.des-title {
     margin: 1rem 1rem;
     line-height: 2rem;
-    font-size: 1.10rem;
+    /*font-size: 1.10rem;*/
 }
 
 span#change {
@@ -203,7 +203,7 @@ i.iconfont.icon-yinhao-copy {
 }
 
 .hitokoto-text {
-    font-size: 1.2rem;
+    font-size: 1.10rem;
 }
 
 .hitokoto-from {
@@ -293,7 +293,7 @@ i#next {
 }
 
 .music-text {
-    font-size: 1.15rem;
+    font-size: 1.10rem;
     text-overflow: ellipsis;
     max-width: 220px;
     overflow-x: hidden;
@@ -344,18 +344,18 @@ span.time-text {
 .line {
     margin: 1rem 0.25rem;
     margin-top: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.10rem;
     display: flex;
     align-items: center;
 }
 
 span.line-text {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     margin: 0px 6px;
 }
 
 i.iconfont.icon-link {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 /*链接卡片*/
@@ -382,11 +382,11 @@ i.iconfont.icon-link {
 }
 
 span.link-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .link-card:hover span.link-name {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
 /*更多页面*/
@@ -508,7 +508,7 @@ span.link-name {
     display: flex;
     flex-direction: column;
     line-height: 40px;
-    font-size: 1.25rem;
+    font-size: 1.10rem;
 }
 
 .closebox {
@@ -629,7 +629,7 @@ footer {
 
 .lrc-show {
     /*播放音乐时底栏歌词*/
-    font-size: 1.15rem;
+    font-size: 1.10rem;
 }
 
 /*弹窗样式*/
