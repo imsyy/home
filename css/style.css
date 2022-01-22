@@ -627,9 +627,11 @@ footer {
     opacity: 0.8;
 }
 
-.lrc-show {
-    /*播放音乐时底栏歌词*/
-    font-size: 1.10rem;
+/*播放音乐时底栏歌词*/
+#lrc {
+    display: none;
+    line-height: 46px;
+    opacity: 0.8;
 }
 
 /*弹窗样式*/

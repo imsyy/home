@@ -410,6 +410,11 @@ const ap = new APlayer({
     ]
 });
 
+/* 底栏歌词 */
+setInterval(function () {
+    $("#lrc").html("<span class='lrc-show'><i class='iconfont icon-music'></i> " + $(".aplayer-lrc-current").text() + " <i class='iconfont icon-music'></i></span>");
+}, 500);
+
 /* 音乐通知及控制 */
 ap.on('play', function () {
     music = $(".aplayer-title").text() + $(".aplayer-author").text();
@@ -422,16 +427,17 @@ ap.on('play', function () {
     $("#play").html("<i class='iconfont icon-pause'>");
     $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
     if ($(document).width() >= 990) {
-        window.lrc = setInterval(function () {
-            $("#lrc").html("<span class='lrc-show'><i class='iconfont icon-music'></i> " + $(".aplayer-lrc-current").text() + " <i class='iconfont icon-music'></i></span>");
-        }, 500);
+        $('.power').css("cssText", "display:none");
+        $('#lrc').css("cssText", "display:block !important");
     }
 });
 
 ap.on('pause', function () {
     $("#play").html("<i class='iconfont icon-play'>");
-    clearInterval(window.lrc);
-    $("#lrc").html("Copyright © 2020-2022 <a href='https://imsyy.top'>無名</a> & Made by <a href='https://github.com/imsyy/home' target='_blank'>imsyy</a>");
+    if ($(document).width() >= 990) {
+        $('#lrc').css("cssText", "display:none !important");
+        $('.power').css("cssText", "display:block");
+    }
 });
 
 /* 一言与音乐切换 */

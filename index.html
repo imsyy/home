@@ -36,16 +36,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
-    <!-- 百度统计 -->
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?14e9f35ff8bc67fd4bcb5f07a6e6655a";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
     <!-- IE Out -->
     <script>
         if ( /*@cc_on!@*/ false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href =
@@ -373,13 +363,15 @@
         </main>
         <!-- 版权信息 -->
         <footer id="footer" class="fixed-bottom footer">
-            <div class="power" id="lrc">Copyright&nbsp;&copy;&nbsp;2020
+            <div class="power">Copyright&nbsp;&copy;&nbsp;2020
                 <script>
                     document.write(' - ' + (new Date()).getFullYear())
                 </script>&nbsp;<a href="https://imsyy.top">無名</a>&nbsp;&amp;&nbsp;
                 <!-- 以下信息请不要修改哦 -->
                 Made&nbsp;by&nbsp;<a href="https://github.com/imsyy/home" target="_blank">imsyy</a>
             </div>
+            <!-- 歌词显示 -->
+            <div id="lrc"></div>
         </footer>
     </section>
     <!-- JS -->
