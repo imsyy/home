@@ -218,6 +218,7 @@ i.iconfont.icon-yinhao-copy {
     justify-content: center;
     background: rgb(0 0 0 / 15%);
     padding: 4px 0px;
+    font-size: 0.95rem;
     animation: fade;
     -webkit-animation: fade 0.5s;
     -moz-animation: fade 0.5s;
@@ -439,7 +440,7 @@ span.link-name {
     width: 100%;
     height: 20px;
     align-items: center;
-    background: rgb(255 255 255 / 25%) !important;
+    background: rgb(0 0 0 / 0%) !important;
     backdrop-filter: blur(5px);
 }
 
@@ -574,6 +575,10 @@ i.iconfont.icon-github1 {
     border-bottom: 1px solid transparent !important;
 }
 
+.aplayer-list-cur {
+    background-color: #eeeeee !important;
+}
+
 /*控制面板 - Bug*/
 .aplayer .aplayer-info .aplayer-controller {
     display: none !important;
@@ -624,14 +629,24 @@ footer {
 
 .power {
     line-height: 46px;
-    opacity: 0.8;
+    color: #eeeeee;
+    animation: fade;
+    -webkit-animation: fade 0.75s;
+    -moz-animation: fade 0.75s;
+    -o-animation: fade 0.75s;
+    -ms-animation: fade 0.75s;
 }
 
 /*播放音乐时底栏歌词*/
 #lrc {
     display: none;
     line-height: 46px;
-    opacity: 0.8;
+    color: #eeeeee;
+    animation: fade;
+    -webkit-animation: fade 0.75s;
+    -moz-animation: fade 0.75s;
+    -o-animation: fade 0.75s;
+    -ms-animation: fade 0.75s;
 }
 
 /*弹窗样式*/
