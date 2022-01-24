@@ -44,6 +44,13 @@ a:hover {
     background-position: center center;
 }
 
+.noscript {
+    z-index: 999999;
+    font-size: 0.95rem;
+    text-align: center;
+    margin: 14px 0px;
+}
+
 /*页面样式*/
 section {
     display: block;
