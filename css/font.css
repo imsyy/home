@@ -7,17 +7,11 @@
     font-family: "UnidreamLED";
     src: url('../font/UnidreamLED.ttf') format('truetype');
 }
-/*
-@font-face {
-    font-family: "PingFangSC";
-    src: url('../font/PingFangSC.woff2') format('woff2');
-}
-*/
+
 @font-face {
     font-family: "MiSans";
-    src: url('https://cdn.jsdelivr.net/gh/imsyy/file@master/font/MiSans-Regular.woff') format('woff');
+    src: url('https://s-bj-2127-file.oss.dogecdn.com/font/MiSans-Regular.woff') format('woff');
 }
-
 
 @font-face {
     font-family: "iconfont";

@@ -264,14 +264,6 @@ const ap = new APlayer({
             theme: "#0a0708"
         },
         {
-            name: "派对动物",
-            artist: "五月天",
-            url: "https://drive.imsyy.top/api?path=%2F%E9%9F%B3%E4%B9%90%2F%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8%2F%E4%BA%94%E6%9C%88%E5%A4%A9-%E6%B4%BE%E5%AF%B9%E5%8A%A8%E7%89%A9.mp3&raw=true",
-            cover: "https://y.gtimg.cn/music/photo_new/T002R300x300M000002fRO0N4FftzY_1.jpg?max_age=2592000",
-            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E4%BA%94%E6%9C%88%E5%A4%A9-%E6%B4%BE%E5%AF%B9%E5%8A%A8%E7%89%A9.lrc",
-            theme: "#d0e8f2"
-        },
-        {
             name: "叹服",
             artist: "许嵩",
             url: "https://drive.imsyy.top/api?path=/%E9%9F%B3%E4%B9%90/%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/%E8%AE%B8%E5%B5%A9-%E5%8F%B9%E6%9C%8D.mp3&raw=true",

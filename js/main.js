@@ -8,6 +8,18 @@ setTimeout(function () {
     $('#loading-text').html("字体及文件加载可能需要一定时间")
 }, 2000);
 
+//延迟加载音乐播放器
+function downloadJSAtOnload() {
+    var element = document.createElement("script");
+    element.src = "./js/music.js";
+    document.body.appendChild(element);
+}
+if (window.addEventListener)
+    window.addEventListener("load", downloadJSAtOnload, false);
+else if (window.attachEvent)
+    window.attachEvent("onload", downloadJSAtOnload);
+else window.onload = downloadJSAtOnload;
+
 //弹窗样式
 iziToast.settings({
     timeout: 10000,

@@ -17,7 +17,7 @@ p {
     transition: 0.3s;
     color: #efefef;
     user-select: none;
-    font-family: 'MiSans';
+    font-family: 'MiSans', sans-serif;
 }
 
 a:hover {
@@ -39,7 +39,8 @@ a:hover {
 }
 
 #section {
-    background-image: url(https://api.ixiaowai.cn/gqapi/gqapi.php), url(../img/background.jpg);
+    /*background-image: url(https://api.ixiaowai.cn/gqapi/gqapi.php), url(../img/background.jpg);*/
+    background-image: url(https://api.dujin.org/bing/1920.php), url(../img/background.jpg);
     background-repeat: no-repeat;
     background-position: center center;
 }
