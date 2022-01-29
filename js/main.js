@@ -23,7 +23,6 @@ else window.onload = downloadJSAtOnload;
 //弹窗样式
 iziToast.settings({
     timeout: 10000,
-    //icon: 'Fontawesome',
     closeOnEscape: 'true',
     position: 'topLeft',
     transitionIn: 'bounceInRight',
@@ -226,7 +225,7 @@ $("#more").hover(function () {
 //屏蔽右键
 document.oncontextmenu = function () {
     iziToast.info({
-        //icon: 'fad fa-do-not-enter',
+        timeout: 4000,
         iconUrl: './img/warn.png',
         title: '温馨提醒',
         message: '为了浏览体验，本站禁用右键'
@@ -249,7 +248,6 @@ for (var day of days) {
         $("#change1").html("今天是国家纪念日，全站已切换为黑白模式");
         iziToast.info({
             timeout: 14000,
-            //icon: 'fad fa-candle-holder',
             iconUrl: './img/candle.png',
             title: '今天是国家纪念日',
             message: '历史不会忘记，人民永远铭记！'
@@ -280,18 +278,17 @@ var title2 = `
 |_____|_|  |_|_____/   |_|      |_|                                                     
 `
 var content = `
-版 本 号：1.5.2
-更新日期：2022-01-20
+版 本 号：1.6
+更新日期：2022-01-30
 
 更新说明：
-1. 新增 音乐播放器
-2. 新增 开屏载入动画
-3. 修复 部分边距不一致
-4. 优化 移动端动画及细节
-5. 优化 页面加载缓慢
-6. 修复 时光胶囊显示错误
+1. 新增 音乐播放器支持音量控制
+2. 修复 CDN 加载缓慢
+3. 优化 部分动画及细节
+4. 优化 页面加载缓慢
+5. 优化 音乐列表延迟加载
 
-主页:  https://imsyy.top
+主页:  https://www.imsyy.top
 Github:  https://github.com/imsyy/home
 `
 console.log(`%c${title1} %c${title2}

@@ -411,6 +411,7 @@ setInterval(function () {
 ap.on('play', function () {
     music = $(".aplayer-title").text() + $(".aplayer-author").text();
     iziToast.info({
+        timeout: 6000,
         iconUrl: './img/play.png',
         displayMode: 'replace',
         title: '音乐通知',
@@ -431,6 +432,29 @@ ap.on('pause', function () {
         $('.power').css("cssText", "display:block");
     }
 });
+
+//音量调节
+function changevolume() {
+    var x = $("#volume").val();
+    ap.volume(x, true);
+    if (x == 0) {
+        $("#volume-ico").html("<i class='iconfont icon-volume-x'></i>");
+    } else if (x > 0 && x <= 0.3) {
+        $("#volume-ico").html("<i class='iconfont icon-volume'></i>");
+    } else if (x > 0.3 && x <= 0.6) {
+        $("#volume-ico").html("<i class='iconfont icon-volume-1'></i>");
+    } else {
+        $("#volume-ico").html("<i class='iconfont icon-volume-2'></i>");
+    }
+}
+
+$("#music").hover(function () {
+    $('.music-text').css("display", "none");
+    $('.music-volume').css("display", "flex");
+}, function () {
+    $('.music-text').css("display", "block");
+    $('.music-volume').css("display", "none");
+})
 
 /* 一言与音乐切换 */
 $('#open-music').on('click', function () {

@@ -29,7 +29,8 @@
     <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
     <!-- Izitoast -->
     <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/izitoast/1.4.0/css/iziToast.min.css">
-    <script type="text/javascript" src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/izitoast/1.4.0/js/iziToast.min.js">
+    <script type="text/javascript"
+        src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/izitoast/1.4.0/js/iziToast.min.js">
     </script>
     <!-- Aplayer -->
     <link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css"
@@ -144,8 +145,17 @@
                                                 </div>
                                                 <i class="iconfont icon-next-one" id="next"></i>
                                             </div>
-                                            <div class="music-text">
-                                                <span id="music-name">未播放音乐</span>
+                                            <div class="music-menu">
+                                                <div class="music-text">
+                                                    <span id="music-name">未播放音乐</span>
+                                                </div>
+                                                <div class="music-volume" style="display: none;">
+                                                    <div id="volume-ico">
+                                                        <i class="iconfont icon-volume-1"></i>
+                                                    </div>
+                                                    <input type="range" min="0" max="1" step="0.1" id="volume"
+                                                        oninput="changevolume()">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -337,19 +347,17 @@
                             <div class="img-title">
                                 <span class="img-title">imsyy</span>
                                 <span class="img-text">.top</span>
-                                <span class="img-text">&nbsp;&nbsp;v&nbsp;1.5</span>
+                                <span class="img-text">&nbsp;&nbsp;v&nbsp;1.6</span>
                                 <a href="https://github.com/imsyy/home" target="_blank"><i
                                         class="iconfont icon-github1"></i></a>
                             </div>
                             <div class="upnote">
-                                <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;新增音乐播放器</span>
-                                <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;修复时间胶囊（ 时光进度条 ）</span>
-                                <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;隐藏页面新增全屏弹窗</span>
+                                <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;音乐播放器支持音量控制</span>
                                 <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;新增动态跟随鼠标样式</span>
+                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;修复 CDN 加载缓慢</span>
                                 <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;时光胶囊显示错误</span>
                                 <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;移动端动画及细节</span>
-                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;图标由 Fontawesome 改为
-                                    Iconfont</span>
+                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;图标改为 Iconfont</span>
                                 <span class="uptext"><i class="iconfont icon-undo"></i>&nbsp;<a href="./old/"
                                         style="color:#efefef">点击此处返回旧版站点</a></span>
                             </div>
@@ -383,8 +391,8 @@
     <script type="text/javascript" src="./js/time.js"></script>
     <script type="text/javascript" src="./js/cursor.js"></script>
     <script type="text/javascript" src="./js/lantern.js" defer></script>
-    <!-- <script type="text/javascript" src="./js/music.js" defer></script> -->
-    <script type="text/javascript" src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.0/js/bootstrap.min.js">
+    <script type="text/javascript"
+        src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.0/js/bootstrap.min.js">
     </script>
 </body>
 

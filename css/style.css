@@ -282,6 +282,12 @@ i.iconfont.icon-yinhao-copy {
     width: 100%;
 }
 
+.music-menu {
+    height: 26px;
+    display: flex;
+    align-items: center;
+}
+
 i.iconfont.icon-play,
 i.iconfont.icon-pause {
     font-size: 2.25rem;
@@ -307,6 +313,11 @@ i#next {
     max-width: 220px;
     overflow-x: hidden;
     white-space: nowrap;
+    animation: fade;
+    -webkit-animation: fade 0.5s;
+    -moz-animation: fade 0.5s;
+    -o-animation: fade 0.5s;
+    -ms-animation: fade 0.5s;
 }
 
 #music-open,
@@ -323,6 +334,58 @@ i#next {
 #music-open:hover,
 #music-close:hover {
     background: rgb(255 255 255 / 30%);
+}
+
+.music-volume {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    animation: fade;
+    -webkit-animation: fade 0.5s;
+    -moz-animation: fade 0.5s;
+    -o-animation: fade 0.5s;
+    -ms-animation: fade 0.5s;
+}
+
+#volume-ico {
+    padding-top: 1px;
+    margin-right: 6px;
+}
+
+.music-volume i {
+    font-size: 1.75rem;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    border-radius: 10px;
+    height: 8px;
+    background: rgb(255 255 255 / 15%);
+}
+
+input[type=range]::-webkit-slider-thumb,
+input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track,
+input[type=range]::-moz-range-track {
+    height: 15px;
+    border-radius: 10px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background: #ffffff;
+    border-radius: 50%;
 }
 
 /*时间卡片*/
@@ -676,7 +739,7 @@ footer {
 }
 
 .iziToast-message.slideIn {
-    margin-top: 5px !important;
+    margin-top: 8px !important;
 }
 
 .iziToast-message {
