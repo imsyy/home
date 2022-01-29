@@ -34,6 +34,22 @@ iziToast.settings({
     iconColor: '#efefef',
 });
 
+//火狐浏览器独立样式
+if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
+    var head = document.getElementsByTagName('head')[0];
+    var link = document.createElement('link');
+    link.href = './css/firefox.css';
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    head.appendChild(link);
+    iziToast.info({
+        timeout: 8000,
+        iconUrl: './img/warn.png',
+        title: '兼容提醒',
+        message: '您正在使用火狐浏览器，部分功能可能不支持'
+    });
+}
+
 //获取一言
 fetch('https://v1.hitokoto.cn?max_length=24')
     .then(response => response.json())

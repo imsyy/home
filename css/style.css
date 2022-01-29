@@ -308,6 +308,7 @@ i#next {
 }
 
 .music-text {
+    margin-top: 6px;
     font-size: 1.10rem;
     text-overflow: ellipsis;
     max-width: 220px;

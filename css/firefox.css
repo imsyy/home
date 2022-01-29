@@ -1,0 +1,22 @@
+#section {
+    background-image: url(../img/background.jpg) !important;
+}
+
+.message,
+.time,
+.hitokoto,
+.music,
+.link-card,
+.more,
+.box-wrapper,
+footer {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.link-card:hover {
+    background: rgb(0, 0, 0, 0.6);
+}
+
+.progress {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
