@@ -255,7 +255,7 @@ $("#more").hover(function () {
 //屏蔽右键
 document.oncontextmenu = function () {
     iziToast.info({
-        timeout: 400000,
+        timeout: 4000,
         iconUrl: './img/warn.png',
         title: '温馨提醒',
         message: '为了浏览体验，本站禁用右键'
