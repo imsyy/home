@@ -177,12 +177,12 @@
 
     span.link-name {
         display: block !important;
-        font-size: 1.05rem;
+        font-size: 0.95rem;
     }
 
     span.line-text,
     i.iconfont.icon-link {
-        font-size: 1.20rem;
+        font-size: 1.05rem;
     }
 
     /*菜单栏按钮*/
@@ -212,14 +212,27 @@
         font-size: 0.85rem;
     }
 
-    /*一言边距*/
+    /*一言*/
     .col.hitokotos {
         margin-right: 0rem;
+    }
+
+    .hitokoto-text,
+    .hitokoto-from {
+        font-size: 1.05rem;
     }
 
     /*音乐播放器*/
     .music-text {
         max-width: 100% !important;
+    }
+
+    #music-name {
+        font-size: 1.05rem;
+    }
+
+    #music-open {
+        display: none;
     }
 
     /*隐藏鼠标样式*/

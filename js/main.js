@@ -20,6 +20,20 @@ else if (window.attachEvent)
     window.attachEvent("onload", downloadJSAtOnload);
 else window.onload = downloadJSAtOnload;
 
+//新春灯笼 （ 需要时取消注释 ）
+/*
+new_element=document.createElement("link");
+new_element.setAttribute("rel","stylesheet");
+new_element.setAttribute("type","text/css");
+new_element.setAttribute("href","./css/lantern.css");
+document.body.appendChild(new_element);
+
+new_element=document.createElement("script");
+new_element.setAttribute("type","text/javascript");
+new_element.setAttribute("src","./js/lantern.js");
+document.body.appendChild(new_element);
+*/
+
 //弹窗样式
 iziToast.settings({
     timeout: 10000,
@@ -42,12 +56,14 @@ if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
     link.rel = 'stylesheet';
     link.type = 'text/css';
     head.appendChild(link);
-    iziToast.info({
-        timeout: 8000,
-        iconUrl: './img/warn.png',
-        title: '兼容提醒',
-        message: '您正在使用火狐浏览器，部分功能可能不支持'
-    });
+    window.addEventListener('load', function () {
+        iziToast.info({
+            timeout: 8000,
+            iconUrl: './img/warn.png',
+            title: '兼容提醒',
+            message: '您正在使用火狐浏览器，部分功能可能不支持'
+        });
+    }, false)
 }
 
 //获取一言
@@ -165,12 +181,10 @@ $('#switchmore').on('click', function () {
 
 //更多页面关闭按钮
 $('#close').on('click', function () {
-    $('#container').attr('class', 'container');
-    $("#change").html("Hello&nbsp;World&nbsp;!");
-    $("#change1").html("一个建立于 21 世纪的小站，存活于互联网的边缘");
+    $('#switchmore').click();
 });
 
-//菜单栏切换
+//移动端菜单栏切换
 var switchmenu = false;
 $('#switchmenu').on('click', function () {
     switchmenu = !switchmenu;
@@ -241,7 +255,7 @@ $("#more").hover(function () {
 //屏蔽右键
 document.oncontextmenu = function () {
     iziToast.info({
-        timeout: 4000,
+        timeout: 400000,
         iconUrl: './img/warn.png',
         title: '温馨提醒',
         message: '为了浏览体验，本站禁用右键'
@@ -261,13 +275,15 @@ for (var day of days) {
             '<style>html{-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);_filter:none}</style>'
         )
         $("#change").html("Silence&nbsp;in&nbsp;silence");
-        $("#change1").html("今天是国家纪念日，全站已切换为黑白模式");
-        iziToast.info({
-            timeout: 14000,
-            iconUrl: './img/candle.png',
-            title: '今天是国家纪念日',
-            message: '历史不会忘记，人民永远铭记！'
-        });
+        $("#change1").html("今天是中国国家纪念日，全站已切换为黑白模式");
+        window.addEventListener('load', function () {
+            iziToast.info({
+                timeout: 14000,
+                iconUrl: './img/candle.png',
+                title: '今天是中国国家纪念日',
+                message: '历史不会忘记，人民永远铭记！'
+            });
+        }, false);
     }
 }
 

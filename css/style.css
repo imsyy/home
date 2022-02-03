@@ -576,12 +576,16 @@ span.link-name {
 }
 
 .upnote {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-left: 2rem;
     display: flex;
     flex-direction: column;
     line-height: 40px;
     font-size: 1.10rem;
+}
+
+.uptext i {
+    font-size: 1.25rem;
 }
 
 .closebox {
@@ -616,7 +620,16 @@ i.iconfont.icon-github1 {
 }
 
 .aplayer.aplayer-withlrc .aplayer-pic {
-    border-radius: 6px !important;
+    display: none;
+}
+
+.aplayer.aplayer-withlrc .aplayer-info {
+    margin-left: 0px !important;
+}
+
+.aplayer.aplayer-withlrc .aplayer-info {
+    background-color: #ffffff26;
+    border-radius: 6px;
 }
 
 /*歌曲名称*/
@@ -625,17 +638,13 @@ i.iconfont.icon-github1 {
 }
 
 /*音乐列表*/
-.aplayer.aplayer-withlist .aplayer-list {
-    margin-top: 8px;
-}
-
 .aplayer .aplayer-list ol li.aplayer-list-light {
-    background: #ffffff57 !important;
+    background: #ffffff26 !important;
     border-radius: 6px !important;
 }
 
 .aplayer .aplayer-list ol li:hover {
-    background: #ffffff57 !important;
+    background: #ffffff26 !important;
     border-radius: 6px !important;
 }
 
@@ -660,6 +669,11 @@ i.iconfont.icon-github1 {
 .aplayer .aplayer-lrc {
     margin: 4px 0 0px !important;
     height: 34px !important;
+}
+
+.aplayer .aplayer-lrc {
+    text-align: left !important;
+    margin-left: 5px !important;
 }
 
 /*歌词大小*/
@@ -733,6 +747,10 @@ footer {
 
 .iziToast-body .iziToast-message {
     line-height: 18px !important;
+}
+
+.iziToast>.iziToast-body .iziToast-message {
+    margin: 6px 0px 4px 0px !important;
 }
 
 .iziToast:after {
