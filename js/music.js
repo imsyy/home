@@ -434,6 +434,10 @@ ap.on('pause', function () {
 });
 
 //音量调节
+$(document).ready(function () {
+    $('#volume').val(0.5);
+})
+
 function changevolume() {
     var x = $("#volume").val();
     ap.volume(x, true);
