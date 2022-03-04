@@ -1,7 +1,35 @@
-//加载动画
+//弹窗样式
+iziToast.settings({
+    timeout: 10000,
+    progressBar: false,
+    close: false,
+    closeOnEscape: true,
+    position: 'topCenter',
+    transitionIn: 'bounceInDown',
+    transitionOut: 'flipOutX',
+    displayMode: 'replace',
+    layout: '1',
+    backgroundColor: '#00000040',
+    titleColor: '#efefef',
+    messageColor: '#efefef',
+    iconColor: '#efefef',
+});
+
+//加载完成后执行
 window.addEventListener('load', function () {
+
+    //载入动画
     $('#loading-box').attr('class', 'loaded');
     $('#section').css("cssText", "transform: scale(1) !important;opacity: 1 !important;filter: blur(0px) !important");
+
+    //用户欢迎
+    setTimeout(function () {
+        iziToast.show({
+            timeout: 2500,
+            title: hello,
+            message: '欢迎来到我的主页'
+        });
+    }, 800);
 }, false)
 
 setTimeout(function () {
@@ -34,20 +62,6 @@ new_element.setAttribute("src","./js/lantern.js");
 document.body.appendChild(new_element);
 */
 
-//弹窗样式
-iziToast.settings({
-    timeout: 10000,
-    closeOnEscape: 'true',
-    position: 'topLeft',
-    transitionIn: 'bounceInRight',
-    transitionOut: 'fadeOutLeft',
-    displayMode: 'replace',
-    layout: '2',
-    titleColor: '#efefef',
-    messageColor: '#efefef',
-    iconColor: '#efefef',
-});
-
 //火狐浏览器独立样式
 if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
     var head = document.getElementsByTagName('head')[0];
@@ -57,10 +71,9 @@ if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
     link.type = 'text/css';
     head.appendChild(link);
     window.addEventListener('load', function () {
-        iziToast.info({
+        iziToast.show({
             timeout: 8000,
             iconUrl: './img/warn.png',
-            title: '兼容提醒',
             message: '您正在使用火狐浏览器，部分功能可能不支持'
         });
     }, false)
@@ -254,10 +267,9 @@ $("#more").hover(function () {
 
 //屏蔽右键
 document.oncontextmenu = function () {
-    iziToast.info({
-        timeout: 4000,
+    iziToast.show({
+        timeout: 2000,
         iconUrl: './img/warn.png',
-        title: '温馨提醒',
         message: '为了浏览体验，本站禁用右键'
     });
     return false;
@@ -277,11 +289,10 @@ for (var day of days) {
         $("#change").html("Silence&nbsp;in&nbsp;silence");
         $("#change1").html("今天是中国国家纪念日，全站已切换为黑白模式");
         window.addEventListener('load', function () {
-            iziToast.info({
+            iziToast.show({
                 timeout: 14000,
                 iconUrl: './img/candle.png',
-                title: '今天是中国国家纪念日',
-                message: '历史不会忘记，人民永远铭记！'
+                message: '今天是中国国家纪念日'
             });
         }, false);
     }

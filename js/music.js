@@ -3,7 +3,7 @@ const ap = new APlayer({
     order: 'random',
     preload: 'auto',
     listMaxHeight: '336px',
-    volume: 0.5,
+    volume: '0.5',
     mutex: true,
     lrcType: 3,
     /* 下方更改为你自己的歌单就行 */
@@ -256,11 +256,19 @@ const ap = new APlayer({
             theme: "#b3dae1"
         },
         {
-            name: "你不是真正的快乐",
+            name: "知足",
             artist: "五月天",
-            url: "https://drive.imsyy.top/api?path=%2F%E9%9F%B3%E4%B9%90%2F%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8%2F%E4%BA%94%E6%9C%88%E5%A4%A9-%E4%BD%A0%E4%B8%8D%E6%98%AF%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BF%AB%E4%B9%90.mp3&raw=true",
-            cover: "https://y.gtimg.cn/music/photo_new/T002R300x300M0000020I7sO0ayXhN_1.jpg?max_age=2592000",
-            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E4%BA%94%E6%9C%88%E5%A4%A9-%E4%BD%A0%E4%B8%8D%E6%98%AF%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BF%AB%E4%B9%90.lrc",
+            url: "https://drive.imsyy.top/api/raw/?path=/音乐/文件引用/五月天-知足.mp3",
+            cover: "https://y.qq.com/music/photo_new/T002R300x300M0000020I7sO0ayXhN_1.jpg?max_age=2592000",
+            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E4%BA%94%E6%9C%88%E5%A4%A9-%E7%9F%A5%E8%B6%B3.lrc",
+            theme: "#0a0708"
+        },
+        {
+            name: "如烟",
+            artist: "五月天",
+            url: "https://drive.imsyy.top/api/raw/?path=/音乐/文件引用/五月天-如烟.mp3",
+            cover: "https://y.qq.com/music/photo_new/T002R300x300M0000020I7sO0ayXhN_1.jpg?max_age=2592000",
+            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E4%BA%94%E6%9C%88%E5%A4%A9-%E5%A6%82%E7%83%9F.lrc",
             theme: "#0a0708"
         },
         {
@@ -411,11 +419,10 @@ setInterval(function () {
 ap.on('play', function () {
     music = $(".aplayer-title").text() + $(".aplayer-author").text();
     iziToast.info({
-        timeout: 6000,
-        iconUrl: './img/play.png',
+        timeout: 8000,
+        iconUrl: './img/music.png',
         displayMode: 'replace',
-        title: '音乐通知',
-        message: '正在播放：' + '&nbsp;' + music
+        message: music
     });
     $("#play").html("<i class='iconfont icon-pause'>");
     $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
@@ -434,10 +441,6 @@ ap.on('pause', function () {
 });
 
 //音量调节
-$(document).ready(function () {
-    $('#volume').val(0.5);
-})
-
 function changevolume() {
     var x = $("#volume").val();
     ap.volume(x, true);

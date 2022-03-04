@@ -737,7 +737,6 @@ footer {
 
 /*弹窗样式*/
 .iziToast {
-    background: rgb(0 0 0 / 45%) !important;
     backdrop-filter: blur(10px) !important;
 }
 
@@ -757,8 +756,10 @@ footer {
     box-shadow: none !important;
 }
 
-.iziToast-message.slideIn {
-    margin-top: 8px !important;
+.iziToast>.iziToast-body .iziToast-texts {
+    margin: 6px 6px !important;
+    display: flex !important;
+    align-items: center;
 }
 
 .iziToast-message {

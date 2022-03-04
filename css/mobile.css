@@ -249,6 +249,13 @@
     }
 }
 
+/* 大于568px时 */
+@media (min-width: 568px) {
+    .iziToast {
+        border-radius: 30px !important;
+    }
+}
+
 
 /* 大于720px时 */
 @media (min-width: 720px) {
