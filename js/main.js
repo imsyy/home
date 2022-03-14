@@ -89,7 +89,7 @@ fetch('https://v1.hitokoto.cn?max_length=24')
     .catch(console.error)
 
 //获取天气
-fetch('https://www.yiketianqi.com/free/day?appid=43986679&appsecret=TksqGZT7&unescape=1')
+fetch('https://www.yiketianqi.com/free/day?appid=47343665&appsecret=dABM2QxS&unescape=1')
     .then(response => response.json())
     .then(data => {
         $('#wea_text').text(data.wea)
