@@ -214,6 +214,15 @@ i.iconfont.icon-yinhao-copy {
     font-size: 1.10rem;
 }
 
+#hitokoto_text {
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
 .hitokoto-from {
     margin-top: 10px;
     font-weight: bold;
@@ -460,6 +469,11 @@ span.link-name {
 
 .link-card:hover span.link-name {
     font-size: 1.15rem;
+}
+
+i.iconfont.icon-a-daohangzhiyindingwei-05,
+i.iconfont.icon-z_shangpinheji {
+    font-size: 2rem;
 }
 
 /*更多页面*/

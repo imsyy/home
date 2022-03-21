@@ -16,9 +16,9 @@
 @font-face {
     font-family: "iconfont";
     /* Project id 2831425 */
-    src: url('../font/font_2831425_x34rhwyvdnp.woff2') format('woff2'),
-        url('../font/font_2831425_x34rhwyvdnp.woff') format('woff'),
-        url('../font/font_2831425_x34rhwyvdnp.ttf') format('truetype');
+    src: url('../font/iconfont.woff2') format('woff2'),
+        url('../font/iconfont.woff') format('woff'),
+        url('../font/iconfont.ttf') format('truetype');
 }
 
 .iconfont {
@@ -27,6 +27,14 @@
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-z_shangpinheji:before {
+    content: "\e683";
+}
+
+.icon-a-daohangzhiyindingwei-05:before {
+    content: "\e970";
 }
 
 .icon-volume-x:before {
