@@ -306,9 +306,9 @@ const ap = new APlayer({
         {
             name: "有何不可",
             artist: "许嵩",
-            url: "https://drive.imsyy.top/api?path=/%E9%9F%B3%E4%B9%90/%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/%E8%AE%B8%E5%B5%A9-%E6%9C%89%E4%BD%95%E4%B8%8D%E5%8F%AF.mp3&raw=true",
+            url: "https://drive.imsyy.top/api/raw/?path=/音乐/华语音乐/许嵩/许嵩%20-%20有何不可%20-%20独白版.mp3",
             cover: "https://y.qq.com/music/photo_new/T002R300x300M000002KSDg90IaScI_1.jpg?max_age=2592000",
-            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E8%AE%B8%E5%B5%A9-%E6%9C%89%E4%BD%95%E4%B8%8D%E5%8F%AF.lrc",
+            lrc: "https://s-sh-2127-music.oss.dogecdn.com/lrc%2F%E8%AE%B8%E5%B5%A9%20-%20%E6%9C%89%E4%BD%95%E4%B8%8D%E5%8F%AF%20-%20%E7%8B%AC%E7%99%BD%E7%89%88.lrc",
             theme: "#edbe76"
         },
         {

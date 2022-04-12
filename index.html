@@ -343,26 +343,82 @@
                         <div class="closebox fixed-top" id="closemore">
                             <i class="iconfont icon-close"></i>
                         </div>
-                        <!--更新日志-->
+                        <!--左侧内容-->
                         <div class="box-left">
                             <div class="img-title">
                                 <span class="img-title">imsyy</span>
                                 <span class="img-text">.top</span><br />
-                                <span class="img-text">&nbsp;&nbsp;v&nbsp;1.6</span>
+                                <span class="img-text">&nbsp;&nbsp;v&nbsp;2.2</span>
                                 <a href="https://github.com/imsyy/home" target="_blank"><i
                                         class="iconfont icon-github1"></i></a>
                             </div>
-                            <div class="upnote">
-                                <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;音乐播放器支持音量控制</span>
-                                <span class="uptext"><i class="iconfont icon-plus"></i>&nbsp;新增动态跟随鼠标样式</span>
-                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;修复 CDN 加载缓慢</span>
-                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;时光胶囊显示错误</span>
-                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;移动端动画及细节</span>
-                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;图标改为 Iconfont</span>
-                                <span class="uptext"><i class="iconfont icon-undo"></i>&nbsp;<a href="./old/"
-                                        style="color:#efefef">点击此处返回旧版站点</a></span>
+                            <!--更多内容-->
+                            <div class="accordion" id="accordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            个性设置 - 尚未实现
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="set">
+                                                <div class="set-text">壁纸个性化</div>
+                                                <div class="btn-group" role="group"
+                                                    aria-label="Basic radio toggle button group">
+                                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1"
+                                                        autocomplete="off" checked>
+                                                    <label class="btn btn-outline-primary" for="btnradio1">默认壁纸</label>
+
+                                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2"
+                                                        autocomplete="off">
+                                                    <label class="btn btn-outline-primary" for="btnradio2">每日一图</label>
+
+                                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3"
+                                                        autocomplete="off">
+                                                    <label class="btn btn-outline-primary" for="btnradio3">随机动漫</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--更新日志-->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            更新日志
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <div class="upnote">
+                                                <span class="uptext"><i
+                                                        class="iconfont icon-plus"></i>&nbsp;音乐播放器支持音量控制</span>
+                                                <span class="uptext"><i
+                                                        class="iconfont icon-plus"></i>&nbsp;新增动态跟随鼠标样式</span>
+                                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;修复
+                                                    CDN 加载缓慢</span>
+                                                <span class="uptext"><i
+                                                        class="iconfont icon-wrench-fill"></i>&nbsp;时光胶囊显示错误</span>
+                                                <span class="uptext"><i
+                                                        class="iconfont icon-wrench-fill"></i>&nbsp;移动端动画及细节</span>
+                                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;图标改为
+                                                    Iconfont</span>
+                                                <span class="uptext"><i class="iconfont icon-undo"></i>&nbsp;<a
+                                                        href="./old/" style="color:#efefef">点击此处返回旧版站点</a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!--Aplayer-->
                         <div class="box-right">
                             <div id="aplayer"></div>
                         </div>

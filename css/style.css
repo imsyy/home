@@ -546,13 +546,13 @@ i.iconfont.icon-z_shangpinheji {
     margin: 1rem 0rem 0.5rem 0rem;
 }
 
-/*更多页面链接*/
+/*其他链接*/
 
 .mores .link-card {
     height: 48px !important;
 }
 
-/*box*/
+/*更多页面*/
 .box-left {
     flex: 0 44%;
     min-width: 400px;
@@ -589,17 +589,55 @@ i.iconfont.icon-z_shangpinheji {
     justify-content: space-between;
 }
 
-.upnote {
-    margin-top: 1rem;
-    margin-left: 2rem;
-    display: flex;
-    flex-direction: column;
-    line-height: 40px;
-    font-size: 1.10rem;
+#accordion {
+    min-width: 360px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-left: 14px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 7%), 0 1px 5px 0 rgb(0 0 0 / 10%);
 }
 
-.uptext i {
-    font-size: 1.25rem;
+.accordion-item {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.accordion-item:first-of-type .accordion-button {
+    border-radius: 8px;
+}
+
+.accordion-button {
+    color: white !important;
+    background-color: transparent;
+    transition: 0.3s;
+
+}
+
+.accordion-button:focus {
+    border-color: #ffffff26 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #ffffff26;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.accordion-button::after {
+    border-radius: 8px;
+    background-image: none !important;
+}
+
+.accordion-body {
+    padding: 1rem 0rem !important;
+    background-color: #ffffff10;
 }
 
 .closebox {
@@ -615,6 +653,58 @@ i.iconfont.icon-z_shangpinheji {
 i.iconfont.icon-close,
 i.iconfont.icon-github1 {
     font-size: 1.45rem;
+}
+
+/*个性设置*/
+.set {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 1.5rem;
+}
+
+.set-text {
+    text-align: center;
+}
+
+.btn-group,
+.btn-group-vertical {
+    margin-top: 10px;
+}
+
+.btn-outline-primary {
+    color: #eeeeee !important;
+    border-color: #ffffff26 !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #ffffff26 !important;
+    border-color: #eeeeee !important;
+}
+
+.btn-check:focus+.btn, .btn:focus {
+    box-shadow: none !important;
+}
+
+.btn-check:active+.btn-outline-primary,
+.btn-check:checked+.btn-outline-primary,
+.btn-outline-primary.active,
+.btn-outline-primary.dropdown-toggle.show,
+.btn-outline-primary:active {
+    background-color: #ffffff26 !important;
+    border-color: #eeeeee !important;
+}
+
+/*更新日志*/
+.upnote {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 1.5rem;
+    height: 156px;
+    overflow-y: auto;
+}
+
+.uptext {
+    line-height: 32px;
 }
 
 /*Aplayer*/
@@ -652,6 +742,10 @@ i.iconfont.icon-github1 {
 }
 
 /*音乐列表*/
+.aplayer.aplayer-withlist .aplayer-list {
+    margin-top: 6px;
+}
+
 .aplayer .aplayer-list ol li.aplayer-list-light {
     background: #ffffff26 !important;
     border-radius: 6px !important;
@@ -783,4 +877,16 @@ footer {
 .iziToast>.iziToast-close {
     background: url(https://cdn.jsdelivr.net/gh/imsyy/file/pic/close.png) no-repeat 50% 50% !important;
     background-size: 8px !important;
+}
+
+/*滚动条样式*/
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #eeeeee;
 }
