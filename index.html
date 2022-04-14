@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="./css/animation.css">
     <link rel="stylesheet" type="text/css" href="./css/cursor.css">
     <link rel="icon" href="./favicon.ico">
-    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="./img/icon/apple-touch-icon.png">
     <!-- Izitoast -->
     <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/izitoast/1.4.0/css/iziToast.min.css">
     <script type="text/javascript"
@@ -60,8 +60,13 @@
             </div>
         </div>
     </div>
-    <!--加载动画结束-->
     <section id="section" class="section">
+        <!-- 背景图片 -->
+        <div class="bg-all">
+            <img id="bg" onerror="this.classList.add('error');"></img>
+            <div class="cover"></div>
+        </div>
+        <!--主体内容-->
         <main id="main" class="main">
             <div class="container" id="container">
                 <div class="row" id="row">
@@ -70,7 +75,7 @@
                         <div class="main-left">
                             <!--Logo-->
                             <div class="main-img">
-                                <img src="./img/logo.png" alt="img">
+                                <img src="./img/icon/logo.png" alt="img">
                                 <div class="img-title">
                                     <span class="img-title">imsyy</span>
                                     <span class="img-text">.top</span>
@@ -170,9 +175,9 @@
                                             <span id="city_text">天气</span>&nbsp;
                                             <span id="wea_text">加载失败</span>&nbsp;
                                             <span id="tem_night"></span>°C~
-                                            <span id="tem_day"></span>°C&nbsp;
-                                            <span id="win_text"></span>
-                                            <span id="win_speed"></span>
+                                            <span id="tem_day"></span>°C
+                                            <!-- <span id="win_text"></span>
+                                            <span id="win_speed"></span> -->
                                         </div>
                                     </div>
                                 </div>
@@ -359,27 +364,34 @@
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            个性设置 - 尚未实现
+                                            壁纸设置
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show"
                                         aria-labelledby="headingOne" data-bs-parent="#accordion">
                                         <div class="accordion-body">
                                             <div class="set">
-                                                <div class="set-text">壁纸个性化</div>
-                                                <div class="btn-group" role="group"
-                                                    aria-label="Basic radio toggle button group">
-                                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1"
-                                                        autocomplete="off" checked>
-                                                    <label class="btn btn-outline-primary" for="btnradio1">默认壁纸</label>
-
-                                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2"
-                                                        autocomplete="off">
-                                                    <label class="btn btn-outline-primary" for="btnradio2">每日一图</label>
-
-                                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3"
-                                                        autocomplete="off">
-                                                    <label class="btn btn-outline-primary" for="btnradio3">随机动漫</label>
+                                                <div class="wallpaper" id="wallpaper">
+                                                    <div class="form-radio">
+                                                        <input type="radio" class="set-wallpaper" style="display: none;"
+                                                            id="radio1" value="1" name="wallpaper-type">
+                                                        <label for="radio1">默认壁纸</label>
+                                                    </div>
+                                                    <div class="form-radio">
+                                                        <input type="radio" class="set-wallpaper" style="display: none;"
+                                                            id="radio2" value="2" name="wallpaper-type">
+                                                        <label for="radio2">每日一图</label>
+                                                    </div>
+                                                    <div class="form-radio">
+                                                        <input type="radio" class="set-wallpaper" style="display: none;"
+                                                            id="radio3" value="3" name="wallpaper-type">
+                                                        <label for="radio3">随机风景</label>
+                                                    </div>
+                                                    <div class="form-radio">
+                                                        <input type="radio" class="set-wallpaper" style="display: none;"
+                                                            id="radio4" value="4" name="wallpaper-type">
+                                                        <label for="radio4">随机动漫</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -399,17 +411,16 @@
                                         <div class="accordion-body">
                                             <div class="upnote">
                                                 <span class="uptext"><i
-                                                        class="iconfont icon-plus"></i>&nbsp;音乐播放器支持音量控制</span>
+                                                        class="iconfont icon-plus"></i>&nbsp;壁纸个性化设置</span>
                                                 <span class="uptext"><i
-                                                        class="iconfont icon-plus"></i>&nbsp;新增动态跟随鼠标样式</span>
+                                                        class="iconfont icon-plus"></i>&nbsp;音乐播放器支持音量控制</span>
                                                 <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;修复
                                                     CDN 加载缓慢</span>
                                                 <span class="uptext"><i
                                                         class="iconfont icon-wrench-fill"></i>&nbsp;时光胶囊显示错误</span>
                                                 <span class="uptext"><i
                                                         class="iconfont icon-wrench-fill"></i>&nbsp;移动端动画及细节</span>
-                                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;图标改为
-                                                    Iconfont</span>
+                                                <span class="uptext"><i class="iconfont icon-wrench-fill"></i>&nbsp;优化部分动画及细节</span>
                                                 <span class="uptext"><i class="iconfont icon-undo"></i>&nbsp;<a
                                                         href="./old/" style="color:#efefef">点击此处返回旧版站点</a></span>
                                             </div>
@@ -446,6 +457,8 @@
     <!-- JS -->
     <script type="text/javascript" src="./js/main.js"></script>
     <script type="text/javascript" src="./js/time.js"></script>
+    <script type="text/javascript" src="./js/js.cookie.js"></script>
+    <script type="text/javascript" src="./js/set.js"></script>
     <script type="text/javascript" src="./js/cursor.js"></script>
     <script type="text/javascript"
         src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.0/js/bootstrap.min.js">

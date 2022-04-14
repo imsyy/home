@@ -1,4 +1,4 @@
-@charset"utf-8";
+@charset "utf-8";
 
 /*全局样式*/
 html,
@@ -38,18 +38,56 @@ a:hover {
     transition: 0.5s;
 }
 
-#section {
-    /*background-image: url(https://api.ixiaowai.cn/gqapi/gqapi.php), url(../img/background.jpg);*/
-    background-image: url(https://api.dujin.org/bing/1920.php), url(../img/background.jpg);
+/* #section {
+    background-image: url(https://api.dujin.org/bing/1920.php), url(../img/background1.webp);
     background-repeat: no-repeat;
     background-position: center center;
-}
+} */
 
 .noscript {
     z-index: 999999;
     font-size: 0.95rem;
     text-align: center;
     margin: 14px 0px;
+}
+
+/*背景*/
+.bg-all {
+    z-index: 0;
+    position: absolute;
+    top: calc(0px + 0px);
+    left: 0;
+    width: 100%;
+    height: calc(100% - 0px);
+    transition: .25s;
+}
+
+#bg {
+    transform: scale(1.10);
+    filter: blur(10px);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s, transform .25s, filter .25s;
+    backface-visibility: hidden;
+}
+
+img.error {
+    display: none;
+}
+
+.cover {
+    opacity: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .5) 100%), radial-gradient(rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, .3) 166%);
+    transition: .25s;
 }
 
 /*页面样式*/
@@ -662,10 +700,6 @@ i.iconfont.icon-github1 {
     padding: 0rem 1.5rem;
 }
 
-.set-text {
-    text-align: center;
-}
-
 .btn-group,
 .btn-group-vertical {
     margin-top: 10px;
@@ -692,6 +726,36 @@ i.iconfont.icon-github1 {
 .btn-outline-primary:active {
     background-color: #ffffff26 !important;
     border-color: #eeeeee !important;
+}
+
+#wallpaper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.form-radio {
+    flex: 1 1 0%;
+    width: 31.3%;
+    min-width: 31.3%;
+    max-width: 31.3%;
+    text-align: center;
+    margin: 1%;
+}
+
+input[type="radio"]+label {
+    padding: 6px 10px;
+    background: #ffffff26;
+    border-radius: 8px;
+    transition: 0.3s;
+    border: 2px solid transparent;
+    width: 100%;
+}
+
+input[type="radio"]:checked+label {
+    background: #ffffff06;
+    border: 2px solid #eeeeee;
 }
 
 /*更新日志*/

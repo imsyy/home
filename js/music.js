@@ -420,7 +420,7 @@ ap.on('play', function () {
     music = $(".aplayer-title").text() + $(".aplayer-author").text();
     iziToast.info({
         timeout: 8000,
-        iconUrl: './img/music.png',
+        iconUrl: './img/icon/music.png',
         displayMode: 'replace',
         message: music
     });

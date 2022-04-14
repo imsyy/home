@@ -20,6 +20,8 @@ window.addEventListener('load', function () {
 
     //载入动画
     $('#loading-box').attr('class', 'loaded');
+    $('#bg').css("cssText", "transform: scale(1);filter: blur(0px);transition: ease 1.5s;");
+    $('.cover').css("cssText", "opacity: 1;transition: ease 1.5s;");
     $('#section').css("cssText", "transform: scale(1) !important;opacity: 1 !important;filter: blur(0px) !important");
 
     //用户欢迎
@@ -73,7 +75,7 @@ if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
     window.addEventListener('load', function () {
         iziToast.show({
             timeout: 8000,
-            iconUrl: './img/warn.png',
+            iconUrl: './img/icon/warn.png',
             message: '您正在使用火狐浏览器，部分功能可能不支持'
         });
     }, false)
@@ -98,8 +100,8 @@ fetch('https://www.yiketianqi.com/free/day?appid=43986679&appsecret=TksqGZT7&une
         $('#city_text').html(data.city)
         $('#tem_night').html(data.tem_night)
         $('#tem_day').html(data.tem_day)
-        $('#win_text').html(data.win)
-        $('#win_speed').html(data.win_speed)
+        // $('#win_text').html(data.win)
+        // $('#win_speed').html(data.win_speed)
     })
     .catch(console.error)
 
@@ -271,7 +273,7 @@ $("#more").hover(function () {
 document.oncontextmenu = function () {
     iziToast.show({
         timeout: 2000,
-        iconUrl: './img/warn.png',
+        iconUrl: './img/icon/warn.png',
         message: '为了浏览体验，本站禁用右键'
     });
     return false;
@@ -293,7 +295,7 @@ for (var day of days) {
         window.addEventListener('load', function () {
             iziToast.show({
                 timeout: 14000,
-                iconUrl: './img/candle.png',
+                iconUrl: './img/icon/candle.png',
                 message: '今天是中国国家纪念日'
             });
         }, false);
@@ -327,11 +329,11 @@ var content = `
 更新日期：2022-04-12
 
 更新说明：
-1. 新增 音乐播放器支持音量控制
-2. 修复 CDN 加载缓慢
+1. 新增 壁纸个性化设置
+2. 新增 音乐播放器支持音量控制
 3. 优化 部分动画及细节
 4. 优化 页面加载缓慢
-5. 优化 音乐列表延迟加载
+5. 优化 音乐延迟加载
 
 主页:  https://www.imsyy.top
 Github:  https://github.com/imsyy/home
