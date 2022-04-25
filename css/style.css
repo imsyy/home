@@ -38,12 +38,6 @@ a:hover {
     transition: 0.5s;
 }
 
-/* #section {
-    background-image: url(https://api.dujin.org/bing/1920.php), url(../img/background1.webp);
-    background-repeat: no-repeat;
-    background-position: center center;
-} */
-
 .noscript {
     z-index: 999999;
     font-size: 0.95rem;
