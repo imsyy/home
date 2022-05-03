@@ -3,9 +3,10 @@
 简单的小主页，原来的看够了，重新弄了一个
 </p>
 
-![無名の主页](https://img.imsyy.top/other/imsyy-home.png)
+![無名の主页](https://img.imsyy.top/other/imsyy-home.webp)
 
 >主页的名称字体已经过压缩，若用名称以外的字母会变回默认字体，这里是 [完整字体](https://cdn.jsdelivr.net/gh/imsyy/file/font/Pacifico-Regular.ttf)
+>天气 API 每日限量100次，需 [自行申请](https://www.tianqiapi.com/)
 
 ### Demo
 >由于 CDN 缓存原因，查看最新效果可能需要 `Ctrl` + `F5` 强制刷新浏览器缓存

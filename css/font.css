@@ -10,7 +10,8 @@
 
 @font-face {
     font-family: "MiSans";
-    src: url('../font/MiSans-Regular.woff') format('woff');
+    /* src: url('../font/MiSans-Regular.woff') format('woff'); */
+    src: url('https://file.imsyy.top/font/MiSans-Regular.woff') format('woff');
 }
 
 @font-face {
