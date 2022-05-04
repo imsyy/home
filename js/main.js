@@ -41,7 +41,7 @@ setTimeout(function () {
 //延迟加载音乐播放器
 function downloadJSAtOnload() {
     var element = document.createElement("script");
-    element.src = "./js/music.js";
+    element.src = "./js/music.min.js";
     document.body.appendChild(element);
 }
 if (window.addEventListener)
@@ -55,12 +55,12 @@ else window.onload = downloadJSAtOnload;
 new_element=document.createElement("link");
 new_element.setAttribute("rel","stylesheet");
 new_element.setAttribute("type","text/css");
-new_element.setAttribute("href","./css/lantern.css");
+new_element.setAttribute("href","./css/lantern.min.css");
 document.body.appendChild(new_element);
 
 new_element=document.createElement("script");
 new_element.setAttribute("type","text/javascript");
-new_element.setAttribute("src","./js/lantern.js");
+new_element.setAttribute("src","./js/lantern.min.js");
 document.body.appendChild(new_element);
 */
 
