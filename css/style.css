@@ -47,7 +47,7 @@ a:hover {
 
 /*背景*/
 .bg-all {
-    z-index: 0;
+    z-index: -1;
     position: absolute;
     top: calc(0px + 0px);
     left: 0;

@@ -73,11 +73,12 @@ if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
     link.type = 'text/css';
     head.appendChild(link);
     window.addEventListener('load', function () {
-        iziToast.show({
-            timeout: 8000,
-            iconUrl: './img/icon/warn.png',
-            message: '您正在使用火狐浏览器，部分功能可能不支持'
-        });
+        setTimeout(function () {
+            iziToast.show({
+                timeout: 8000,
+                message: '您正在使用火狐浏览器，部分功能可能不支持'
+            });
+        }, 3800);
     }, false)
 }
 
