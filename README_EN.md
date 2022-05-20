@@ -1,34 +1,34 @@
-简体中文 | [English](./README_EN.md)
+English | [Chinese](./README.md)
 
 <p>
 <strong><h2>無名の主页</h2></strong>
-简单的小主页，原来的看够了，重新弄了一个
+Simple little homepage, had enough of the original one and made a new one
 </p>
 
 ![無名の主页](https://img.imsyy.top/other/imsyy-home.webp)
 
->主页的 Logo 字体已经过压缩，若用本站 Logo 以外的字母会变回默认字体，这里是 [完整字体](https://file.imsyy.top/font/Pacifico-Regular.ttf)
+>The logo font on the home page has been compressed, so if you use a font other than this logo, it will change back to the default font, Here is the [full font](https://file.imsyy.top/font/Pacifico-Regular.ttf)  
 
->天气 API 每日限量100次，需 [自行申请](https://www.tianqiapi.com/)，或更换其他 API
+>Weather API is limited to 100 times per day, must [Apply on your own](https://www.tianqiapi.com/), or change to another api
 
 ### Demo
->由于 CDN 缓存原因，查看最新效果可能需要 `Ctrl` + `F5` 强制刷新浏览器缓存
+>Due to CDN caching, you may need `Ctrl` + `F5` to force a browser cache refresh to see the latest results
 
 - [無名の主页](https://www.imsyy.top)
 
-### 功能
+### Functions
 
-- [x] 载入动画
-- [x] 站点简介
-- [x] Hitokoto 一言
-- [x] 日期及时间
-- [x] 实时天气
-- [x] 时光进度条
-- [x] 音乐播放器
-- [x] 移动端适配
-* [ ] 还没想好呢
+- [x] Loading animation
+- [x] Site description
+- [x] Hitokoto
+- [x] Date and time
+- [x] Live weather
+- [x] Time progress bar
+- [x] Music player
+- [x] Mobile adaptation
+* [ ] Haven't thought about it yet
 
-### 插件
+### Plugins
 
 * [Bootstrap](https://getbootstrap.com/)
 * [iziToast](https://izitoast.marcelodolza.com/)
