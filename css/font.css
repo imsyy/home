@@ -10,13 +10,12 @@
 
 @font-face {
     font-family: "MiSans";
-    /* src: url('../font/MiSans-Regular.woff') format('woff'); */
     src: url('https://file.imsyy.top/font/MiSans-Regular.woff') format('woff');
+    font-display: sans-serif;
 }
 
 @font-face {
     font-family: "iconfont";
-    /* Project id 2831425 */
     src: url('../font/iconfont.woff2') format('woff2'),
         url('../font/iconfont.woff') format('woff'),
         url('../font/iconfont.ttf') format('truetype');

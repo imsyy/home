@@ -20,6 +20,7 @@ p {
     font-family: 'MiSans', sans-serif;
 }
 
+
 a:hover {
     color: white;
 }
@@ -501,6 +502,7 @@ span.link-name {
 
 .link-card:hover span.link-name {
     font-size: 1.15rem;
+    transition: 0.1s;
 }
 
 i.iconfont.icon-a-daohangzhiyindingwei-05,
@@ -709,7 +711,8 @@ i.iconfont.icon-github1 {
     border-color: #eeeeee !important;
 }
 
-.btn-check:focus+.btn, .btn:focus {
+.btn-check:focus+.btn,
+.btn:focus {
     box-shadow: none !important;
 }
 

@@ -3,9 +3,9 @@
     width: 18px;
     height: 18px;
     background: #ffffffcc;
-    border-radius: 50%;
+    border-radius: 8px;
     opacity: 0.25;
-    z-index: 99999999;
+    z-index: 10086;
     pointer-events: none;
     transition: 0.2s ease-in-out;
     transition-property: background, opacity, transform;
@@ -23,8 +23,4 @@
 #cursor.active {
     opacity: 0.5;
     transform: scale(0.5);
-}
-
-* {
-    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='white' /></svg>") 4 4, auto !important;
 }

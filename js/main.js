@@ -41,7 +41,7 @@ setTimeout(function () {
 //延迟加载音乐播放器
 function downloadJSAtOnload() {
     var element = document.createElement("script");
-    element.src = "./js/music.min.js";
+    element.src = "./js/music.js";
     document.body.appendChild(element);
 }
 if (window.addEventListener)
@@ -55,12 +55,12 @@ else window.onload = downloadJSAtOnload;
 new_element=document.createElement("link");
 new_element.setAttribute("rel","stylesheet");
 new_element.setAttribute("type","text/css");
-new_element.setAttribute("href","./css/lantern.min.css");
+new_element.setAttribute("href","./css/lantern.css");
 document.body.appendChild(new_element);
 
 new_element=document.createElement("script");
 new_element.setAttribute("type","text/javascript");
-new_element.setAttribute("src","./js/lantern.min.js");
+new_element.setAttribute("src","./js/lantern.js");
 document.body.appendChild(new_element);
 */
 
@@ -76,6 +76,7 @@ if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
         setTimeout(function () {
             iziToast.show({
                 timeout: 8000,
+                iconUrl: './img/icon/warn.png',
                 message: '您正在使用火狐浏览器，部分功能可能不支持'
             });
         }, 3800);
@@ -94,7 +95,7 @@ fetch('https://v1.hitokoto.cn?max_length=24')
 //获取天气
 //每日限量 100 次
 //请前往 https://www.tianqiapi.com/ 申请（免费）
-fetch('https://www.yiketianqi.com/free/day?appid=43986679&appsecret=TksqGZT7&unescape=1')
+fetch('https://www.yiketianqi.com/free/day?appid=43656176&appsecret=I42og6Lm&unescape=1')
     .then(response => response.json())
     .then(data => {
         $('#wea_text').html(data.wea)
