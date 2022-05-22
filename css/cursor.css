@@ -5,7 +5,7 @@
     background: #ffffffcc;
     border-radius: 8px;
     opacity: 0.25;
-    z-index: 10086;
+    z-index: 99999999;
     pointer-events: none;
     transition: 0.2s ease-in-out;
     transition-property: background, opacity, transform;

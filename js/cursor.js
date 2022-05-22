@@ -79,8 +79,8 @@ class Cursor {
 
     render() {
         if (this.pos.prev) {
-            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);
-            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);
+            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.45);
+            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.45);
             this.move(this.pos.prev.x, this.pos.prev.y);
         } else {
             this.pos.prev = this.pos.curr;
