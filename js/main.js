@@ -92,12 +92,12 @@ fetch('https://v1.hitokoto.cn?max_length=24')
     })
     .catch(console.error)
 
-var time = 0;
+var times = 0;
 $('#hitokoto').click(function () {
-    if (time == 0) {
-        time = 1;
+    if (times == 0) {
+        times = 1;
         var index = setInterval(function () {
-            time--;
+            times--;
             if (time == 0) {
                 clearInterval(index);
             }
