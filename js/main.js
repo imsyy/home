@@ -98,7 +98,7 @@ $('#hitokoto').click(function () {
         times = 1;
         var index = setInterval(function () {
             times--;
-            if (time == 0) {
+            if (times == 0) {
                 clearInterval(index);
             }
         }, 1000);
