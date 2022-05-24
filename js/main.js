@@ -12,6 +12,7 @@ iziToast.settings({
     backgroundColor: '#00000040',
     titleColor: '#efefef',
     messageColor: '#efefef',
+    icon: 'Fontawesome',
     iconColor: '#efefef',
 });
 
@@ -28,6 +29,7 @@ window.addEventListener('load', function () {
     setTimeout(function () {
         iziToast.show({
             timeout: 2500,
+            icon: false,
             title: hello,
             message: '欢迎来到我的主页'
         });
@@ -76,7 +78,7 @@ if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
         setTimeout(function () {
             iziToast.show({
                 timeout: 8000,
-                iconUrl: './img/icon/warn.png',
+                icon: "fa-solid fa-circle-exclamation",
                 message: '您正在使用火狐浏览器，部分功能可能不支持'
             });
         }, 3800);
@@ -112,7 +114,7 @@ $('#hitokoto').click(function () {
     } else {
         iziToast.show({
             timeout: 2000,
-            iconUrl: './img/icon/warn.png',
+            icon: "fa-solid fa-circle-exclamation",
             message: '你点太快了吧'
         });
     }
@@ -235,10 +237,10 @@ $('#switchmenu').on('click', function () {
     switchmenu = !switchmenu;
     if (switchmenu) {
         $('#row').attr('class', 'row menus');
-        $("#menu").html("<i class='iconfont icon-times'></i>");
+        $("#menu").html("<i class='fa-solid fa-xmark'></i>");
     } else {
         $('#row').attr('class', 'row');
-        $("#menu").html("<i class='iconfont icon-bars'>");
+        $("#menu").html("<i class='fa-solid fa-bars'></i>");
     }
 });
 
@@ -260,7 +262,7 @@ window.addEventListener('load', function () {
         //关闭移动端样式
         if (window.innerWidth >= 600) {
             $('#row').attr('class', 'row');
-            $("#menu").html("<i class='iconfont icon-bars'>");
+            $("#menu").html("<i class='fa-solid fa-bars'></i>");
             //移除移动端切换功能区
             $('#rightone').attr('class', 'row rightone');
         }
@@ -301,7 +303,7 @@ $("#more").hover(function () {
 document.oncontextmenu = function () {
     iziToast.show({
         timeout: 2000,
-        iconUrl: './img/icon/warn.png',
+        icon: "fa-solid fa-circle-exclamation",
         message: '为了浏览体验，本站禁用右键'
     });
     return false;
@@ -323,7 +325,7 @@ for (var day of days) {
         window.addEventListener('load', function () {
             iziToast.show({
                 timeout: 14000,
-                iconUrl: './img/icon/candle.png',
+                icon: "fa-solid fa-candle-holder",
                 message: '今天是中国国家纪念日'
             });
         }, false);

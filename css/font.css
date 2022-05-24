@@ -13,7 +13,7 @@
     src: url('https://file.imsyy.top/font/MiSans-Regular.woff') format('woff');
     font-display: sans-serif;
 }
-
+/* 
 @font-face {
     font-family: "iconfont";
     src: url('../font/iconfont.woff2') format('woff2'),
@@ -175,4 +175,4 @@
 
 .icon-yinhao-copy-copy:before {
     content: "\e62e";
-}
+} */

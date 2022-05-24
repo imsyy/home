@@ -191,7 +191,7 @@ span#change {
     font-family: 'Pacifico-Regular' !important;
 }
 
-i.iconfont.icon-yinhao-copy {
+.fa-solid.fa-quote-right {
     align-self: flex-end;
 }
 
@@ -201,11 +201,12 @@ i.iconfont.icon-yinhao-copy {
     display: flex;
     align-items: center;
     max-width: 460px;
+    height: 42px;
 }
 
 .link i {
-    font-size: 1.75rem;
-    margin: 0px 10px;
+    font-size: 1.45rem;
+    margin: 2px 12px;
 }
 
 /*
@@ -213,6 +214,7 @@ i.iconfont.icon-yinhao-copy {
     font-size: 2.5rem;
 }
 */
+
 #link-text {
     display: none;
     flex: 1;
@@ -265,6 +267,7 @@ i.iconfont.icon-yinhao-copy {
 
 .open-music {
     display: none;
+    align-items: center;
     justify-content: center;
     background: rgb(0 0 0 / 15%);
     padding: 4px 0px;
@@ -330,23 +333,42 @@ i.iconfont.icon-yinhao-copy {
     align-items: center;
 }
 
-i.iconfont.icon-play,
-i.iconfont.icon-pause {
+.fa-solid.fa-play,
+.fa-solid.fa-pause {
+    padding: 4px;
     font-size: 2.25rem;
-    padding: 6px;
-    border-radius: 6px;
 }
 
-i.iconfont.icon-play:hover,
-i.iconfont.icon-pause:hover {
+#play {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+#play:hover {
     background: rgb(255 255 255 / 20%);
-    padding: 6px;
-    border-radius: 6px;
 }
 
-i#last,
-i#next {
-    font-size: 2.0rem;
+#last,
+#next {
+    font-size: 1.75rem;
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+#last:hover,
+#next:hover {
+    background: rgb(255 255 255 / 20%);
+}
+
+#play:active,
+#last:active,
+#next:active {
+    transform: scale(0.95);
 }
 
 .music-text {
@@ -392,12 +414,12 @@ i#next {
 }
 
 #volume-ico {
-    padding-top: 1px;
-    margin-right: 6px;
+    padding-top: 2px;
+    margin-right: 10px;
 }
 
 .music-volume i {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
 }
 
 input[type=range] {
@@ -488,7 +510,7 @@ i.iconfont.icon-link {
 
 .link-card i {
     margin-left: 0px;
-    font-size: 2.2rem;
+    font-size: 1.65rem;
 }
 
 .link-card:hover {
@@ -678,6 +700,7 @@ i.iconfont.icon-z_shangpinheji {
     left: auto;
     top: 10px;
     right: 16px;
+    font-size: 1.5rem;
 }
 
 .closebox:hover {
@@ -930,6 +953,11 @@ footer {
     margin: 6px 6px !important;
     display: flex !important;
     align-items: center;
+}
+
+.iziToast>.iziToast-body i {
+    margin-left: 6px;
+    margin-top: 10px;
 }
 
 .iziToast-message {

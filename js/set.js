@@ -84,6 +84,7 @@ $(document).ready(function () {
             var rd = Math.floor(Math.random() * 10);
             $('#bg').attr('src', pictures[rd]) //随机默认壁纸
             iziToast.show({
+                icon: "fa-solid fa-image",
                 timeout: 2500,
                 message: '壁纸设置成功',
             });
@@ -93,6 +94,7 @@ $(document).ready(function () {
             setBgImg(bg_img);
             $('#bg').attr('src', 'https://api.dujin.org/bing/1920.php'); //必应每日
             iziToast.show({
+                icon: "fa-solid fa-image",
                 timeout: 2500,
                 message: '壁纸设置成功',
             });
@@ -102,6 +104,7 @@ $(document).ready(function () {
             setBgImg(bg_img);
             $('#bg').attr('src', 'https://api.ixiaowai.cn/gqapi/gqapi.php'); //随机风景
             iziToast.show({
+                icon: "fa-solid fa-image",
                 timeout: 2500,
                 message: '壁纸设置成功',
             });
@@ -111,6 +114,7 @@ $(document).ready(function () {
             setBgImg(bg_img);
             $('#bg').attr('src', 'https://api.ixiaowai.cn/api/api.php'); //随机动漫
             iziToast.show({
+                icon: "fa-solid fa-image",
                 timeout: 2500,
                 message: '壁纸设置成功',
             });

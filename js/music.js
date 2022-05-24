@@ -11,7 +11,7 @@ GitHub：https://github.com/imsyy/home
 */
 var server = "netease"; //netease: 网易云音乐; tencent: QQ音乐; kugou: 酷狗音乐; xiami: 虾米; kuwo: 酷我
 var type = "playlist"; //song: 单曲; playlist: 歌单; album: 唱片
-var id = "60198"; //封面 ID / 单曲 ID / 歌单 ID
+var id = "7452421335"; //封面 ID / 单曲 ID / 歌单 ID
 
 $.ajax({
     url: "https://api.wuenci.com/meting/api/?server=" + server + "&type=" + type + "&id=" + id, //json文件位置，文件名
@@ -31,19 +31,19 @@ $.ajax({
 
         /* 底栏歌词 */
         setInterval(function () {
-            $("#lrc").html("<span class='lrc-show'><i class='iconfont icon-music'></i> " + $(".aplayer-lrc-current").text() + " <i class='iconfont icon-music'></i></span>");
+            $("#lrc").html("<span class='lrc-show'><i class='fa-solid fa-music-note'></i> " + $(".aplayer-lrc-current").text() + " <i class='fa-solid fa-music-note'></i></span>");
         }, 500);
 
         /* 音乐通知及控制 */
         ap.on('play', function () {
             music = $(".aplayer-title").text() + $(".aplayer-author").text();
             iziToast.info({
-                timeout: 8000,
-                iconUrl: './img/icon/music.png',
+                timeout: 4000,
+                icon: "fa-solid fa-music-note",
                 displayMode: 'replace',
                 message: music
             });
-            $("#play").html("<i class='iconfont icon-pause'>");
+            $("#play").html("<i class='fa-solid fa-pause'>");
             $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
             if ($(document).width() >= 990) {
                 $('.power').css("cssText", "display:none");
@@ -52,7 +52,7 @@ $.ajax({
         });
 
         ap.on('pause', function () {
-            $("#play").html("<i class='iconfont icon-play'>");
+            $("#play").html("<i class='fa-solid fa-play'>");
             if ($(document).width() >= 990) {
                 $('#lrc').css("cssText", "display:none !important");
                 $('.power').css("cssText", "display:block");
@@ -114,21 +114,21 @@ $.ajax({
             var x = $("#volume").val();
             ap.volume(x, true);
             if (x == 0) {
-                $("#volume-ico").html("<i class='iconfont icon-volume-x'></i>");
+                $("#volume-ico").html("<i class='fa-solid fa-volume-xmark'></i>");
             } else if (x > 0 && x <= 0.3) {
-                $("#volume-ico").html("<i class='iconfont icon-volume'></i>");
+                $("#volume-ico").html("<i class='fa-solid fa-volume-low'></i>");
             } else if (x > 0.3 && x <= 0.6) {
-                $("#volume-ico").html("<i class='iconfont icon-volume-1'></i>");
+                $("#volume-ico").html("<i class='fa-solid fa-volume'></i>");
             } else {
-                $("#volume-ico").html("<i class='iconfont icon-volume-2'></i>");
+                $("#volume-ico").html("<i class='fa-solid fa-volume-high'></i>");
             }
         });
     },
     error: function () {
         setTimeout(function () {
             iziToast.info({
-                timeout: 12000,
-                iconUrl: './img/icon/warn.png',
+                timeout: 8000,
+                icon: "fa-solid fa-circle-exclamation",
                 displayMode: 'replace',
                 message: '音乐播放器加载失败'
             });
