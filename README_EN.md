@@ -28,16 +28,22 @@ Simple little homepage, had enough of the original one and made a new one
 - [x] Mobile adaptation
 * [ ] Haven't thought about it yet
 
+### Music
+
+>This project uses the `Aplayer` music player based on `MetingJS` for quick song list customization  
+>*Only supported in **Mainland China**, please replace `music.js` with [the following](https://file.imsyy.top/js/music/music-other.js) in other regions to enable the music player to work properly
+
 ### Plugins
 
 * [Bootstrap](https://getbootstrap.com/)
 * [iziToast](https://izitoast.marcelodolza.com/)
-* [Iconfont](https://www.iconfont.cn/)
+* [Font Awesome](https://fontawesome.com/)
 * [jQuery](https://jquery.com/)
 * [Aplayer](https://aplayer.js.org/)
 
 ### API
 
+* [MetingAPI By wuenci](https://api.wuenci.com/meting/api/)
 * [小歪 API](https://api.ixiaowai.cn/)
 * [天气 API](https://www.tianqiapi.com/)
 * [Hitokoto 一言](https://hitokoto.cn/)
