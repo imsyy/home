@@ -17,7 +17,7 @@ $.ajax({
     url: "https://api.wuenci.com/meting/api/?server=" + server + "&type=" + type + "&id=" + id, //json文件位置，文件名
     type: "GET",
     dataType: "JSON",
-    success: function (data) { 
+    success: function (data) {
         const ap = new APlayer({
             container: document.getElementById('aplayer'),
             order: 'random',
@@ -48,7 +48,14 @@ $.ajax({
             if ($(document).width() >= 990) {
                 $('.power').css("cssText", "display:none");
                 $('#lrc').css("cssText", "display:block !important");
-            }
+            };
+            // Notification.requestPermission().then(res => {
+            //     console.log(res)
+            // });
+            // new Notification('音乐通知', {
+            //     body: '正在播放：' + music,
+            //     tag: 1
+            // });
         });
 
         ap.on('pause', function () {

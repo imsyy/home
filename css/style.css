@@ -477,6 +477,12 @@ span.time-text {
     font-family: 'UnidreamLED' !important;
 }
 
+.weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 /*分割线*/
 .line {
     margin: 1rem 0.25rem;
