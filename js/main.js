@@ -130,8 +130,8 @@ fetch('https://www.yiketianqi.com/free/day?appid=43656176&appsecret=I42og6Lm&une
         $('#city_text').html(data.city)
         $('#tem_night').html(data.tem_night)
         $('#tem_day').html(data.tem_day)
-        // $('#win_text').html(data.win)
-        // $('#win_speed').html(data.win_speed)
+        $('#win_text').html(data.win)
+        $('#win_speed').html(data.win_speed)
     })
     .catch(console.error)
 

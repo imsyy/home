@@ -17,7 +17,7 @@
 
 #cursor.hover {
     opacity: 0.1;
-    transform: scale(2.5);
+    /* transform: scale(1.2); */
 }
 
 #cursor.active {
