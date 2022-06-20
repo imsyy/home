@@ -31,7 +31,7 @@ $.ajax({
 
         /* 底栏歌词 */
         setInterval(function () {
-            $("#lrc").html("<span class='lrc-show'><i class='fa-solid fa-music-note'></i> " + $(".aplayer-lrc-current").text() + " <i class='fa-solid fa-music-note'></i></span>");
+            $("#lrc").html("<span class='lrc-show'>" + $(".aplayer-lrc-current").text() + "</span>");
         }, 500);
 
         /* 音乐通知及控制 */
@@ -39,7 +39,7 @@ $.ajax({
             music = $(".aplayer-title").text() + $(".aplayer-author").text();
             iziToast.info({
                 timeout: 4000,
-                icon: "fa-solid fa-music-note",
+                icon: "fa-solid fa-circle-play",
                 displayMode: 'replace',
                 message: music
             });
@@ -123,9 +123,9 @@ $.ajax({
             if (x == 0) {
                 $("#volume-ico").html("<i class='fa-solid fa-volume-xmark'></i>");
             } else if (x > 0 && x <= 0.3) {
-                $("#volume-ico").html("<i class='fa-solid fa-volume-low'></i>");
+                $("#volume-ico").html("<i class='fa-solid fa-volume-off'></i>");
             } else if (x > 0.3 && x <= 0.6) {
-                $("#volume-ico").html("<i class='fa-solid fa-volume'></i>");
+                $("#volume-ico").html("<i class='fa-solid fa-volume-low'></i>");
             } else {
                 $("#volume-ico").html("<i class='fa-solid fa-volume-high'></i>");
             }

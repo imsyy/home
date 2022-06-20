@@ -1,4 +1,21 @@
+/*
+作者: imsyy
+主页：https://www.imsyy.top/
+GitHub：https://github.com/imsyy/home
+版权所有，请勿删除
+*/
+
 @charset "utf-8";
+
+@font-face {
+    font-family: "Pacifico-Regular";
+    src: url('../font/Pacifico-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "UnidreamLED";
+    src: url('../font/UnidreamLED.ttf') format('truetype');
+}
 
 /*全局样式*/
 html,

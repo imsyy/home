@@ -1,3 +1,10 @@
+/*
+作者: imsyy
+主页：https://www.imsyy.top/
+GitHub：https://github.com/imsyy/home
+版权所有，请勿删除
+*/
+
 //弹窗样式
 iziToast.settings({
     timeout: 10000,
@@ -34,23 +41,25 @@ window.addEventListener('load', function () {
             message: '欢迎来到我的主页'
         });
     }, 800);
+
+    //延迟加载音乐播放器
+    var element = document.createElement("script");
+    element.src = "./js/music.js";
+    document.body.appendChild(element);
+
+    //中文字体缓加载
+    //由于中文字体过大，可转移至对象储存或 CDN 加载
+    const font = new FontFace(
+        "MiSans",
+        "url(" + "https://fastly.jsdelivr.net/gh/imsyy/file@1.0/font/MiSans-Regular.woff" + ")"
+    );
+    document.fonts.add(font);
+
 }, false)
 
 setTimeout(function () {
     $('#loading-text').html("字体及文件加载可能需要一定时间")
 }, 3000);
-
-//延迟加载音乐播放器
-function downloadJSAtOnload() {
-    var element = document.createElement("script");
-    element.src = "./js/music.js";
-    document.body.appendChild(element);
-}
-if (window.addEventListener)
-    window.addEventListener("load", downloadJSAtOnload, false);
-else if (window.attachEvent)
-    window.attachEvent("onload", downloadJSAtOnload);
-else window.onload = downloadJSAtOnload;
 
 //新春灯笼 （ 需要时取消注释 ）
 /*
@@ -333,6 +342,7 @@ for (var day of days) {
 }
 
 //控制台输出
+console.clear();
 var styleTitle1 = `
 font-size: 20px;
 font-weight: 600;
