@@ -12,18 +12,18 @@ GitHub：https://github.com/imsyy/home
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('https://s-bj-2127-file.oss.dogecdn.com/font/MiSans-Regular.subset.woff2') format('woff2');
-    /* src: url('https://s-bj-2127-file.oss.dogecdn.com/font/MiSans-Regular.subset.ttf') format('truetype'); */
+    src: url('../font/MiSans-Regular.subset.woff2') format('woff2');
+    /* src: url('../font/MiSans-Regular.subset.ttf') format('truetype'); */
 }
 
 @font-face {
     font-family: "Pacifico-Regular";
-    src: url('https://s-bj-2127-file.oss.dogecdn.com/font/Pacifico-Regular.ttf') format('truetype');
+    src: url('../font/Pacifico-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "UnidreamLED";
-    src: url('https://s-bj-2127-file.oss.dogecdn.com/font/UnidreamLED.ttf') format('truetype');
+    src: url('../font/UnidreamLED.ttf') format('truetype');
 }
 
 /*全局样式*/

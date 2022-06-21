@@ -10,7 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="force-rendering" content="webkit" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="無名の主页">
+    <meta name="theme-color" content="#424242"/>
+    <meta name="description" content="一个默默无闻的主页">
     <meta name="keywords" content="無名,个人主页">
     <meta name="author" content="無名">
     <title>無名の主页</title>
@@ -48,6 +49,8 @@
         if ( /*@cc_on!@*/ false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href =
             "/upgrade-your-browser/index.html?referrer=" + encodeURIComponent(window.location.href);
     </script>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
     <!-- 51.LA 统计 -->
     <script src="./js/51LA.js"></script>
 </head>
@@ -437,7 +440,8 @@
                                                 <span class="uptext">
                                                     <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;移动端动画及细节</span>
                                                 <span class="uptext">
-                                                    <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;图标更换为 Font Awesome</span>
+                                                    <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;图标更换为 Font
+                                                    Awesome</span>
                                                 <span class="uptext">
                                                     <i class="fa-solid fa-rotate-left"></i>
                                                     <a href="./old/" style="color:#efefef">返回旧版站点</a>
@@ -469,6 +473,14 @@
             <div id="lrc"></div>
         </footer>
     </section>
+    <!-- sw.js -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function () {
+                navigator.serviceWorker.register("sw.js");
+            });
+        }
+    </script>
     <!-- noscript -->
     <noscript>
         <div class="noscript fixed-top">请开启 JavaScript</div>
