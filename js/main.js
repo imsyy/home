@@ -48,10 +48,11 @@ window.addEventListener('load', function () {
     document.body.appendChild(element);
 
     //中文字体缓加载
-    //由于中文字体过大，可转移至对象储存或 CDN 加载
+    //先行加载简体中文子集，后续补全字集
+    //由于压缩过后的中文字体仍旧过大，可转移至对象储存或 CDN 加载
     const font = new FontFace(
         "MiSans",
-        "url(" + "https://fastly.jsdelivr.net/gh/imsyy/file@1.0/font/MiSans-Regular.woff" + ")"
+        "url(" + "../font/MiSans-Regular.woff2" + ")"
     );
     document.fonts.add(font);
 

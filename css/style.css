@@ -8,6 +8,12 @@ GitHub：https://github.com/imsyy/home
 @charset "utf-8";
 
 @font-face {
+    font-family: "MiSans";
+    src: url('../font/MiSans-Regular.subset.woff2') format('woff2');
+    src: url('../font/MiSans-Regular.subset.ttf') format('truetype');
+}
+
+@font-face {
     font-family: "Pacifico-Regular";
     src: url('../font/Pacifico-Regular.ttf') format('truetype');
 }
@@ -949,6 +955,12 @@ footer {
     -moz-animation: fade 0.75s;
     -o-animation: fade 0.75s;
     -ms-animation: fade 0.75s;
+}
+
+.lrc-show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*弹窗样式*/
