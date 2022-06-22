@@ -48,7 +48,7 @@ var id = "7452421335"; //album ID; song ID; playlist ID;
 
 - Install `Python 3.7` and `pip`
 - Run `pip install fonttools`
-- Download [sc_unicode.txt](https://gist.githubusercontent.com/imaegoo/d64e5088b723c2e02c40985f55ff12db/raw/ 5ebd2ce49418c73459a9dfe050483409306a6c1d/sc_unicode.txt)
+- Download [sc_unicode.txt](https://gist.githubusercontent.com/imaegoo/d64e5088b723c2e02c40985f55ff12db/raw/5ebd2ce49418c73459a9dfe050483409306a6c1d/sc_unicode.txt)
 - Run `pyftsubset font-name.ttf --unicodes-file=sc_unicode.txt`
 
 #### fonts further compressed
