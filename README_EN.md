@@ -33,6 +33,45 @@ Simple little homepage, had enough of the original one and made a new one
 >This project uses the `Aplayer` music player based on `MetingJS` for quick song list customization  
 >*Only supported in **Mainland China**, please replace `music.js` with [the following](https://file.imsyy.top/js/music/music-other.js) in other regions to enable the music player to work properly
 
+Change the parameters of `music.js` to achieve a custom song list
+
+```js
+var server = "netease"; //netease; tencent; kugou; xiami; kuwo; 
+var type = "playlist"; //song; playlist; album;
+var id = "7452421335"; //album ID; song ID; playlist ID;
+```
+
+### Fonts
+>As Chinese fonts are introduced in this project, Chinese fonts need to be compressed to improve the loading speed of the page (you can also cancel the use of Chinese fonts)
+
+#### Chinese font removal traditional
+
+- Install `Python 3.7` and `pip`
+- Run `pip install fonttools`
+- Download [sc_unicode.txt](https://gist.githubusercontent.com/imaegoo/d64e5088b723c2e02c40985f55ff12db/raw/ 5ebd2ce49418c73459a9dfe050483409306a6c1d/sc_unicode.txt)
+- Run `pyftsubset font-name.ttf --unicodes-file=sc_unicode.txt`
+
+#### fonts further compressed
+
+- Compile and install ``Google woff2``
+
+```bash
+sudo apt-get install -y git g++ make
+git clone --recursive https://github.com/google/woff2.git
+cd woff2
+make clean all
+```
+
+- Compress the font again
+
+```
+. /woff2_compress . /font_name.ttf
+```
+
+- Eventually the original font can be slow loaded, **load the compressed font first**
+
+>For more information, please go to [虹墨空间站](https://www.imaegoo.com/2020/chinese-font-compress/) to view the original article
+
 ### Plugins
 
 * [Bootstrap](https://getbootstrap.com/)
