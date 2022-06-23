@@ -117,7 +117,7 @@ $.ajax({
         });
 
         //音量调节
-        $("#volume").on('click', function () {
+        $("#volume").on('click touchend', function () {
             var x = $("#volume").val();
             ap.volume(x, true);
             if (x == 0) {
