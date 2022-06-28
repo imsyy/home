@@ -67,7 +67,7 @@
                 <div class="inner three"></div>
             </div>
             <div class="loading-word">
-                <p class="loading-title">無名の主页</p>
+                <p class="loading-title" id="loading-title">無名の主页</p>
                 <span id="loading-text">加载中</span>
             </div>
         </div>
@@ -87,10 +87,10 @@
                         <div class="main-left">
                             <!--Logo-->
                             <div class="main-img">
-                                <img src="./img/icon/logo.png" alt="img">
+                                <img id="logo-img" src="./img/icon/logo.png" alt="img">
                                 <div class="img-title">
-                                    <span class="img-title">imsyy</span>
-                                    <span class="img-text">.top</span>
+                                    <span class="img-title-big" id="logo-text-1">imsyy</span>
+                                    <span class="img-text" id="logo-text-2">.top</span>
                                 </div>
                             </div>
                             <!--介绍信息-->
@@ -108,7 +108,7 @@
                                     target="_blank">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
-                                <a href="http://wpa.qq.com/msgrd?v=3&uin=1539250352&site=qq&menu=yes" class="link"
+                                <a href="https://wpa.qq.com/msgrd?v=3&uin=1539250352&site=qq&menu=yes" class="link"
                                     id="qq" target="_blank">
                                     <i class="fa-brands fa-qq"></i>
                                 </a>
@@ -127,7 +127,7 @@
                     </div>
                     <!--第二屏 Logo-->
                     <div class="logo cards" style="display: none" id="changemore">
-                        <a class="logo-text">imsyy.top</a>
+                        <a class="logo-text" id="logo-text-small">imsyy.top</a>
                     </div>
                     <div class="col right">
                         <div class="main-right">
@@ -205,26 +205,26 @@
                                 <!--第一组-->
                                 <div class="row">
                                     <div class="col">
-                                        <a href="https://blog.imsyy.top/" target="_blank">
+                                        <a id="link-url-1" href="https://blog.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fa-solid fa-blog"></i>
-                                                <span class="link-name">博客</span>
+                                                <i id="link-icon-1" class="fa-solid fa-blog"></i>
+                                                <span class="link-name" id="link-name-1">博客</span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col 2">
-                                        <a href="https://drive.imsyy.top/" target="_blank">
+                                        <a id="link-url-2" href="https://drive.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fa-solid fa-cloud"></i>
-                                                <span class="link-name">网盘</span>
+                                                <i id="link-icon-2" class="fa-solid fa-cloud"></i>
+                                                <span class="link-name" id="link-name-2">网盘</span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a href="https://music.imsyy.top/" target="_blank">
+                                        <a id="link-url-3" href="https://music.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fa-solid fa-music"></i>
-                                                <span class="link-name">音乐</span>
+                                                <i id="link-icon-3" class="fa-solid fa-music"></i>
+                                                <span class="link-name" id="link-name-3">音乐</span>
                                             </div>
                                         </a>
                                     </div>
@@ -232,26 +232,26 @@
                                 <!--第二组-->
                                 <div class="row" style="margin-top: 1.5rem;">
                                     <div class="col">
-                                        <a href="https://nav.imsyy.top/" target="_blank">
+                                        <a id="link-url-4" href="https://nav.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fa-solid fa-compass"></i>
-                                                <span class="link-name">起始页</span>
+                                                <i id="link-icon-4" class="fa-solid fa-compass"></i>
+                                                <span class="link-name" id="link-name-4">起始页</span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col 2">
-                                        <a href="https://web.imsyy.top/" target="_blank">
+                                        <a id="link-url-5" href="https://web.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fa-solid fa-book-bookmark"></i>
-                                                <span class="link-name">网址集</span>
+                                                <i id="link-icon-5" class="fa-solid fa-book-bookmark"></i>
+                                                <span class="link-name" id="link-name-5">网址集</span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a href="https://lab.imsyy.top/" target="_blank">
+                                        <a id="link-url-6" href="https://lab.imsyy.top/" target="_blank">
                                             <div class="link-card cards">
-                                                <i class="fa-solid fa-flask"></i>
-                                                <span class="link-name">实验室</span>
+                                                <i id="link-icon-6" class="fa-solid fa-flask"></i>
+                                                <span class="link-name" id="link-name-6">实验室</span>
                                             </div>
                                         </a>
                                     </div>
@@ -366,9 +366,9 @@
                         <!--左侧内容-->
                         <div class="box-left">
                             <div class="img-title">
-                                <span class="img-title">imsyy</span>
-                                <span class="img-text">.top</span><br />
-                                <span class="img-text">&nbsp;&nbsp;v&nbsp;3.0</span>
+                                <span class="img-title-big" id="logo-title-other">imsyy</span>
+                                <span class="img-text" id="logo-title-other-small">.top</span><br />
+                                <span class="img-text">&nbsp;v&nbsp;3.0</span>
                                 <a href="https://github.com/imsyy/home" target="_blank">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
@@ -396,17 +396,17 @@
                                                     <div class="form-radio">
                                                         <input type="radio" class="set-wallpaper" style="display: none;"
                                                             id="radio2" value="2" name="wallpaper-type">
-                                                        <label for="radio2">每日一图</label>
+                                                        <label for="radio2" id="wallpaper_text1">每日一图</label>
                                                     </div>
                                                     <div class="form-radio">
                                                         <input type="radio" class="set-wallpaper" style="display: none;"
                                                             id="radio3" value="3" name="wallpaper-type">
-                                                        <label for="radio3">随机风景</label>
+                                                        <label for="radio3" id="wallpaper_text2">随机风景</label>
                                                     </div>
                                                     <div class="form-radio">
                                                         <input type="radio" class="set-wallpaper" style="display: none;"
                                                             id="radio4" value="4" name="wallpaper-type">
-                                                        <label for="radio4">随机动漫</label>
+                                                        <label for="radio4" id="wallpaper_text3">随机动漫</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -454,7 +454,9 @@
                         </div>
                         <!--Aplayer-->
                         <div class="box-right">
-                            <div id="aplayer"></div>
+                            <div id="aplayer">
+                                <span>音乐播放器加载失败</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -462,10 +464,10 @@
         </main>
         <!-- 版权信息 -->
         <footer id="footer" class="fixed-bottom footer">
-            <div class="power">Copyright&nbsp;&copy;&nbsp;2020
+            <div class="power">Copyright&nbsp;&copy;&nbsp;<span id="power-year">2020</span>
                 <script>
                     document.write(' - ' + (new Date()).getFullYear())
-                </script>&nbsp;<a href="https://imsyy.top">無名</a>&nbsp;&amp;&nbsp;
+                </script>&nbsp;<a href="https://imsyy.top" id="power-text">無名</a>&nbsp;&amp;&nbsp;
                 <!-- 以下信息请不要修改哦 -->
                 Made&nbsp;by&nbsp;<a href="https://github.com/imsyy/home" target="_blank">imsyy</a>
             </div>
@@ -487,9 +489,9 @@
     </noscript>
     <!-- JS -->
     <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/set.js"></script>
     <script type="text/javascript" src="./js/time.js"></script>
     <script type="text/javascript" src="./js/js.cookie.js"></script>
-    <script type="text/javascript" src="./js/set.js"></script>
     <script type="text/javascript" src="./js/cursor.js"></script>
     <script type="text/javascript"
         src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/bootstrap/5.1.0/js/bootstrap.min.js">

@@ -133,7 +133,7 @@ $('#hitokoto').click(function () {
 //获取天气
 //每日限量 100 次
 //请前往 https://www.tianqiapi.com/ 申请（免费）
-fetch('https://www.yiketianqi.com/free/day?appid=43656176&appsecret=I42og6Lm&unescape=1')
+fetch(localStorage.getItem('weather_api'))
     .then(response => response.json())
     .then(data => {
         $('#wea_text').html(data.wea)
@@ -169,7 +169,6 @@ function time() {
     if (s < 10) {
         s = "0" + s;
     }
-    //document.getElementById("time").innerHTML = y + "&nbsp;年&nbsp;" + mm + "&nbsp;月&nbsp;" + d + "&nbsp;日&nbsp;" + "<span class='weekday'>" + weekday[day] + "</span><br>" + "<span class='time-text'>" + h + ":" + m + ":" + s + "</span>";
     $("#time").html(y + "&nbsp;年&nbsp;" + mm + "&nbsp;月&nbsp;" + d + "&nbsp;日&nbsp;" + "<span class='weekday'>" + weekday[day] + "</span><br>" + "<span class='time-text'>" + h + ":" + m + ":" + s + "</span>");
     t = setTimeout(time, 1000);
 }
@@ -227,12 +226,12 @@ $('#switchmore').on('click', function () {
     shoemore = !shoemore;
     if (shoemore && $(document).width() >= 990) {
         $('#container').attr('class', 'container mores');
-        $("#change").html("Oops&nbsp;!");
-        $("#change1").html("哎呀，这都被你发现了（ 再点击一次可关闭 ）");
+        $("#change").html(localStorage.getItem('des_tip_change'));
+        $("#change1").html(localStorage.getItem('des_title_change'));
     } else {
         $('#container').attr('class', 'container');
-        $("#change").html("Hello&nbsp;World&nbsp;!");
-        $("#change1").html("一个建立于 21 世纪的小站，存活于互联网的边缘");
+        $("#change").html(localStorage.getItem('des_tip'));
+        $("#change1").html(localStorage.getItem('des_title'));
     }
 });
 
@@ -280,8 +279,8 @@ window.addEventListener('load', function () {
         if (window.innerWidth <= 990) {
             //移动端隐藏更多页面
             $('#container').attr('class', 'container');
-            $("#change").html("Hello&nbsp;World&nbsp;!");
-            $("#change1").html("一个建立于 21 世纪的小站，存活于互联网的边缘");
+            $("#change").html(localStorage.getItem('des_tip'));
+            $("#change1").html(localStorage.getItem('des_title'));
 
             //移动端隐藏弹窗页面
             $('#box').css("display", "none");
@@ -366,8 +365,8 @@ var title2 = `
 |_____|_|  |_|_____/   |_|      |_|                                                     
 `
 var content = `
-版 本 号：3.0
-更新日期：2022-05-20
+版 本 号：3.2
+更新日期：2022-06-28
 
 主页:  https://www.imsyy.top
 Github:  https://github.com/imsyy/home

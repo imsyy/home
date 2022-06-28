@@ -180,7 +180,7 @@ main {
     transform: translateY(-8%);
 }
 
-span.img-title {
+.img-title-big {
     font-size: 5rem;
     font-family: 'Pacifico-Regular' !important;
 }
@@ -210,7 +210,7 @@ span.img-text {
 .des-title {
     margin: 1rem 1rem;
     line-height: 2rem;
-    /*font-size: 1.10rem;*/
+    margin-right: auto;
 }
 
 span#change {
