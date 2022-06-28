@@ -28,6 +28,59 @@ Simple little homepage, had enough of the original one and made a new one
 - [x] Mobile adaptation
 * [ ] Haven't thought about it yet
 
+### Configuration
+
+This project uses `json` file to configure the site content, the configuration is not affected by version updates, you can write custom configuration to `setting.json` to change the page content
+
+<details>
+<summary>Configuration instructions</summary>
+
+```json
+{
+    "title": "Title of the page",
+    "description": "Short description of the page",
+    "keywords": "Keyword(s)",
+    "author": "author of the page",
+    "logo_img": "Logo image path",
+    "logo_text_1": "Domain Prefix",
+    "logo_text_2": "Domain_suffix",
+    "des_title": [
+        "Hello World !" , // site description title
+        "A small site built in the 21st century, living on the edge of the Internet" // site description content
+    ],
+    "des_title_change": [
+        "Oops !" , //text after clicking on the site's title
+        "Oops, you found this ( click once more to close )" //text after click on site content
+    ],
+    "github": "imsyy", //Github username
+    "qq": "1539250352", //QQ
+    "email": "one@imsyy.top", //email email
+    "telegram": "bottom_user", //Telegram user name
+    "twitter": "iimmsyy", //Twitter username
+    "weather_api": "https://www.yiketianqi.com", //Weather API
+    "link_1": [
+        "https://blog.imsyy.top/", //link_address
+        "fa-solid fa-blog", //icon class name
+        "blog" //link text
+    ],
+    "link_2": [
+        "https://drive.imsyy.top/",
+        "fa-solid fa-cloud",
+        "netdisk"
+    ],
+    "wallpaper_api": [
+        [
+            "picture of the day", //name of wallpaper setting item
+            "https://api.dujin.org/bing/1920.php" //link to wallpaper image
+        ]
+    ],
+    "Copyright_year": "2020", //site start year
+    "Copyright_text": "No name" //Copyright
+}
+```
+
+</details>
+
 ### Music
 
 >This project uses the `Aplayer` music player based on `MetingJS` for quick song list customization  
