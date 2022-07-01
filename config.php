@@ -2,6 +2,7 @@
 /*
 homepage config
 author: XYZ-dragon
+默认应该是不支持短标签的,所以就没写那种
 */
 
 class Site
@@ -13,34 +14,21 @@ class Site
             $this->$key = $value;
         }
     }
-    function get_linklist(int $index, string $type)
+
+    /**
+     * @return key|value
+     **/
+    function get_kv(string $name, int $index, string $type): string
     {
-        /* 键名不确定 */
         switch ($type) {
+            case 'name':
+                return array_keys($this->$name)[$index];
             case 'url':
-                return $this->link_list[array_keys($this->link_list)[$index]][0];
+                if (gettype($this->$name[array_keys($this->$name)[$index]]) == 'string') return $this->$name[array_keys($this->$name)[$index]];
+                return $this->$name[array_keys($this->$name)[$index]][0];
             case 'icon':
-                return $this->link_list[array_keys($this->link_list)[$index]][1];
-            case 'name':
-                return array_keys($this->link_list)[$index];
-        }
-    }
-    function get_linklist_without_icon(int $index, string $type)
-    {
-        switch ($type) {
-            case 'url':
-                return $this->z7z8[array_keys($this->z7z8)[$index]];
-            case 'name':
-                return array_keys($this->z7z8)[$index];
-        }
-    }
-    function get_wallpaperapi(int $index, string $type)
-    {
-        switch ($type) {
-            case 'url':
-                return $this->wallpaper_api[array_keys($this->wallpaper_api)[$index]];
-            case 'name':
-                return array_keys($this->wallpaper_api)[$index];
+                // 如果不存在直接报错
+                return $this->$name[array_keys($this->$name)[$index]][1];
         }
     }
 }
@@ -58,7 +46,7 @@ $setting = [
         'Hello world!', 'System.out.print("Hello world!");'
     ],
     'des_title_change' => [
-        'Oops !', '哎呀，这都被你发现了 ( 再次点击可切换 )' // 还没用上
+        'Oops !', '哎呀，这都被你发现了 ( 再次点击可切换 )'
     ],
     'social_contact' => [
         'github' => 'https://github.com/XYZ-dragon',
@@ -68,7 +56,7 @@ $setting = [
         'twitter' => 'https://twitter.com/zuotun0226'
     ],
     'link_list' => [
-        '博客' => ['https://blueeyeswhitedragon.xyz/', 'fa-solid fa-blog',],
+        '博客' => ['https://blueeyeswhitedragon.xyz/', 'fa-solid fa-blog'],
         '兰空图床' => ['http://localhost:8080/', 'fa-solid fa-cloud'],
         'Null' => ['', 'fa-solid fa-music'],
         '导航站' => ['', 'fa-solid fa-compass'],
@@ -76,15 +64,16 @@ $setting = [
         'Lab' => ['', 'fa-solid fa-flask']
     ],
     'z7z8' => ['站点监控' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5'],
-    'weather_api' => 'https://www.yiketianqi.com/free/day?appid=43656176&appsecret=I42og6Lm&unescape=1', // 没用上
+    'weather_api' => 'https://www.yiketianqi.com/free/day?appid=43656176&appsecret=I42og6Lm&unescape=1',
     'wallpaper_api' => [
         '游戏王' => 'https://blueeyeswhitedragon.xyz/api/ygo/',
         'Bing' => 'https://blueeyeswhitedragon.xyz/api/bing/',
         '随机风景' => 'https://api.ixiaowai.cn/gqapi/gqapi.php',
         '随机动漫' => 'https://api.ixiaowai.cn/api/api.php'
     ],
-    'Copyright_year' => '2020',
-    'Copyright_text' => '酢豚'
+    'copyright' => ['2020', '酢豚'],
 ];
+
 $site = new Site($setting);
-// echo $site->des_title[0];
+
+// echo $site->get_kv('z7z8', 0, 'url');

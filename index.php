@@ -204,26 +204,26 @@ require_once './config.php';
                                 <!--第一组-->
                                 <div class="row">
                                     <div class="col">
-                                        <a id="link-url-1" href="<?php echo $site->get_linklist(0, 'url'); ?>" target="_blank">
+                                        <a id="link-url-1" href="<?php echo $site->get_kv('link_list', 0, 'url'); ?>" target="_blank">
                                             <div class="link-card cards">
-                                                <i id="link-icon-1" class="<?php echo $site->get_linklist(0, 'icon'); ?>"></i>
-                                                <span class="link-name" id="link-name-1"><?php echo $site->get_linklist(0, 'name'); ?></span>
+                                                <i id="link-icon-1" class="<?php echo $site->get_kv('link_list', 0, 'icon'); ?>"></i>
+                                                <span class="link-name" id="link-name-1"><?php echo $site->get_kv('link_list', 0, 'name'); ?></span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col 2">
-                                        <a id="link-url-2" href="<?php echo $site->get_linklist(1, 'url'); ?>" target="_blank">
+                                        <a id="link-url-2" href="<?php echo $site->get_kv('link_list', 1, 'url'); ?>" target="_blank">
                                             <div class="link-card cards">
-                                                <i id="link-icon-2" class="<?php echo $site->get_linklist(1, 'icon'); ?>"></i>
-                                                <span class="link-name" id="link-name-2"><?php echo $site->get_linklist(1, 'name'); ?></span>
+                                                <i id="link-icon-2" class="<?php echo $site->get_kv('link_list', 1, 'icon'); ?>"></i>
+                                                <span class="link-name" id="link-name-2"><?php echo $site->get_kv('link_list', 1, 'name'); ?></span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a id="link-url-3" href="<?php echo $site->get_linklist(2, 'url'); ?>" target="_blank">
+                                        <a id="link-url-3" href="<?php echo $site->get_kv('link_list', 2, 'url'); ?>" target="_blank">
                                             <div class="link-card cards">
-                                                <i id="link-icon-3" class="<?php echo $site->get_linklist(2, 'icon'); ?>"></i>
-                                                <span class="link-name" id="link-name-3"><?php echo $site->get_linklist(2, 'name'); ?></span>
+                                                <i id="link-icon-3" class="<?php echo $site->get_kv('link_list', 2, 'icon'); ?>"></i>
+                                                <span class="link-name" id="link-name-3"><?php echo $site->get_kv('link_list', 2, 'name'); ?></span>
                                             </div>
                                         </a>
                                     </div>
@@ -231,26 +231,26 @@ require_once './config.php';
                                 <!--第二组-->
                                 <div class="row" style="margin-top: 1.5rem;">
                                     <div class="col">
-                                        <a id="link-url-4" href="<?php echo $site->get_linklist(3, 'url'); ?>" target="_blank">
+                                        <a id="link-url-4" href="<?php echo $site->get_kv('link_list', 3, 'url'); ?>" target="_blank">
                                             <div class="link-card cards">
-                                                <i id="link-icon-4" class="<?php echo $site->get_linklist(3, 'icon'); ?>"></i>
-                                                <span class="link-name" id="link-name-4"><?php echo $site->get_linklist(3, 'name'); ?></span>
+                                                <i id="link-icon-4" class="<?php echo $site->get_kv('link_list', 3, 'icon'); ?>"></i>
+                                                <span class="link-name" id="link-name-4"><?php echo $site->get_kv('link_list', 3, 'name'); ?></span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col 2">
-                                        <a id="link-url-5" href="<?php echo $site->get_linklist(4, 'url'); ?>" target="_blank">
+                                        <a id="link-url-5" href="<?php echo $site->get_kv('link_list', 4, 'url'); ?>" target="_blank">
                                             <div class="link-card cards">
-                                                <i id="link-icon-5" class="<?php echo $site->get_linklist(4, 'icon'); ?>"></i>
-                                                <span class="link-name" id="link-name-5"><?php echo $site->get_linklist(4, 'name'); ?></span>
+                                                <i id="link-icon-5" class="<?php echo $site->get_kv('link_list', 4, 'icon'); ?>"></i>
+                                                <span class="link-name" id="link-name-5"><?php echo $site->get_kv('link_list', 4, 'name'); ?></span>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a id="link-url-6" href="<?php echo $site->get_linklist(5, 'url'); ?>" target="_blank">
+                                        <a id="link-url-6" href="<?php echo $site->get_kv('link_list', 5, 'url'); ?>" target="_blank">
                                             <div class="link-card cards">
-                                                <i id="link-icon-6" class="<?php echo $site->get_linklist(5, 'icon'); ?>"></i>
-                                                <span class="link-name" id="link-name-6"><?php echo $site->get_linklist(5, 'name'); ?></span>
+                                                <i id="link-icon-6" class="<?php echo $site->get_kv('link_list', 5, 'icon'); ?>"></i>
+                                                <span class="link-name" id="link-name-6"><?php echo $site->get_kv('link_list', 5, 'name'); ?></span>
                                             </div>
                                         </a>
                                     </div>
@@ -310,39 +310,39 @@ require_once './config.php';
                     <!--网站链接-->
                     <div class="row">
                         <div class="col">
-                            <a href="<?php echo $site->get_linklist_without_icon(0, 'url'); ?>" target="_blank">
+                            <a href="<?php echo $site->get_kv('z7z8', 0, 'url'); ?>" target="_blank">
                                 <div class="link-card cards">
-                                    <span class="link-name"><?php echo $site->get_linklist_without_icon(0, 'name'); ?></span>
+                                    <span class="link-name"><?php echo $site->get_kv('z7z8', 0, 'name'); ?></span>
                                 </div>
                             </a>
                         </div>
                         <div class="col 2">
-                            <a href="<?php echo $site->get_linklist_without_icon(1, 'url'); ?>" target="_blank">
+                            <a href="<?php echo $site->get_kv('z7z8', 1, 'url'); ?>" target="_blank">
                                 <div class="link-card cards">
-                                    <span class="link-name"><?php echo $site->get_linklist_without_icon(1, 'name'); ?></span>
+                                    <span class="link-name"><?php echo $site->get_kv('z7z8', 1, 'name'); ?></span>
                                 </div>
                             </a>
                         </div>
                         <div class="col">
-                            <a href="<?php echo $site->get_linklist_without_icon(2, 'url'); ?>" target="_blank">
+                            <a href="<?php echo $site->get_kv('z7z8', 2, 'url'); ?>" target="_blank">
                                 <div class="link-card cards">
-                                    <span class="link-name"><?php echo $site->get_linklist_without_icon(2, 'name'); ?></span>
+                                    <span class="link-name"><?php echo $site->get_kv('z7z8', 2, 'name'); ?></span>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <div class="row" style="margin-top: 1.5rem;">
                         <div class="col">
-                            <a href="<?php echo $site->get_linklist_without_icon(3, 'url'); ?>" target="_blank">
+                            <a href="<?php echo $site->get_kv('z7z8', 3, 'url'); ?>" target="_blank">
                                 <div class="link-card cards">
-                                    <span class="link-name"><?php echo $site->get_linklist_without_icon(3, 'name'); ?></span>
+                                    <span class="link-name"><?php echo $site->get_kv('z7z8', 3, 'name'); ?></span>
                                 </div>
                             </a>
                         </div>
                         <div class="col 2">
-                            <a href="<?php echo $site->get_linklist_without_icon(4, 'url'); ?>" target="_blank">
+                            <a href="<?php echo $site->get_kv('z7z8', 4, 'url'); ?>" target="_blank">
                                 <div class="link-card cards">
-                                    <span class="link-name"><?php echo $site->get_linklist_without_icon(4, 'name'); ?></span>
+                                    <span class="link-name"><?php echo $site->get_kv('z7z8', 4, 'name'); ?></span>
                                 </div>
                             </a>
                         </div>
@@ -390,19 +390,19 @@ require_once './config.php';
                                                     </div>
                                                     <div class="form-radio">
                                                         <input type="radio" class="set-wallpaper" style="display: none;" id="radio2" value="2" name="wallpaper-type">
-                                                        <label for="radio2" id="wallpaper_text1"><?php echo $site->get_wallpaperapi(0, 'name'); ?></label>
+                                                        <label for="radio2" id="wallpaper_text1"><?php echo $site->get_kv('wallpaper_api', 0, 'name'); ?></label>
                                                     </div>
                                                     <div class="form-radio">
                                                         <input type="radio" class="set-wallpaper" style="display: none;" id="radio3" value="3" name="wallpaper-type">
-                                                        <label for="radio3" id="wallpaper_text2"><?php echo $site->get_wallpaperapi(1, 'name'); ?></label>
+                                                        <label for="radio3" id="wallpaper_text2"><?php echo $site->get_kv('wallpaper_api', 1, 'name'); ?></label>
                                                     </div>
                                                     <div class="form-radio">
                                                         <input type="radio" class="set-wallpaper" style="display: none;" id="radio4" value="4" name="wallpaper-type">
-                                                        <label for="radio4" id="wallpaper_text3"><?php echo $site->get_wallpaperapi(2, 'name'); ?></label>
+                                                        <label for="radio4" id="wallpaper_text3"><?php echo $site->get_kv('wallpaper_api', 2, 'name'); ?></label>
                                                     </div>
                                                     <div class="form-radio">
                                                         <input type="radio" class="set-wallpaper" style="display: none;" id="radio5" value="5" name="wallpaper-type">
-                                                        <label for="radio5" id="wallpaper_text4"><?php echo $site->get_wallpaperapi(3, 'name'); ?></label>
+                                                        <label for="radio5" id="wallpaper_text4"><?php echo $site->get_kv('wallpaper_api', 3, 'name'); ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -433,11 +433,10 @@ require_once './config.php';
                                                 <span class="uptext">
                                                     <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;移动端动画及细节</span>
                                                 <span class="uptext">
-                                                    <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;图标更换为 Font
-                                                    Awesome</span>
+                                                    <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;图标更换为 FontAwesome</span>
                                                 <span class="uptext">
                                                     <i class="fa-solid fa-rotate-left"></i>
-                                                    <a href="<?php echo $site->domain; ?>/old/" style="color:#efefef">返回旧版站点</a>
+                                                    <a href="<?php echo $site->domain; ?>/" style="color:#efefef">返回旧版站点(X)</a>
                                                 </span>
                                             </div>
                                         </div>
@@ -457,10 +456,9 @@ require_once './config.php';
         </main>
         <!-- 版权信息 -->
         <footer id="footer" class="fixed-bottom footer">
-            <div class="power">Copyright&nbsp;&copy;&nbsp;<span id="power-year">2020</span>
-                <script>
-                    document.write(' - ' + (new Date()).getFullYear())
-                </script>&nbsp;<a href="https://imsyy.top" id="power-text">無名</a>&nbsp;&amp;&nbsp;
+            <div class="power">Copyright&nbsp;&copy;&nbsp;
+                <span id="power-year"><?php echo $site->copyright[0] . '&nbsp;-&nbsp;' . date('Y');; ?></span>
+                <a href="<?php echo $site->domain; ?>" id="power-text"><?php echo $site->copyright[1]; ?></a>&nbsp;&amp;&nbsp;
                 <!-- 以下信息请不要修改哦 -->
                 Made&nbsp;by&nbsp;<a href="https://github.com/imsyy/home" target="_blank">imsyy</a>
             </div>
@@ -482,8 +480,7 @@ require_once './config.php';
     </noscript>
     <!-- JS -->
     <script type="text/javascript" src="<?php echo $site->domain; ?>/js/main.js"></script>
-    <!-- <script type="text/javascript" src="<?php //echo $site->domain; 
-                                                ?>/js/set.js"></script> -->
+    <!-- <script type="text/javascript" src="/js/set.js"></script> -->
     <script type="text/javascript" src="<?php echo $site->domain; ?>/js/time.js"></script>
     <script type="text/javascript" src="<?php echo $site->domain; ?>/js/js.cookie.js"></script>
     <script type="text/javascript" src="<?php echo $site->domain; ?>/js/cursor.js"></script>
@@ -498,10 +495,10 @@ require_once './config.php';
         /* 天气 API */
         localStorage.setItem('weather_api', '<?php echo $site->weather_api; ?>');
         // 壁纸 API
-        localStorage.setItem('wallpaper_api_1', '<?php echo $site->get_wallpaperapi(0, 'url'); ?>');
-        localStorage.setItem('wallpaper_api_2', '<?php echo $site->get_wallpaperapi(1, 'url'); ?>');
-        localStorage.setItem('wallpaper_api_3', '<?php echo $site->get_wallpaperapi(2, 'url'); ?>');
-        localStorage.setItem('wallpaper_api_4', '<?php echo $site->get_wallpaperapi(3, 'url'); ?>');
+        localStorage.setItem('wallpaper_api_1', '<?php echo $site->get_kv('wallpaper_api', 0, 'url'); ?>');
+        localStorage.setItem('wallpaper_api_2', '<?php echo $site->get_kv('wallpaper_api', 1, 'url'); ?>');
+        localStorage.setItem('wallpaper_api_3', '<?php echo $site->get_kv('wallpaper_api', 2, 'url'); ?>');
+        localStorage.setItem('wallpaper_api_4', '<?php echo $site->get_kv('wallpaper_api', 3, 'url'); ?>');
 
         /* 添加了一个壁纸 API, 其他未动 */
 
