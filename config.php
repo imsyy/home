@@ -3,6 +3,10 @@
 homepage config
 author: XYZ-dragon
 默认应该是不支持短标签的,所以就没写那种
+@TODO
+内联样式实现艺术字
+全站中文字体替换
+JS 重复部分合并
 */
 
 class Site
@@ -63,7 +67,7 @@ $setting = [
         '网址集' => ['https://ionego.net/', 'fa-solid fa-book-bookmark'],
         'Lab' => ['', 'fa-solid fa-flask']
     ],
-    'z7z8' => ['站点监控' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5'],
+    'z7z8' => ['一' => '1', '十' => '2', '百' => '3', '千' => '4', '万丈目闪电' => '5'],
     'weather_api' => 'https://www.yiketianqi.com/free/day?appid=43656176&appsecret=I42og6Lm&unescape=1',
     'wallpaper_api' => [
         '游戏王' => 'https://blueeyeswhitedragon.xyz/api/ygo/',
@@ -75,5 +79,3 @@ $setting = [
 ];
 
 $site = new Site($setting);
-
-// echo $site->get_kv('z7z8', 0, 'url');
