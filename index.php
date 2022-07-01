@@ -487,20 +487,20 @@ require_once './config.php';
     <script type="text/javascript" src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/bootstrap/5.1.0/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-        // 补充 localStorage 部分
+        /* 补充 localStorage 部分 */
         localStorage.setItem('des_tip', '<?php echo $site->des_title[0]; ?>');
         localStorage.setItem('des_title', '<?php echo $site->des_title[1]; ?>');
         localStorage.setItem('des_tip_change', '<?php echo $site->des_title_change[0]; ?>');
         localStorage.setItem('des_title_change', '<?php echo $site->des_title_change[1]; ?>');
         /* 天气 API */
         localStorage.setItem('weather_api', '<?php echo $site->weather_api; ?>');
-        // 壁纸 API
+        /* 壁纸 API */
         localStorage.setItem('wallpaper_api_1', '<?php echo $site->get_kv('wallpaper_api', 0, 'url'); ?>');
         localStorage.setItem('wallpaper_api_2', '<?php echo $site->get_kv('wallpaper_api', 1, 'url'); ?>');
         localStorage.setItem('wallpaper_api_3', '<?php echo $site->get_kv('wallpaper_api', 2, 'url'); ?>');
         localStorage.setItem('wallpaper_api_4', '<?php echo $site->get_kv('wallpaper_api', 3, 'url'); ?>');
 
-        /* 添加了一个壁纸 API, 其他未动 */
+        /* 添加了一个壁纸 API, 其他未改变 */
 
         // 背景图片 Cookies 
         function setBgImg(bg_img) {
