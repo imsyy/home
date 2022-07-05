@@ -6,7 +6,6 @@ author: XYZ-dragon
 @TODO
 内联样式实现艺术字
 全站中文字体替换
-JS 重复部分合并
 */
 
 class Site
@@ -28,7 +27,9 @@ class Site
             case 'name':
                 return array_keys($this->$name)[$index];
             case 'url':
-                if (gettype($this->$name[array_keys($this->$name)[$index]]) == 'string') return $this->$name[array_keys($this->$name)[$index]];
+                if (gettype($this->$name[array_keys($this->$name)[$index]]) == 'string') {
+                    return $this->$name[array_keys($this->$name)[$index]];
+                }
                 return $this->$name[array_keys($this->$name)[$index]][0];
             case 'icon':
                 // 如果不存在直接报错
@@ -37,9 +38,10 @@ class Site
     }
 }
 
+// 值可以重复,键不能重复!
 $setting = [
     'domain' => 'http://localhost',
-    'title' => 'BLUEEYESWHITEDRAGON.XYZ', // 用了两次
+    'title' => 'Welcome to my site!',
     'description' => '万千个人站点中的一个',
     'keywords' => '酢豚的小破站',
     'author' => '酢豚',
@@ -61,13 +63,19 @@ $setting = [
     ],
     'link_list' => [
         '博客' => ['https://blueeyeswhitedragon.xyz/', 'fa-solid fa-blog'],
-        '兰空图床' => ['http://localhost:8080/', 'fa-solid fa-cloud'],
-        'Null' => ['', 'fa-solid fa-music'],
+        '兰空图床' => ['http://lsky.localhost/', 'fa-solid fa-images'],
+        '网盘' => ['http://assets.localhost/', 'fa-solid fa-cloud'],
         '导航站' => ['', 'fa-solid fa-compass'],
-        '网址集' => ['https://ionego.net/', 'fa-solid fa-book-bookmark'],
-        'Lab' => ['', 'fa-solid fa-flask']
+        '网址集' => ['https://ionego.net/', 'fa-solid fa-bookmark'],
+        'Lab' => ['', 'fa-solid fa-code']
     ],
-    'z7z8' => ['一' => '1', '十' => '2', '百' => '3', '千' => '4', '万丈目闪电' => '5'],
+    'z7z8' => [
+        'Python 文档' => '/python-3.9.5-文档',
+        'Err' => '/ErrorDocument/404.html',
+        '调试' => '/config.php',
+        '版本:' => '#',
+        'v0.1' => '#'
+    ],
     'weather_api' => 'https://www.yiketianqi.com/free/day?appid=43656176&appsecret=I42og6Lm&unescape=1',
     'wallpaper_api' => [
         '游戏王' => 'https://blueeyeswhitedragon.xyz/api/ygo/',
@@ -79,3 +87,4 @@ $setting = [
 ];
 
 $site = new Site($setting);
+// for ($i = 0; $i <= 3; $i++) echo ',\'' . $site->get_kv('wallpaper_api', $i, 'url') . '\'';

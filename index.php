@@ -20,7 +20,7 @@ require_once './config.php';
     <link rel="shortcut icon" href="<?php echo $site->domain; ?>/favicon.png" sizes="1024x1024" type="image/png">
     <title><?php echo $site->title; ?></title>
     <!-- jQuery -->
-    <script src="<?php echo $site->domain; ?>/assets/js/jquery/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +52,8 @@ require_once './config.php';
     <!-- PWA -->
     <link rel="manifest" href="<?php echo $site->domain; ?>/manifest.json">
     <!-- 51.LA 统计 -->
-    <script src="<?php echo $site->domain; ?>/js/51LA.js"></script>
+    <!-- <script src="<?php //echo $site->domain; 
+                        ?>/js/51LA.js"></script> -->
 </head>
 
 <body>
@@ -385,23 +386,23 @@ require_once './config.php';
                                             <div class="set">
                                                 <div class="wallpaper" id="wallpaper">
                                                     <div class="form-radio">
-                                                        <input type="radio" class="set-wallpaper" style="display: none;" id="radio1" value="1" name="wallpaper-type">
+                                                        <input type="radio" class="set-wallpaper" style="display: none;" id="radio1" value="0" name="wallpaper-type">
                                                         <label for="radio1">默认壁纸</label>
                                                     </div>
                                                     <div class="form-radio">
-                                                        <input type="radio" class="set-wallpaper" style="display: none;" id="radio2" value="2" name="wallpaper-type">
+                                                        <input type="radio" class="set-wallpaper" style="display: none;" id="radio2" value="1" name="wallpaper-type">
                                                         <label for="radio2" id="wallpaper_text1"><?php echo $site->get_kv('wallpaper_api', 0, 'name'); ?></label>
                                                     </div>
                                                     <div class="form-radio">
-                                                        <input type="radio" class="set-wallpaper" style="display: none;" id="radio3" value="3" name="wallpaper-type">
+                                                        <input type="radio" class="set-wallpaper" style="display: none;" id="radio3" value="2" name="wallpaper-type">
                                                         <label for="radio3" id="wallpaper_text2"><?php echo $site->get_kv('wallpaper_api', 1, 'name'); ?></label>
                                                     </div>
                                                     <div class="form-radio">
-                                                        <input type="radio" class="set-wallpaper" style="display: none;" id="radio4" value="4" name="wallpaper-type">
+                                                        <input type="radio" class="set-wallpaper" style="display: none;" id="radio4" value="3" name="wallpaper-type">
                                                         <label for="radio4" id="wallpaper_text3"><?php echo $site->get_kv('wallpaper_api', 2, 'name'); ?></label>
                                                     </div>
                                                     <div class="form-radio">
-                                                        <input type="radio" class="set-wallpaper" style="display: none;" id="radio5" value="5" name="wallpaper-type">
+                                                        <input type="radio" class="set-wallpaper" style="display: none;" id="radio5" value="4" name="wallpaper-type">
                                                         <label for="radio5" id="wallpaper_text4"><?php echo $site->get_kv('wallpaper_api', 3, 'name'); ?></label>
                                                     </div>
                                                 </div>
@@ -436,7 +437,7 @@ require_once './config.php';
                                                     <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;图标更换为 FontAwesome</span>
                                                 <span class="uptext">
                                                     <i class="fa-solid fa-rotate-left"></i>
-                                                    <a href="<?php echo $site->domain; ?>/" style="color:#efefef">返回旧版站点(X)</a>
+                                                    <a href="<?php echo $site->domain; ?>/" style="color:#efefef">返回旧版站点( X )</a>
                                                 </span>
                                             </div>
                                         </div>
@@ -494,13 +495,11 @@ require_once './config.php';
         localStorage.setItem('des_title_change', '<?php echo $site->des_title_change[1]; ?>');
         /* 天气 API */
         localStorage.setItem('weather_api', '<?php echo $site->weather_api; ?>');
-        /* 壁纸 API */
-        localStorage.setItem('wallpaper_api_1', '<?php echo $site->get_kv('wallpaper_api', 0, 'url'); ?>');
-        localStorage.setItem('wallpaper_api_2', '<?php echo $site->get_kv('wallpaper_api', 1, 'url'); ?>');
-        localStorage.setItem('wallpaper_api_3', '<?php echo $site->get_kv('wallpaper_api', 2, 'url'); ?>');
-        localStorage.setItem('wallpaper_api_4', '<?php echo $site->get_kv('wallpaper_api', 3, 'url'); ?>');
 
-        /* 添加了一个壁纸 API, 其他未改变 */
+        /* 壁纸 API 合并删除了部分重复代码 */
+        let wallpaper_api = [`./img/background${1 + ~~(Math.random() * 10)}.webp`
+            <?php for ($i = 0; $i <= 3; $i++) echo ',\'' . $site->get_kv('wallpaper_api', $i, 'url') . '\''; ?>
+        ];
 
         // 背景图片 Cookies 
         function setBgImg(bg_img) {
@@ -515,7 +514,10 @@ require_once './config.php';
 
         // 获取背景图片 Cookies
         function getBgImg() {
-            var bg_img_local = Cookies.get('bg_img');
+            let bg_img_local = Cookies.get('bg_img');
+            let bg_img_preinstall = {
+                'type': '0' // default=0,YGO,Bing,scenery,comic
+            };
             if (bg_img_local && bg_img_local !== "{}") {
                 return JSON.parse(bg_img_local);
             } else {
@@ -524,116 +526,30 @@ require_once './config.php';
             }
         }
 
-        var bg_img_preinstall = {
-            "type": "1", // default,YGO,Bing,scenery,comic
-        };
-
         // 更改背景图片
         function setBgImgInit() {
             var bg_img = getBgImg();
             $("input[name='wallpaper-type'][value=" + bg_img["type"] + "]").click();
-
-            switch (bg_img["type"]) {
-                case "1":
-                    var pictures = new Array();
-                    pictures[0] = './img/background1.webp';
-                    pictures[1] = './img/background2.webp';
-                    pictures[2] = './img/background3.webp';
-                    pictures[3] = './img/background4.webp';
-                    pictures[4] = './img/background5.webp';
-                    pictures[5] = './img/background6.webp';
-                    pictures[6] = './img/background7.webp';
-                    pictures[7] = './img/background8.webp';
-                    pictures[8] = './img/background9.webp';
-                    pictures[9] = './img/background10.webp';
-                    var rd = Math.floor(Math.random() * 10);
-                    $('#bg').attr('src', pictures[rd]) // 随机默认壁纸
-                    break;
-                case "2":
-                    $('#bg').attr('src', localStorage.getItem('wallpaper_api_1')); // YGO
-                    break;
-                case "3":
-                    $('#bg').attr('src', localStorage.getItem('wallpaper_api_2')); // Bing
-                    break;
-                case "4":
-                    $('#bg').attr('src', localStorage.getItem('wallpaper_api_3')); // 随机风景
-                    break;
-                case "5":
-                    $('#bg').attr('src', localStorage.getItem('wallpaper_api_4')); // 随机动漫
-                    break;
-            }
+            $('#bg').attr('src', wallpaper_api[bg_img["type"]]) // 随机默认壁纸
         };
 
-        $(document).ready(function() {
+        $(document).ready(() => {
             // 壁纸数据加载
             setBgImgInit();
             // 设置背景图片
             $("#wallpaper").on("click", ".set-wallpaper", function() {
-                var type = $(this).val();
-                var bg_img = getBgImg();
+                let type = $(this).val();
+                let bg_img = getBgImg();
                 bg_img["type"] = type;
 
-                if (type === "1") {
-                    setBgImg(bg_img);
-                    var pictures = new Array();
-                    pictures[0] = './img/background1.webp';
-                    pictures[1] = './img/background2.webp';
-                    pictures[2] = './img/background3.webp';
-                    pictures[3] = './img/background4.webp';
-                    pictures[4] = './img/background5.webp';
-                    pictures[5] = './img/background6.webp';
-                    pictures[6] = './img/background7.webp';
-                    pictures[7] = './img/background8.webp';
-                    pictures[8] = './img/background9.webp';
-                    pictures[9] = './img/background10.webp';
-                    var rd = Math.floor(Math.random() * 10);
-                    $('#bg').attr('src', pictures[rd]) //随机默认壁纸
-                    iziToast.show({
-                        icon: "fa-solid fa-image",
-                        timeout: 2500,
-                        message: '壁纸设置成功',
-                    });
-                };
+                setBgImg(bg_img);
+                $('#bg').attr('src', wallpaper_api[type]);
+                iziToast.show({
+                    icon: "fa-solid fa-image",
+                    timeout: 2500,
+                    message: '壁纸设置成功',
+                });
 
-                if (type === "2") {
-                    setBgImg(bg_img);
-                    $('#bg').attr('src', localStorage.getItem('wallpaper_api_1'));
-                    iziToast.show({
-                        icon: "fa-solid fa-image",
-                        timeout: 2500,
-                        message: '壁纸设置成功',
-                    });
-                };
-
-                if (type === "3") {
-                    setBgImg(bg_img);
-                    $('#bg').attr('src', localStorage.getItem('wallpaper_api_2'));
-                    iziToast.show({
-                        icon: "fa-solid fa-image",
-                        timeout: 2500,
-                        message: '壁纸设置成功',
-                    });
-                };
-
-                if (type === "4") {
-                    setBgImg(bg_img);
-                    $('#bg').attr('src', localStorage.getItem('wallpaper_api_3'));
-                    iziToast.show({
-                        icon: "fa-solid fa-image",
-                        timeout: 2500,
-                        message: '壁纸设置成功',
-                    });
-                };
-
-                if (type === "5") {
-                    setBgImg(bg_img);
-                    $('#bg').attr('src', localStorage.getItem('wallpaper_api_4'));
-                    iziToast.show({
-                        icon: "fa-solid fa-image",
-                        timeout: 2500,
-                        message: '壁纸设置成功',
-                    });
-                };
             });
         });
     </script>
