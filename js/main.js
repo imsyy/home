@@ -43,7 +43,7 @@ body.addEventListener('mousemove', (e) => {
 //移动端去除鼠标样式
 switch (true) {
     case navigator.userAgent.indexOf('Mobile') > 0:
-    $('#g-pointer-2').css("display", "none");
+        $('#g-pointer-2').css("display", "none");
 }
 
 //加载完成后执行
@@ -146,7 +146,7 @@ $('#hitokoto').click(function () {
             .catch(console.error)
     } else {
         iziToast.show({
-            timeout: 2000,
+            timeout: 1000,
             icon: "fa-solid fa-circle-exclamation",
             message: '你点太快了吧'
         });
@@ -154,19 +154,60 @@ $('#hitokoto').click(function () {
 });
 
 //获取天气
-//每日限量 100 次
-//请前往 https://www.tianqiapi.com/ 申请（免费）
-fetch(localStorage.getItem('weather_api'))
-    .then(response => response.json())
-    .then(data => {
-        $('#wea_text').html(data.wea)
-        $('#city_text').html(data.city)
-        $('#tem_night').html(data.tem_night)
-        $('#tem_day').html(data.tem_day)
-        $('#win_text').html(data.win)
-        $('#win_speed').html(data.win_speed)
-    })
-    .catch(console.error)
+//请前往 https://www.mxnzp.com/doc/list 申请 app_id 和 app_secret
+//请前往 https://dev.qweather.com/ 申请 key
+const add_id = "wrknltonr0foslhs"; // app_id
+const app_secret = "Nlh1c0F6d0ZDU2pDR0J3YVBVbkhudz09"; // app_secret
+const key = "433f0c48615a48dfaf2f2b2444297e79" // key
+function getWeather() {
+    fetch("https://www.mxnzp.com/api/ip/self?app_id=" + add_id + "&app_secret=" + app_secret)
+        .then(response => response.json())
+        .then(data => {
+            let str = data.data.city
+            let city = str.replace(/市/g, '')
+            $('#city_text').html(city);
+            fetch("https://geoapi.qweather.com/v2/city/lookup?location=" + city + "&number=1&key=" + key)
+                .then(response => response.json())
+                .then(location => {
+                    let id = location.location[0].id
+                    fetch("https://devapi.qweather.com/v7/weather/now?location=" + id + "&key=" + key)
+                        .then(response => response.json())
+                        .then(weather => {
+                            $('#wea_text').html(weather.now.text)
+                            $('#tem_text').html(weather.now.temp)
+                            $('#win_text').html(weather.now.windDir)
+                            $('#win_speed').html(weather.now.windScale)
+                        })
+                })
+        })
+        .catch(console.error);
+}
+
+getWeather();
+
+$('#upWeather').click(function () {
+    if (times == 0) {
+        times = 1;
+        var index = setInterval(function () {
+            times--;
+            if (times == 0) {
+                clearInterval(index);
+            }
+        }, 60000);
+        getWeather();
+        iziToast.show({
+            timeout: 2000,
+            icon: "fa-solid fa-cloud-sun",
+            message: '实时天气已更新'
+        });
+    } else {
+        iziToast.show({
+            timeout: 1000,
+            icon: "fa-solid fa-circle-exclamation",
+            message: '请稍后再更新哦'
+        });
+    }
+});
 
 //获取时间
 var t = null;
@@ -243,18 +284,41 @@ $("#twitter").mouseover(function () {
     $("#link-text").html("通过这里联系我");
 });
 
+//自动变灰
+var myDate = new Date;
+var mon = myDate.getMonth() + 1;
+var date = myDate.getDate();
+var days = ['4.4', '5.12', '7.7', '9.9', '9.18', '12.13'];
+for (var day of days) {
+    var d = day.split('.');
+    if (mon == d[0] && date == d[1]) {
+        document.write(
+            '<style>html{-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);_filter:none}</style>'
+        )
+        $("#change").html("Silence&nbsp;in&nbsp;silence");
+        $("#change1").html("今天是中国国家纪念日，全站已切换为黑白模式");
+        window.addEventListener('load', function () {
+            iziToast.show({
+                timeout: 14000,
+                icon: "fa-solid fa-clock",
+                message: '今天是中国国家纪念日'
+            });
+        }, false);
+    }
+}
+
 //更多页面切换
 var shoemore = false;
 $('#switchmore').on('click', function () {
     shoemore = !shoemore;
     if (shoemore && $(document).width() >= 990) {
         $('#container').attr('class', 'container mores');
-        $("#change").html(localStorage.getItem('des_tip_change'));
-        $("#change1").html(localStorage.getItem('des_title_change'));
+        $("#change").html("Oops&nbsp;!");
+        $("#change1").html("哎呀，这都被你发现了（ 再点击一次可关闭 ）");
     } else {
         $('#container').attr('class', 'container');
-        $("#change").html(localStorage.getItem('des_tip'));
-        $("#change1").html(localStorage.getItem('des_title'));
+        $("#change").html("Hello&nbsp;World&nbsp;!");
+        $("#change1").html("一个建立于 21 世纪的小站，存活于互联网的边缘");
     }
 });
 
@@ -302,8 +366,8 @@ window.addEventListener('load', function () {
         if (window.innerWidth <= 990) {
             //移动端隐藏更多页面
             $('#container').attr('class', 'container');
-            $("#change").html(localStorage.getItem('des_tip'));
-            $("#change1").html(localStorage.getItem('des_title'));
+            $("#change").html("Hello&nbsp;World&nbsp;!");
+            $("#change1").html("一个建立于 21 世纪的小站，存活于互联网的边缘");
 
             //移动端隐藏弹窗页面
             $('#box').css("display", "none");
@@ -341,29 +405,6 @@ document.oncontextmenu = function () {
     return false;
 }
 
-//自动变灰
-var myDate = new Date;
-var mon = myDate.getMonth() + 1;
-var date = myDate.getDate();
-var days = ['4.4', '5.12', '7.7', '9.9', '9.18', '12.13'];
-for (var day of days) {
-    var d = day.split('.');
-    if (mon == d[0] && date == d[1]) {
-        document.write(
-            '<style>html{-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);_filter:none}</style>'
-        )
-        $("#change").html("Silence&nbsp;in&nbsp;silence");
-        $("#change1").html("今天是中国国家纪念日，全站已切换为黑白模式");
-        window.addEventListener('load', function () {
-            iziToast.show({
-                timeout: 14000,
-                icon: "fa-solid fa-candle-holder",
-                message: '今天是中国国家纪念日'
-            });
-        }, false);
-    }
-}
-
 //控制台输出
 console.clear();
 var styleTitle1 = `
@@ -388,8 +429,8 @@ var title2 = `
 |_____|_|  |_|_____/   |_|      |_|                                                     
 `
 var content = `
-版 本 号：3.2
-更新日期：2022-06-28
+版 本 号：3.3
+更新日期：2022-07-06
 
 主页:  https://www.imsyy.top
 Github:  https://github.com/imsyy/home

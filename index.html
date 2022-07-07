@@ -181,7 +181,7 @@
                                 </div>
                                 <div class="col times">
                                     <!--时间-->
-                                    <div class="time cards">
+                                    <div class="time cards" id="upWeather">
                                         <div class="timeshow" id="time">
                                             2000&nbsp;年&nbsp;0&nbsp;月&nbsp;00&nbsp;日&nbsp;<span
                                                 class="weekday">星期一</span><br><span class="time-text">00:00:00</span>
@@ -189,10 +189,9 @@
                                         <div class="weather">
                                             <span id="city_text">天气</span>&nbsp;
                                             <span id="wea_text">加载失败</span>&nbsp;
-                                            <span id="tem_night"></span>°C~
-                                            <span id="tem_day"></span>°C&nbsp;
+                                            <span id="tem_text">*</span>°C&nbsp;
                                             <span id="win_text"></span>
-                                            <span id="win_speed"></span>
+                                            <span id="win_speed">*</span>级
                                         </div>
                                     </div>
                                 </div>
@@ -370,7 +369,7 @@
                             <div class="img-title">
                                 <span class="img-title-big" id="logo-title-other">imsyy</span>
                                 <span class="img-text" id="logo-title-other-small">.top</span><br />
-                                <span class="img-text">&nbsp;v&nbsp;3.2</span>
+                                <span class="img-text">&nbsp;v&nbsp;3.3</span>
                                 <a href="https://github.com/imsyy/home" target="_blank">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
@@ -438,9 +437,14 @@
                                                     <i class="fa-solid fa-circle-plus"></i>&nbsp;音乐播放器支持音量控制
                                                 </span>
                                                 <span class="uptext">
-                                                    <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;时光胶囊显示错误</span>
+                                                    <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;修复天气 API
+                                                </span>
                                                 <span class="uptext">
-                                                    <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;移动端动画及细节</span>
+                                                    <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;时光胶囊显示错误
+                                                </span>
+                                                <span class="uptext">
+                                                    <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;移动端动画及细节
+                                                </span>
                                                 <span class="uptext">
                                                     <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;图标更换为 Font
                                                     Awesome</span>
