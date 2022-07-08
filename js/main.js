@@ -174,9 +174,9 @@ function getWeather() {
                         .then(response => response.json())
                         .then(weather => {
                             $('#wea_text').html(weather.now.text)
-                            $('#tem_text').html(weather.now.temp)
+                            $('#tem_text').html(weather.now.temp+"°C&nbsp;")
                             $('#win_text').html(weather.now.windDir)
-                            $('#win_speed').html(weather.now.windScale)
+                            $('#win_speed').html(weather.now.windScale+"级")
                         })
                 })
         })
