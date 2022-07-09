@@ -99,11 +99,13 @@ $.ajax({
 
         $('#last').on('click', function () {
             ap.skipBack();
+            ap.play();
             $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
         });
 
         $('#next').on('click', function () {
             ap.skipForward();
+            ap.play();
             $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
         });
 
