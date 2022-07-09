@@ -185,6 +185,7 @@ function getWeather() {
 
 getWeather();
 
+var wea = 0;
 $('#upWeather').click(function () {
     if (wea == 0) {
         wea = 1;
