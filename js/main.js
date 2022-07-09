@@ -186,11 +186,11 @@ function getWeather() {
 getWeather();
 
 $('#upWeather').click(function () {
-    if (times == 0) {
-        times = 1;
+    if (wea == 0) {
+        wea = 1;
         var index = setInterval(function () {
-            times--;
-            if (times == 0) {
+            wea--;
+            if (wea == 0) {
                 clearInterval(index);
             }
         }, 60000);
