@@ -109,6 +109,12 @@ $.ajax({
             $("#music-name").html($(".aplayer-title").text() + $(".aplayer-author").text());
         });
 
+        window.onkeydown = function (e) {
+            if (e.keyCode == 32) {
+                ap.toggle();
+            }
+        }
+
         /* 打开音乐列表 */
         $('#music-open').on('click', function () {
             if ($(document).width() >= 990) {
