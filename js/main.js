@@ -85,19 +85,17 @@ setTimeout(function () {
     $('#loading-text').html("字体及文件加载可能需要一定时间")
 }, 3000);
 
-//新春灯笼 （ 需要时取消注释 ）
-/*
-new_element=document.createElement("link");
-new_element.setAttribute("rel","stylesheet");
-new_element.setAttribute("type","text/css");
-new_element.setAttribute("href","./css/lantern.css");
-document.body.appendChild(new_element);
+// 新春灯笼 （ 需要时可取消注释 ）
+// new_element=document.createElement("link");
+// new_element.setAttribute("rel","stylesheet");
+// new_element.setAttribute("type","text/css");
+// new_element.setAttribute("href","./css/lantern.css");
+// document.body.appendChild(new_element);
 
-new_element=document.createElement("script");
-new_element.setAttribute("type","text/javascript");
-new_element.setAttribute("src","./js/lantern.js");
-document.body.appendChild(new_element);
-*/
+// new_element=document.createElement("script");
+// new_element.setAttribute("type","text/javascript");
+// new_element.setAttribute("src","./js/lantern.js");
+// document.body.appendChild(new_element);
 
 //火狐浏览器独立样式
 if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
@@ -174,9 +172,9 @@ function getWeather() {
                         .then(response => response.json())
                         .then(weather => {
                             $('#wea_text').html(weather.now.text)
-                            $('#tem_text').html(weather.now.temp+"°C&nbsp;")
+                            $('#tem_text').html(weather.now.temp + "°C&nbsp;")
                             $('#win_text').html(weather.now.windDir)
-                            $('#win_speed').html(weather.now.windScale+"级")
+                            $('#win_speed').html(weather.now.windScale + "级")
                         })
                 })
         })
@@ -274,12 +272,12 @@ $("#email").mouseover(function () {
 }).mouseout(function () {
     $("#link-text").html("通过这里联系我");
 });
-$("#telegram").mouseover(function () {
-    $("#link-text").html("你懂的 ~");
+$("#bilibili").mouseover(function () {
+    $("#link-text").html("来 B 站看看 ~");
 }).mouseout(function () {
     $("#link-text").html("通过这里联系我");
 });
-$("#twitter").mouseover(function () {
+$("#telegram").mouseover(function () {
     $("#link-text").html("你懂的 ~");
 }).mouseout(function () {
     $("#link-text").html("通过这里联系我");
@@ -430,8 +428,8 @@ var title2 = `
 |_____|_|  |_|_____/   |_|      |_|                                                     
 `
 var content = `
-版 本 号：3.3
-更新日期：2022-07-06
+版 本 号：3.4
+更新日期：2022-07-24
 
 主页:  https://www.imsyy.top
 Github:  https://github.com/imsyy/home

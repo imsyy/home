@@ -5,12 +5,13 @@
     <!-- 基础信息 -->
     <meta charset="utf-8">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <!-- 强制 HTTPS，若不需要可删除，但可能出现问题 -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="renderer" content="webkit" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="force-rendering" content="webkit" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#424242"/>
+    <meta name="theme-color" content="#424242" />
     <meta name="description" content="一个默默无闻的主页">
     <meta name="keywords" content="無名,个人主页">
     <meta name="author" content="無名">
@@ -36,7 +37,7 @@
         src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/izitoast/1.4.0/js/iziToast.min.js">
     </script>
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <!-- Aplayer -->
     <link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -100,7 +101,7 @@
                                 <div class="des" id="des">
                                     <i class="fa-solid fa-quote-left"></i>
                                     <div class="des-title"><span id="change">Hello&nbsp;World&nbsp;!</span><br /><span
-                                            id="change1">一个建立于 21 世纪的小站，主域名正在备案中</span></div>
+                                            id="change1">一个建立于 21 世纪的小站，存活于互联网的边缘</span></div>
                                     <i class="fa-solid fa-quote-right"></i>
                                 </div>
                             </div>
@@ -117,11 +118,12 @@
                                 <a href="mailto:one@imsyy.top" class="link" id="email">
                                     <i class="fa-solid fa-envelope"></i>
                                 </a>
+                                <a href="https://space.bilibili.com/98544142" class="link" id="bilibili"
+                                    target="_blank">
+                                    <i class="fa-brands fa-bilibili"></i>
+                                </a>
                                 <a href="https://t.me/bottom_user" class="link" id="telegram" target="_blank">
                                     <i class="fa-brands fa-telegram"></i>
-                                </a>
-                                <a href="https://twitter.com/iimmsyy" class="link" id="twitter" target="_blank">
-                                    <i class="fa-brands fa-twitter"></i>
                                 </a>
                                 <a id="link-text">通过这里联系我</a>
                             </div>
@@ -470,12 +472,18 @@
         </main>
         <!-- 版权信息 -->
         <footer id="footer" class="fixed-bottom footer">
-            <div class="power">Copyright&nbsp;&copy;&nbsp;<span id="power-year">2020</span>
-                <script>
-                    document.write(' - ' + (new Date()).getFullYear())
-                </script>&nbsp;<a href="https://imsyy.top" id="power-text">無名</a>&nbsp;&amp;&nbsp;
+            <div class="power">
+                <span id="power">Copyright&nbsp;&copy;
+                    <script>
+                        document.write((new Date()).getFullYear());
+                    </script>
+                    <a href="https://imsyy.top" id="power-text">無名</a>
+                </span>
                 <!-- 以下信息请不要修改哦 -->
-                Made&nbsp;by&nbsp;<a href="https://github.com/imsyy/home" target="_blank">imsyy</a>
+                <span id="made">&amp;&nbsp;Made&nbsp;by&nbsp;<a href="https://github.com/imsyy/home"
+                        target="_blank">imsyy</a></span>
+                <!-- 站点备案 -->
+                <a href="https://beian.miit.gov.cn" id="beian" target="_blank">&amp;&nbsp;豫ICP备2022018134号-1</a>
             </div>
             <!-- 歌词显示 -->
             <div id="lrc"></div>

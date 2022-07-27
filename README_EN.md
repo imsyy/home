@@ -13,6 +13,7 @@ Simple little homepage, had enough of the original one and made a new one
 >Due to CDN caching, you may need `Ctrl` + `F5` to force a browser cache refresh to see the latest results
 
 - [無名の主页](https://www.imsyy.top)
+- [無名の主页 - 备用线路](https://home.imsyy.top)
 
 ### Functions
 
