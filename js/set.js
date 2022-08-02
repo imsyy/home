@@ -8,7 +8,7 @@ GitHub：https://github.com/imsyy/home
 /* 自定义配置 */
 /* 尚未完善 */
 $(function () {
-    var url = "../setting.json"
+    let url = "../setting.json"
     $.getJSON(
         url,
         function (data) {
@@ -70,7 +70,7 @@ function setBgImg(bg_img) {
 
 // 获取背景图片 Cookies
 function getBgImg() {
-    var bg_img_local = Cookies.get('bg_img');
+    let bg_img_local = Cookies.get('bg_img');
     if (bg_img_local && bg_img_local !== "{}") {
         return JSON.parse(bg_img_local);
     } else {
@@ -79,7 +79,7 @@ function getBgImg() {
     }
 }
 
-var bg_img_preinstall = {
+let bg_img_preinstall = {
     "type": "1", // 1:默认背景 2:每日一图 3:随机风景 4:随机动漫
     "2": "https://api.dujin.org/bing/1920.php", // 每日一图
     "3": "https://api.ixiaowai.cn/gqapi/gqapi.php", // 随机风景
@@ -88,7 +88,7 @@ var bg_img_preinstall = {
 
 // 更改背景图片
 function setBgImgInit() {
-    var bg_img = getBgImg();
+    let bg_img = getBgImg();
     $("input[name='wallpaper-type'][value=" + bg_img["type"] + "]").click();
 
     switch (bg_img["type"]) {
@@ -112,48 +112,14 @@ $(document).ready(function () {
     setBgImgInit();
     // 设置背景图片
     $("#wallpaper").on("click", ".set-wallpaper", function () {
-        var type = $(this).val();
-        var bg_img = getBgImg();
+        let type = $(this).val();
+        let bg_img = getBgImg();
         bg_img["type"] = type;
-
-        if (type === "1") {
-            setBgImg(bg_img);
-            $('#bg').attr('src', `./img/background${1 + ~~(Math.random() * 10)}.webp`) //随机默认壁纸
-            iziToast.show({
-                icon: "fa-solid fa-image",
-                timeout: 2500,
-                message: '壁纸设置成功',
-            });
-        };
-
-        if (type === "2") {
-            setBgImg(bg_img);
-            $('#bg').attr('src', bg_img_preinstall[2]); //必应每日
-            iziToast.show({
-                icon: "fa-solid fa-image",
-                timeout: 2500,
-                message: '壁纸设置成功',
-            });
-        };
-
-        if (type === "3") {
-            setBgImg(bg_img);
-            $('#bg').attr('src', bg_img_preinstall[3]); //随机风景
-            iziToast.show({
-                icon: "fa-solid fa-image",
-                timeout: 2500,
-                message: '壁纸设置成功',
-            });
-        };
-
-        if (type === "4") {
-            setBgImg(bg_img);
-            $('#bg').attr('src', bg_img_preinstall[4]); //随机动漫
-            iziToast.show({
-                icon: "fa-solid fa-image",
-                timeout: 2500,
-                message: '壁纸设置成功',
-            });
-        };
+        iziToast.show({
+            icon: "fa-solid fa-image",
+            timeout: 2500,
+            message: '壁纸设置成功，刷新后生效',
+        });
+        setBgImg(bg_img);
     });
 });

@@ -25,8 +25,9 @@
 - [x] 时光进度条
 - [x] 音乐播放器
 - [x] 移动端适配
-* [ ] 还没想好呢
 
+* [ ] 去除 jQuery 依赖
+* [ ] VUE 重构
 
 ### 天气
 
@@ -98,9 +99,9 @@
 更改 `music.js` 的参数即可实现自定义歌单列表
 
 ```js
-var server = "netease"; //netease: 网易云音乐; tencent: QQ音乐; kugou: 酷狗音乐; xiami: 虾米; kuwo: 酷我
-var type = "playlist"; //song: 单曲; playlist: 歌单; album: 唱片
-var id = "7452421335"; //封面 ID / 单曲 ID / 歌单 ID
+let server = "netease"; //netease: 网易云音乐; tencent: QQ音乐; kugou: 酷狗音乐; xiami: 虾米; kuwo: 酷我
+let type = "playlist"; //song: 单曲; playlist: 歌单; album: 唱片
+let id = "7452421335"; //封面 ID / 单曲 ID / 歌单 ID
 ```
 
 ### 字体

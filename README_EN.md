@@ -25,7 +25,9 @@ Simple little homepage, had enough of the original one and made a new one
 - [x] Time progress bar
 - [x] Music player
 - [x] Mobile adaptation
-* [ ] Haven't thought about it yet
+
+* [ ] Remove jQuery dependency
+* [ ] VUE refactoring
 
 ### Weather
 
@@ -98,9 +100,9 @@ This project uses `json` file to configure the site content, the configuration i
 Change the parameters of `music.js` to achieve a custom song list
 
 ```js
-var server = "netease"; //netease; tencent; kugou; xiami; kuwo; 
-var type = "playlist"; //song; playlist; album;
-var id = "7452421335"; //album ID; song ID; playlist ID;
+let server = "netease"; //netease; tencent; kugou; xiami; kuwo; 
+let type = "playlist"; //song; playlist; album;
+let id = "7452421335"; //album ID; song ID; playlist ID;
 ```
 
 ### Fonts
