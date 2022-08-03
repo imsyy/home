@@ -7,14 +7,13 @@ GitHub：https://github.com/imsyy/home
 
 @charset "utf-8";
 
-@font-face {
+/* @font-face {
     font-family: "MiSans";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
     src: url('../font/MiSans-Regular.subset.woff2') format('woff2');
-    /* src: url('../font/MiSans-Regular.subset.ttf') format('truetype'); */
-}
+} */
 
 @font-face {
     font-family: "Pacifico-Regular";
@@ -35,6 +34,7 @@ body {
     padding: 0;
     background-color: #333;
     overflow: hidden;
+    font-family: 'HarmonyOS_Regular', sans-serif;
 }
 
 *,
@@ -44,7 +44,6 @@ p {
     transition: 0.3s;
     color: #efefef;
     user-select: none;
-    font-family: 'MiSans', sans-serif;
     cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='white' /></svg>") 4 4, auto !important;
 }
 
@@ -858,6 +857,7 @@ input[type="radio"]:checked+label {
     width: 100%;
     border-radius: 6px !important;
     margin-right: 18px;
+    font-family: 'HarmonyOS_Regular', sans-serif !important;
 }
 
 .aplayer.aplayer-withlrc .aplayer-pic {

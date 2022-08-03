@@ -10,10 +10,11 @@ Simple little homepage, had enough of the original one and made a new one
 >The logo font on the home page has been compressed, so if you use a font other than this logo, it will change back to the default font, Here is the [full font](https://file.imsyy.top/font/Pacifico-Regular.ttf)  
 
 ### Demo
+
 >Due to CDN caching, you may need `Ctrl` + `F5` to force a browser cache refresh to see the latest results
 
 - [無名の主页](https://www.imsyy.top)
-- [無名の主页 - 备用线路](https://home.imsyy.top)
+- [無名の主页 - 备用线路](https://home-imsyy.vercel.app/)
 
 ### Functions
 
@@ -95,7 +96,7 @@ This project uses `json` file to configure the site content, the configuration i
 ### Music
 
 >This project uses the `Aplayer` music player based on `MetingJS` for quick song list customization  
->*Only supported in **Mainland China**, please replace `music.js` with [the following](https://file.imsyy.top/js/music/music-other.js) in other regions to enable the music player to work properly
+>*Only supported in **Mainland China**, please replace `music.js` with [the following](https://cdn.jsdelivr.net/gh/imsyy/file/js/music/music-other.js) in other regions to enable the music player to work properly
 
 Change the parameters of `music.js` to achieve a custom song list
 
@@ -106,6 +107,16 @@ let id = "7452421335"; //album ID; song ID; playlist ID;
 ```
 
 ### Fonts
+
+Now using `HarmonyOS Sans` open source font, using font splitting to improve loading speed
+
+>Because this site's `CDN` has opened anti-leech, **non-site domain name is not accessible**, please change the font import link to the following content, otherwise **custom fonts will be invalid**
+>
+>`https://cdn.jsdelivr.net/gh/imsyy/file/font/HarmonyOS_Sans/regular.min.css`
+
+<details>
+<summary>old way</summary>
+
 >As Chinese fonts are introduced in this project, Chinese fonts need to be compressed to improve the loading speed of the page (you can also cancel the use of Chinese fonts)
 
 #### Chinese font removal traditional
@@ -135,6 +146,8 @@ make clean all
 - Eventually the original font can be slow loaded, **load the compressed font first**
 
 >For more information, please go to [虹墨空间站](https://www.imaegoo.com/2020/chinese-font-compress/) to view the original article
+
+</details>
 
 ### Plugins
 

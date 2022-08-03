@@ -10,10 +10,11 @@
 >主页的 Logo 字体已经过压缩，若用本站 Logo 以外的字母会变回默认字体，这里是 [完整字体](https://file.imsyy.top/font/Pacifico-Regular.ttf)
 
 ### Demo
+
 >由于 CDN 缓存原因，查看最新效果可能需要 `Ctrl` + `F5` 强制刷新浏览器缓存
 
 - [無名の主页](https://www.imsyy.top)
-- [無名の主页 - 备用线路](https://home.imsyy.top)
+- [無名の主页 - 备用线路](https://home-imsyy.vercel.app/)
 
 ### 功能
 
@@ -94,7 +95,7 @@
 ### 音乐
 
 >本项目采用了基于 `MetingJS` 的 `Aplayer` 音乐播放器，可实现快速自定义歌单  
->*仅支持 **中国大陆地区**，其他区域请将 [以下内容](https://file.imsyy.top/js/music/music-other.js) 替换 `music.js` 以实现音乐播放器的正常使用
+>*仅支持 **中国大陆地区**，其他区域请将 [以下内容](https://cdn.jsdelivr.net/gh/imsyy/file/js/music/music-other.js) 替换 `music.js` 以实现音乐播放器的正常使用
 
 更改 `music.js` 的参数即可实现自定义歌单列表
 
@@ -105,6 +106,16 @@ let id = "7452421335"; //封面 ID / 单曲 ID / 歌单 ID
 ```
 
 ### 字体
+
+现采用 `HarmonyOS Sans` 开源字体，采用字体拆分，提升加载速度
+
+>由于本站 `CDN` 已开启防盗链，**非本站域名不可访问**，请将字体引入链接更改为下方内容，否则 **自定义字体将失效**
+>
+>`https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css`
+
+<details>
+<summary>旧版方式</summary>
+
 >由于本项目引入了中文字体，需要压缩中文字体以提高网页加载速度（ 也可以取消使用中文字体 ）
 
 #### 中文字体去除繁体
@@ -134,6 +145,8 @@ make clean all
 - 最终可对原字体进行缓加载，**先行加载压缩后的字体**
 
 >详细信息可前往 [虹墨空间站](https://www.imaegoo.com/2020/chinese-font-compress/) 查看原文
+
+</details>
 
 ### 插件
 
