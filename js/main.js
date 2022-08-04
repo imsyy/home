@@ -40,11 +40,7 @@ body.addEventListener('mousemove', (e) => {
     });
 });
 
-//移动端去除鼠标样式
-switch (true) {
-    case navigator.userAgent.indexOf('Mobile') > 0:
-        $('#g-pointer-2').css("display", "none");
-}
+
 
 //加载完成后执行
 window.addEventListener('load', function () {
@@ -78,6 +74,11 @@ window.addEventListener('load', function () {
     //     "url(" + "./font/MiSans-Regular.woff2" + ")"
     // );
     // document.fonts.add(font);
+
+    //移动端去除鼠标样式
+    if (Boolean(window.navigator.userAgent.match(/AppWebKit.*Mobile.*/))) {
+        $('#g-pointer-2').css("display", "none");
+    }
 
 }, false)
 
@@ -388,7 +389,7 @@ document.oncontextmenu = function () {
 }
 
 //控制台输出
-console.clear();
+//console.clear();
 let styleTitle1 = `
 font-size: 20px;
 font-weight: 600;
