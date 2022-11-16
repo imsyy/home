@@ -4,8 +4,8 @@
  
 <script setup>
 import { MusicOne, PlayWrong } from "@icon-park/vue-next";
-import APlayer from "APlayer";
-import "APlayer/dist/APlayer.min.css";
+import "@/utils/Aplayer/APlayer.min.js";
+import "@/utils/Aplayer/APlayer.min.css";
 import {
   h,
   ref,
