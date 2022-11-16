@@ -92,7 +92,7 @@
             fill="#ffffff60"
             @click="musicListShow = false"
           />
-          <Aplayer
+          <AplayerDom
             :songServer="playerData.server"
             :songType="playerData.type"
             :songId="playerData.id"
@@ -116,7 +116,7 @@ import {
   VolumeSmall,
   VolumeNotice,
 } from "@icon-park/vue-next";
-import Aplayer from "@/components/APlayer/index.vue";
+import AplayerDom from "@/components/AplayerDom/index.vue";
 import { mainStore } from "@/store";
 const store = mainStore();
 
