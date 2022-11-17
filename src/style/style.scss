@@ -94,6 +94,28 @@ p {
     }
 }
 
+// 进度条样式
+.el-progress-bar {
+    .el-progress-bar__outer {
+        border-radius: 6px;
+        background-color: #00000020;
+
+        .el-progress-bar__inner {
+            background-color: #efefef;
+            border-radius: 6px;
+            text-align: center;
+            font-family: 'UnidreamLED';
+
+            span {
+                color: #564d59;
+                font-size: .9rem;
+            }
+
+        }
+    }
+
+}
+
 // 渐入动画
 .fade-enter-active {
     animation: fade 0.3s ease-in-out;

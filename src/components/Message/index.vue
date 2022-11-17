@@ -28,9 +28,10 @@
 </template>
 
 <script setup>
-import { reactive, watch } from "vue";
+import { reactive, watch, h } from "vue";
 import { Icon } from "@vicons/utils";
 import { QuoteLeft, QuoteRight } from "@vicons/fa";
+import { Error } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 const store = mainStore();
 
@@ -42,7 +43,17 @@ let descriptionText = reactive({
 
 // 切换右侧功能区
 const changeBox = () => {
-  store.boxOpenState = !store.boxOpenState;
+  if (store.getInnerWidth >= 990) {
+    store.boxOpenState = !store.boxOpenState;
+  } else {
+    ElMessage({
+      message: "当前页面宽度不足以开启盒子",
+      icon: h(Error, {
+        theme: "filled",
+        fill: "#efefef",
+      }),
+    });
+  }
 };
 
 // 监听状态变化

@@ -14,17 +14,31 @@
         @click="store.boxOpenState = false"
       />
     </transition>
-    6666
+    <div class="content">
+      <TimeCapsule />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { CloseOne } from "@icon-park/vue-next";
+import TimeCapsule from "@/components/TimeCapsule/index.vue";
 import { mainStore } from "@/store";
 const store = mainStore();
 
 let closeShow = ref(false);
+
+// 监听宽度变化
+watch(
+  () => store.innerWidth,
+  (value) => {
+    console.log(value);
+    if (value < 990 && store.boxOpenState) {
+      store.boxOpenState = false;
+    }
+  }
+);
 </script>
 
 <style lang="scss" scoped>
@@ -32,7 +46,6 @@ let closeShow = ref(false);
   flex: 1 0 0%;
   margin-left: 0.75rem;
   height: 80%;
-  padding: 20px;
   position: relative;
   &:hover {
     transform: scale(1);
@@ -49,6 +62,11 @@ let closeShow = ref(false);
     &:active {
       transform: scale(1);
     }
+  }
+  .content {
+    padding: 30px;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

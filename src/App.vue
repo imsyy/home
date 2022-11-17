@@ -6,7 +6,6 @@
         <MainLeft />
         <MainRight v-show="!store.boxOpenState" />
         <Box v-show="store.boxOpenState" />
-        <!-- {{ store.getInnerWidth }} -->
       </div>
     </main>
     <Footer />
@@ -35,7 +34,7 @@ onMounted(() => {
   // 加载完成事件
   window.addEventListener("load", () => {
     console.log("加载完成");
-    console.clear();
+    // console.clear();
     // 去除加载标记
     document.getElementsByTagName("body")[0].className = "";
     // 给加载动画添加结束标记
@@ -45,11 +44,11 @@ onMounted(() => {
 
   // 监听当前页面宽度
   getWidth();
-  window.addEventListener("resize", getWidth());
+  window.addEventListener("resize", getWidth);
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener("resize", getWidth());
+  window.removeEventListener("resize", getWidth);
 });
 </script>
 

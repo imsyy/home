@@ -1,3 +1,4 @@
+// 时钟
 export const getCurrentTime = () => {
     let time = new Date();
     let year = time.getFullYear();
@@ -14,7 +15,45 @@ export const getCurrentTime = () => {
         hour,
         minute,
         second,
-        weekday:weekday[time.getDay()],
+        weekday: weekday[time.getDay()],
     }
     return currentTime;
+}
+
+// 时光胶囊
+export const getTimeCapsule = () => {
+    // 日进度
+    let todayStartDate = new Date(new Date().toLocaleDateString()).getTime();
+    let todayPassHours = (new Date() - todayStartDate) / 1000 / 60 / 60;
+    let todayPassHoursPercent = (todayPassHours / 24) * 100;
+    // 周进度
+    let weeks = [7, 1, 2, 3, 4, 5, 6];
+    let weekDay = weeks[new Date().getDay()];
+    let weekDayPassPercent = (weekDay / 7) * 100;
+    // 月进度
+    let year = new Date().getFullYear();
+    let date = new Date().getDate();
+    let month = new Date().getMonth() + 1;
+    let monthAll = new Date(year, month, 0).getDate();
+    let monthPassPercent = (date / monthAll) * 100;
+    // 年进度
+    let yearPass = (month / 12) * 100;
+    return {
+        day: {
+            start: parseInt(todayPassHours),
+            pass: parseInt(todayPassHoursPercent),
+        },
+        week: {
+            start: weekDay,
+            pass: parseInt(weekDayPassPercent),
+        },
+        month: {
+            start: date,
+            pass: parseInt(monthPassPercent),
+        },
+        year: {
+            start: month == 0 ? month : month - 1,
+            pass: parseInt(yearPass),
+        }
+    }
 }
