@@ -39,6 +39,7 @@ export default ({
   ],
   server: {
     port: "3000",
+    hmr: true,
   },
   resolve: {
     alias: [{

@@ -96,6 +96,7 @@
             :songServer="playerData.server"
             :songType="playerData.type"
             :songId="playerData.id"
+            :volume="volumeNum"
             ref="playerRef"
           />
         </div>
@@ -123,8 +124,8 @@ const store = mainStore();
 // 音量条数据
 let volumeShow = ref(false);
 let volumeNum = ref(
-  localStorage.getItem("aplayer-setting")
-    ? JSON.parse(localStorage.getItem("aplayer-setting")).volume
+  localStorage.getItem("aplayer-volume")
+    ? JSON.parse(localStorage.getItem("aplayer-volume"))
     : 0.7
 );
 
@@ -137,17 +138,15 @@ const playerData = reactive({
   type: import.meta.env.VITE_SONG_TYPE,
   id: import.meta.env.VITE_SONG_ID,
 });
+
 // 音乐播放暂停
 const changePlayState = () => {
   playerRef.value.playToggle();
 };
+
 // 音乐上下曲
 const changeMusicIndex = (type) => {
-  if (type) {
-    playerRef.value.changeSongPrev();
-  } else {
-    playerRef.value.changeSongNext();
-  }
+  playerRef.value.changeSong(type);
 };
 
 onMounted(() => {
@@ -164,6 +163,7 @@ watch(
   () => volumeNum.value,
   (value) => {
     console.log(value);
+    localStorage.setItem("aplayer-volume", value);
     playerRef.value.changeVolume(value);
   }
 );

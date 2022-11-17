@@ -35,6 +35,7 @@ onMounted(() => {
   // 加载完成事件
   window.addEventListener("load", () => {
     console.log("加载完成");
+    console.clear();
     // 去除加载标记
     document.getElementsByTagName("body")[0].className = "";
     // 给加载动画添加结束标记

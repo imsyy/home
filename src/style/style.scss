@@ -130,11 +130,6 @@ p {
         opacity: 0;
     }
 
-    &.hover {
-        opacity: 0.1;
-        transform: scale(2.5);
-    }
-
     &.active {
         opacity: 0.5;
         transform: scale(0.5);

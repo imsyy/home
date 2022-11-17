@@ -14,6 +14,7 @@
         @click="store.boxOpenState = false"
       />
     </transition>
+    6666
   </div>
 </template>
 

@@ -48,7 +48,6 @@ class Cursor {
 
     refresh() {
         this.scr.remove();
-        this.cursor.classList.remove("hover");
         this.cursor.classList.remove("active");
         this.pos = {
             curr: null,
@@ -62,8 +61,6 @@ class Cursor {
     }
 
     init() {
-        document.onmouseover = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");
-        document.onmouseout = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");
         document.onmousemove = e => {
             (this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8);
             this.pos.curr = {
