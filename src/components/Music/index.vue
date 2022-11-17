@@ -92,7 +92,7 @@
             fill="#ffffff60"
             @click="musicListShow = false"
           />
-          <APlayerDom
+          <Player
             :songServer="playerData.server"
             :songType="playerData.type"
             :songId="playerData.id"
@@ -116,7 +116,7 @@ import {
   VolumeSmall,
   VolumeNotice,
 } from "@icon-park/vue-next";
-import APlayerDom from "@/components/APlayerDom/index.vue";
+import Player from "@/components/Player/index.vue";
 import { mainStore } from "@/store";
 const store = mainStore();
 

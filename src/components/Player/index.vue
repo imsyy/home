@@ -5,7 +5,7 @@
 <script setup>
 import { MusicOne, PlayWrong } from "@icon-park/vue-next";
 import APlayer from "APlayer";
-import "APlayer/dist/APlayer.min.css";
+import "aplayer/dist/APlayer.min.css";
 import {
   h,
   ref,
