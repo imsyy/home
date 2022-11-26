@@ -6,10 +6,11 @@ export const mainStore = defineStore("main", {
     state: () => {
         return {
             innerWidth: null, // 当前窗口宽度
-            coverType: 0, // 壁纸种类
+            coverType: "0", // 壁纸种类
             musicIsOk: false, // 音乐是否加载完成
             musicOpenState: false, // 音乐面板开启状态
             boxOpenState: false, // 盒子开启状态
+            setOpenState: false, // 设置页面开启状态
             playerState: false, // 当前播放状态
             playerTitle: null, // 当前播放歌曲名
             playerArtist: null, // 当前播放歌手名
