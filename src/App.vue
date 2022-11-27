@@ -2,7 +2,7 @@
   <div class="animate">
     <Background />
     <main>
-      <div class="container">
+      <div class="container" v-show="!store.backgroundShow">
         <transition name="el-fade-in-linear">
           <section class="main" v-show="!store.setOpenState">
             <MainLeft />
@@ -11,13 +11,17 @@
           </section>
         </transition>
         <transition name="el-fade-in-linear">
-          <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
+          <section
+            class="more"
+            v-show="store.setOpenState"
+            @click="store.setOpenState = false"
+          >
             <MoreSet />
           </section>
         </transition>
       </div>
     </main>
-    <Footer />
+    <Footer v-show="!store.backgroundShow" />
   </div>
 </template>
 
@@ -55,6 +59,18 @@ onMounted(() => {
     // 给加载动画添加结束标记
     let loadingBox = document.getElementById("loading-box");
     loadingBox.classList.add("loaded");
+  });
+
+  // 鼠标中键事件
+  window.addEventListener("mousedown", (event) => {
+    if (event.button == 1) {
+      store.backgroundShow = !store.backgroundShow;
+      if (store.backgroundShow) {
+        ElMessage("已开启壁纸展示状态");
+      } else {
+        ElMessage("已退出壁纸展示状态");
+      }
+    }
   });
 
   // 监听当前页面宽度
@@ -103,6 +119,8 @@ main {
   transition: all ease 1.25s;
   opacity: 1;
   filter: blur(0);
+  width: 100%;
+  height: 100%;
 }
 
 .loading {

@@ -1,12 +1,22 @@
 <template>
   <div class="cover">
     <img class="bg" :src="bgUrl" alt="cover" />
-    <div class="gray"></div>
+    <div :class="store.backgroundShow ? 'gray sm' : 'gray'" />
+    <transition name="el-fade-in-linear">
+      <a
+        class="down"
+        :href="bgUrl"
+        target="_blank"
+        v-show="store.backgroundShow && store.coverType != '3'"
+        >下载壁纸</a
+      >
+    </transition>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch, h } from "vue";
+import { SuccessPicture } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 const store = mainStore();
 
@@ -24,7 +34,7 @@ const changeBg = (type) => {
   } else if (type == 3) {
     bgUrl.value = "https://api.ixiaowai.cn/api/api.php";
   }
-}
+};
 
 onMounted(() => {
   // 加载壁纸
@@ -36,6 +46,13 @@ watch(
   () => store.coverType,
   (value) => {
     changeBg(value);
+    ElMessage({
+      message: "壁纸设置成功",
+      icon: h(SuccessPicture, {
+        theme: "filled",
+        fill: "#efefef",
+      }),
+    });
   }
 );
 </script>
@@ -62,7 +79,6 @@ watch(
     transition: all 1.5s ease 0s;
     backface-visibility: hidden;
   }
-
   .gray {
     opacity: 1;
     position: absolute;
@@ -70,11 +86,42 @@ watch(
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(rgba(0, 0, 0, 0) 0,
-        rgba(0, 0, 0, 0.5) 100%),
+    background-image: radial-gradient(
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 0.5) 100%
+      ),
       radial-gradient(rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0.3) 166%);
 
     transition: 1.5s;
+    &.sm {
+      opacity: 0;
+      transition: 1.5s;
+    }
+  }
+  .down {
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: block;
+    padding: 20px 26px;
+    border-radius: 8px;
+    background-color: #00000030;
+    width: 120px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      transform: scale(1.05);
+      background-color: #00000060;
+    }
+    &:active {
+      transform: scale(1);
+    }
   }
 }
 

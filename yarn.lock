@@ -1134,6 +1134,11 @@ picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.2, picomatch@^2.3.1:
   resolved "https://registry.npmmirror.com/picomatch/-/picomatch-2.3.1.tgz"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
+pinia-plugin-persistedstate@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmmirror.com/pinia-plugin-persistedstate/-/pinia-plugin-persistedstate-3.0.0.tgz#a7c97a84938c004499762e186149cff1c668400c"
+  integrity sha512-q62E691P9X0LRCj6QW44w0+HcXPQSteBiTHkQmXJcqcY6OD1mne0X0im3ghqjXDyo1hSq6pKRdnBIKEc988r/g==
+
 pinia@^2.0.23:
   version "2.0.23"
   resolved "https://registry.npmmirror.com/pinia/-/pinia-2.0.23.tgz"

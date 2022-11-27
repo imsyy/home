@@ -4,7 +4,7 @@
       <close-one class="close" theme="filled" size="28" fill="#ffffff60" v-show="closeShow"
         @click="store.setOpenState = false" />
     </transition>
-    <el-row :gutter="20">
+    <el-row :gutter="40">
       <el-col :span="12" class="left">
         <div class="logo">
           <span class="bg">{{ siteUrl[0] }}</span>
@@ -105,7 +105,7 @@ const jumpTo = () => {
 
     .left {
       height: 100%;
-      margin-left: 20px;
+      padding-left: 40px !important;
       padding-bottom: 20px;
       display: flex;
       flex-direction: column;
@@ -166,6 +166,10 @@ const jumpTo = () => {
               align-items: center;
               padding-bottom: 16px;
 
+              &:nth-last-of-type(1) {
+                padding: 0;
+              }
+
               .i-icon {
                 width: 22px;
                 height: 22px;
@@ -180,6 +184,9 @@ const jumpTo = () => {
     .right {
       height: 100%;
       padding-right: 40px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       .title {
         display: flex;

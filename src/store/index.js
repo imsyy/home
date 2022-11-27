@@ -9,6 +9,7 @@ export const mainStore = defineStore("main", {
             coverType: "0", // 壁纸种类
             musicIsOk: false, // 音乐是否加载完成
             musicOpenState: false, // 音乐面板开启状态
+            backgroundShow: false, // 壁纸展示状态
             boxOpenState: false, // 盒子开启状态
             setOpenState: false, // 设置页面开启状态
             playerState: false, // 当前播放状态
@@ -57,5 +58,10 @@ export const mainStore = defineStore("main", {
             this.playerTitle = title;
             this.playerArtist = artist;
         }
+    },
+    persist: {
+        key: 'data',
+        storage: window.localStorage,
+        paths: ['coverType'],
     },
 })
