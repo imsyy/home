@@ -1,38 +1,36 @@
 <template>
   <footer>
-    <Transition name="fade">
-      <div class="power" v-show="!store.playerState">
-        <span
-          >Copyright&nbsp;&copy;&nbsp;{{ fullYear }}
-          <a href="https://imsyy.top">無名</a>
-        </span>
-        <!-- 以下信息请不要修改哦 -->
-        <span
-          >&nbsp;&amp;&nbsp;Made&nbsp;by&nbsp;<a
-            href="https://github.com/imsyy/home"
-            target="_blank"
-            >imsyy</a
-          > </span
-        >&nbsp;&amp;
-        <!-- 站点备案 -->
-        <a href="https://beian.miit.gov.cn" target="_blank"
-          >豫ICP备2022018134号-1</a
+    <div class="power" v-show="!store.playerState">
+      <span
+        >Copyright&nbsp;&copy;&nbsp;{{ fullYear }}
+        <a href="https://imsyy.top">無名</a>
+      </span>
+      <!-- 以下信息请不要修改哦 -->
+      <span
+        >&nbsp;&amp;&nbsp;Made&nbsp;by&nbsp;<a
+          :href="config.github"
+          target="_blank"
         >
-      </div>
-    </Transition>
-    <Transition name="fade">
-      <div class="lrc" v-show="store.playerState">
-        <music-one theme="filled" size="18" fill="#efefef" />
-        <span class="lrc-text">{{ store.getPlayerLrc }}</span>
-        <music-one theme="filled" size="18" fill="#efefef" />
-      </div>
-    </Transition>
+          {{ config.author }}
+        </a> </span
+      >&nbsp;&amp;
+      <!-- 站点备案 -->
+      <a href="https://beian.miit.gov.cn" target="_blank"
+        >豫ICP备2022018134号-1</a
+      >
+    </div>
+    <div class="lrc" v-show="store.playerState">
+      <music-one theme="filled" size="18" fill="#efefef" />
+      <span class="lrc-text">{{ store.getPlayerLrc }}</span>
+      <music-one theme="filled" size="18" fill="#efefef" />
+    </div>
   </footer>
 </template>
 
 <script setup>
 import { MusicOne } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
+import config from "@/../package.json";
 const store = mainStore();
 
 let fullYear = new Date().getFullYear();
@@ -50,11 +48,19 @@ footer {
   backdrop-filter: blur(10px);
   background: rgb(0 0 0 / 25%);
   z-index: 0;
+  animation: fade;
+  -webkit-animation: fade 0.5s;
+  .power {
+    animation: fade;
+    -webkit-animation: fade 0.3s;
+  }
   .lrc {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    animation: fade;
+    -webkit-animation: fade 0.3s;
     .lrc-text {
       margin: 0 8px;
     }

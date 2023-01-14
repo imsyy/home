@@ -9,9 +9,9 @@
 
 <script setup>
 import { reactive, ref, onMounted } from "vue";
+import { mainStore } from "@/store";
 import Func from "@/views/Func/index.vue";
 import Link from "@/components/Links/index.vue";
-import { mainStore } from "@/store";
 const store = mainStore();
 </script>
 

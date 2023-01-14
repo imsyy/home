@@ -1,5 +1,8 @@
 {
   "name": "home",
+  "author": "imsyy",
+  "github": "https://github.com/imsyy/home",
+  "home": "https://imsyy.top",
   "private": true,
   "version": "4.0.0",
   "type": "module",
@@ -15,6 +18,7 @@
     "element-plus": "^2.2.18",
     "pinia": "^2.0.23",
     "pinia-plugin-persistedstate": "^3.0.0",
+    "terser": "^5.16.1",
     "vue": "^3.2.37",
     "vue3-aplayer": "^1.7.3"
   },

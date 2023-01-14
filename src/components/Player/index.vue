@@ -197,12 +197,15 @@ onMounted(() => {
         });
 
         state.instance.on("timeupdate", () => {
-          playerData.lrc = playerRef.value.getElementsByClassName(
-            "aplayer-lrc-current"
-          )[0].innerHTML;
+          if (playerRef.value) {
+            playerData.lrc = playerRef.value.getElementsByClassName(
+              "aplayer-lrc-current"
+            )[0].innerHTML;
+          }
         });
       })
       .catch(() => {
+        store.musicIsOk = false;
         ElMessage({
           message: "播放器加载失败",
           grouping: true,

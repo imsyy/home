@@ -131,6 +131,20 @@ const leaveTip = () => {
   background-color: transparent;
   border-radius: 6px;
   backdrop-filter: blur(0);
+  animation: fade;
+  -webkit-animation: fade 0.5s;
+  @media (max-width: 840px) {
+    max-width: 100%;
+    justify-content: center;
+    .link {
+      justify-content: space-evenly !important;
+      width: 90%;
+    }
+    .tip {
+      display: none !important;
+    }
+  }
+
   .link {
     display: flex;
     align-items: center;

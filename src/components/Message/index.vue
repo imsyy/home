@@ -81,6 +81,8 @@ watch(
     display: flex;
     flex-direction: row;
     align-items: center;
+    animation: fade;
+    -webkit-animation: fade 0.5s;
 
     .logo-img {
       border-radius: 50%;
@@ -108,13 +110,15 @@ watch(
     padding: 1rem;
     margin-top: 3.5rem;
     max-width: 460px;
+    animation: fade;
+    -webkit-animation: fade 0.5s;
 
     .content {
       display: flex;
       justify-content: space-between;
 
       .text {
-        margin: 0.75rem auto;
+        margin: 0.75rem 1rem;
         line-height: 2rem;
         margin-right: auto;
 

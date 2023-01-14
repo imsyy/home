@@ -89,6 +89,7 @@ const jumpLink = (url) => {
     .title {
       margin-left: 8px;
       font-size: 1.15rem;
+      text-shadow: 0 0 5px #00000050;
     }
   }
   .link-all {
@@ -100,14 +101,22 @@ const jumpLink = (url) => {
       align-items: center;
       flex-direction: row;
       justify-content: center;
-      .name {
-        font-size: 1.1rem;
-        margin-left: 8px;
+      animation: fade;
+      -webkit-animation: fade 0.5s;
+      @media (max-width: 820px) {
+        .name {
+          display: none;
+        }
       }
+
       &:hover {
         transform: scale(1.02);
         background: rgb(0 0 0 / 40%);
         transition: 0.3s;
+      }
+      .name {
+        font-size: 1.1rem;
+        margin-left: 8px;
       }
     }
   }

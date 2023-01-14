@@ -26,13 +26,11 @@ p {
     -webkit-user-drag: none;
     user-select: none;
     text-decoration: none;
-    transition: .3s;
     color: #fff;
     box-sizing: border-box;
 
     &:hover {
         transition: .3s;
-        // color: #ffffff90;
     }
 }
 
@@ -66,19 +64,15 @@ p {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     transform: scale(1);
-    transition: 0.5s;
-    animation: fade;
-    -webkit-animation: fade 0.5s;
+    transition: all 0.3s;
 }
 
 .cards:hover {
     transform: scale(1.01);
-    transition: 0.5s;
 }
 
 .cards:active {
     transform: scale(0.98);
-    transition: 0.5s;
 }
 
 // 弹窗样式
@@ -143,14 +137,6 @@ p {
 }
 
 // 渐入动画
-.fade-enter-active {
-    animation: fade 0.3s ease-in-out;
-}
-
-.fade-leave-active {
-    animation: fade 0.3s ease-in-out reverse;
-}
-
 @keyframes fade {
     0% {
         opacity: 0;
@@ -160,6 +146,14 @@ p {
         opacity: 1;
     }
 }
+
+// 隐藏元素
+@media (min-width: 910px) and (max-width: 1200px) {
+    .sm-hidden {
+        display: none;
+    }
+}
+
 
 // 自定义鼠标
 #cursor {
@@ -181,7 +175,6 @@ p {
     &.active {
         opacity: 0.5;
         transform: scale(0.5);
-
     }
 }
 

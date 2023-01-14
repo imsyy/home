@@ -66,6 +66,17 @@ onBeforeUnmount(() => {
     width: 100%;
     margin: 0 !important;
     .el-col {
+      @media (max-width: 910px) {
+        &:nth-of-type(1) {
+          display: none;
+        }
+        &:nth-of-type(2) {
+          padding: 0 !important;
+          flex: none;
+          max-width: none;
+          width: 100%;
+        }
+      }
       &:nth-of-type(1) {
         padding-left: 0 !important;
       }
@@ -84,6 +95,8 @@ onBeforeUnmount(() => {
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
+      animation: fade;
+      -webkit-animation: fade 0.5s;
       .time {
         font-size: 1.1rem;
         text-align: center;

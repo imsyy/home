@@ -3,30 +3,28 @@
     <Background />
     <main>
       <div class="container" v-show="!store.backgroundShow">
-        <transition name="el-fade-in-linear">
-          <section class="main" v-show="!store.setOpenState">
-            <MainLeft />
-            <MainRight v-show="!store.boxOpenState" />
-            <Box v-show="store.boxOpenState" />
-          </section>
-        </transition>
-        <transition name="el-fade-in-linear">
-          <section
-            class="more"
-            v-show="store.setOpenState"
-            @click="store.setOpenState = false"
-          >
-            <MoreSet />
-          </section>
-        </transition>
+        <section class="main" v-show="!store.setOpenState">
+          <MainLeft />
+          <MainRight v-show="!store.boxOpenState" />
+          <Box v-show="store.boxOpenState" />
+        </section>
+        <section
+          class="more"
+          v-show="store.setOpenState"
+          @click="store.setOpenState = false"
+        >
+          <MoreSet />
+        </section>
       </div>
     </main>
-    <Footer v-show="!store.backgroundShow" />
+    <Footer v-show="!store.backgroundShow && !store.setOpenState" />
   </div>
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount } from "vue";
+import { onMounted, onBeforeUnmount, watch } from "vue";
+import { helloInit, checkDays } from "@/utils/getTime.js";
+import { mainStore } from "@/store";
 import MainLeft from "@/views/Main/Left.vue";
 import MainRight from "@/views/Main/Right.vue";
 import Background from "@/components/Background/index.vue";
@@ -34,8 +32,10 @@ import Footer from "@/components/Footer/index.vue";
 import Box from "@/views/Box/index.vue";
 import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
-import { helloInit, checkDays } from "@/utils/getTime.js";
-import { mainStore } from "@/store";
+import config from "@/../package.json";
+// 新春灯笼
+import "@/utils/lantern.js";
+
 const store = mainStore();
 
 // 页面宽度
@@ -76,7 +76,37 @@ onMounted(() => {
   // 监听当前页面宽度
   getWidth();
   window.addEventListener("resize", getWidth);
+
+  // 控制台输出
+  let styleTitle1 = "font-size: 20px;font-weight: 600;color: rgb(244,167,89);";
+  let styleTitle2 = "font-size:12px;color: rgb(244,167,89);";
+  let styleContent = "color: rgb(30,152,255);";
+  let title1 = "無名の主页";
+  let title2 = `
+ _____ __  __  _______     ____     __
+|_   _|  \\/  |/ ____\\ \\   / /\\ \\   / /
+  | | | \\  / | (___  \\ \\_/ /  \\ \\_/ / 
+  | | | |\\/| |\\___ \\  \\   /    \\   /  
+ _| |_| |  | |____) |  | |      | |   
+|_____|_|  |_|_____/   |_|      |_|`;
+  let content = `\n\n版本: ${config.version}\n主页: ${config.home}\nGithub: ${config.github}`;
+  console.info(
+    `%c${title1} %c${title2} %c${content}`,
+    styleTitle1,
+    styleTitle2,
+    styleContent
+  );
 });
+
+// 监听宽度变化
+watch(
+  () => store.innerWidth,
+  (value) => {
+    if (value < 990) {
+      store.boxOpenState = false;
+    }
+  }
+);
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", getWidth);
@@ -89,7 +119,7 @@ main {
     width: 100%;
     height: 100vh;
     margin: 0 auto;
-
+    padding: 0 2vw;
     .main {
       width: 100%;
       height: 100%;
@@ -99,7 +129,6 @@ main {
       justify-content: center;
       align-items: center;
     }
-
     .more {
       position: fixed;
       top: 0;
@@ -109,6 +138,8 @@ main {
       background-color: #00000080;
       backdrop-filter: blur(20px);
       z-index: 2;
+      animation: fade;
+      -webkit-animation: fade 0.5s;
     }
   }
 }
