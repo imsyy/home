@@ -34,7 +34,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import Music from "@/components/Music/index.vue";
+import Music from "@/components/Music/test.vue";
 import Hitokoto from "@/components/Hitokoto/index.vue";
 import Weather from "@/components/Weather/index.vue";
 import { getCurrentTime } from "@/utils/getTime";

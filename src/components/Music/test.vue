@@ -39,41 +39,37 @@
       />
     </div>
     <div class="menu">
-      <Transition name="fade">
-        <div class="name" v-show="!volumeShow">
-          <span>{{
-            store.getPlayerData.name
-              ? store.getPlayerData.name + " - " + store.getPlayerData.artist
-              : "未播放音乐"
-          }}</span>
-        </div>
-      </Transition>
-      <Transition name="fade">
-        <div class="volume" v-show="volumeShow">
-          <div class="icon">
-            <volume-mute
-              theme="filled"
-              size="24"
-              fill="#efefef"
-              v-if="volumeNum == 0"
-            />
-            <volume-small
-              theme="filled"
-              size="24"
-              fill="#efefef"
-              v-else-if="volumeNum > 0 && volumeNum < 0.7"
-            />
-            <volume-notice theme="filled" size="24" fill="#efefef" v-else />
-          </div>
-          <el-slider
-            v-model="volumeNum"
-            :show-tooltip="false"
-            :min="0"
-            :max="1"
-            :step="0.01"
+      <div class="name" v-show="!volumeShow">
+        <span>{{
+          store.getPlayerData.name
+            ? store.getPlayerData.name + " - " + store.getPlayerData.artist
+            : "未播放音乐"
+        }}</span>
+      </div>
+      <div class="volume" v-show="volumeShow">
+        <div class="icon">
+          <volume-mute
+            theme="filled"
+            size="24"
+            fill="#efefef"
+            v-if="volumeNum == 0"
           />
+          <volume-small
+            theme="filled"
+            size="24"
+            fill="#efefef"
+            v-else-if="volumeNum > 0 && volumeNum < 0.7"
+          />
+          <volume-notice theme="filled" size="24" fill="#efefef" v-else />
         </div>
-      </Transition>
+        <el-slider
+          v-model="volumeNum"
+          :show-tooltip="false"
+          :min="0"
+          :max="1"
+          :step="0.01"
+        />
+      </div>
     </div>
   </div>
   <!-- 音乐列表弹窗 -->
@@ -97,6 +93,7 @@
             :songType="playerData.type"
             :songId="playerData.id"
             :volume="volumeNum"
+            :shuffle="true"
             ref="playerRef"
           />
         </div>
@@ -106,7 +103,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, onMounted } from "vue";
+import { ref, reactive, watch, onMounted, nextTick } from "vue";
 import {
   GoStart,
   PlayOne,
@@ -117,17 +114,13 @@ import {
   VolumeSmall,
   VolumeNotice,
 } from "@icon-park/vue-next";
-import Player from "@/components/Player/beta.vue";
+import Player from "@/components/Player/Beta.vue";
 import { mainStore } from "@/store";
 const store = mainStore();
 
 // 音量条数据
 let volumeShow = ref(false);
-let volumeNum = ref(
-  localStorage.getItem("aplayer-volume")
-    ? JSON.parse(localStorage.getItem("aplayer-volume"))
-    : 0.7
-);
+let volumeNum = ref(store.musicVolume ? store.musicVolume : 0.7);
 
 // 播放列表数据
 let musicListShow = ref(false);
@@ -162,9 +155,8 @@ onMounted(() => {
 watch(
   () => volumeNum.value,
   (value) => {
-    console.log(value);
-    localStorage.setItem("aplayer-volume", value);
-    playerRef.value.changeVolume(value);
+    store.musicVolume = value;
+    playerRef.value.changeVolume(store.musicVolume);
   }
 );
 </script>
@@ -244,7 +236,8 @@ watch(
       text-overflow: ellipsis;
       overflow-x: hidden;
       white-space: nowrap;
-      // font-size: 1.1rem;
+      animation: fade;
+      -webkit-animation: fade 0.3s;
     }
     .volume {
       width: 100%;
@@ -252,6 +245,8 @@ watch(
       display: flex;
       align-items: center;
       flex-direction: row;
+      animation: fade;
+      -webkit-animation: fade 0.3s;
       .icon {
         margin-right: 12px;
         span {
@@ -315,6 +310,12 @@ watch(
 }
 
 // 弹窗动画
+.fade-enter-active {
+  animation: fade 0.3s ease-in-out;
+}
+.fade-leave-active {
+  animation: fade 0.3s ease-in-out reverse;
+}
 .zoom-enter-active {
   animation: zoom 0.4s ease-in-out;
 }

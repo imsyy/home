@@ -11,9 +11,11 @@
     :shuffle="shuffle"
     :listMaxHeight="listMaxHeight"
     :listFolded="listFolded"
+    :volume="volume"
     @play="onPlay"
     @pause="onPause"
     @timeupdate="onTimeUp"
+    @onSelectSong="onSelectSong"
   />
 </template>
  
@@ -31,9 +33,10 @@ import {
 } from "vue";
 import { getPlayerList } from "@/api";
 import { mainStore } from "@/store";
+
 const store = mainStore();
 
-// 获取播放器DOM
+// 获取播放器 DOM
 const player = ref(null);
 
 // 歌曲播放列表
@@ -64,7 +67,7 @@ const props = defineProps({
   // 随机播放
   shuffle: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   // 默认音量
   volume: {
@@ -108,10 +111,16 @@ onMounted(() => {
       .then((res) => {
         // 生成歌单信息
         playIndex.value = Math.floor(Math.random() * res.length);
-        playListCount.value = res.length - 1;
+        playListCount.value = res.length;
         // 更改播放器加载状态
         store.musicIsOk = true;
-        console.log("音乐加载完成");
+        console.log(
+          "音乐加载完成",
+          res,
+          playIndex.value,
+          playListCount.value,
+          props.volume
+        );
         // 生成歌单
         res.forEach((v) => {
           playList.value.push({
@@ -124,6 +133,7 @@ onMounted(() => {
         });
       })
       .catch(() => {
+        store.musicIsOk = false;
         ElMessage({
           message: "播放器加载失败",
           grouping: true,
@@ -162,9 +172,12 @@ const onPause = () => {
 // 音频时间更新事件
 const onTimeUp = () => {
   let playerRef = player.value.$.vnode.el;
-  playerLrc.value = playerRef.getElementsByClassName(
-    "aplayer-lrc-current"
-  )[0].innerHTML;
+  if (playerRef) {
+    playerLrc.value = playerRef.getElementsByClassName(
+      "aplayer-lrc-current"
+    )[0].innerHTML;
+    store.setPlayerLrc(playerLrc.value);
+  }
 };
 
 // 切换播放暂停事件
@@ -177,21 +190,21 @@ const changeVolume = (value) => {
   player.value.audio.volume = value;
 };
 
+const onSelectSong = (val) => {
+  console.log(val);
+};
+
 // 切换上下曲
 const changeSong = (type) => {
-  if (type) {
-    console.log("下一曲");
-    playIndex.value < playListCount.value
-      ? playIndex.value++
-      : (playIndex.value = 0);
-  } else {
-    console.log("上一曲");
-    console.log(playIndex.value);
-    playIndex.value > 0
-      ? playIndex.value--
-      : (playIndex.value = playListCount.value);
+  playIndex.value = player.value.playIndex;
+  playIndex.value += type ? 1 : -1;
+  // 判断是否处于最后/第一首
+  if (playIndex.value < 0) {
+    playIndex.value = playListCount.value - 1;
+  } else if (playIndex.value >= playListCount.value) {
+    playIndex.value = 0;
   }
-  console.log(playList.value[playIndex.value]);
+  // console.log(playIndex.value, playList.value[playIndex.value]);
   nextTick(() => {
     player.value.play();
   });
@@ -199,16 +212,6 @@ const changeSong = (type) => {
 
 // 暴露子组件方法
 defineExpose({ playToggle, changeVolume, changeSong });
-
-// 监听歌词变化
-watch(
-  () => playerLrc.value,
-  (value) => {
-    console.log(value);
-    // 储存至 pinia
-    store.setPlayerLrc(value);
-  }
-);
 </script>
  
 <style lang='scss' scoped>
@@ -224,22 +227,47 @@ watch(
       margin-left: 0;
       background-color: #ffffff40;
       border-color: transparent;
-      .aplayer-title {
-        font-size: 16px;
-      }
-      .aplayer-author {
-        color: #efefef;
+      .aplayer-music {
+        flex-grow: initial;
+        margin-bottom: 2px;
+        overflow: initial;
+        .aplayer-title {
+          font-size: 16px;
+          margin-right: 6px;
+        }
+        .aplayer-author {
+          color: #efefef;
+        }
       }
       .aplayer-lrc {
         text-align: left;
-        margin: 4px 0 0 6px;
-        height: 38px;
+        margin: 4px 0 6px 6px;
+        height: 100%;
+        mask: linear-gradient(
+          180deg,
+          hsla(0, 0%, 100%, 0) 0,
+          hsla(0, 0%, 100%, 0.6) 10%,
+          #fff 15%,
+          #fff 85%,
+          hsla(0, 0%, 100%, 0.6) 90%,
+          hsla(0, 0%, 100%, 0)
+        );
+        -webkit-mask: linear-gradient(
+          180deg,
+          hsla(0, 0%, 100%, 0) 0,
+          hsla(0, 0%, 100%, 0.6) 10%,
+          #fff 15%,
+          #fff 85%,
+          hsla(0, 0%, 100%, 0.6) 90%,
+          hsla(0, 0%, 100%, 0)
+        );
         &::before,
         &::after {
           display: none;
         }
         p {
           color: #efefef;
+          margin: 2px 0;
         }
         .aplayer-lrc-current {
           font-size: 0.95rem;
@@ -254,6 +282,9 @@ watch(
   :deep(.aplayer-list) {
     margin-top: 6px;
     ol {
+      &::-webkit-scrollbar-track{
+        background-color: transparent;
+      }
       li {
         border-color: transparent;
         &.aplayer-list-light {
