@@ -92,10 +92,12 @@
             :songServer="playerData.server"
             :songType="playerData.type"
             :songId="playerData.id"
-            :volume="volumeNum"
-            :shuffle="true"
             ref="playerRef"
           />
+          <div class="error" v-if="!store.musicIsOk">
+            <play-wrong theme="outline" size="60" />
+            <span>音乐播放器加载失败</span>
+          </div>
         </div>
       </Transition>
     </div>
@@ -103,7 +105,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, onMounted, nextTick } from "vue";
+import { ref, reactive, watch, onMounted } from "vue";
 import {
   GoStart,
   PlayOne,
@@ -113,14 +115,19 @@ import {
   VolumeMute,
   VolumeSmall,
   VolumeNotice,
+  PlayWrong,
 } from "@icon-park/vue-next";
-import Player from "@/components/Player/Beta.vue";
+import Player from "@/components/Player/index.vue";
 import { mainStore } from "@/store";
 const store = mainStore();
 
 // 音量条数据
 let volumeShow = ref(false);
-let volumeNum = ref(store.musicVolume ? store.musicVolume : 0.7);
+let volumeNum = ref(
+  localStorage.getItem("aplayer-setting")
+    ? JSON.parse(localStorage.getItem("aplayer-setting")).volume
+    : 0.7
+);
 
 // 播放列表数据
 let musicListShow = ref(false);
@@ -131,21 +138,23 @@ const playerData = reactive({
   type: import.meta.env.VITE_SONG_TYPE,
   id: import.meta.env.VITE_SONG_ID,
 });
-
 // 音乐播放暂停
 const changePlayState = () => {
   playerRef.value.playToggle();
 };
-
 // 音乐上下曲
 const changeMusicIndex = (type) => {
-  playerRef.value.changeSong(type);
+  if (type) {
+    playerRef.value.changeSongPrev();
+  } else {
+    playerRef.value.changeSongNext();
+  }
 };
 
 onMounted(() => {
   // 空格键事件
   window.addEventListener("keydown", (e) => {
-    if (e.code == "Space") {
+    if (e.code == "Space" && store.musicIsOk) {
       changePlayState();
     }
   });
@@ -155,8 +164,8 @@ onMounted(() => {
 watch(
   () => volumeNum.value,
   (value) => {
-    store.musicVolume = value;
-    playerRef.value.changeVolume(store.musicVolume);
+    console.log(value);
+    playerRef.value.changeVolume(value);
   }
 );
 </script>
@@ -175,10 +184,12 @@ watch(
   flex-direction: column;
   animation: fade;
   -webkit-animation: fade 0.5s;
+
   .btns {
     display: flex;
     align-items: center;
     margin-bottom: 6px;
+
     span {
       background: #ffffff26;
       padding: 2px 8px;
@@ -187,17 +198,20 @@ watch(
       text-overflow: ellipsis;
       overflow-x: hidden;
       white-space: nowrap;
+
       &:hover {
         background: #ffffff4d;
       }
     }
   }
+
   .control {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+
     .state {
       .i-icon {
         width: 50px;
@@ -205,6 +219,7 @@ watch(
         display: block;
       }
     }
+
     .i-icon {
       width: 36px;
       height: 36px;
@@ -214,14 +229,17 @@ watch(
       justify-content: center;
       border-radius: 6px;
       transform: scale(1);
+
       &:hover {
         background: #ffffff33;
       }
+
       &:active {
         transform: scale(0.95);
       }
     }
   }
+
   .menu {
     height: 26px;
     width: 100%;
@@ -230,15 +248,18 @@ watch(
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     .name {
       width: 100%;
       text-align: center;
       text-overflow: ellipsis;
       overflow-x: hidden;
       white-space: nowrap;
+      // font-size: 1.1rem;
       animation: fade;
       -webkit-animation: fade 0.3s;
     }
+
     .volume {
       width: 100%;
       padding: 0 12px;
@@ -247,20 +268,25 @@ watch(
       flex-direction: row;
       animation: fade;
       -webkit-animation: fade 0.3s;
+
       .icon {
         margin-right: 12px;
+
         span {
           width: 24px;
           height: 24px;
           display: block;
         }
       }
+
       :deep(*) {
         transition: none;
       }
+
       :deep(.el-slider__button) {
         transition: 0.3s;
       }
+
       .el-slider {
         margin-right: 12px;
         --el-slider-main-bg-color: #efefef;
@@ -270,6 +296,7 @@ watch(
     }
   }
 }
+
 .music-list {
   position: fixed;
   top: 0;
@@ -280,6 +307,7 @@ watch(
   background-color: #00000080;
   backdrop-filter: blur(20px);
   z-index: 1;
+
   .list {
     position: absolute;
     display: flex;
@@ -292,6 +320,7 @@ watch(
     background-color: #ffffff66;
     border-radius: 6px;
     z-index: 999;
+
     .close {
       position: absolute;
       top: 12px;
@@ -299,11 +328,22 @@ watch(
       width: 28px;
       height: 28px;
       display: block;
+
       &:hover {
         transform: scale(1.2);
       }
+
       &:active {
         transform: scale(0.95);
+      }
+    }
+
+    .error {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .i-icon {
+        margin-bottom: 20px;
       }
     }
   }
@@ -311,10 +351,10 @@ watch(
 
 // 弹窗动画
 .fade-enter-active {
-  animation: fade 0.3s ease-in-out;
+    animation: fade 0.3s ease-in-out;
 }
 .fade-leave-active {
-  animation: fade 0.3s ease-in-out reverse;
+    animation: fade 0.3s ease-in-out reverse;
 }
 .zoom-enter-active {
   animation: zoom 0.4s ease-in-out;

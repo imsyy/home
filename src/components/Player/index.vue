@@ -1,11 +1,27 @@
 <template>
-  <div ref="playerRef"></div>
+  <aplayer
+    showLrc
+    ref="player"
+    v-if="playList[0]"
+    :music="playList[playIndex]"
+    :list="playList"
+    :autoplay="autoplay"
+    :theme="theme"
+    :repeat="repeat"
+    :shuffle="shuffle"
+    :listMaxHeight="listMaxHeight"
+    :listFolded="listFolded"
+    :volume="volume"
+    @play="onPlay"
+    @pause="onPause"
+    @timeupdate="onTimeUp"
+    @onSelectSong="onSelectSong"
+  />
 </template>
  
 <script setup>
 import { MusicOne, PlayWrong } from "@icon-park/vue-next";
-import APlayer from "APlayer";
-import "aplayer/dist/APlayer.min.css";
+import aplayer from "vue3-aplayer";
 import {
   h,
   ref,
@@ -17,51 +33,22 @@ import {
 } from "vue";
 import { getPlayerList } from "@/api";
 import { mainStore } from "@/store";
+
 const store = mainStore();
 
-const playerRef = ref();
-const state = reactive({
-  instance: null,
-});
-const playerData = reactive({
-  name: null,
-  artist: null,
-  lrc: null,
-});
+// 获取播放器 DOM
+const player = ref(null);
 
-// APlayer歌曲信息
-class Audio {
-  // 音频艺术家
-  // artist: String;
-  // 音频名称
-  // name: String;
-  // 音频链接
-  // url: String;
-  // 音频封面
-  // cover: String;
-  // 歌词
-  // lrc: String;
+// 歌曲播放列表
+let playList = ref([]);
+let playerLrc = ref("");
 
-  constructor(artist, name, url, cover, lrc) {
-    this.artist = artist;
-    this.name = name;
-    this.url = url;
-    this.cover = cover;
-    this.lrc = lrc;
-  }
-}
+// 歌曲播放项
+let playIndex = ref(0);
+let playListCount = ref(0);
 
+// 配置项
 const props = defineProps({
-  // 开启吸底模式
-  fixed: {
-    type: Boolean,
-    default: false,
-  },
-  // 开启迷你模式
-  mini: {
-    type: Boolean,
-    default: false,
-  },
   // 音频自动播放
   autoplay: {
     type: Boolean,
@@ -73,19 +60,14 @@ const props = defineProps({
     default: "#efefef",
   },
   // 音频循环播放
-  loop: {
+  repeat: {
     type: String,
-    default: "all", //'all' | 'one' | 'none'
+    default: "list", //'list' | 'music' | 'none'
   },
-  // 音频循环顺序
-  order: {
-    type: String,
-    default: "random", //'list' | 'random'
-  },
-  // 预加载
-  preload: {
-    type: String,
-    default: "auto", //'auto' | 'metadata' | 'none'
+  // 随机播放
+  shuffle: {
+    type: Boolean,
+    default: false,
   },
   // 默认音量
   volume: {
@@ -110,16 +92,6 @@ const props = defineProps({
     type: String,
     default: "7452421335",
   },
-  // 互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器
-  mutex: {
-    type: Boolean,
-    default: true,
-  },
-  // 传递歌词方式
-  lrcType: {
-    type: Number,
-    default: 3,
-  },
   // 列表是否默认折叠
   listFolded: {
     type: Boolean,
@@ -130,11 +102,6 @@ const props = defineProps({
     type: String,
     default: "420px",
   },
-  // 存储播放器设置的 localStorage key
-  storageName: {
-    type: String,
-    default: "aplayer-setting",
-  },
 });
 
 // 初始化播放器
@@ -142,66 +109,27 @@ onMounted(() => {
   nextTick(() => {
     getPlayerList(props.songServer, props.songType, props.songId)
       .then((res) => {
-        // console.log(res);
+        // 生成歌单信息
+        playIndex.value = Math.floor(Math.random() * res.length);
+        playListCount.value = res.length;
         // 更改播放器加载状态
         store.musicIsOk = true;
-        console.log("音乐加载完成");
-        let audioList = res.map(
-          (value) =>
-            new Audio(value.artist, value.name, value.url, value.pic, value.lrc)
+        console.log(
+          "音乐加载完成",
+          res,
+          playIndex.value,
+          playListCount.value,
+          props.volume
         );
-        state.instance = new APlayer({
-          container: playerRef.value,
-          fixed: props.fixed,
-          mini: props.mini,
-          autoplay: props.autoplay,
-          theme: props.theme,
-          loop: props.loop,
-          order: props.order,
-          preload: props.preload,
-          volume: props.volume,
-          mutex: props.mutex,
-          lrcType: props.lrcType,
-          listFolded: props.listFolded,
-          listMaxHeight: props.listMaxHeight,
-          storageName: props.storageName,
-          audio: audioList,
-        });
-
-        state.instance.on("play", () => {
-          // 播放状态
-          store.setPlayerState(state.instance.audio.paused);
-          // 储存播放器信息
-          store.setPlayerData(
-            playerRef.value.getElementsByClassName("aplayer-title")[0]
-              .innerHTML,
-            playerRef.value
-              .getElementsByClassName("aplayer-author")[0]
-              .innerHTML.split("-")[1]
-              .trim()
-          );
-          ElMessage({
-            message:
-              store.getPlayerData.name + " - " + store.getPlayerData.artist,
-            grouping: true,
-            icon: h(MusicOne, {
-              theme: "filled",
-              fill: "#efefef",
-            }),
+        // 生成歌单
+        res.forEach((v) => {
+          playList.value.push({
+            title: v.name,
+            artist: v.artist,
+            src: v.url,
+            pic: v.pic,
+            lrc: v.lrc,
           });
-        });
-
-        state.instance.on("pause", () => {
-          // 播放状态
-          store.setPlayerState(state.instance.audio.paused);
-        });
-
-        state.instance.on("timeupdate", () => {
-          if (playerRef.value) {
-            playerData.lrc = playerRef.value.getElementsByClassName(
-              "aplayer-lrc-current"
-            )[0].innerHTML;
-          }
         });
       })
       .catch(() => {
@@ -218,41 +146,72 @@ onMounted(() => {
   });
 });
 
-// 销毁播放器
-onBeforeUnmount(() => {
-  state.instance.destroy();
-});
+// 播放暂停事件
+const onPlay = () => {
+  console.log("播放");
+  // 播放状态
+  store.setPlayerState(player.value.audio.paused);
+  // 储存播放器信息
+  store.setPlayerData(
+    player.value.currentMusic.title,
+    player.value.currentMusic.artist
+  );
+  ElMessage({
+    message: store.getPlayerData.name + " - " + store.getPlayerData.artist,
+    grouping: true,
+    icon: h(MusicOne, {
+      theme: "filled",
+      fill: "#efefef",
+    }),
+  });
+};
+const onPause = () => {
+  store.setPlayerState(player.value.audio.paused);
+};
+
+// 音频时间更新事件
+const onTimeUp = () => {
+  let playerRef = player.value.$.vnode.el;
+  if (playerRef) {
+    playerLrc.value = playerRef.getElementsByClassName(
+      "aplayer-lrc-current"
+    )[0].innerHTML;
+    store.setPlayerLrc(playerLrc.value);
+  }
+};
 
 // 切换播放暂停事件
 const playToggle = () => {
-  state.instance.toggle();
+  player.value.toggle();
 };
 
 // 切换音量事件
 const changeVolume = (value) => {
-  state.instance.volume(value);
+  player.value.audio.volume = value;
+};
+
+const onSelectSong = (val) => {
+  console.log(val);
 };
 
 // 切换上下曲
-const changeSongPrev = () => {
-  state.instance.skipBack();
-};
-const changeSongNext = () => {
-  state.instance.skipForward();
+const changeSong = (type) => {
+  playIndex.value = player.value.playIndex;
+  playIndex.value += type ? 1 : -1;
+  // 判断是否处于最后/第一首
+  if (playIndex.value < 0) {
+    playIndex.value = playListCount.value - 1;
+  } else if (playIndex.value >= playListCount.value) {
+    playIndex.value = 0;
+  }
+  // console.log(playIndex.value, playList.value[playIndex.value]);
+  nextTick(() => {
+    player.value.play();
+  });
 };
 
 // 暴露子组件方法
-defineExpose({ playToggle, changeVolume, changeSongPrev, changeSongNext });
-
-// 监听歌词变化
-watch(
-  () => playerData.lrc,
-  (value) => {
-    console.log(value);
-    // 储存至 pinia
-    store.setPlayerLrc(value);
-  }
-);
+defineExpose({ playToggle, changeVolume, changeSong });
 </script>
  
 <style lang='scss' scoped>
@@ -268,22 +227,47 @@ watch(
       margin-left: 0;
       background-color: #ffffff40;
       border-color: transparent;
-      .aplayer-title {
-        font-size: 16px;
-      }
-      .aplayer-author {
-        color: #efefef;
+      .aplayer-music {
+        flex-grow: initial;
+        margin-bottom: 2px;
+        overflow: initial;
+        .aplayer-title {
+          font-size: 16px;
+          margin-right: 6px;
+        }
+        .aplayer-author {
+          color: #efefef;
+        }
       }
       .aplayer-lrc {
         text-align: left;
-        margin: 4px 0 0 6px;
-        height: 38px;
+        margin: 4px 0 6px 6px;
+        height: 100%;
+        mask: linear-gradient(
+          180deg,
+          hsla(0, 0%, 100%, 0) 0,
+          hsla(0, 0%, 100%, 0.6) 10%,
+          #fff 15%,
+          #fff 85%,
+          hsla(0, 0%, 100%, 0.6) 90%,
+          hsla(0, 0%, 100%, 0)
+        );
+        -webkit-mask: linear-gradient(
+          180deg,
+          hsla(0, 0%, 100%, 0) 0,
+          hsla(0, 0%, 100%, 0.6) 10%,
+          #fff 15%,
+          #fff 85%,
+          hsla(0, 0%, 100%, 0.6) 90%,
+          hsla(0, 0%, 100%, 0)
+        );
         &::before,
         &::after {
           display: none;
         }
         p {
           color: #efefef;
+          margin: 2px 0;
         }
         .aplayer-lrc-current {
           font-size: 0.95rem;
@@ -298,6 +282,9 @@ watch(
   :deep(.aplayer-list) {
     margin-top: 6px;
     ol {
+      &::-webkit-scrollbar-track{
+        background-color: transparent;
+      }
       li {
         border-color: transparent;
         &.aplayer-list-light {
