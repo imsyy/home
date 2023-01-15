@@ -117,7 +117,7 @@ import {
   VolumeNotice,
   PlayWrong,
 } from "@icon-park/vue-next";
-import Player from "@/components/Player/index.vue";
+import Player from "@/components/Player/old.vue";
 import { mainStore } from "@/store";
 const store = mainStore();
 

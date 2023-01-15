@@ -62,13 +62,22 @@ onMounted(() => {
   // 加载完成事件
   window.addEventListener("load", () => {
     console.log("加载完成");
-    // console.clear();
     // 去除加载标记
     document.getElementsByTagName("body")[0].className = "";
     // 给加载动画添加结束标记
     let loadingBox = document.getElementById("loading-box");
     loadingBox.classList.add("loaded");
   });
+
+  // 屏蔽右键
+  document.oncontextmenu = () => {
+    ElMessage({
+      message: "为了浏览体验，本站禁用右键",
+      grouping: true,
+      duration: 2000,
+    });
+    return false;
+  };
 
   // 鼠标中键事件
   window.addEventListener("mousedown", (event) => {
