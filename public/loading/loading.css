@@ -11,6 +11,7 @@
     height: 100%;
     background-color: #515151e0;
     transition: all 0.75s cubic-bezier(0.42, 0, 0, 1.01);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
