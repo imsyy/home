@@ -6,13 +6,13 @@
         <a href="https://imsyy.top">無名</a>
       </span>
       <!-- 以下信息请不要修改哦 -->
-      <span
+      <span class="hidden"
         >&nbsp;&amp;&nbsp;Made&nbsp;by&nbsp;<a
           :href="config.github"
           target="_blank"
         >
           {{ config.author }}
-        </a> </span
+        </a></span
       >&nbsp;&amp;
       <!-- 站点备案 -->
       <a href="https://beian.miit.gov.cn" target="_blank"
@@ -52,6 +52,14 @@ footer {
   z-index: 0;
   animation: fade;
   -webkit-animation: fade 0.5s;
+  @media (max-width: 720px) {
+    font-size: 0.85rem;
+  }
+  @media (max-width: 480px) {
+    .hidden {
+      display: none;
+    }
+  }
   .power {
     animation: fade;
     -webkit-animation: fade 0.3s;
