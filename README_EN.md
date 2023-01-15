@@ -7,7 +7,7 @@ Simple little homepage, had enough of the original one and made a new one
 
 ![無名の主页](https://s2.loli.net/2022/07/14/K5JigfvDoNewtuS.webp)
 
->The logo font on the home page has been compressed, so if you use a font other than this logo, it will change back to the default font, Here is the [full font](https://file.imsyy.top/font/Pacifico-Regular.ttf)  
+>The logo font on the home page has been compressed, so if you use a font other than this logo, it will change back to the default font, Here is the [full font](https://file.4everland.app/font/Other/Pacifico-Regular.ttf)  
 
 ### Demo
 
@@ -27,83 +27,41 @@ Simple little homepage, had enough of the original one and made a new one
 - [x] Music player
 - [x] Mobile adaptation
 
-* [ ] Remove jQuery dependency
-* [ ] VUE refactoring
+* [ ] Player cancels using Aplayer
+
+### Deployment
+
+```bash
+yarn install
+yarn dev
+yarn build
+```
+> Once the build is complete, the files in the `dist` folder can be uploaded to the server or imported and automatically deployed with one click using a hosting platform such as `Vercel`.
 
 ### Weather
 
-Because the original weather API is unstable, the weather API has been replaced. Now you need to go to the following website to obtain the key  
+Weather and area access requires `高德开放平台` related API
 
-- to [ROLL] (https://www.mxnzp.com/doc/list) for app_id and app_secret, used to capture the city  
-
-- to [and wind weather] (https://dev.qweather.com/) to obtain the key, is used to get the weather information  
+- Go to [高德开放平台控制台](https://console.amap.com/dev/index) to create a `Key` of type `Web Service` and fill the `Key` into `VITE_WEATHER_KEY` in `.env` 
 
 It can also be replaced by other methods
-
-<!-- ### Configuration
-
-This project uses `json` file to configure the site content, the configuration is not affected by version updates, you can write custom configuration to `setting.json` to change the page content
-
-<details>
-<summary>Configuration instructions</summary>
-
-```json
-{
-    "title": "Title of the page",
-    "description": "Short description of the page",
-    "keywords": "Keyword(s)",
-    "author": "author of the page",
-    "logo_img": "Logo image path",
-    "logo_text_1": "Domain Prefix",
-    "logo_text_2": "Domain_suffix",
-    "des_title": [
-        "Hello World !" , // site description title
-        "A small site built in the 21st century, living on the edge of the Internet" // site description content
-    ],
-    "des_title_change": [
-        "Oops !" , //text after clicking on the site's title
-        "Oops, you found this ( click once more to close )" //text after click on site content
-    ],
-    "github": "imsyy", //Github username
-    "qq": "1539250352", //QQ
-    "email": "one@imsyy.top", //email email
-    "telegram": "bottom_user", //Telegram user name
-    "twitter": "iimmsyy", //Twitter username
-    "weather_api": "https://www.yiketianqi.com", //Weather API
-    "link_1": [
-        "https://blog.imsyy.top/", //link_address
-        "fa-solid fa-blog", //icon class name
-        "blog" //link text
-    ],
-    "link_2": [
-        "https://drive.imsyy.top/",
-        "fa-solid fa-cloud",
-        "netdisk"
-    ],
-    "wallpaper_api": [
-        [
-            "picture of the day", //name of wallpaper setting item
-            "https://api.dujin.org/bing/1920.php" //link to wallpaper image
-        ]
-    ],
-    "Copyright_year": "2020", //site start year
-    "Copyright_text": "No name" //Copyright
-}
-```
-
-</details> -->
 
 ### Music
 
 >This project uses the `Aplayer` music player based on `MetingJS` for quick song list customization  
->*Only supported in **Mainland China**, please replace `music.js` with [the following](https://cdn.jsdelivr.net/gh/imsyy/file/js/music/music-other.js) in other regions to enable the music player to work properly
+>*Only supported in **Mainland China**
 
-Change the parameters of `music.js` to achieve a custom song list
+Please change the song related parameters in the `.env` file to customize the song list
 
-```js
-let server = "netease"; //netease; tencent; kugou; xiami; kuwo; 
-let type = "playlist"; //song; playlist; album;
-let id = "7452421335"; //album ID; song ID; playlist ID;
+```bash
+# Songs API address
+VITE_SONG_API = "https://api-meting.imsyy.top"
+# Song server ( netease-netease, tencent-qq music )
+VITE_SONG_SERVER = "netease"
+# Playback type ( song-song, playlist-playlist, album-album, search-search, artist-artist )
+VITE_SONG_TYPE = "playlist"
+# Playback ID
+VITE_SONG_ID = "7452421335"
 ```
 
 ### Fonts
@@ -149,20 +107,20 @@ make clean all
 
 </details>
 
-### Plugins
+### Technology Stack
 
-* [Bootstrap](https://getbootstrap.com/)
-* [iziToast](https://izitoast.marcelodolza.com/)
-* [Font Awesome](https://fontawesome.com/)
-* [jQuery](https://jquery.com/)
+* [Vue](https://cn.vuejs.org/)
+* [Vite](https://vitejs.cn/vite3-cn/)
+* [Pinia](https://pinia.vuejs.org/zh/)
+* [IconPark](https://iconpark.oceanengine.com/official)
+* [xicons](https://xicons.org/)
 * [Aplayer](https://aplayer.js.org/)
 
 ### API
 
-* [MetingAPI By wuenci](https://api.wuenci.com/meting/api/)
+* [MetingAPI By 武恩赐](https://api.wuenci.com/meting/api/)
 * [小歪 API](https://api.ixiaowai.cn/)
-* [和风天气](https://dev.qweather.com/)
-* [ROLL](https://www.mxnzp.com/doc/list)
+* [高德开放平台](https://lbs.amap.com/)
 * [Hitokoto 一言](https://hitokoto.cn/)
 
-<a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.imsyy.top"><img src="https://img.shields.io/badge/MySSL-安全认证-brightgreen"></a>&nbsp;<a title="CDN" target="_blank" href="https://cdnjs.com/"><img src="https://img.shields.io/badge/CDN-Cloudflare-blue"></a>&nbsp;<a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2022-%E7%84%A1%E5%90%8D-red"></a>
+<a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.imsyy.top"><img src="https://img.shields.io/badge/MySSL-安全认证-brightgreen"></a>&nbsp;<a title="CDN" target="_blank" href="https://cdnjs.com/"><img src="https://img.shields.io/badge/CDN-Cloudflare-blue"></a>&nbsp;<a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2023-%E7%84%A1%E5%90%8D-red"></a>

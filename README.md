@@ -7,7 +7,7 @@
 
 ![無名の主页](https://s2.loli.net/2022/07/14/K5JigfvDoNewtuS.webp)
 
->主页的 Logo 字体已经过压缩，若用本站 Logo 以外的字母会变回默认字体，这里是 [完整字体](https://file.imsyy.top/font/Pacifico-Regular.ttf)
+>主页的 Logo 字体已经过压缩，若用本站 Logo 以外的字母会变回默认字体，这里是 [完整字体](https://file.4everland.app/font/Other/Pacifico-Regular.ttf)
 
 ### Demo
 
@@ -27,34 +27,41 @@
 - [x] 音乐播放器
 - [x] 移动端适配
 
-* [ ] 去除 jQuery 依赖
-* [ ] VUE 重构
+* [ ] 播放器取消使用 Aplayer
 
+### 部署
+
+```bash
+yarn install
+yarn dev
+yarn build
+```
+> 构建完成后，可将 `dist` 文件夹下的文件上传至服务器，也可使用 `Vercel` 等托管平台一键导入并自动部署
 ### 天气
 
-由于原天气 API 不稳定，已更换天气 API，现需要前往以下网站获取 key
+天气及地区获取需要 `高德开放平台` 相关 API
 
-- 前往 [ROLL](https://www.mxnzp.com/doc/list) 获取 app_id 和 app_secret，用于获取城市信息
-- 前往 [和风天气](https://dev.qweather.com/) 获取 key，用于获取天气信息
+- 前往 [高德开放平台控制台](https://console.amap.com/dev/index) 创建一个 `Web 服务` 类型的 `Key`，并将 `Key` 填入 `.env` 中的 `VITE_WEATHER_KEY` 中
 
 也可自行更换其他方式
-
-### 配置
-
-嘿嘿
 
 
 ### 音乐
 
 >本项目采用了基于 `MetingJS` 的 `Aplayer` 音乐播放器，可实现快速自定义歌单  
->*仅支持 **中国大陆地区**，其他区域请将 [以下内容](https://cdn.jsdelivr.net/gh/imsyy/file/js/music/music-other.js) 替换 `music.js` 以实现音乐播放器的正常使用
+>*仅支持 **中国大陆地区**
 
-更改 `music.js` 的参数即可实现自定义歌单列表
+请在 `.env` 文件中更改歌曲相关参数即可实现自定义歌单列表
 
-```js
-let server = "netease"; //netease: 网易云音乐; tencent: QQ音乐; kugou: 酷狗音乐; xiami: 虾米; kuwo: 酷我
-let type = "playlist"; //song: 单曲; playlist: 歌单; album: 唱片
-let id = "7452421335"; //封面 ID / 单曲 ID / 歌单 ID
+```bash
+# 歌曲 API 地址
+VITE_SONG_API = "https://api-meting.imsyy.top"
+# 歌曲服务器 ( netease-网易云, tencent-qq音乐 )
+VITE_SONG_SERVER = "netease"
+# 播放类型 ( song-歌曲, playlist-播放列表, album-专辑, search-搜索, artist-艺术家 )
+VITE_SONG_TYPE = "playlist"
+# 播放 ID
+VITE_SONG_ID = "7452421335"
 ```
 
 ### 字体
@@ -100,20 +107,20 @@ make clean all
 
 </details>
 
-### 插件
+### 技术栈
 
-* [Bootstrap](https://getbootstrap.com/)
-* [iziToast](https://izitoast.marcelodolza.com/)
-* [Font Awesome](https://fontawesome.com/)
-* [jQuery](https://jquery.com/)
+* [Vue](https://cn.vuejs.org/)
+* [Vite](https://vitejs.cn/vite3-cn/)
+* [Pinia](https://pinia.vuejs.org/zh/)
+* [IconPark](https://iconpark.oceanengine.com/official)
+* [xicons](https://xicons.org/)
 * [Aplayer](https://aplayer.js.org/)
 
 ### API
 
 * [MetingAPI By 武恩赐](https://api.wuenci.com/meting/api/)
 * [小歪 API](https://api.ixiaowai.cn/)
-* [和风天气](https://dev.qweather.com/)
-* [ROLL](https://www.mxnzp.com/doc/list)
+* [高德开放平台](https://lbs.amap.com/)
 * [Hitokoto 一言](https://hitokoto.cn/)
 
-<a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.imsyy.top"><img src="https://img.shields.io/badge/MySSL-安全认证-brightgreen"></a>&nbsp;<a title="CDN" target="_blank" href="https://cdnjs.com/"><img src="https://img.shields.io/badge/CDN-Cloudflare-blue"></a>&nbsp;<a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2022-%E7%84%A1%E5%90%8D-red"></a>
+<a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.imsyy.top"><img src="https://img.shields.io/badge/MySSL-安全认证-brightgreen"></a>&nbsp;<a title="CDN" target="_blank" href="https://cdnjs.com/"><img src="https://img.shields.io/badge/CDN-Cloudflare-blue"></a>&nbsp;<a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2023-%E7%84%A1%E5%90%8D-red"></a>
