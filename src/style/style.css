@@ -1,0 +1,179 @@
+@charset "UTF-8";
+/*
+作者: imsyy
+主页：https://www.imsyy.top/
+GitHub：https://github.com/imsyy/home
+版权所有，请勿删除
+*/
+/*全局样式*/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  overflow: hidden;
+}
+
+*,
+a,
+p {
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  text-decoration: none;
+  transition: 0.3s;
+  color: #fff;
+  box-sizing: border-box;
+}
+*:hover,
+a:hover,
+p:hover {
+  transition: 0.3s;
+}
+
+@font-face {
+  font-family: "Pacifico-Regular";
+  src: url("/font/Pacifico-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "UnidreamLED";
+  src: url("/font/UnidreamLED.ttf") format("truetype");
+}
+#app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.cards {
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.2509803922);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transform: scale(1);
+  transition: 0.5s;
+  animation: fade;
+  -webkit-animation: fade 0.5s;
+}
+
+.cards:hover {
+  transform: scale(1.01);
+  transition: 0.5s;
+}
+
+.cards:active {
+  transform: scale(0.98);
+  transition: 0.5s;
+}
+
+.el-message {
+  --el-message-bg-color: #00000040 !important;
+  --el-message-text-color: #efefef !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 25px !important;
+  border-color: transparent !important;
+}
+.el-message .el-message__badge {
+  display: none;
+}
+
+.el-progress-bar .el-progress-bar__outer {
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.1254901961);
+}
+.el-progress-bar .el-progress-bar__outer .el-progress-bar__inner {
+  background-color: #efefef;
+  border-radius: 6px;
+  text-align: center;
+  font-family: "UnidreamLED";
+}
+.el-progress-bar .el-progress-bar__outer .el-progress-bar__inner span {
+  color: #564d59;
+  font-size: 0.9rem;
+}
+
+.el-popper.is-dark {
+  background: rgba(255, 255, 255, 0.3764705882) !important;
+  border: 1px solid transparent !important;
+}
+
+.el-card {
+  border-radius: 8px !important;
+  border: 1px solid transparent !important;
+  background-color: transparent !important;
+}
+.el-card .el-card__header {
+  font-weight: bold;
+  padding: 16px 20px !important;
+  background-color: rgba(255, 255, 255, 0.1882352941) !important;
+  border-bottom: 1px solid transparent !important;
+}
+.el-card .el-card__body {
+  padding: 0 !important;
+  background-color: rgba(255, 255, 255, 0.062745098) !important;
+}
+
+.fade-enter-active {
+  -webkit-animation: fade 0.3s ease-in-out;
+          animation: fade 0.3s ease-in-out;
+}
+
+.fade-leave-active {
+  animation: fade 0.3s ease-in-out reverse;
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#cursor {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 25px;
+  opacity: 0.25;
+  z-index: 10086;
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+  transition-property: background, opacity, transform;
+}
+#cursor.hidden {
+  opacity: 0;
+}
+#cursor.active {
+  opacity: 0.5;
+  transform: scale(0.5);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #eeeeee;
+}/*# sourceMappingURL=style.css.map */
