@@ -292,6 +292,10 @@ watch(
     background-color: #ffffff66;
     border-radius: 6px;
     z-index: 999;
+    @media (max-width: 720px) {
+    left: calc(50% - 45%);
+    width: 90%;
+    }
     .close {
       position: absolute;
       top: 12px;

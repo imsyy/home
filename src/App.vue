@@ -16,15 +16,24 @@
           <MoreSet />
         </section>
       </div>
+      <!-- 移动端菜单按钮 -->
+      <Icon
+        class="menu"
+        size="24"
+        @click="store.mobileOpenState = !store.mobileOpenState"
+      >
+        <component :is="store.mobileOpenState ? CloseSmall : HamburgerButton" />
+      </Icon>
     </main>
     <Footer v-show="!store.backgroundShow && !store.setOpenState" />
   </div>
 </template>
-
 <script setup>
 import { onMounted, onBeforeUnmount, watch } from "vue";
 import { helloInit, checkDays } from "@/utils/getTime.js";
 import { mainStore } from "@/store";
+import { Icon } from "@vicons/utils";
+import { HamburgerButton, CloseSmall } from "@icon-park/vue-next";
 import MainLeft from "@/views/Main/Left.vue";
 import MainRight from "@/views/Main/Right.vue";
 import Background from "@/components/Background/index.vue";
@@ -119,7 +128,9 @@ main {
     width: 100%;
     height: 100vh;
     margin: 0 auto;
-    padding: 0 2vw;
+    @media (max-width: 1200px) {
+      padding: 0 2vw;
+    }
     .main {
       width: 100%;
       height: 100%;
@@ -140,6 +151,31 @@ main {
       z-index: 2;
       animation: fade;
       -webkit-animation: fade 0.5s;
+    }
+  }
+  .menu {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 84%;
+    left: calc(50% - 28px);
+    width: 56px;
+    height: 34px;
+    background: rgb(0 0 0 / 20%);
+    backdrop-filter: blur(10px);
+    border-radius: 6px;
+    transition: all 0.3s;
+    animation: fade;
+    -webkit-animation: fade 0.5s;
+    &:active {
+      transform: scale(0.95);
+    }
+    .i-icon {
+      transform: translateY(2px);
+    }
+    @media (min-width: 720px) {
+      display: none;
     }
   }
 }

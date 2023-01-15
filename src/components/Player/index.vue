@@ -244,22 +244,16 @@ defineExpose({ playToggle, changeVolume, changeSong });
         margin: 4px 0 6px 6px;
         height: 100%;
         mask: linear-gradient(
-          180deg,
-          hsla(0, 0%, 100%, 0) 0,
-          hsla(0, 0%, 100%, 0.6) 10%,
           #fff 15%,
           #fff 85%,
-          hsla(0, 0%, 100%, 0.6) 90%,
-          hsla(0, 0%, 100%, 0)
+          hsla(0deg, 0%, 100%, 0.6) 90%,
+          hsla(0deg, 0%, 100%, 0)
         );
         -webkit-mask: linear-gradient(
-          180deg,
-          hsla(0, 0%, 100%, 0) 0,
-          hsla(0, 0%, 100%, 0.6) 10%,
           #fff 15%,
           #fff 85%,
-          hsla(0, 0%, 100%, 0.6) 90%,
-          hsla(0, 0%, 100%, 0)
+          hsla(0deg, 0%, 100%, 0.6) 90%,
+          hsla(0deg, 0%, 100%, 0)
         );
         &::before,
         &::after {
@@ -267,7 +261,6 @@ defineExpose({ playToggle, changeVolume, changeSong });
         }
         p {
           color: #efefef;
-          margin: 2px 0;
         }
         .aplayer-lrc-current {
           font-size: 0.95rem;
@@ -282,7 +275,7 @@ defineExpose({ playToggle, changeVolume, changeSong });
   :deep(.aplayer-list) {
     margin-top: 6px;
     ol {
-      &::-webkit-scrollbar-track{
+      &::-webkit-scrollbar-track {
         background-color: transparent;
       }
       li {

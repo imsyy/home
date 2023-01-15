@@ -9,11 +9,14 @@
     <el-row class="link-all" :gutter="20">
       <el-col
         :span="8"
-        v-for="item in linksData"
+        v-for="(item, index) in linksData"
         :key="item"
         @click="jumpLink(item.link)"
       >
-        <div class="item cards">
+        <div
+          class="item cards"
+          :style="index < 3 ? 'margin-bottom: 20px' : null"
+        >
           <Icon size="26">
             <component :is="item.icon" />
           </Icon>
@@ -96,18 +99,12 @@ const jumpLink = (url) => {
     .item {
       height: 100px;
       width: 100%;
-      margin-bottom: 20px;
       display: flex;
       align-items: center;
       flex-direction: row;
       justify-content: center;
       animation: fade;
       -webkit-animation: fade 0.5s;
-      @media (max-width: 820px) {
-        .name {
-          display: none;
-        }
-      }
 
       &:hover {
         transform: scale(1.02);
@@ -117,6 +114,22 @@ const jumpLink = (url) => {
       .name {
         font-size: 1.1rem;
         margin-left: 8px;
+      }
+      @media (min-width: 720px) and (max-width: 820px) {
+        .name {
+          display: none;
+        }
+      }
+      @media (max-width: 720px) {
+        height: 80px;
+      }
+      @media (max-width: 460px) {
+        flex-direction: column;
+        .name {
+          font-size: 1rem;
+          margin-left: 0;
+          margin-top: 8px;
+        }
       }
     }
   }
