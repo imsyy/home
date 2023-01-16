@@ -39,7 +39,7 @@ let openMusicShow = ref(false);
 // 一言数据
 let hitokotoData = reactive({
   text: "这里应该显示一句话",
-  from: "無名",
+  from: "小梦",
 });
 
 // 打开音乐面板

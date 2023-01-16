@@ -99,14 +99,15 @@ onMounted(() => {
   let styleTitle1 = "font-size: 20px;font-weight: 600;color: rgb(244,167,89);";
   let styleTitle2 = "font-size:12px;color: rgb(244,167,89);";
   let styleContent = "color: rgb(30,152,255);";
-  let title1 = "無名の主页";
+  let title1 = "小梦の主页";
   let title2 = `
- _____ __  __  _______     ____     __
-|_   _|  \\/  |/ ____\\ \\   / /\\ \\   / /
-  | | | \\  / | (___  \\ \\_/ /  \\ \\_/ / 
-  | | | |\\/| |\\___ \\  \\   /    \\   /  
- _| |_| |  | |____) |  | |      | |   
-|_____|_|  |_|_____/   |_|      |_|`;
+   ____    U  ___ u  ____     ____  __   __ 
+U /"___|u   \\/"_ \\/ |  _"\\ U /"___|u\\ \\ / / 
+\\| |  _ /   | | | |/| | | |\\| |  _ / \\ V /  
+ | |_| |.-,_| |_| |U| |_| |\\| |_| | U_|"|_u 
+  \\____| \\_)-\\___/  |____/ u \\____|   |_|   
+  _)(|_       \\     |||_    _)(|_.-,//|(_  
+ (__)__)     (__)   (__)_)  (__)__)\\_) (__)`;
   let content = `\n\n版本: ${config.version}\n主页: ${config.home}\nGithub: ${config.github}`;
   console.info(
     `%c${title1} %c${title2} %c${content}`,

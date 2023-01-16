@@ -3,7 +3,7 @@
     <div class="power" v-show="!store.playerState">
       <span
         >Copyright&nbsp;&copy;&nbsp;{{ fullYear }}
-        <a href="https://imsyy.top">無名</a>
+        <a href="https://godgy.xyz/">小梦</a>
       </span>
       <!-- 以下信息请不要修改哦 -->
       <span class="hidden"
@@ -16,7 +16,7 @@
       >&nbsp;&amp;
       <!-- 站点备案 -->
       <a href="https://beian.miit.gov.cn" target="_blank"
-        >豫ICP备2022018134号-1</a
+        >京ICP备2022011239号-1</a
       >
     </div>
     <div class="lrc" v-show="store.playerState">
