@@ -3,7 +3,7 @@
   <div class="message">
     <!-- Logo -->
     <div class="logo">
-      <img class="logo-img" src="/images/icon/logo.png" alt="logo" />
+      <img class="logo-img" :src="siteLogo" alt="logo" />
       <div class="name">
         <span class="bg">{{ siteUrl[0] }}</span>
         <span class="sm">.{{ siteUrl[1] }}</span>
@@ -35,6 +35,8 @@ import { Error } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 const store = mainStore();
 
+// 主页站点logo
+let siteLogo = import.meta.env.VITE_SITE_LOGO;
 // 站点链接
 let siteUrl = import.meta.env.VITE_SITE_URL.split(".");
 
