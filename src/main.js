@@ -15,13 +15,3 @@ pinia.use(piniaPluginPersistedstate);
 
 app.use(pinia);
 app.mount('#app')
-
-// if ('serviceWorker' in navigator) {
-//     navigator.serviceWorker.register('/sw.js')
-//         .then(() => {
-//             console.log('Service worker registered.');
-//         })
-//         .catch(err => {
-//             console.log('Failed to register service worker: ', err);
-//         });
-// }

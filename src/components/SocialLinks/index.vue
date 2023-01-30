@@ -3,58 +3,14 @@
   <div class="social">
     <div class="link">
       <a
-        id="github"
-        :href="socialLinks.github"
+        v-for="item in socialLinksData"
+        :key="item.name"
+        :href="item.url"
         target="_blank"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
+        @mouseenter="socialTip = item.tip"
+        @mouseleave="socialTip = '通过这里联系我吧'"
       >
-        <Icon size="24">
-          <Github />
-        </Icon>
-      </a>
-      <a
-        id="qq"
-        :href="socialLinks.qq"
-        target="_blank"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
-      >
-        <Icon size="24">
-          <Qq />
-        </Icon>
-      </a>
-      <a
-        id="email"
-        :href="socialLinks.email"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
-      >
-        <Icon size="28">
-          <EmailRound />
-        </Icon>
-      </a>
-      <a
-        id="telegram"
-        :href="socialLinks.telegram"
-        target="_blank"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
-      >
-        <Icon size="24">
-          <Telegram />
-        </Icon>
-      </a>
-      <a
-        id="twitter"
-        :href="socialLinks.twitter"
-        target="_blank"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
-      >
-        <Icon size="24">
-          <Twitter />
-        </Icon>
+        <img class="icon" :src="item.icon" height="24" />
       </a>
     </div>
     <span class="tip">{{ socialTip }}</span>
@@ -62,61 +18,37 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
-import { Github, Qq, Telegram, Twitter } from "@vicons/fa";
-import { EmailRound } from "@vicons/material";
-import { Icon } from "@vicons/utils";
+import { ref, onMounted } from "vue";
+import { getSocialLinks } from "@/api";
+import { Error } from "@icon-park/vue-next";
 
 // 社交链接数据
-let socialHover = ref(false);
+let socialLinksData = ref([]);
 let socialTip = ref("通过这里联系我吧");
-let socialTipData = {
-  github: "去 Github 看看",
-  qq: "有什么事吗",
-  email: "来封 Email",
-  telegram: "你懂的 ~",
-  twitter: "你懂的 ~",
+
+// 获取社交链接数据
+const getSocialLinksData = () => {
+  getSocialLinks()
+    .then((res) => {
+      socialLinksData.value = res;
+      console.log(socialLinksData.value);
+    })
+    .catch((err) => {
+      console.error(err);
+      ElMessage({
+        message: "社交链接获取失败",
+        grouping: true,
+        icon: h(Error, {
+          theme: "filled",
+          fill: "#efefef",
+        }),
+      });
+    });
 };
 
-// 社交链接地址
-const socialLinks = reactive({
-  github: "https://github.com/" + import.meta.env.VITE_SOCIAL_GITHUB,
-  qq:
-    "https://wpa.qq.com/msgrd?v=3&uin=" +
-    import.meta.env.VITE_SOCIAL_QQ +
-    "&site=qq&menu=yes",
-  email: "mailto:" + import.meta.env.VITE_SOCIAL_EMAIL,
-  telegram: "https://t.me/" + import.meta.env.VITE_SOCIAL_TELEGRAM,
-  twitter: "https://twitter.com/" + import.meta.env.VITE_SOCIAL_TWITTER,
+onMounted(() => {
+  getSocialLinksData();
 });
-
-// 鼠标移入移出事件
-const changeTip = (e) => {
-  let tipKey = e.target.id;
-  switch (tipKey) {
-    case "github":
-      socialTip.value = socialTipData.github;
-      return true;
-    case "qq":
-      socialTip.value = socialTipData.qq;
-      return true;
-    case "email":
-      socialTip.value = socialTipData.email;
-      return true;
-    case "telegram":
-      socialTip.value = socialTipData.telegram;
-      return true;
-    case "twitter":
-      socialTip.value = socialTipData.twitter;
-      return true;
-    default:
-      return true;
-  }
-};
-
-const leaveTip = () => {
-  socialTip.value = "通过这里联系我吧";
-};
 </script>
 
 <style lang="scss" scoped>
@@ -151,8 +83,12 @@ const leaveTip = () => {
     justify-content: center;
     a {
       display: inherit;
-      span {
+      .icon {
         margin: 0 12px;
+        transition: all 0.3s;
+        &:active {
+          transform: scale(0.9);
+        }
       }
     }
   }
