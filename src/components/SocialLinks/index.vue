@@ -2,71 +2,83 @@
   <!-- 社交链接 -->
   <div class="social">
     <div class="link">
-      <a
-        id="github"
-        :href="socialLinks.github"
-        target="_blank"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
-      >
-        <Icon size="24">
-          <Github />
-        </Icon>
-      </a>
-      <a
-        id="gitee"
-        :href="socialLinks.gitee"
-        target="_blank"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
-      >
-        <span class="xicon" style="font-size: 24px;">
-          <img src="/images/icon/gitee.png" height="24"/>
-        </span>
-      </a>
-      <a
-        id="qq"
-        :href="socialLinks.qq"
-        target="_blank"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
-      >
-        <Icon size="24">
-          <Qq />
-        </Icon>
-      </a>
-      <a
-        id="email"
-        :href="socialLinks.email"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
-      >
-        <Icon size="28">
-          <EmailRound />
-        </Icon>
-      </a>
-      <a
-        id="telegram"
-        :href="socialLinks.telegram"
-        target="_blank"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
-      >
-        <Icon size="24">
-          <Telegram />
-        </Icon>
-      </a>
-      <a
-        id="twitter"
-        :href="socialLinks.twitter"
-        target="_blank"
-        @mouseenter="changeTip"
-        @mouseleave="leaveTip"
-      >
-        <Icon size="24">
-          <Twitter />
-        </Icon>
-      </a>
+      <span v-if="socialEnv.github">
+        <a
+          id="github"
+          :href="socialLinks.github"
+          target="_blank"
+          @mouseenter="changeTip"
+          @mouseleave="leaveTip"
+        >
+          <Icon size="24">
+            <Github />
+          </Icon>
+        </a>
+      </span>
+      <span v-if="socialEnv.gitee">
+        <a
+          id="gitee"
+          :href="socialLinks.gitee"
+          target="_blank"
+          @mouseenter="changeTip"
+          @mouseleave="leaveTip"
+        >
+          <span class="xicon" style="font-size: 24px;">
+            <img src="/images/icon/gitee.png" height="24"/>
+          </span>
+        </a>
+      </span>
+      <span v-if="socialEnv.qq">
+        <a
+          id="qq"
+          :href="socialLinks.qq"
+          target="_blank"
+          @mouseenter="changeTip"
+          @mouseleave="leaveTip"
+        >
+          <Icon size="24">
+            <Qq />
+          </Icon>
+        </a>
+      </span>
+      <span v-if="socialEnv.email">
+        <a
+          id="email"
+          :href="socialLinks.email"
+          @mouseenter="changeTip"
+          @mouseleave="leaveTip"
+        >
+          <Icon size="28">
+            <EmailRound />
+          </Icon>
+        </a>
+      </span>
+      <span v-if="socialEnv.telegram">
+        <a
+          id="telegram"
+          :href="socialLinks.telegram"
+          target="_blank"
+          @mouseenter="changeTip"
+          @mouseleave="leaveTip"
+        >
+          <Icon size="24">
+            <Telegram />
+          </Icon>
+        </a>
+      </span>
+      <span v-if="socialEnv.twitter">
+        <a
+          id="twitter"
+          :href="socialLinks.twitter"
+          target="_blank"
+          @mouseenter="changeTip"
+          @mouseleave="leaveTip"
+        >
+          <Icon size="24">
+            <Twitter />
+          </Icon>
+        </a>
+      </span>
     </div>
     <span class="tip">{{ socialTip }}</span>
   </div>
@@ -89,18 +101,25 @@ let socialTipData = {
   telegram: "你懂的 ~",
   twitter: "你懂的 ~",
 };
+let socialEnv = {
+  github: import.meta.env.VITE_SOCIAL_GITHUB,
+  gitee: import.meta.env.VITE_SOCIAL_GITEE,
+  qq: import.meta.env.VITE_SOCIAL_QQ,
+  email: import.meta.env.VITE_SOCIAL_EMAIL,
+  telegram: import.meta.env.VITE_SOCIAL_TELEGRAM,
+  twitter: import.meta.env.VITE_SOCIAL_TWITTER,
+}
 
 // 社交链接地址
 const socialLinks = reactive({
-  github: "https://github.com/" + import.meta.env.VITE_SOCIAL_GITHUB,
-  gitee: "https://gitee.com/" + import.meta.env.VITE_SOCIAL_GITEE,
-  qq:
-    "https://wpa.qq.com/msgrd?v=3&uin=" +
-    import.meta.env.VITE_SOCIAL_QQ +
+  github: "https://github.com/" + socialEnv.github,
+  gitee: "https://gitee.com/" + socialEnv.gitee,
+  qq: "https://wpa.qq.com/msgrd?v=3&uin=" +
+    socialEnv.qq +
     "&site=qq&menu=yes",
-  email: "mailto:" + import.meta.env.VITE_SOCIAL_EMAIL,
-  telegram: "https://t.me/" + import.meta.env.VITE_SOCIAL_TELEGRAM,
-  twitter: "https://twitter.com/" + import.meta.env.VITE_SOCIAL_TWITTER,
+  email: "mailto:" + socialEnv.email,
+  telegram: "https://t.me/" + socialEnv.telegram,
+  twitter: "https://twitter.com/" + socialEnv.twitter,
 });
 
 // 鼠标移入移出事件
