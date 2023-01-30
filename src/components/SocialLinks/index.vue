@@ -14,6 +14,17 @@
         </Icon>
       </a>
       <a
+        id="gitee"
+        :href="socialLinks.gitee"
+        target="_blank"
+        @mouseenter="changeTip"
+        @mouseleave="leaveTip"
+      >
+        <span class="xicon" style="font-size: 24px;">
+          <img src="/images/icon/gitee.png" height="24"/>
+        </span>
+      </a>
+      <a
         id="qq"
         :href="socialLinks.qq"
         target="_blank"
@@ -72,6 +83,7 @@ let socialHover = ref(false);
 let socialTip = ref("通过这里联系我吧");
 let socialTipData = {
   github: "去 Github 看看",
+  gitee: "去 Gitee 看看",
   qq: "有什么事吗",
   email: "来封 Email",
   telegram: "你懂的 ~",
@@ -81,6 +93,7 @@ let socialTipData = {
 // 社交链接地址
 const socialLinks = reactive({
   github: "https://github.com/" + import.meta.env.VITE_SOCIAL_GITHUB,
+  gitee: "https://gitee.com/" + import.meta.env.VITE_SOCIAL_GITEE,
   qq:
     "https://wpa.qq.com/msgrd?v=3&uin=" +
     import.meta.env.VITE_SOCIAL_QQ +
@@ -96,6 +109,9 @@ const changeTip = (e) => {
   switch (tipKey) {
     case "github":
       socialTip.value = socialTipData.github;
+      return true;
+    case "gitee":
+      socialTip.value = socialTipData.gitee;
       return true;
     case "qq":
       socialTip.value = socialTipData.qq;
