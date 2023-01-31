@@ -42,7 +42,8 @@ export default ({
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: {
-        enabled: true
+        enabled: true,
+        navigateFallbackAllowlist: [/^index.html$/]
       },
       workbox: {
         runtimeCaching: [{

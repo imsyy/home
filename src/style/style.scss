@@ -76,6 +76,13 @@ p {
     transform: scale(0.98);
 }
 
+// 文字超出
+.text-hidden {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 // 弹窗样式
 .el-message {
     --el-message-bg-color: #00000040 !important;

@@ -4,7 +4,7 @@
     <!-- Logo -->
     <div class="logo">
       <img class="logo-img" :src="siteLogo" alt="logo" />
-      <div class="name">
+      <div class="name text-hidden">
         <span class="bg">{{ siteUrl[0] }}</span>
         <span class="sm">.{{ siteUrl[1] }}</span>
       </div>
@@ -91,6 +91,7 @@ watch(
     }
     .name {
       width: 100%;
+      height: 142px;
       margin-left: 12px;
       transform: translateY(-8px);
       font-family: "Pacifico-Regular";
