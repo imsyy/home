@@ -65,6 +65,7 @@ onMounted(() => {
   backdrop-filter: blur(0);
   animation: fade;
   -webkit-animation: fade 0.5s;
+  transition: all 0.5s;
   @media (max-width: 840px) {
     max-width: 100%;
     justify-content: center;
@@ -95,12 +96,16 @@ onMounted(() => {
   .tip {
     display: none;
     margin-right: 12px;
+    animation: fade;
+    -webkit-animation: fade 0.5s;
   }
-  &:hover {
-    background-color: #00000040;
-    backdrop-filter: blur(5px);
-    .tip {
-      display: block;
+  @media (min-width: 768px) {
+    &:hover {
+      background-color: #00000040;
+      backdrop-filter: blur(5px);
+      .tip {
+        display: block;
+      }
     }
   }
 }
