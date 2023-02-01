@@ -31,9 +31,9 @@
 
 ### 部署
 
-* 首先安装个 [node.js](https://nodejs.org/zh-cn/) 的环境
+* 首先**安装**个 [node.js](https://nodejs.org/zh-cn/) 的**环境**
 * 然后**管理员权限**运行终端，并`cd`到 项目目录中
-* 在终端中输入：
+* 在`终端`中输入：
 
 ```bash
 # 安装依赖
@@ -42,7 +42,7 @@ yarn install
 # 预览
 yarn dev
 
-#构建
+# 构建
 yarn build
 ```
 > 构建完成后，html项目会在`dist`**目录中**生成，可将 `dist` **文件夹下的文件**上传至服务器，也可使用 `Vercel` 等托管平台一键导入并自动部署
