@@ -40,6 +40,9 @@
       :stroke-width="20"
       :percentage="timeData.year.pass"
     />
+    <span class="text">
+      <p id="htmer_time"></p>
+    </span>
   </div>
 </template>
 
@@ -61,6 +64,54 @@ onMounted(() => {
 onBeforeUnmount(() => {
   clearInterval(timeInterval);
 });
+
+// 站点存活时间
+let runTime = {
+  year: import.meta.env.VITE_SITE_YAER,
+  month: import.meta.env.VITE_SITE_MONTH,
+  day: import.meta.env.VITE_SITE_DAY,
+}
+
+function secondToDate(second) {
+  if (!second) {
+      return 0;
+  }
+  var time = new Array(0, 0, 0, 0, 0);
+  if (second >= 365 * 24 * 3600) {
+      time[0] = parseInt(second / (365 * 24 * 3600));
+      second %= 365 * 24 * 3600;
+  }
+  if (second >= 24 * 3600) {
+      time[1] = parseInt(second / (24 * 3600));
+      second %= 24 * 3600;
+  }
+  if (second >= 3600) {
+      time[2] = parseInt(second / 3600);
+      second %= 3600;
+  }
+  if (second >= 60) {
+      time[3] = parseInt(second / 60);
+      second %= 60;
+  }
+  if (second > 0) {
+      time[4] = second;
+  }
+  return time;
+}
+
+function setTime() {
+  //month要少一个月，不然会出问题。即month的范围为 0-11
+  var create_time = Math.round(new Date(Date.UTC(runTime.year, runTime.month,runTime.day, 0, 0, 0)).getTime() / 1000);
+  var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+  var currentTime = secondToDate((  timestamp-create_time));
+  var currentTimeHtml = currentTime[0] + ' 年 ' + currentTime[1] + ' 天 '
+      + currentTime[2] + ' 时 ' + currentTime[3] + ' 分 ' + currentTime[4]
+      + ' 秒';
+  if(document.getElementById("htmer_time")!=null)
+      document.getElementById("htmer_time").innerHTML = "本站已经苟活 "+currentTimeHtml;
+}
+// 即时刷新站点存活时间
+setInterval(setTime, 1000);
 </script>
 
 <style lang="scss" scoped>
