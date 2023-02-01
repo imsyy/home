@@ -41,6 +41,7 @@ import {
 } from "@vicons/fa";
 
 // 网站链接数据
+// 建议不要超出6个，若需要超出请自行调整样式
 let linksData = [
   {
     icon: Blog,

@@ -12,7 +12,7 @@
     "name": "QQ",
     "icon": "/images/icon/qq.png",
     "tip": "有什么事吗",
-    "url": "https://wpa.qq.com/msgrd?v=3&uin=1539250352&site=qq&menu=yes"
+    "url": "https://res.abeim.cn/api/qq/?qq=1539250352"
 }, {
     "name": "Email",
     "icon": "/images/icon/email.png",
