@@ -12,7 +12,15 @@
         </div>
       </el-collapse-item>
       <el-collapse-item title="其他设置" name="2">
-        <div>设置内容待增加</div>
+        <div class="item">
+          <span class="text">建站日期显示</span>
+          <el-switch
+            v-model="siteStartShow"
+            inline-prompt
+            :active-icon="CheckSmall"
+            :inactive-icon="CloseSmall"
+          />
+        </div>
       </el-collapse-item>
       <el-collapse-item title="其他设置" name="3">
         <div>设置内容待增加</div>
@@ -27,7 +35,11 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
 import { mainStore } from "@/store";
+import { CheckSmall, CloseSmall } from "@icon-park/vue-next";
+import { storeToRefs } from "pinia";
+
 const store = mainStore();
+const { siteStartShow } = storeToRefs(store);
 
 // 默认选中项
 let activeName = ref("1");
@@ -67,7 +79,16 @@ watch(
 
       .el-collapse-item__content {
         padding: 20px;
-
+        .item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 14px;
+          .el-switch__core {
+            border-color: transparent;
+            background-color: #ffffff30;
+          }
+        }
         .bg-set {
           .el-radio-group {
             justify-content: space-between;

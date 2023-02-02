@@ -40,21 +40,37 @@
       :stroke-width="20"
       :percentage="timeData.year.pass"
     />
+    <div v-if="startDateText && store.siteStartShow">
+      <span class="text" v-html="startDateText" />
+      <!-- <el-progress
+        :show-text="false"
+        :indeterminate="true"
+        :stroke-width="6"
+        :percentage="80"
+        :duration="2"
+      /> -->
+    </div>
   </div>
 </template>
 
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from "vue";
 import { HourglassFull } from "@icon-park/vue-next";
-import { getTimeCapsule } from "@/utils/getTime.js";
+import { getTimeCapsule, siteDateStatistics } from "@/utils/getTime.js";
+import { mainStore } from "@/store";
+const store = mainStore();
 
 // 进度条数据
 let timeData = ref(getTimeCapsule());
+let startDate = ref(import.meta.env.VITE_SITE_START);
+let startDateText = ref(null);
 let timeInterval = null;
 
 onMounted(() => {
   timeInterval = setInterval(() => {
     timeData.value = getTimeCapsule();
+    if (startDate.value)
+      startDateText.value = siteDateStatistics(new Date(startDate.value));
   }, 1000);
 });
 
