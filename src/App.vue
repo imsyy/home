@@ -43,7 +43,7 @@ import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
 // 新春灯笼
-import "@/utils/lantern.js";
+// import "@/utils/lantern.js";
 
 const store = mainStore();
 
