@@ -124,8 +124,8 @@ onMounted(() => {
         // 生成歌单
         res.forEach((v) => {
           playList.value.push({
-            title: v.name,
-            artist: v.artist,
+            title: v.name || v.title,
+            artist: v.artist || v.author,
             src: v.url,
             pic: v.pic,
             lrc: v.lrc,
