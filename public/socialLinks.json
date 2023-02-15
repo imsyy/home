@@ -28,11 +28,5 @@
     "icon": "/images/icon/twitter.png",
     "tip": "推一下 ~",
     "url": "https://twitter.com/iimmsyy"
-    },
-    {
-    "name": "Telegram",
-    "icon": "/images/icon/telegram.png",
-    "tip": "你懂的 ~",
-    "url": "https://t.me/iimmsyy"//请修复这里，我并不知道你的电报是什么。
     }
 ]
