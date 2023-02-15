@@ -44,10 +44,10 @@
 yarn install
 
 # 预览
-yarn dev
+yarn run dev
 
 # 构建
-yarn build
+yarn run build
 ```
 > 构建完成后，静态资源会在 **`dist` 目录** 中生成，可将 **`dist` 文件夹下的文件**上传至服务器，也可使用 `Vercel` 等托管平台一键导入并自动部署
 
