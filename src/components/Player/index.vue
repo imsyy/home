@@ -18,7 +18,7 @@
     @onSelectSong="onSelectSong"
   />
 </template>
- 
+
 <script setup>
 import { MusicOne, PlayWrong } from "@icon-park/vue-next";
 import aplayer from "vue3-aplayer";
@@ -114,13 +114,6 @@ onMounted(() => {
         playListCount.value = res.length;
         // 更改播放器加载状态
         store.musicIsOk = true;
-        console.log(
-          "音乐加载完成",
-          res,
-          playIndex.value,
-          playListCount.value,
-          props.volume
-        );
         // 生成歌单
         res.forEach((v) => {
           playList.value.push({
@@ -131,6 +124,13 @@ onMounted(() => {
             lrc: v.lrc,
           });
         });
+        console.log(
+          "音乐加载完成",
+          playList.value,
+          playIndex.value,
+          playListCount.value,
+          props.volume
+        );
       })
       .catch(() => {
         store.musicIsOk = false;
@@ -213,8 +213,8 @@ const changeSong = (type) => {
 // 暴露子组件方法
 defineExpose({ playToggle, changeVolume, changeSong });
 </script>
- 
-<style lang='scss' scoped>
+
+<style lang="scss" scoped>
 .aplayer {
   width: 80%;
   background: transparent;
