@@ -36,6 +36,10 @@ export default ({
       inject: {
         data: {
           title: loadEnv(mode, process.cwd()).VITE_SITE_NAME,
+          author: loadEnv(mode, process.cwd()).VITE_SITE_ANTHOR,
+          keywords: loadEnv(mode, process.cwd()).VITE_SITE_KEYWORDS,
+          description: loadEnv(mode, process.cwd()).VITE_SITE_DES,
+          tongji: loadEnv(mode, process.cwd()).VITE_SITE_BAIDUTONGJI,
         },
       },
     }),
@@ -46,6 +50,8 @@ export default ({
         navigateFallbackAllowlist: [/^index.html$/]
       },
       workbox: {
+        skipWaiting: true,
+        clientsClaim: true,
         runtimeCaching: [{
             urlPattern: /(.*?)\.(js|css|woff2|woff|ttf)/, // js / css 静态资源缓存
             handler: 'CacheFirst',
@@ -63,9 +69,9 @@ export default ({
         ],
       },
       manifest: {
-        "name": "無名の主页",
-        "short_name": "無名の主页",
-        "description": "一个默默无闻的主页",
+        "name": loadEnv(mode, process.cwd()).VITE_SITE_NAME,
+        "short_name": loadEnv(mode, process.cwd()).VITE_SITE_NAME,
+        "description": loadEnv(mode, process.cwd()).VITE_SITE_DES,
         "display": "standalone",
         "start_url": "/",
         "theme_color": "#424242",
