@@ -20,17 +20,10 @@
 </template>
 
 <script setup>
-import { MusicOne, PlayWrong } from "@icon-park/vue-next";
 import aplayer from "vue3-aplayer";
-import {
-  h,
-  ref,
-  reactive,
-  nextTick,
-  onMounted,
-  onBeforeUnmount,
-  watch,
-} from "vue";
+import fetchJsonp from "fetch-jsonp";
+import { h, ref, nextTick, onMounted } from "vue";
+import { MusicOne, PlayWrong } from "@icon-park/vue-next";
 import { getPlayerList } from "@/api";
 import { mainStore } from "@/store";
 
@@ -107,42 +100,46 @@ const props = defineProps({
 // 初始化播放器
 onMounted(() => {
   nextTick(() => {
-    getPlayerList(props.songServer, props.songType, props.songId)
-      .then((res) => {
-        // 生成歌单信息
-        playIndex.value = Math.floor(Math.random() * res.length);
-        playListCount.value = res.length;
-        // 更改播放器加载状态
-        store.musicIsOk = true;
-        // 生成歌单
-        res.forEach((v) => {
-          playList.value.push({
-            title: v.name || v.title,
-            artist: v.artist || v.author,
-            src: v.url,
-            pic: v.pic,
-            lrc: v.lrc,
+    try {
+      getPlayerList(props.songServer, props.songType, props.songId).then(
+        (res) => {
+          console.log(res);
+          // 生成歌单信息
+          playIndex.value = Math.floor(Math.random() * res.length);
+          playListCount.value = res.length;
+          // 更改播放器加载状态
+          store.musicIsOk = true;
+          // 生成歌单
+          res.forEach((v) => {
+            playList.value.push({
+              title: v.name || v.title,
+              artist: v.artist || v.author,
+              src: v.url || v.src,
+              pic: v.pic,
+              lrc: v.lrc,
+            });
           });
-        });
-        console.log(
-          "音乐加载完成",
-          playList.value,
-          playIndex.value,
-          playListCount.value,
-          props.volume
-        );
-      })
-      .catch(() => {
-        store.musicIsOk = false;
-        ElMessage({
-          message: "播放器加载失败",
-          grouping: true,
-          icon: h(PlayWrong, {
-            theme: "filled",
-            fill: "#efefef",
-          }),
-        });
+          console.log(
+            "音乐加载完成",
+            playList.value,
+            playIndex.value,
+            playListCount.value,
+            props.volume
+          );
+        }
+      );
+    } catch (err) {
+      console.error(err);
+      store.musicIsOk = false;
+      ElMessage({
+        message: "播放器加载失败",
+        grouping: true,
+        icon: h(PlayWrong, {
+          theme: "filled",
+          fill: "#efefef",
+        }),
       });
+    }
   });
 });
 
