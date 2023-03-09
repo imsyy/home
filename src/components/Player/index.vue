@@ -223,7 +223,7 @@ defineExpose({ playToggle, changeVolume, changeSong });
     .aplayer-info {
       margin-left: 0;
       background-color: #ffffff40;
-      border-color: transparent;
+      border-color: transparent !important;
       .aplayer-music {
         flex-grow: initial;
         margin-bottom: 2px;
