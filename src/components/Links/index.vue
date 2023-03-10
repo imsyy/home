@@ -37,7 +37,7 @@ import {
   Cloud,
   Compass,
   Book,
-  Flask,
+  Fire,
 } from "@vicons/fa";
 
 // 网站链接数据
@@ -69,9 +69,9 @@ let linksData = [
     link: "https://web.imsyy.top/",
   },
   {
-    icon: Flask,
-    name: "实验室",
-    link: "https://lab.imsyy.top/",
+    icon: Fire,
+    name: "今日热榜",
+    link: "https://hot.imsyy.top/",
   },
 ];
 
