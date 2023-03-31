@@ -55,12 +55,12 @@ let linksData = [
   {
     icon: CompactDisc,
     name: "音乐",
-    link: "https://music.8hl.top/",
+    link: "http://music.8hl.top/",
   },
   {
     icon: Compass,
     name: "起始页",
-    link: "https://nav.8hl.top/",
+    link: "http://nav.8hl.top/",
   },
   {
     icon: Book,
