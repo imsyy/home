@@ -60,7 +60,7 @@ let linksData = [
   {
     icon: Compass,
     name: "起始页",
-    link: "http://nav.8hl.top/",
+    link: "https://nav.8hl.top/",
   },
   {
     icon: Book,
