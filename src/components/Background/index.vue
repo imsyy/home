@@ -30,9 +30,9 @@ const changeBg = (type) => {
   } else if (type == 1) {
     bgUrl.value = "https://api.dujin.org/bing/1920.php";
   } else if (type == 2) {
-    bgUrl.value = "https://api.ixiaowai.cn/gqapi/gqapi.php";
+    bgUrl.value = "https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images";
   } else if (type == 3) {
-    bgUrl.value = "https://api.ixiaowai.cn/api/api.php";
+    bgUrl.value = "https://www.dmoe.cc/random.php";
   }
 };
 

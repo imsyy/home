@@ -9,7 +9,7 @@
       <span>时光胶囊</span>
     </div>
     <span class="text"
-      >今日已经度过了&nbsp;{{ timeData.day.start }}&nbsp;小时</span
+      >今日已经度过了&nbsp;{{ timeData.day.elapsed }}&nbsp;小时</span
     >
     <el-progress
       :text-inside="true"
@@ -17,7 +17,7 @@
       :percentage="timeData.day.pass"
     />
     <span class="text"
-      >本周已经度过了&nbsp;{{ timeData.week.start }}&nbsp;天</span
+      >本周已经度过了&nbsp;{{ timeData.week.elapsed }}&nbsp;天</span
     >
     <el-progress
       :text-inside="true"
@@ -25,7 +25,7 @@
       :percentage="timeData.week.pass"
     />
     <span class="text"
-      >本月已经度过了&nbsp;{{ timeData.month.start }}&nbsp;天</span
+      >本月已经度过了&nbsp;{{ timeData.month.elapsed }}&nbsp;天</span
     >
     <el-progress
       :text-inside="true"
@@ -33,7 +33,7 @@
       :percentage="timeData.month.pass"
     />
     <span class="text"
-      >今年已经度过了&nbsp;{{ timeData.year.start }}&nbsp;个月</span
+      >今年已经度过了&nbsp;{{ timeData.year.elapsed }}&nbsp;个月</span
     >
     <el-progress
       :text-inside="true"

@@ -45,10 +45,6 @@ export default ({
     }),
     VitePWA({
       registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true,
-        navigateFallbackAllowlist: [/^index.html$/]
-      },
       workbox: {
         skipWaiting: true,
         clientsClaim: true,
