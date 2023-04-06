@@ -30,13 +30,13 @@ let siteUrl = import.meta.env.VITE_SITE_URL.split(".");
   width: 50%;
   margin-left: 0.75rem;
   .logo {
-    width: 80%;
+    width: 100%;
     font-family: "Pacifico-Regular";
     font-size: 1.75rem;
     position: fixed;
     top: 6%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    text-align: center;
     transition: all 0.3s;
     animation: fade;
     -webkit-animation: fade 0.5s;
