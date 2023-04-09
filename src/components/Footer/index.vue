@@ -16,7 +16,7 @@
       >&nbsp;&amp;
       <!-- 站点备案 -->
       <a href="https://beian.miit.gov.cn" target="_blank"
-        >辽ICP备2021003813号-5</a>
+        >辽ICP备2000000000号</a>
     </div>
     <div class="lrc" v-show="store.playerState">
       <music-one theme="filled" size="18" fill="#efefef" />
