@@ -37,7 +37,7 @@ import TimeCapsule from "@/components/TimeCapsule/index.vue";
 import { mainStore } from "@/store";
 const store = mainStore();
 
-let closeShow = ref(false);
+const closeShow = ref(false);
 </script>
 
 <style lang="scss" scoped>

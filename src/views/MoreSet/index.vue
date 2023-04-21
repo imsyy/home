@@ -79,13 +79,13 @@ import Set from "@/components/Set/index.vue";
 import config from "@/../package.json";
 const store = mainStore();
 
-let closeShow = ref(false);
+const closeShow = ref(false);
 
 // 站点链接
-let siteUrl = import.meta.env.VITE_SITE_URL.split(".");
+const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
 
 // 更新日志
-let upData = reactive({
+const upData = reactive({
   new: [
     "采用 Vue 进行重构",
     "音乐歌单支持快速自定义",

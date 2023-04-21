@@ -7,7 +7,7 @@
     v-show="store.musicOpenState"
   >
     <div class="btns">
-      <span @click="musicListShow = true">音乐列表</span>
+      <span @click="openMusicList()">音乐列表</span>
       <span @click="store.musicOpenState = false">回到一言</span>
     </div>
     <div class="control">
@@ -103,7 +103,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, onMounted, nextTick } from "vue";
+import { ref, reactive, watch, onMounted } from "vue";
 import {
   GoStart,
   PlayOne,
@@ -119,18 +119,22 @@ import { mainStore } from "@/store";
 const store = mainStore();
 
 // 音量条数据
-let volumeShow = ref(false);
-let volumeNum = ref(store.musicVolume ? store.musicVolume : 0.7);
+const volumeShow = ref(false);
+const volumeNum = ref(store.musicVolume ? store.musicVolume : 0.7);
 
 // 播放列表数据
-let musicListShow = ref(false);
+const musicListShow = ref(false);
 const playerRef = ref(null);
-const musicDialog = ref(null);
 const playerData = reactive({
   server: import.meta.env.VITE_SONG_SERVER,
   type: import.meta.env.VITE_SONG_TYPE,
   id: import.meta.env.VITE_SONG_ID,
 });
+
+// 开启播放列表
+const openMusicList = () => {
+  musicListShow.value = true;
+};
 
 // 音乐播放暂停
 const changePlayState = () => {
@@ -149,6 +153,8 @@ onMounted(() => {
       changePlayState();
     }
   });
+  // 挂载方法至 window
+  window.$openList = openMusicList;
 });
 
 // 监听音量变化
@@ -293,8 +299,8 @@ watch(
     border-radius: 6px;
     z-index: 999;
     @media (max-width: 720px) {
-    left: calc(50% - 45%);
-    width: 90%;
+      left: calc(50% - 45%);
+      width: 90%;
     }
     .close {
       position: absolute;

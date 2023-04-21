@@ -13,14 +13,13 @@
 </template>
 
 <script setup>
-import { reactive, ref, onMounted } from "vue";
 import { mainStore } from "@/store";
 import Func from "@/views/Func/index.vue";
 import Link from "@/components/Links/index.vue";
 const store = mainStore();
 
 // 站点链接
-let siteUrl = import.meta.env.VITE_SITE_URL.split(".");
+const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
 </script>
 
 

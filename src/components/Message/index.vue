@@ -36,12 +36,12 @@ import { mainStore } from "@/store";
 const store = mainStore();
 
 // 主页站点logo
-let siteLogo = import.meta.env.VITE_SITE_LOGO;
+const siteLogo = import.meta.env.VITE_SITE_LOGO;
 // 站点链接
-let siteUrl = import.meta.env.VITE_SITE_URL.split(".");
+const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
 
 // 简介区域文字
-let descriptionText = reactive({
+const descriptionText = reactive({
   hello: import.meta.env.VITE_DESC_HELLO,
   text: import.meta.env.VITE_DESC_TEXT,
 });

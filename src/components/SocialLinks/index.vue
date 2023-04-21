@@ -23,8 +23,8 @@ import { getSocialLinks } from "@/api";
 import { Error } from "@icon-park/vue-next";
 
 // 社交链接数据
-let socialLinksData = ref([]);
-let socialTip = ref("通过这里联系我吧");
+const socialLinksData = ref([]);
+const socialTip = ref("通过这里联系我吧");
 
 // 获取社交链接数据
 const getSocialLinksData = () => {

@@ -11,7 +11,7 @@
         :span="8"
         v-for="(item, index) in linksData"
         :key="item"
-        @click="jumpLink(item.link)"
+        @click="jumpLink(item)"
       >
         <div
           class="item cards"
@@ -28,7 +28,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { Icon } from "@vicons/utils";
 import {
   Link,
@@ -39,10 +38,12 @@ import {
   Book,
   Fire,
 } from "@vicons/fa";
+import { mainStore } from "@/store";
+const store = mainStore();
 
 // 网站链接数据
 // 建议不要超出6个，若需要超出请自行调整样式
-let linksData = [
+const linksData = [
   {
     icon: Blog,
     name: "博客",
@@ -76,8 +77,12 @@ let linksData = [
 ];
 
 // 链接跳转
-const jumpLink = (url) => {
-  window.open(url, "_blank");
+const jumpLink = (data) => {
+  if (data.name === "音乐" && store.musicClick) {
+    if ($openList) $openList();
+  } else {
+    window.open(data.link, "_blank");
+  }
 };
 </script>
 
@@ -112,6 +117,11 @@ const jumpLink = (url) => {
         background: rgb(0 0 0 / 40%);
         transition: 0.3s;
       }
+
+      &:active {
+        transform: scale(1);
+      }
+
       .name {
         font-size: 1.1rem;
         margin-left: 8px;
