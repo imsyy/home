@@ -1,7 +1,7 @@
 简体中文 | [English](./README_EN.md)
 
 <p>
-<strong><h2>無名の主页</h2></strong>
+<strong><h2>無名の主页 - 静态版本</h2></strong>
 简单的小主页，原来的看够了，重新弄了一个
 </p>
 
@@ -32,10 +32,12 @@
 
 ### 天气
 
-由于原天气 API 不稳定，已更换天气 API，现需要前往以下网站获取 key
+天气及地区获取需要 `高德开放平台` 相关 API
 
-- 前往 [ROLL](https://www.mxnzp.com/doc/list) 获取 app_id 和 app_secret，用于获取城市信息
-- 前往 [和风天气](https://dev.qweather.com/) 获取 key，用于获取天气信息
+- 前往 [高德开放平台控制台](https://console.amap.com/dev/index) 创建一个 `Web 服务` 类型的 `Key`，并将 `Key` 填入 `js/main.js` 中的 `mainKey` 中
+
+也可自行更换其他方式
+
 
 也可自行更换其他方式
 
