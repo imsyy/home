@@ -77,3 +77,9 @@ export const getSocialLinks = async () => {
   const res = await fetch("/socialLinks.json");
   return await res.json();
 };
+
+// 获取本地数据
+export const getLocalData = async (url) => {
+  const res = await fetch(url);
+  return await res.json();
+};

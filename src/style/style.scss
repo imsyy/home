@@ -199,3 +199,36 @@ scrollbar-thumb {
     border-radius: 10px;
     background-color: #eeeeee;
 }
+
+// Swiper 样式
+.swiper {
+    .swiper-wrapper {
+        z-index: 0 !important;
+    } 
+}
+
+.links {
+    .swiper-pagination {
+        .swiper-pagination-bullet {
+            display: inline-block;
+            padding: 10px 3px;
+
+            span {
+                display: block;
+                width: 20px;
+                height: 4px;
+                background-color: rgba(0, 0, 0, 0.2509803922);
+                border-radius: 2px;
+                transition: .25s;
+            }
+
+            &:hover span {
+                background-color: rgba(255, 255, 255, 0.2509803922);
+            }
+
+            &:active span, &.swiper-pagination-bullet-active span {
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+}
