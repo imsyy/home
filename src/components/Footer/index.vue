@@ -2,8 +2,8 @@
   <footer>
     <div class="power" v-show="!store.playerState">
       <span
-        >Copyright&nbsp;&copy;&nbsp;{{ fullYear }}
-        <a href="https://imsyy.top">無名</a>
+        >&copy;&nbsp;2007&nbsp;-&nbsp;{{ fullYear }}
+        <a href="https://www.wulintang.cn" target="_blank">南通伍林堂文化传播有限公司</a>&nbsp;版权所有
       </span>
       <!-- 以下信息请不要修改哦 -->
       <span class="hidden"
