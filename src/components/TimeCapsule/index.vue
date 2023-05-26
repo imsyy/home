@@ -50,6 +50,14 @@
         :duration="2"
       /> -->
     </div>
+    <!-- 添加Github贡献表格 -->
+    <div v-if="store.contributionShow">
+      <span class="text"
+      >Github 贡献</span
+    >
+      <img src="https://ghchart.rshah.org/wangyijin209">
+      <!-- 请自行更换https://ghchart.rshah.org/后的用户名 -->
+    </div>
   </div>
 </template>
 
