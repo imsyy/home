@@ -55,7 +55,7 @@
       <span class="text"
       >Github 贡献</span
     >
-      <img src="https://ghchart.rshah.org/wangyijin209">
+      <img src="https://ghchart.rshah.org/imsyy">
       <!-- 请自行更换https://ghchart.rshah.org/后的用户名 -->
     </div>
   </div>
