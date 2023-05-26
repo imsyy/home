@@ -23,7 +23,15 @@
         </div>
       </el-collapse-item>
       <el-collapse-item title="其他设置" name="3">
-        <div>设置内容待增加</div>
+        <div class="item">
+          <span class="text">Github贡献表格显示</span>
+          <el-switch
+            v-model="contributionShow"
+            inline-prompt
+            :active-icon="CheckSmall"
+            :inactive-icon="CloseSmall"
+          />
+        </div>
       </el-collapse-item>
       <el-collapse-item title="其他设置" name="4">
         <div>设置内容待增加</div>
@@ -40,6 +48,7 @@ import { storeToRefs } from "pinia";
 
 const store = mainStore();
 const { siteStartShow } = storeToRefs(store);
+const { contributionShow } = storeToRefs(store);
 
 // 默认选中项
 let activeName = ref("1");
