@@ -21,6 +21,15 @@
             :inactive-icon="CloseSmall"
           />
         </div>
+        <div class="item">
+          <span class="text">音乐点击是否打开面板</span>
+          <el-switch
+            v-model="musicClick"
+            inline-prompt
+            :active-icon="CheckSmall"
+            :inactive-icon="CloseSmall"
+          />
+        </div>
       </el-collapse-item>
       <el-collapse-item title="其他设置" name="3">
         <div>设置内容待增加</div>
@@ -39,11 +48,11 @@ import { CheckSmall, CloseSmall } from "@icon-park/vue-next";
 import { storeToRefs } from "pinia";
 
 const store = mainStore();
-const { siteStartShow } = storeToRefs(store);
+const { siteStartShow, musicClick } = storeToRefs(store);
 
 // 默认选中项
-let activeName = ref("1");
-let bgSet = ref("0");
+const activeName = ref("1");
+const bgSet = ref("0");
 
 onMounted(() => {
   bgSet.value = store.coverType.toString();

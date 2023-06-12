@@ -3,7 +3,7 @@
   <div class="social">
     <div class="link">
       <a
-        v-for="item in socialLinksData"
+        v-for="item in socialLinks"
         :key="item.name"
         :href="item.url"
         target="_blank"
@@ -18,37 +18,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { getSocialLinks } from "@/api";
-import { Error } from "@icon-park/vue-next";
+import { ref } from "vue";
+import socialLinks from "@/assets/socialLinks.json";
 
-// 社交链接数据
-let socialLinksData = ref([]);
-let socialTip = ref("通过这里联系我吧");
-
-// 获取社交链接数据
-const getSocialLinksData = () => {
-  getSocialLinks()
-    .then((res) => {
-      socialLinksData.value = res;
-      console.log(socialLinksData.value);
-    })
-    .catch((err) => {
-      console.error(err);
-      ElMessage({
-        message: "社交链接获取失败",
-        grouping: true,
-        icon: h(Error, {
-          theme: "filled",
-          fill: "#efefef",
-        }),
-      });
-    });
-};
-
-onMounted(() => {
-  getSocialLinksData();
-});
+// 社交链接提示
+const socialTip = ref("通过这里联系我吧");
 </script>
 
 <style lang="scss" scoped>

@@ -33,12 +33,12 @@ const store = mainStore();
 const player = ref(null);
 
 // 歌曲播放列表
-let playList = ref([]);
-let playerLrc = ref("");
+const playList = ref([]);
+const playerLrc = ref("");
 
 // 歌曲播放项
-let playIndex = ref(0);
-let playListCount = ref(0);
+const playIndex = ref(0);
+const playListCount = ref(0);
 
 // 配置项
 const props = defineProps({
@@ -216,6 +216,7 @@ defineExpose({ playToggle, changeVolume, changeSong });
   width: 80%;
   background: transparent;
   border-radius: 6px;
+  font-family: "HarmonyOS_Regular", sans-serif !important;
   :deep(.aplayer-body) {
     .aplayer-pic {
       display: none;

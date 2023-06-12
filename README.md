@@ -27,8 +27,6 @@
 - [x] 音乐播放器
 - [x] 移动端适配
 
-* [ ] 播放器取消使用 Aplayer
-
 ### 部署
 
 * **安装** [node.js](https://nodejs.org/zh-cn/) **环境**

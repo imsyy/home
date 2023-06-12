@@ -35,7 +35,7 @@ import { mainStore } from "@/store";
 import config from "@/../package.json";
 const store = mainStore();
 
-let fullYear = new Date().getFullYear();
+const fullYear = new Date().getFullYear();
 </script>
 
 <style lang="scss" scoped>

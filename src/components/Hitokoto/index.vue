@@ -7,7 +7,7 @@
     @click.stop
   >
     <!-- 打开音乐面板 -->
-    <Transition name="fade">
+    <Transition name="el-fade-in-linear">
       <div
         class="open-music"
         v-show="openMusicShow && store.musicIsOk"
@@ -34,16 +34,13 @@ import { mainStore } from "@/store";
 const store = mainStore();
 
 // 开启音乐面板按钮显隐
-let openMusicShow = ref(false);
+const openMusicShow = ref(false);
 
 // 一言数据
-let hitokotoData = reactive({
+const hitokotoData = reactive({
   text: "这里应该显示一句话",
   from: "無名",
 });
-
-// 打开音乐面板
-const openMusic = () => {};
 
 // 获取一言数据
 const getHitokotoData = () => {

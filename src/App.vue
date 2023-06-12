@@ -55,18 +55,18 @@ const getWidth = () => {
 onMounted(() => {
   // 自定义鼠标
   cursorInit();
-  // 欢迎提示
-  helloInit();
-  // 默哀模式
-  checkDays();
   // 加载完成事件
   window.addEventListener("load", () => {
     console.log("加载完成");
     // 去除加载标记
     document.getElementsByTagName("body")[0].className = "";
     // 给加载动画添加结束标记
-    let loadingBox = document.getElementById("loading-box");
+    const loadingBox = document.getElementById("loading-box");
     loadingBox.classList.add("loaded");
+    // 欢迎提示
+    helloInit();
+    // 默哀模式
+    checkDays();
   });
 
   // 屏蔽右键

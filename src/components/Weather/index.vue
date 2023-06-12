@@ -20,10 +20,10 @@ import { getAdcode, getWeather } from "@/api";
 import { Error } from "@icon-park/vue-next";
 
 // 高德开发者 Key
-let mainKey = import.meta.env.VITE_WEATHER_KEY;
+const mainKey = import.meta.env.VITE_WEATHER_KEY;
 
 // 天气数据
-let weatherData = reactive({
+const weatherData = reactive({
   adCode: {
     city: null, // 城市
     adcode: null, // 城市编码

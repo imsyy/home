@@ -20,7 +20,7 @@ import { SuccessPicture } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 const store = mainStore();
 
-let bgUrl = ref(null); // 壁纸链接
+const bgUrl = ref(null); // 壁纸链接
 
 const changeBg = (type) => {
   if (type == 0) {
