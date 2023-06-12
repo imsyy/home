@@ -19,6 +19,7 @@
     "fetch-jsonp": "^1.2.3",
     "pinia": "^2.0.23",
     "pinia-plugin-persistedstate": "^3.0.0",
+    "swiper": "^9.3.2",
     "terser": "^5.16.1",
     "vue": "^3.2.37",
     "vue3-aplayer": "^1.7.3"

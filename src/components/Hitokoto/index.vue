@@ -7,7 +7,7 @@
     @click.stop
   >
     <!-- 打开音乐面板 -->
-    <Transition name="fade">
+    <Transition name="el-fade-in-linear">
       <div
         class="open-music"
         v-show="openMusicShow && store.musicIsOk"

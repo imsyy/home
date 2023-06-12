@@ -33,10 +33,10 @@
 <script setup>
 import { ref } from "vue";
 import { CloseOne, SettingTwo } from "@icon-park/vue-next";
-import TimeCapsule from "@/components/TimeCapsule/index.vue";
 import { mainStore } from "@/store";
-const store = mainStore();
+import TimeCapsule from "@/components/TimeCapsule/index.vue";
 
+const store = mainStore();
 const closeShow = ref(false);
 </script>
 
@@ -60,6 +60,7 @@ const closeShow = ref(false);
     right: 14px;
     width: 28px;
     height: 28px;
+    transition: transform 0.3s, opacity 0.3s;
 
     &:hover {
       transform: scale(1.2);
