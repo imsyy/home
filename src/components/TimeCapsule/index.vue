@@ -40,7 +40,7 @@
       :stroke-width="20"
       :percentage="timeData.year.pass"
     />
-    <div v-if="startDateText && store.siteStartShow">
+    <div v-if="startDate?.length >= 4 && store.siteStartShow">
       <span class="text" v-html="startDateText" />
       <!-- <el-progress
         :show-text="false"

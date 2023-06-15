@@ -6,6 +6,10 @@
   <meta http-equiv="Access-Control-Allow-Origin" content="*">
   <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="<%- logo %>">
+  <link rel="apple-touch-icon" href="<%- appleLogo %>" />
+  <link rel="bookmark" href="<%- appleLogo %>" />
+  <link rel="apple-touch-icon-precomposed" sizes="200x200" href="<%- appleLogo %>" />
   <meta name="description" content="<%- description %>" />
   <meta name="keywords" content="<%- keywords %>" />
   <meta name="author" content="<%- author %>" />
@@ -15,8 +19,6 @@
   <!-- 本站 CDN 已开启防盗链，非本站域名不可访问，请更改链接为下方内容，否则自定义字体将失效 -->
   <!-- https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css -->
   <link rel="stylesheet" href="https://cdn.imsyy.top/gh/imsyy/file/font/HarmonyOS_Sans/regular.min.css" />
-  <link rel="icon" href="/images/icon/favicon.ico">
-  <link rel="apple-touch-icon" href="/images/icon/apple-touch-icon.png">
   <link rel="stylesheet" href="/loading/loading.min.css">
   <!-- IE Out -->
   <script>
@@ -28,7 +30,7 @@
   <!-- 百度统计 -->
   <script>
     var _hmt = _hmt || [];
-    (function () {
+    (function() {
       var hm = document.createElement("script");
       hm.src = "https://hm.baidu.com/hm.js?<%- tongji %>";
       var s = document.getElementsByTagName("script")[0];
