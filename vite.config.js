@@ -35,6 +35,8 @@ export default ({
       template: 'index.html',
       inject: {
         data: {
+          logo: loadEnv(mode, process.cwd()).VITE_SITE_LOGO,
+          appleLogo: loadEnv(mode, process.cwd()).VITE_SITE_APPLE_LOGO,
           title: loadEnv(mode, process.cwd()).VITE_SITE_NAME,
           author: loadEnv(mode, process.cwd()).VITE_SITE_ANTHOR,
           keywords: loadEnv(mode, process.cwd()).VITE_SITE_KEYWORDS,

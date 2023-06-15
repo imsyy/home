@@ -47,6 +47,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { Icon } from "@vicons/utils";
+// 可前往 https://www.xicons.org 自行挑选并在此处引入
 import {
   Link,
   Blog,
@@ -76,40 +77,6 @@ const siteIcon = {
   Fire,
   LaptopCode,
 };
-
-// 网站链接数据
-const linksData = [
-  {
-    icon: Blog,
-    name: "博客",
-    link: "https://blog.imsyy.top/",
-  },
-  {
-    icon: Cloud,
-    name: "网盘",
-    link: "https://pan.imsyy.top/",
-  },
-  {
-    icon: CompactDisc,
-    name: "音乐",
-    link: "https://music.imsyy.top/",
-  },
-  {
-    icon: Compass,
-    name: "起始页",
-    link: "https://nav.imsyy.top/",
-  },
-  {
-    icon: Book,
-    name: "网址集",
-    link: "https://web.imsyy.top/",
-  },
-  {
-    icon: Fire,
-    name: "今日热榜",
-    link: "https://hot.imsyy.top/",
-  },
-];
 
 // 链接跳转
 const jumpLink = (data) => {
