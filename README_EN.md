@@ -31,11 +31,28 @@ Simple little homepage, had enough of the original one and made a new one
 
 ### Deployment
 
+* **Installation** [node.js](https://nodejs.org/zh-cn/) **Environment**
+
+  > node > 16.16.0  
+  > npm > 8.15.0
+  
+* Then run the `cmd` terminal with **administrator privileges** and `cd` to the project root directory
+* In the `terminal` type:
+
 ```bash
-yarn install
-yarn dev
-yarn build
+# Install pnpm
+npm install -g pnpm
+
+# Install the dependencies
+pnpm install
+
+# Preview
+pnpm dev
+
+# Build
+pnpm build
 ```
+
 > Once the build is complete, the files in the `dist` folder can be uploaded to the server or imported and automatically deployed with one click using a hosting platform such as `Vercel`.
 
 ### Weather
