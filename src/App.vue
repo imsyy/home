@@ -83,11 +83,10 @@ onMounted(() => {
   window.addEventListener("mousedown", (event) => {
     if (event.button == 1) {
       store.backgroundShow = !store.backgroundShow;
-      if (store.backgroundShow) {
-        ElMessage("已开启壁纸展示状态");
-      } else {
-        ElMessage("已退出壁纸展示状态");
-      }
+      ElMessage({
+        message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
+        grouping: true,
+      });
     }
   });
 
@@ -96,18 +95,19 @@ onMounted(() => {
   window.addEventListener("resize", getWidth);
 
   // 控制台输出
-  let styleTitle1 = "font-size: 20px;font-weight: 600;color: rgb(244,167,89);";
-  let styleTitle2 = "font-size:12px;color: rgb(244,167,89);";
-  let styleContent = "color: rgb(30,152,255);";
-  let title1 = "無名の主页";
-  let title2 = `
+  const styleTitle1 =
+    "font-size: 20px;font-weight: 600;color: rgb(244,167,89);";
+  const styleTitle2 = "font-size:12px;color: rgb(244,167,89);";
+  const styleContent = "color: rgb(30,152,255);";
+  const title1 = "無名の主页";
+  const title2 = `
  _____ __  __  _______     ____     __
 |_   _|  \\/  |/ ____\\ \\   / /\\ \\   / /
-  | | | \\  / | (___  \\ \\_/ /  \\ \\_/ / 
-  | | | |\\/| |\\___ \\  \\   /    \\   /  
- _| |_| |  | |____) |  | |      | |   
+  | | | \\  / | (___  \\ \\_/ /  \\ \\_/ /
+  | | | |\\/| |\\___ \\  \\   /    \\   /
+ _| |_| |  | |____) |  | |      | |
 |_____|_|  |_|_____/   |_|      |_|`;
-  let content = `\n\n版本: ${config.version}\n主页: ${config.home}\nGithub: ${config.github}`;
+  const content = `\n\n版本: ${config.version}\n主页: ${config.home}\nGithub: ${config.github}`;
   console.info(
     `%c${title1} %c${title2} %c${content}`,
     styleTitle1,

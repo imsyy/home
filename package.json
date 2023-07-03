@@ -4,7 +4,7 @@
   "github": "https://github.com/imsyy/home",
   "home": "https://imsyy.top",
   "private": true,
-  "version": "4.0.4",
+  "version": "4.0.5",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
@@ -33,7 +33,7 @@
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.8",
     "vite": "^3.1.0",
-    "vite-plugin-html": "^3.0.6",
+    "vite-plugin-html": "^3.2.0",
     "vite-plugin-pwa": "^0.14.1"
   }
 }

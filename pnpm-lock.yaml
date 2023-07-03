@@ -65,8 +65,8 @@ devDependencies:
     specifier: ^3.1.0
     version: 3.1.0(sass@1.55.0)(terser@5.16.1)
   vite-plugin-html:
-    specifier: ^3.0.6
-    version: 3.0.6(vite@3.1.0)
+    specifier: ^3.2.0
+    version: 3.2.0(vite@3.1.0)
   vite-plugin-pwa:
     specifier: ^0.14.1
     version: 0.14.1(vite@3.1.0)(workbox-build@6.6.0)(workbox-window@6.6.0)
@@ -2890,7 +2890,7 @@ packages:
       he: 1.2.0
       param-case: 3.0.4
       relateurl: 0.2.7
-      terser: 5.16.1
+      terser: 5.18.1
     dev: true
 
   /idb@7.1.1:
@@ -3563,7 +3563,7 @@ packages:
       jest-worker: 26.6.2
       rollup: 2.79.1
       serialize-javascript: 4.0.0
-      terser: 5.16.1
+      terser: 5.18.1
     dev: true
 
   /rollup@2.78.1:
@@ -3841,7 +3841,6 @@ packages:
       acorn: 8.9.0
       commander: 2.20.3
       source-map-support: 0.5.21
-    dev: false
 
   /to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
@@ -4011,8 +4010,8 @@ packages:
     dependencies:
       punycode: 2.3.0
 
-  /vite-plugin-html@3.0.6(vite@3.1.0):
-    resolution: {integrity: sha512-B6ZAufvqUqdfPhcV+El8NNI3qV0d3ZntIur2UnP4tcHBV/O2d+6wHF79bJWuqR4WsvmsV7dejCNS3rAYFCisWw==}
+  /vite-plugin-html@3.2.0(vite@3.1.0):
+    resolution: {integrity: sha512-2VLCeDiHmV/BqqNn5h2V+4280KRgQzCFN47cst3WiNK848klESPQnzuC3okH5XHtgwHH/6s1Ho/YV6yIO0pgoQ==}
     peerDependencies:
       vite: '>=2.0.0'
     dependencies:
