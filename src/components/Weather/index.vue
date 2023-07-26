@@ -1,16 +1,13 @@
 <template>
-  <div
-    class="weather"
-    v-if="weatherData.adCode.city && weatherData.weather.weather"
-  >
+  <div class="weather" v-if="weatherData.adCode.city && weatherData.weather.weather">
     <span>{{ weatherData.adCode.city }}&nbsp;</span>
     <span>{{ weatherData.weather.weather }}&nbsp;</span>
     <span>{{ weatherData.weather.temperature }}℃</span>
     <span class="sm-hidden">
       &nbsp;{{
         weatherData.weather.winddirection?.endsWith("风")
-          ? weatherData.weather.winddirection
-          : weatherData.weather.winddirection + "风"
+        ? weatherData.weather.winddirection
+        : weatherData.weather.winddirection + "风"
       }}&nbsp;
     </span>
     <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;级</span>
