@@ -8,18 +8,17 @@
           -
         </span>
         {{ fullYear }}
-        <a href="https://kedaya.site">LibSept24_</a>
+        <a href="https://kedaya.site">LibSept24_</a><br/>
       </span>
-      <!-- 以下信息请不要修改哦
+      <!-- 以下信息请不要修改哦 -->
       <span class="hidden">
         &amp;&nbsp;Made&nbsp;by
         <a :href="config.github" target="_blank">
           {{ config.author }}
         </a>
-      </span> -->
+      </span>
       <!-- 站点备案 -->
       <a v-if="siteIcp" href="https://beian.miit.gov.cn" target="_blank">
-        &amp;
         {{ siteIcp }}
       </a>
     </div>

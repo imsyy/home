@@ -6,9 +6,19 @@
       "link": "https://blog.kedaya.site/"
     },
     {
+      "icon": "Cloud",
+      "name": "网盘",
+      "link": "https://pan.imsyy.top/"
+    },
+    {
       "icon": "CompactDisc",
       "name": "音乐",
       "link": "https://music.imsyy.top/"
+    },
+    {
+      "icon": "Compass",
+      "name": "起始页",
+      "link": "https://nav.imsyy.top/"
     },
     {
       "icon": "Book",
@@ -19,12 +29,6 @@
       "icon": "Fire",
       "name": "今日热榜",
       "link": "https://tophub.today"
-    },
-    {
-      "icon": "LaptopCode",
-      "name": "站点监控",
-      "link": "https://status.kedaya.site"
     }
   ]
 ]
-

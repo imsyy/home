@@ -3,7 +3,7 @@
   <div class="message">
     <!-- Logo -->
     <div class="logo">
-      <img class="logo-img" :src="siteLogo" alt="logo" />
+      <img class="logo-img" :src="siteIndexLogo" alt="logo" />
       <div class="name text-hidden">
         <span class="bg">{{ siteUrl[0] }}</span>
         <span class="sm">.{{ siteUrl[1] }}</span>
@@ -37,6 +37,7 @@ const store = mainStore();
 
 // 主页站点logo
 const siteLogo = import.meta.env.VITE_SITE_LOGO;
+const siteIndexLogo = import.meta.env.VITE_SITE_INDEX_LOGO;
 // 站点链接
 const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
 

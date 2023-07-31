@@ -19,11 +19,6 @@
       "icon": "Fire",
       "name": "今日热榜",
       "link": "https://tophub.today"
-    },
-    {
-      "icon": "LaptopCode",
-      "name": "站点监控",
-      "link": "https://status.kedaya.site"
     }
   ]
 ]
