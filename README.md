@@ -7,13 +7,14 @@
 
 ![無名の主页](https://s2.loli.net/2022/07/14/K5JigfvDoNewtuS.webp)
 
->主页的 Logo 字体已经过压缩，若用本站 Logo 以外的字母会变回默认字体，这里是 [完整字体](https://file.4everland.app/font/Other/Pacifico-Regular.ttf)
+>主页的 Logo 字体已经过压缩，若用本站 Logo 以外的字母会变回默认字体，这里是 [完整字体](https://file.imsyy.top/font/Other/Pacifico-Regular.ttf)
 
 ### Demo
 
 >由于 CDN 缓存原因，查看最新效果可能需要 `Ctrl` + `F5` 强制刷新浏览器缓存
 
 - [無名の主页](https://www.imsyy.top)
+- [無名の主页 - Dev](https://dev.home-5iw.pages.dev/)
 - [無名の主页 - 备用线路](https://home-imsyy.vercel.app/)
 
 ### 功能
@@ -57,18 +58,18 @@ pnpm build
 在 `src/assets/siteLinks.json` 中可以自定义网站链接（以指向自己的网站）:
 
 ```json
-[
-  {
-    "icon": "Blog",						
-    "name": "博客",						
-    "link": "https://blog.imsyy.top/"	
-  },
+{
+  "icon": "Blog",						
+  "name": "博客",						
+  "link": "https://blog.imsyy.top/"	
+},
 ```
 
 其中 `icon` 网站链接的图标可以在 `src/components/Links/index.vue` 中添加:
 
-```vue
+```js
 // 可前往 https://www.xicons.org 自行挑选并在此处引入
+// 此处引入的是 fa 类型
 import {
   Link,
   Blog,
@@ -174,15 +175,16 @@ make clean all
 
 可以在 `public/images` 中修改网站背景
 
-如果想要添加更多的图片作为网站背景，可以将图片重命名 `background数字` 的形式，并在 `src/components/Background/index.vue` 中进行修改：
+如果想要添加更多的本地图片作为网站背景，可以将图片重命名 `background+数字` 的形式，并在 `src/components/Background/index.vue` 中进行修改：
 
-```vue
-// 更换壁纸链接
-const changeBg = (type) => {
-  if (type == 0) {
-    bgUrl.value = `/images/background${Math.floor(
-      Math.random() * 10 + 1
-    )}.webp`;
+```js
+
+if (type == 0) {
+  // 修改此处 Math.random() 后面的第一个数字为图片的数量
+  bgUrl.value = `/images/background${Math.floor(
+    Math.random() * 10 + 1
+  )}.webp`;
+}
 ```
 
 #### 网站图标
@@ -204,5 +206,9 @@ const changeBg = (type) => {
 * [搏天 API](https://api.btstu.cn/doc/sjbz.php)
 * [高德开放平台](https://lbs.amap.com/)
 * [Hitokoto 一言](https://hitokoto.cn/)
+* 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=imsyy/home&type=Date)](https://star-history.com/#imsyy/home&Date)
 
 <a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.imsyy.top"><img src="https://img.shields.io/badge/MySSL-安全认证-brightgreen"></a>&nbsp;<a title="CDN" target="_blank" href="https://cdnjs.com/"><img src="https://img.shields.io/badge/CDN-Cloudflare-blue"></a>&nbsp;<a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2023-%E7%84%A1%E5%90%8D-red"></a>
