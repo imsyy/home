@@ -52,6 +52,52 @@ pnpm build
 ```
 > 构建完成后，静态资源会在 **`dist` 目录** 中生成，可将 **`dist` 文件夹下的文件**上传至服务器，也可使用 `Vercel` 等托管平台一键导入并自动部署
 
+### 网站链接
+
+在 `src/assets/siteLinks.json` 中可以自定义网站链接（以指向自己的网站）:
+
+```json
+[
+  {
+    "icon": "Blog",						
+    "name": "博客",						
+    "link": "https://blog.imsyy.top/"	
+  },
+```
+
+其中 `icon` 网站链接的图标可以在 `src/components/Links/index.vue` 中添加:
+
+```vue
+// 可前往 https://www.xicons.org 自行挑选并在此处引入
+import {
+  Link,
+  Blog,
+  CompactDisc,
+  Cloud,
+  Compass,
+  Book,
+  Fire,
+  LaptopCode,
+} from "@vicons/fa";
+
+...
+
+// 网站链接图标
+const siteIcon = {
+  Blog,
+  Cloud,
+  CompactDisc,
+  Compass,
+  Book,
+  Fire,
+  LaptopCode,
+};
+```
+
+### 社交链接
+
+在 `src/assets/socialLinks.json` 中可以自定义社交链接。
+
 ### 天气
 
 天气及地区获取需要 `高德开放平台` 相关 API
@@ -121,6 +167,27 @@ make clean all
 >详细信息可前往 [虹墨空间站](https://www.imaegoo.com/2020/chinese-font-compress/) 查看原文
 
 </details>
+
+### 网站图标及网站背景
+
+#### 网站背景
+
+可以在 `public/images` 中修改网站背景
+
+如果想要添加更多的图片作为网站背景，可以将图片重命名 `background数字` 的形式，并在 `src/components/Background/index.vue` 中进行修改：
+
+```vue
+// 更换壁纸链接
+const changeBg = (type) => {
+  if (type == 0) {
+    bgUrl.value = `/images/background${Math.floor(
+      Math.random() * 10 + 1
+    )}.webp`;
+```
+
+#### 网站图标
+
+可以在 `public/images/icon` 中修改网站图标。
 
 ### 技术栈
 
