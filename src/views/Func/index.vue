@@ -46,10 +46,14 @@ const store = mainStore();
 const currentTime = ref({});
 const timeInterval = ref(null);
 
+// 更新时间
+const updateTimeData = () => {
+  currentTime.value = getCurrentTime();
+};
+
 onMounted(() => {
-  timeInterval.value = setInterval(() => {
-    currentTime.value = getCurrentTime();
-  }, 1000);
+  updateTimeData();
+  timeInterval.value = setInterval(updateTimeData, 1000);
 });
 
 onBeforeUnmount(() => {

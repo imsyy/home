@@ -18,10 +18,11 @@
 import { onMounted, ref, watch, h } from "vue";
 import { SuccessPicture } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
-const store = mainStore();
 
+const store = mainStore();
 const bgUrl = ref(null); // 壁纸链接
 
+// 更换壁纸链接
 const changeBg = (type) => {
   if (type == 0) {
     bgUrl.value = `/images/background${Math.floor(
@@ -32,7 +33,7 @@ const changeBg = (type) => {
   } else if (type == 2) {
     bgUrl.value = "https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images";
   } else if (type == 3) {
-    bgUrl.value = "https://www.dmoe.cc/random.php";
+    bgUrl.value = "https://api.btstu.cn/sjbz/api.php?lx=dongman&format=images";
   }
 };
 

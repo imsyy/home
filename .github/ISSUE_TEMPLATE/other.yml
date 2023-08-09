@@ -1,0 +1,14 @@
+name: 其他信息
+description: 关于使用上的问题
+labels: [other]
+body:
+  - type: textarea
+    id: title
+    attributes:
+      label: "问题描述"
+      description: "请尽量清晰的描述您遇到的问题"
+  - type: textarea
+    id: other
+    attributes:
+      label: "补充信息"
+      description: "有需要补充的信息吗"

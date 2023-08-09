@@ -1,5 +1,5 @@
 <template>
-  <div class="links">
+  <div v-if="siteLinks[0]" class="links">
     <div class="line">
       <Icon size="20">
         <Link />
@@ -19,11 +19,11 @@
       }"
       :mousewheel="true"
     >
-      <SwiperSlide v-for="site in siteLinks" :key="site">
+      <SwiperSlide v-for="site in siteLinksList" :key="site">
         <el-row class="link-all" :gutter="20">
           <el-col
-            :span="8"
             v-for="(item, index) in site"
+            :span="8"
             :key="item"
             @click="jumpLink(item)"
           >
@@ -45,7 +45,7 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, computed } from "vue";
 import { Icon } from "@vicons/utils";
 // 可前往 https://www.xicons.org 自行挑选并在此处引入
 import {
@@ -66,6 +66,16 @@ import "swiper/scss";
 import "swiper/scss/pagination";
 
 const store = mainStore();
+
+// 计算网站链接
+const siteLinksList = computed(() => {
+  const result = [];
+  for (let i = 0; i < siteLinks.length; i += 6) {
+    const subArr = siteLinks.slice(i, i + 6);
+    result.push(subArr);
+  }
+  return result;
+});
 
 // 网站链接图标
 const siteIcon = {
@@ -131,6 +141,7 @@ onMounted(() => {
     }
   }
   .link-all {
+    height: 220px;
     .item {
       height: 100px;
       width: 100%;

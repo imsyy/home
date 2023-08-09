@@ -8,7 +8,7 @@
           -
         </span>
         {{ fullYear }}
-        <a href="https://imsyy.top">無名</a>
+        <a :href="SiteUrl">{{ SiteAnthor }}</a>
       </span>
       <!-- 以下信息请不要修改哦 -->
       <span class="hidden">
@@ -45,6 +45,8 @@ const fullYear = new Date().getFullYear();
 // 加载配置数据
 const siteStartDate = ref(import.meta.env.VITE_SITE_START);
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
+const SiteAnthor = ref(import.meta.env.VITE_SITE_ANTHOR);
+const SiteUrl = ref(import.meta.env.VITE_SITE_URL);
 </script>
 
 <style lang="scss" scoped>

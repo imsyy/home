@@ -31,11 +31,28 @@ Simple little homepage, had enough of the original one and made a new one
 
 ### Deployment
 
+* **Installation** [node.js](https://nodejs.org/zh-cn/) **Environment**
+
+  > node > 16.16.0  
+  > npm > 8.15.0
+  
+* Then run the `cmd` terminal with **administrator privileges** and `cd` to the project root directory
+* In the `terminal` type:
+
 ```bash
-yarn install
-yarn dev
-yarn build
+# Install pnpm
+npm install -g pnpm
+
+# Install the dependencies
+pnpm install
+
+# Preview
+pnpm dev
+
+# Build
+pnpm build
 ```
+
 > Once the build is complete, the files in the `dist` folder can be uploaded to the server or imported and automatically deployed with one click using a hosting platform such as `Vercel`.
 
 ### Weather
@@ -119,7 +136,7 @@ make clean all
 ### API
 
 * [MetingAPI By 武恩赐](https://api.wuenci.com/meting/api/)
-* [小歪 API](https://api.ixiaowai.cn/)
+* [搏天 API](https://api.btstu.cn/doc/sjbz.php)
 * [高德开放平台](https://lbs.amap.com/)
 * [Hitokoto 一言](https://hitokoto.cn/)
 

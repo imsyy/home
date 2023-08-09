@@ -1,12 +1,15 @@
 <template>
-  <div
-    class="weather"
-    v-if="weatherData.adCode.city && weatherData.weather.weather"
-  >
+  <div class="weather" v-if="weatherData.adCode.city && weatherData.weather.weather">
     <span>{{ weatherData.adCode.city }}&nbsp;</span>
     <span>{{ weatherData.weather.weather }}&nbsp;</span>
     <span>{{ weatherData.weather.temperature }}℃</span>
-    <span class="sm-hidden">&nbsp;{{ weatherData.weather.winddirection }}风&nbsp;</span>
+    <span class="sm-hidden">
+      &nbsp;{{
+        weatherData.weather.winddirection?.endsWith("风")
+        ? weatherData.weather.winddirection
+        : weatherData.weather.winddirection + "风"
+      }}&nbsp;
+    </span>
     <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;级</span>
   </div>
   <div class="weather" v-else>
@@ -16,7 +19,7 @@
 
 <script setup>
 import { onMounted, reactive, h } from "vue";
-import { getAdcode, getWeather } from "@/api";
+import { getAdcode, getWeather, getOtherWeather } from "@/api";
 import { Error } from "@icon-park/vue-next";
 
 // 高德开发者 Key
@@ -39,10 +42,29 @@ const weatherData = reactive({
 // 获取天气数据
 const getWeatherData = () => {
   // 获取地理位置信息
-  if (!mainKey) return onError("请配置天气 Key");
-  getAdcode(mainKey)
-    .then((res) => {
-      if (res.status) {
+  if (!mainKey) {
+    getOtherWeather()
+      .then((res) => {
+        console.log(res);
+        const data = res.result;
+        weatherData.adCode = {
+          city: data.city.name,
+          adcode: data.city.cityId,
+        };
+        weatherData.weather = {
+          weather: data.condition.condition,
+          temperature: data.condition.temp,
+          winddirection: data.condition.windDir,
+          windpower: data.condition.windLevel,
+        };
+      })
+      .catch((err) => {
+        console.error("天气信息获取失败:" + err);
+        onError("天气信息获取失败");
+      });
+  } else {
+    getAdcode(mainKey)
+      .then((res) => {
         weatherData.adCode = {
           city: res.city,
           adcode: res.adcode,
@@ -50,33 +72,29 @@ const getWeatherData = () => {
         // 获取天气信息
         getWeather(mainKey, weatherData.adCode.adcode)
           .then((res) => {
-            if (res.status) {
-              weatherData.weather = {
-                weather: res.lives[0].weather,
-                temperature: res.lives[0].temperature,
-                winddirection: res.lives[0].winddirection,
-                windpower: res.lives[0].windpower,
-              };
-            } else {
-              onError("天气信息获取失败");
-            }
+            weatherData.weather = {
+              weather: res.lives[0].weather,
+              temperature: res.lives[0].temperature,
+              winddirection: res.lives[0].winddirection,
+              windpower: res.lives[0].windpower,
+            };
           })
-          .catch(() => {
+          .catch((err) => {
+            console.error("天气信息获取失败:" + err);
             onError("天气信息获取失败");
           });
-      } else {
+      })
+      .catch((err) => {
+        console.error("地理位置获取失败:" + err);
         onError("地理位置获取失败");
-      }
-    })
-    .catch(() => {
-      onError("地理位置获取失败");
-    });
+      });
+  }
 };
 
 // 报错信息
 const onError = (message) => {
   ElMessage({
-    message: message,
+    message,
     icon: h(Error, {
       theme: "filled",
       fill: "#efefef",

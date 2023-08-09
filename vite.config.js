@@ -32,7 +32,6 @@ export default ({
     }),
     createHtmlPlugin({
       minify: true,
-      template: 'index.html',
       inject: {
         data: {
           logo: loadEnv(mode, process.cwd()).VITE_SITE_LOGO,
