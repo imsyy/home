@@ -25,11 +25,11 @@
             v-for="(item, index) in site"
             :span="8"
             :key="item"
-            @click="jumpLink(item)"
           >
             <div
               class="item cards"
               :style="index < 3 ? 'margin-bottom: 20px' : null"
+              @click="jumpLink(item)"
             >
               <Icon size="26">
                 <component :is="siteIcon[item.icon]" />
