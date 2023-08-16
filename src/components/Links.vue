@@ -34,7 +34,7 @@
               <Icon size="26">
                 <component :is="siteIcon[item.icon]" />
               </Icon>
-              <span class="name">{{ item.name }}</span>
+              <span class="name text-hidden">{{ item.name }}</span>
             </div>
           </el-col>
         </el-row>
@@ -109,8 +109,7 @@ onMounted(() => {
     font-size: 1.1rem;
     display: flex;
     align-items: center;
-    animation: fade;
-    -webkit-animation: fade 0.5s;
+    animation: fade 0.5s;
     .title {
       margin-left: 8px;
       font-size: 1.15rem;
@@ -149,8 +148,8 @@ onMounted(() => {
       align-items: center;
       flex-direction: row;
       justify-content: center;
-      animation: fade;
-      -webkit-animation: fade 0.5s;
+      padding: 0 10px;
+      animation: fade 0.5s;
 
       &:hover {
         transform: scale(1.02);

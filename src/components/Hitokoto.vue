@@ -29,8 +29,9 @@
 import { reactive, ref, onMounted, h } from "vue";
 import { MusicMenu, Error } from "@icon-park/vue-next";
 import { getHitokoto } from "@/api";
-import debounce from "@/utils/debounce.js";
 import { mainStore } from "@/store";
+import debounce from "@/utils/debounce.js";
+
 const store = mainStore();
 
 // 开启音乐面板按钮显隐
@@ -80,8 +81,7 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   padding: 20px;
-  animation: fade;
-  -webkit-animation: fade 0.5s;
+  animation: fade 0.5s;
   .open-music {
     width: 100%;
     position: absolute;

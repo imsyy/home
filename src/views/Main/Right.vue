@@ -15,7 +15,7 @@
 <script setup>
 import { mainStore } from "@/store";
 import Func from "@/views/Func/index.vue";
-import Link from "@/components/Links/index.vue";
+import Link from "@/components/Links.vue";
 const store = mainStore();
 
 // 站点链接
@@ -36,9 +36,8 @@ const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
     top: 6%;
     left: 0;
     text-align: center;
-    transition: all 0.3s;
-    animation: fade;
-    -webkit-animation: fade 0.5s;
+    transition: transform 0.3s;
+    animation: fade 0.5s;
     &:active {
       transform: scale(0.95);
     }

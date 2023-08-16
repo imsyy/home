@@ -93,7 +93,7 @@
             :songType="playerData.type"
             :songId="playerData.id"
             :volume="volumeNum"
-            :shuffle="true"
+            :shuffle="false"
             ref="playerRef"
           />
         </div>
@@ -114,7 +114,7 @@ import {
   VolumeSmall,
   VolumeNotice,
 } from "@icon-park/vue-next";
-import Player from "@/components/Player/index.vue";
+import Player from "@/components/Player.vue";
 import { mainStore } from "@/store";
 const store = mainStore();
 
@@ -179,8 +179,7 @@ watch(
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  animation: fade;
-  -webkit-animation: fade 0.5s;
+  animation: fade 0.5s;
   .btns {
     display: flex;
     align-items: center;
@@ -242,8 +241,7 @@ watch(
       text-overflow: ellipsis;
       overflow-x: hidden;
       white-space: nowrap;
-      animation: fade;
-      -webkit-animation: fade 0.3s;
+      animation: fade 0.3s;
     }
     .volume {
       width: 100%;
@@ -251,8 +249,7 @@ watch(
       display: flex;
       align-items: center;
       flex-direction: row;
-      animation: fade;
-      -webkit-animation: fade 0.3s;
+      animation: fade 0.3s;
       .icon {
         margin-right: 12px;
         span {

@@ -75,10 +75,10 @@ import {
   Bug,
 } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
-import Set from "@/components/Set/index.vue";
+import Set from "@/components/Set.vue";
 import config from "@/../package.json";
-const store = mainStore();
 
+const store = mainStore();
 const closeShow = ref(false);
 
 // 站点链接

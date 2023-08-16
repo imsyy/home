@@ -11,7 +11,7 @@
           </el-radio-group>
         </div>
       </el-collapse-item>
-      <el-collapse-item title="其他设置" name="2">
+      <el-collapse-item title="个性设置" name="2">
         <div class="item">
           <span class="text">建站日期显示</span>
           <el-switch
@@ -25,6 +25,24 @@
           <span class="text">音乐点击是否打开面板</span>
           <el-switch
             v-model="musicClick"
+            inline-prompt
+            :active-icon="CheckSmall"
+            :inactive-icon="CloseSmall"
+          />
+        </div>
+        <div class="item">
+          <span class="text">底栏歌词显示</span>
+          <el-switch
+            v-model="playerLrcShow"
+            inline-prompt
+            :active-icon="CheckSmall"
+            :inactive-icon="CloseSmall"
+          />
+        </div>
+        <div class="item">
+          <span class="text">底栏是否模糊</span>
+          <el-switch
+            v-model="footerBlur"
             inline-prompt
             :active-icon="CheckSmall"
             :inactive-icon="CloseSmall"
@@ -48,7 +66,8 @@ import { CheckSmall, CloseSmall } from "@icon-park/vue-next";
 import { storeToRefs } from "pinia";
 
 const store = mainStore();
-const { siteStartShow, musicClick } = storeToRefs(store);
+const { siteStartShow, musicClick, playerLrcShow, footerBlur } =
+  storeToRefs(store);
 
 // 默认选中项
 const activeName = ref("1");
