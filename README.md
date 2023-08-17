@@ -14,8 +14,8 @@
 >由于 CDN 缓存原因，查看最新效果可能需要 `Ctrl` + `F5` 强制刷新浏览器缓存
 
 - [無名の主页](https://www.imsyy.top)
-- [無名の主页 - Dev](https://dev.home-5iw.pages.dev/)
-- [無名の主页 - 备用线路](https://home-imsyy.vercel.app/)
+- [無名の主页 - Dev](https://home-imsyy.vercel.app)
+- [無名の主页 - 备用线路](https://home-5iw.pages.dev)
 
 ### 功能
 
