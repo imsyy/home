@@ -66,7 +66,6 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
 import {
   CloseOne,
   SettingTwo,

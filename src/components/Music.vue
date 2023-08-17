@@ -103,7 +103,6 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, onMounted } from "vue";
 import {
   GoStart,
   PlayOne,

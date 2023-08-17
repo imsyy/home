@@ -24,7 +24,6 @@
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount, ref, h } from "vue";
 import { mainStore } from "@/store";
 import { Error } from "@icon-park/vue-next";
 

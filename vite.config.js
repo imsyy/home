@@ -13,6 +13,7 @@ export default ({ mode }) =>
     plugins: [
       vue(),
       AutoImport({
+        imports: ["vue"],
         resolvers: [ElementPlusResolver()],
       }),
       Components({

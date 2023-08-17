@@ -36,7 +36,6 @@
   </Transition>
 </template>
 <script setup>
-import { onMounted, onBeforeUnmount, watch, nextTick } from "vue";
 import { helloInit, checkDays } from "@/utils/getTime.js";
 import { HamburgerButton, CloseSmall } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
@@ -136,6 +135,11 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 #main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   transform: scale(1.2);
   transition: transform 0.3s;
   animation: fade-blur-main-in 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94)

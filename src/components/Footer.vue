@@ -38,7 +38,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { MusicOne } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import config from "@/../package.json";
@@ -63,6 +62,7 @@ const SiteUrl = ref(import.meta.env.VITE_SITE_URL);
   line-height: 46px;
   text-align: center;
   z-index: 0;
+  font-size: 14px;
   .power {
     animation: fade 0.3s;
   }
@@ -91,6 +91,7 @@ const SiteUrl = ref(import.meta.env.VITE_SITE_URL);
   &.blur {
     backdrop-filter: blur(10px);
     background: rgb(0 0 0 / 25%);
+    font-size: 16px;
   }
   .fade-enter-active,
   .fade-leave-active {
@@ -98,6 +99,9 @@ const SiteUrl = ref(import.meta.env.VITE_SITE_URL);
   }
   @media (max-width: 720px) {
     font-size: 0.85rem;
+    &.blur {
+      font-size: 0.85rem;
+    }
   }
   @media (max-width: 480px) {
     .hidden {

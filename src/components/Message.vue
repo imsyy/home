@@ -28,7 +28,6 @@
 </template>
 
 <script setup>
-import { reactive, watch, h } from "vue";
 import { Icon } from "@vicons/utils";
 import { QuoteLeft, QuoteRight } from "@vicons/fa";
 import { Error } from "@icon-park/vue-next";
@@ -36,7 +35,7 @@ import { mainStore } from "@/store";
 const store = mainStore();
 
 // 主页站点logo
-const siteLogo = import.meta.env.VITE_SITE_LOGO;
+const siteLogo = import.meta.env.VITE_SITE_MAIN_LOGO;
 // 站点链接
 const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
 

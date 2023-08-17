@@ -33,7 +33,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
 import { getCurrentTime } from "@/utils/getTime";
 import { mainStore } from "@/store";
 import Music from "@/components/Music.vue";

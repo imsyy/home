@@ -21,15 +21,11 @@
     >
       <SwiperSlide v-for="site in siteLinksList" :key="site">
         <el-row class="link-all" :gutter="20">
-          <el-col
-            v-for="(item, index) in site"
-            :span="8"
-            :key="item"
-            @click="jumpLink(item)"
-          >
+          <el-col v-for="(item, index) in site" :span="8" :key="item">
             <div
               class="item cards"
               :style="index < 3 ? 'margin-bottom: 20px' : null"
+              @click="jumpLink(item)"
             >
               <Icon size="26">
                 <component :is="siteIcon[item.icon]" />
@@ -45,7 +41,6 @@
 </template>
 
 <script setup>
-import { onMounted, computed } from "vue";
 import { Icon } from "@vicons/utils";
 // 可前往 https://www.xicons.org 自行挑选并在此处引入
 import {
@@ -57,7 +52,7 @@ import {
   Book,
   Fire,
   LaptopCode,
-} from "@vicons/fa";
+} from "@vicons/fa"; // 注意使用正确的类别
 import { mainStore } from "@/store";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Mousewheel } from "swiper";
@@ -181,6 +176,9 @@ onMounted(() => {
           margin-top: 8px;
         }
       }
+    }
+    @media (max-width: 720px) {
+      height: 180px;
     }
   }
 }

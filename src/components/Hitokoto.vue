@@ -26,7 +26,6 @@
 </template>
 
 <script setup>
-import { reactive, ref, onMounted, h } from "vue";
 import { MusicMenu, Error } from "@icon-park/vue-next";
 import { getHitokoto } from "@/api";
 import { mainStore } from "@/store";

@@ -20,7 +20,6 @@
 </template>
 
 <script setup>
-import { h, ref, nextTick, onMounted } from "vue";
 import { MusicOne, PlayWrong } from "@icon-park/vue-next";
 import { getPlayerList } from "@/api";
 import { mainStore } from "@/store";

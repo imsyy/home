@@ -31,7 +31,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { CloseOne, SettingTwo } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import TimeCapsule from "@/components/TimeCapsule.vue";

@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import socialLinks from "@/assets/socialLinks.json";
 
 // 社交链接提示

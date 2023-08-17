@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@icon-park/vue-next':
-    specifier: ^1.4.2
-    version: 1.4.2(vue@3.3.4)
   aplayer:
     specifier: ^1.10.1
     version: 1.10.1
@@ -37,10 +34,10 @@ dependencies:
     version: 1.7.3(vue@3.3.4)(webpack@5.88.0)
 
 devDependencies:
+  '@icon-park/vue-next':
+    specifier: ^1.4.2
+    version: 1.4.2(vue@3.3.4)
   '@vicons/fa':
-    specifier: ^0.12.0
-    version: 0.12.0
-  '@vicons/material':
     specifier: ^0.12.0
     version: 0.12.0
   '@vicons/utils':
@@ -1531,7 +1528,7 @@ packages:
       vue: 3.x
     dependencies:
       vue: 3.3.4
-    dev: false
+    dev: true
 
   /@jridgewell/gen-mapping@0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}
@@ -1750,10 +1747,6 @@ packages:
 
   /@vicons/fa@0.12.0:
     resolution: {integrity: sha512-g2PIeJLsTHUjt6bK63LxqC0uYQB7iu+xViJOxvp1s8b9/akpXVPVWjDTTsP980/0KYyMMe4U7F/aUo7wY+MsXA==}
-    dev: true
-
-  /@vicons/material@0.12.0:
-    resolution: {integrity: sha512-chv1CYAl8P32P3Ycwgd5+vw/OFNc2mtkKdb1Rw4T5IJmKy6GVDsoUKV3N2l208HATn7CCQphZtuPDdsm7K2kmA==}
     dev: true
 
   /@vicons/utils@0.1.4(vue@3.3.4):
