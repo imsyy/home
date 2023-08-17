@@ -33,12 +33,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
 import { getCurrentTime } from "@/utils/getTime";
 import { mainStore } from "@/store";
-import Music from "@/components/Music/index.vue";
-import Hitokoto from "@/components/Hitokoto/index.vue";
-import Weather from "@/components/Weather/index.vue";
+import Music from "@/components/Music.vue";
+import Hitokoto from "@/components/Hitokoto.vue";
+import Weather from "@/components/Weather.vue";
 
 const store = mainStore();
 
@@ -114,8 +113,7 @@ onBeforeUnmount(() => {
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      animation: fade;
-      -webkit-animation: fade 0.5s;
+      animation: fade 0.5s;
       .time {
         font-size: 1.1rem;
         text-align: center;

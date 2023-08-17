@@ -21,20 +21,16 @@
     >
       <SwiperSlide v-for="site in siteLinksList" :key="site">
         <el-row class="link-all" :gutter="20">
-          <el-col
-            v-for="(item, index) in site"
-            :span="8"
-            :key="item"
-            @click="jumpLink(item)"
-          >
+          <el-col v-for="(item, index) in site" :span="8" :key="item">
             <div
               class="item cards"
               :style="index < 3 ? 'margin-bottom: 20px' : null"
+              @click="jumpLink(item)"
             >
               <Icon size="26">
                 <component :is="siteIcon[item.icon]" />
               </Icon>
-              <span class="name">{{ item.name }}</span>
+              <span class="name text-hidden">{{ item.name }}</span>
             </div>
           </el-col>
         </el-row>
@@ -45,7 +41,6 @@
 </template>
 
 <script setup>
-import { onMounted, computed } from "vue";
 import { Icon } from "@vicons/utils";
 // 可前往 https://www.xicons.org 自行挑选并在此处引入
 import {
@@ -57,7 +52,7 @@ import {
   Book,
   Fire,
   LaptopCode,
-} from "@vicons/fa";
+} from "@vicons/fa"; // 注意使用正确的类别
 import { mainStore } from "@/store";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Mousewheel } from "swiper";
@@ -109,8 +104,7 @@ onMounted(() => {
     font-size: 1.1rem;
     display: flex;
     align-items: center;
-    animation: fade;
-    -webkit-animation: fade 0.5s;
+    animation: fade 0.5s;
     .title {
       margin-left: 8px;
       font-size: 1.15rem;
@@ -149,8 +143,8 @@ onMounted(() => {
       align-items: center;
       flex-direction: row;
       justify-content: center;
-      animation: fade;
-      -webkit-animation: fade 0.5s;
+      padding: 0 10px;
+      animation: fade 0.5s;
 
       &:hover {
         transform: scale(1.02);
@@ -182,6 +176,9 @@ onMounted(() => {
           margin-top: 8px;
         }
       }
+    }
+    @media (max-width: 720px) {
+      height: 180px;
     }
   }
 }

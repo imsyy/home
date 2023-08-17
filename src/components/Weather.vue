@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-import { onMounted, reactive, h } from "vue";
 import { getAdcode, getWeather, getOtherWeather } from "@/api";
 import { Error } from "@icon-park/vue-next";
 

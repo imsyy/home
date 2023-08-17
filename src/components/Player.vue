@@ -20,12 +20,10 @@
 </template>
 
 <script setup>
-import aplayer from "vue3-aplayer";
-import fetchJsonp from "fetch-jsonp";
-import { h, ref, nextTick, onMounted } from "vue";
 import { MusicOne, PlayWrong } from "@icon-park/vue-next";
 import { getPlayerList } from "@/api";
 import { mainStore } from "@/store";
+import aplayer from "vue3-aplayer";
 
 const store = mainStore();
 
@@ -34,7 +32,6 @@ const player = ref(null);
 
 // 歌曲播放列表
 const playList = ref([]);
-const playerLrc = ref("");
 
 // 歌曲播放项
 const playIndex = ref(0);
@@ -70,10 +67,10 @@ const props = defineProps({
       return value >= 0 && value <= 1;
     },
   },
-  // 歌曲服务器 ( netease-网易云, tencent-qq音乐, kugou-酷狗, xiami-小米音乐, baidu-百度音乐 )
+  // 歌曲服务器 ( netease-网易云, tencent-qq音乐 )
   songServer: {
     type: String,
-    default: "netease", //'netease' | 'tencent' | 'kugou' | 'xiami' | 'baidu'
+    default: "netease", //'netease' | 'tencent'
   },
   // 播放类型 ( song-歌曲, playlist-播放列表, album-专辑, search-搜索, artist-艺术家 )
   songType: {
@@ -143,7 +140,7 @@ onMounted(() => {
   });
 });
 
-// 播放暂停事件
+// 播放
 const onPlay = () => {
   console.log("播放");
   // 播放状态
@@ -162,6 +159,8 @@ const onPlay = () => {
     }),
   });
 };
+
+// 暂停
 const onPause = () => {
   store.setPlayerState(player.value.audio.paused);
 };
@@ -170,10 +169,13 @@ const onPause = () => {
 const onTimeUp = () => {
   let playerRef = player.value.$.vnode.el;
   if (playerRef) {
-    playerLrc.value = playerRef.getElementsByClassName(
-      "aplayer-lrc-current"
-    )[0].innerHTML;
-    store.setPlayerLrc(playerLrc.value);
+    const currentLrcElement = playerRef.querySelector(".aplayer-lrc-current");
+    const previousLrcElement = currentLrcElement?.previousElementSibling;
+    const lrcContent =
+      currentLrcElement?.innerHTML ||
+      previousLrcElement?.innerHTML ||
+      "这句没有歌词";
+    store.setPlayerLrc(lrcContent);
   }
 };
 

@@ -31,10 +31,9 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { CloseOne, SettingTwo } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
-import TimeCapsule from "@/components/TimeCapsule/index.vue";
+import TimeCapsule from "@/components/TimeCapsule.vue";
 
 const store = mainStore();
 const closeShow = ref(false);
@@ -46,8 +45,7 @@ const closeShow = ref(false);
   margin-left: 0.75rem;
   height: 80%;
   position: relative;
-  animation: fade;
-  -webkit-animation: fade 0.5s;
+  animation: fade 0.5s;
 
   &:hover {
     transform: scale(1);

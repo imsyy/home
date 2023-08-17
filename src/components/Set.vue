@@ -1,9 +1,13 @@
 <template>
   <div class="setting">
     <el-collapse class="collapse" v-model="activeName" accordion>
-      <el-collapse-item title="壁纸设置" name="1">
+      <el-collapse-item title="个性壁纸" name="1">
         <div class="bg-set">
-          <el-radio-group v-model="bgSet" text-color="#ffffff">
+          <el-radio-group
+            v-model="coverType"
+            text-color="#ffffff"
+            @change="radioChange"
+          >
             <el-radio label="0" size="large" border>默认壁纸</el-radio>
             <el-radio label="1" size="large" border>每日一图</el-radio>
             <el-radio label="2" size="large" border>随机风景</el-radio>
@@ -11,7 +15,7 @@
           </el-radio-group>
         </div>
       </el-collapse-item>
-      <el-collapse-item title="其他设置" name="2">
+      <el-collapse-item title="个性化调整" name="2">
         <div class="item">
           <span class="text">建站日期显示</span>
           <el-switch
@@ -30,8 +34,26 @@
             :inactive-icon="CloseSmall"
           />
         </div>
+        <div class="item">
+          <span class="text">底栏歌词显示</span>
+          <el-switch
+            v-model="playerLrcShow"
+            inline-prompt
+            :active-icon="CheckSmall"
+            :inactive-icon="CloseSmall"
+          />
+        </div>
+        <div class="item">
+          <span class="text">底栏背景模糊</span>
+          <el-switch
+            v-model="footerBlur"
+            inline-prompt
+            :active-icon="CheckSmall"
+            :inactive-icon="CloseSmall"
+          />
+        </div>
       </el-collapse-item>
-      <el-collapse-item title="其他设置" name="3">
+      <el-collapse-item title="播放器配置" name="3">
         <div>设置内容待增加</div>
       </el-collapse-item>
       <el-collapse-item title="其他设置" name="4">
@@ -42,29 +64,27 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from "vue";
+import { CheckSmall, CloseSmall, SuccessPicture } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
-import { CheckSmall, CloseSmall } from "@icon-park/vue-next";
 import { storeToRefs } from "pinia";
 
 const store = mainStore();
-const { siteStartShow, musicClick } = storeToRefs(store);
+const { coverType, siteStartShow, musicClick, playerLrcShow, footerBlur } =
+  storeToRefs(store);
 
 // 默认选中项
 const activeName = ref("1");
-const bgSet = ref("0");
 
-onMounted(() => {
-  bgSet.value = store.coverType.toString();
-});
-
-// 壁纸选中项
-watch(
-  () => bgSet.value,
-  (value) => {
-    store.coverType = value;
-  }
-);
+// 壁纸切换
+const radioChange = () => {
+  ElMessage({
+    message: "壁纸设置成功，刷新后生效",
+    icon: h(SuccessPicture, {
+      theme: "filled",
+      fill: "#efefef",
+    }),
+  });
+};
 </script>
 
 <style lang="scss" scoped>
