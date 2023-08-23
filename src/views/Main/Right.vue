@@ -13,15 +13,14 @@
 </template>
 
 <script setup>
-import { mainStore } from "@/store";
-import Func from "@/views/Func/index.vue";
-import Link from "@/components/Links.vue";
+import { mainStore } from '@/store';
+import Func from '@/views/Func/index.vue';
+import Link from '@/components/Links.vue';
 const store = mainStore();
 
 // 站点链接
-const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
+const siteUrl = import.meta.env.VITE_SITE_URL.split('.');
 </script>
-
 
 <style lang="scss" scoped>
 .right {
@@ -30,7 +29,7 @@ const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
   margin-left: 0.75rem;
   .logo {
     width: 100%;
-    font-family: "Pacifico-Regular";
+    font-family: 'Pacifico-Regular';
     font-size: 1.75rem;
     position: fixed;
     top: 6%;

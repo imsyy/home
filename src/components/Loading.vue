@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { mainStore } from "@/store";
+import { mainStore } from '@/store';
 
 const store = mainStore();
 
@@ -52,7 +52,7 @@ const siteName = import.meta.env.VITE_SITE_NAME;
       z-index: 2;
 
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         top: 5px;
         left: 5px;
@@ -65,7 +65,7 @@ const siteName = import.meta.env.VITE_SITE_NAME;
       }
 
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         top: 15px;
         left: 15px;
@@ -109,7 +109,9 @@ const siteName = import.meta.env.VITE_SITE_NAME;
   &.loaded {
     visibility: hidden;
     transform: translateY(-100%);
-    transition: transform 0.3s 1s ease-out, visibility 0.3s 1s ease-out;
+    transition:
+      transform 0.3s 1s ease-out,
+      visibility 0.3s 1s ease-out;
     .loader {
       .loader-circle,
       .loader-text {

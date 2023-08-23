@@ -6,9 +6,9 @@
 </template>
 
 <script setup>
-import { mainStore } from "@/store";
-import Message from "@/components/Message.vue";
-import SocialLinks from "@/components/SocialLinks.vue";
+import { mainStore } from '@/store';
+import Message from '@/components/Message.vue';
+import SocialLinks from '@/components/SocialLinks.vue';
 const store = mainStore();
 </script>
 

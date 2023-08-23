@@ -26,10 +26,10 @@
 </template>
 
 <script setup>
-import { MusicMenu, Error } from "@icon-park/vue-next";
-import { getHitokoto } from "@/api";
-import { mainStore } from "@/store";
-import debounce from "@/utils/debounce.js";
+import { MusicMenu, Error } from '@icon-park/vue-next';
+import { getHitokoto } from '@/api';
+import { mainStore } from '@/store';
+import debounce from '@/utils/debounce.js';
 
 const store = mainStore();
 
@@ -38,8 +38,8 @@ const openMusicShow = ref(false);
 
 // 一言数据
 const hitokotoData = reactive({
-  text: "这里应该显示一句话",
-  from: "無名",
+  text: '这里应该显示一句话',
+  from: '無名',
 });
 
 // 获取一言数据
@@ -51,10 +51,10 @@ const getHitokotoData = () => {
     })
     .catch(() => {
       ElMessage({
-        message: "一言获取失败",
+        message: '一言获取失败',
         icon: h(Error, {
-          theme: "filled",
-          fill: "#efefef",
+          theme: 'filled',
+          fill: '#efefef',
         }),
       });
     });
@@ -62,8 +62,8 @@ const getHitokotoData = () => {
 
 // 更新一言数据
 const updateHitokoto = () => {
-  hitokotoData.text = "新的一言正在赶来的路上";
-  hitokotoData.from = "来源加载中";
+  hitokotoData.text = '新的一言正在赶来的路上';
+  hitokotoData.from = '来源加载中';
   // 防抖
   debounce(() => {
     getHitokotoData();
