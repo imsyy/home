@@ -11,49 +11,24 @@
       <span @click="store.musicOpenState = false">回到一言</span>
     </div>
     <div class="control">
-      <go-start
-        theme="filled"
-        size="30"
-        fill="#efefef"
-        @click="changeMusicIndex(0)"
-      />
+      <go-start theme="filled" size="30" fill="#efefef" @click="changeMusicIndex(0)" />
       <div class="state" @click="changePlayState">
-        <play-one
-          theme="filled"
-          size="50"
-          fill="#efefef"
-          v-show="!store.playerState"
-        />
-        <pause
-          theme="filled"
-          size="50"
-          fill="#efefef"
-          v-show="store.playerState"
-        />
+        <play-one theme="filled" size="50" fill="#efefef" v-show="!store.playerState" />
+        <pause theme="filled" size="50" fill="#efefef" v-show="store.playerState" />
       </div>
-      <go-end
-        theme="filled"
-        size="30"
-        fill="#efefef"
-        @click="changeMusicIndex(1)"
-      />
+      <go-end theme="filled" size="30" fill="#efefef" @click="changeMusicIndex(1)" />
     </div>
     <div class="menu">
       <div class="name" v-show="!volumeShow">
         <span>{{
           store.getPlayerData.name
-            ? store.getPlayerData.name + " - " + store.getPlayerData.artist
-            : "未播放音乐"
+            ? store.getPlayerData.name + ' - ' + store.getPlayerData.artist
+            : '未播放音乐'
         }}</span>
       </div>
       <div class="volume" v-show="volumeShow">
         <div class="icon">
-          <volume-mute
-            theme="filled"
-            size="24"
-            fill="#efefef"
-            v-if="volumeNum == 0"
-          />
+          <volume-mute theme="filled" size="24" fill="#efefef" v-if="volumeNum == 0" />
           <volume-small
             theme="filled"
             size="24"
@@ -62,23 +37,13 @@
           />
           <volume-notice theme="filled" size="24" fill="#efefef" v-else />
         </div>
-        <el-slider
-          v-model="volumeNum"
-          :show-tooltip="false"
-          :min="0"
-          :max="1"
-          :step="0.01"
-        />
+        <el-slider v-model="volumeNum" :show-tooltip="false" :min="0" :max="1" :step="0.01" />
       </div>
     </div>
   </div>
   <!-- 音乐列表弹窗 -->
   <Transition name="fade">
-    <div
-      class="music-list"
-      v-show="musicListShow"
-      @click="musicListShow = false"
-    >
+    <div class="music-list" v-show="musicListShow" @click="musicListShow = false">
       <Transition name="zoom">
         <div class="list" v-show="musicListShow" @click.stop>
           <close-one
@@ -112,9 +77,9 @@ import {
   VolumeMute,
   VolumeSmall,
   VolumeNotice,
-} from "@icon-park/vue-next";
-import Player from "@/components/Player.vue";
-import { mainStore } from "@/store";
+} from '@icon-park/vue-next';
+import Player from '@/components/Player.vue';
+import { mainStore } from '@/store';
 const store = mainStore();
 
 // 音量条数据
@@ -147,8 +112,8 @@ const changeMusicIndex = (type) => {
 
 onMounted(() => {
   // 空格键事件
-  window.addEventListener("keydown", (e) => {
-    if (e.code == "Space") {
+  window.addEventListener('keydown', (e) => {
+    if (e.code == 'Space') {
       changePlayState();
     }
   });
@@ -162,7 +127,7 @@ watch(
   (value) => {
     store.musicVolume = value;
     playerRef.value.changeVolume(store.musicVolume);
-  }
+  },
 );
 </script>
 

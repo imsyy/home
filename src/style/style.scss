@@ -17,7 +17,7 @@ body {
   padding: 0;
   background-color: #333;
   overflow: hidden;
-  font-family: "HarmonyOS_Regular", sans-serif;
+  font-family: 'HarmonyOS_Regular', sans-serif;
 }
 
 *,
@@ -37,13 +37,13 @@ p {
 
 // 字体文件
 @font-face {
-  font-family: "Pacifico-Regular";
-  src: url("/font/Pacifico-Regular.ttf") format("truetype");
+  font-family: 'Pacifico-Regular';
+  src: url('/font/Pacifico-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "UnidreamLED";
-  src: url("/font/UnidreamLED.ttf") format("truetype");
+  font-family: 'UnidreamLED';
+  src: url('/font/UnidreamLED.ttf') format('truetype');
 }
 
 // 基础样式
@@ -62,7 +62,9 @@ p {
   background-color: #00000040;
   backdrop-filter: blur(10px);
   transform: scale(1);
-  transition: backdrop-filter 0.3s, transform 0.3s;
+  transition:
+    backdrop-filter 0.3s,
+    transform 0.3s;
   &:hover {
     transform: scale(1.01);
   }
@@ -104,7 +106,7 @@ p {
       background-color: #efefef;
       border-radius: 6px;
       text-align: center;
-      font-family: "UnidreamLED";
+      font-family: 'UnidreamLED';
       span {
         color: #564d59;
         font-size: 0.9rem;

@@ -5,9 +5,9 @@
     <span>{{ weatherData.weather.temperature }}℃</span>
     <span class="sm-hidden">
       &nbsp;{{
-        weatherData.weather.winddirection?.endsWith("风")
-        ? weatherData.weather.winddirection
-        : weatherData.weather.winddirection + "风"
+        weatherData.weather.winddirection?.endsWith('风')
+          ? weatherData.weather.winddirection
+          : weatherData.weather.winddirection + '风'
       }}&nbsp;
     </span>
     <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;级</span>
@@ -18,8 +18,8 @@
 </template>
 
 <script setup>
-import { getAdcode, getWeather, getOtherWeather } from "@/api";
-import { Error } from "@icon-park/vue-next";
+import { getAdcode, getWeather, getOtherWeather } from '@/api';
+import { Error } from '@icon-park/vue-next';
 
 // 高德开发者 Key
 const mainKey = import.meta.env.VITE_WEATHER_KEY;
@@ -58,8 +58,8 @@ const getWeatherData = () => {
         };
       })
       .catch((err) => {
-        console.error("天气信息获取失败:" + err);
-        onError("天气信息获取失败");
+        console.error('天气信息获取失败:' + err);
+        onError('天气信息获取失败');
       });
   } else {
     getAdcode(mainKey)
@@ -79,13 +79,13 @@ const getWeatherData = () => {
             };
           })
           .catch((err) => {
-            console.error("天气信息获取失败:" + err);
-            onError("天气信息获取失败");
+            console.error('天气信息获取失败:' + err);
+            onError('天气信息获取失败');
           });
       })
       .catch((err) => {
-        console.error("地理位置获取失败:" + err);
-        onError("地理位置获取失败");
+        console.error('地理位置获取失败:' + err);
+        onError('地理位置获取失败');
       });
   }
 };
@@ -95,8 +95,8 @@ const onError = (message) => {
   ElMessage({
     message,
     icon: h(Error, {
-      theme: "filled",
-      fill: "#efefef",
+      theme: 'filled',
+      fill: '#efefef',
     }),
   });
   console.error(message);

@@ -38,9 +38,9 @@
 </template>
 
 <script setup>
-import { MusicOne } from "@icon-park/vue-next";
-import { mainStore } from "@/store";
-import config from "@/../package.json";
+import { MusicOne } from '@icon-park/vue-next';
+import { mainStore } from '@/store';
+import config from '@/../package.json';
 
 const store = mainStore();
 const fullYear = new Date().getFullYear();
