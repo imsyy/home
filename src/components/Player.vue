@@ -20,10 +20,10 @@
 </template>
 
 <script setup>
-import { MusicOne, PlayWrong } from '@icon-park/vue-next';
-import { getPlayerList } from '@/api';
-import { mainStore } from '@/store';
-import aplayer from 'vue3-aplayer';
+import { MusicOne, PlayWrong } from "@icon-park/vue-next";
+import { getPlayerList } from "@/api";
+import { mainStore } from "@/store";
+import aplayer from "vue3-aplayer";
 
 const store = mainStore();
 
@@ -47,12 +47,12 @@ const props = defineProps({
   // 主题色
   theme: {
     type: String,
-    default: '#efefef',
+    default: "#efefef",
   },
   // 音频循环播放
   repeat: {
     type: String,
-    default: 'list', //'list' | 'music' | 'none'
+    default: "list", //'list' | 'music' | 'none'
   },
   // 随机播放
   shuffle: {
@@ -70,17 +70,17 @@ const props = defineProps({
   // 歌曲服务器 ( netease-网易云, tencent-qq音乐 )
   songServer: {
     type: String,
-    default: 'netease', //'netease' | 'tencent'
+    default: "netease", //'netease' | 'tencent'
   },
   // 播放类型 ( song-歌曲, playlist-播放列表, album-专辑, search-搜索, artist-艺术家 )
   songType: {
     type: String,
-    default: 'playlist',
+    default: "playlist",
   },
   // id
   songId: {
     type: String,
-    default: '7452421335',
+    default: "7452421335",
   },
   // 列表是否默认折叠
   listFolded: {
@@ -90,7 +90,7 @@ const props = defineProps({
   // 列表最大高度
   listMaxHeight: {
     type: String,
-    default: '420px',
+    default: "420px",
   },
 });
 
@@ -116,7 +116,7 @@ onMounted(() => {
           });
         });
         console.log(
-          '音乐加载完成',
+          "音乐加载完成",
           playList.value,
           playIndex.value,
           playListCount.value,
@@ -127,11 +127,11 @@ onMounted(() => {
       console.error(err);
       store.musicIsOk = false;
       ElMessage({
-        message: '播放器加载失败',
+        message: "播放器加载失败",
         grouping: true,
         icon: h(PlayWrong, {
-          theme: 'filled',
-          fill: '#efefef',
+          theme: "filled",
+          fill: "#efefef",
         }),
       });
     }
@@ -140,17 +140,17 @@ onMounted(() => {
 
 // 播放
 const onPlay = () => {
-  console.log('播放');
+  console.log("播放");
   // 播放状态
   store.setPlayerState(player.value.audio.paused);
   // 储存播放器信息
   store.setPlayerData(player.value.currentMusic.title, player.value.currentMusic.artist);
   ElMessage({
-    message: store.getPlayerData.name + ' - ' + store.getPlayerData.artist,
+    message: store.getPlayerData.name + " - " + store.getPlayerData.artist,
     grouping: true,
     icon: h(MusicOne, {
-      theme: 'filled',
-      fill: '#efefef',
+      theme: "filled",
+      fill: "#efefef",
     }),
   });
 };
@@ -164,10 +164,10 @@ const onPause = () => {
 const onTimeUp = () => {
   let playerRef = player.value.$.vnode.el;
   if (playerRef) {
-    const currentLrcElement = playerRef.querySelector('.aplayer-lrc-current');
+    const currentLrcElement = playerRef.querySelector(".aplayer-lrc-current");
     const previousLrcElement = currentLrcElement?.previousElementSibling;
     const lrcContent =
-      currentLrcElement?.innerHTML || previousLrcElement?.innerHTML || '这句没有歌词';
+      currentLrcElement?.innerHTML || previousLrcElement?.innerHTML || "这句没有歌词";
     store.setPlayerLrc(lrcContent);
   }
 };
@@ -211,7 +211,7 @@ defineExpose({ playToggle, changeVolume, changeSong });
   width: 80%;
   background: transparent;
   border-radius: 6px;
-  font-family: 'HarmonyOS_Regular', sans-serif !important;
+  font-family: "HarmonyOS_Regular", sans-serif !important;
   :deep(.aplayer-body) {
     .aplayer-pic {
       display: none;

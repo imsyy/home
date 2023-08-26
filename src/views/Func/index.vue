@@ -29,11 +29,11 @@
 </template>
 
 <script setup>
-import { getCurrentTime } from '@/utils/getTime';
-import { mainStore } from '@/store';
-import Music from '@/components/Music.vue';
-import Hitokoto from '@/components/Hitokoto.vue';
-import Weather from '@/components/Weather.vue';
+import { getCurrentTime } from "@/utils/getTime";
+import { mainStore } from "@/store";
+import Music from "@/components/Music.vue";
+import Hitokoto from "@/components/Hitokoto.vue";
+import Weather from "@/components/Weather.vue";
 
 const store = mainStore();
 
@@ -122,7 +122,7 @@ onBeforeUnmount(() => {
           margin-top: 10px;
           font-size: 3.25rem;
           letter-spacing: 2px;
-          font-family: 'UnidreamLED';
+          font-family: "UnidreamLED";
         }
       }
       .weather {

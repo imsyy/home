@@ -52,26 +52,26 @@
 </template>
 
 <script setup>
-import { CloseOne, SettingTwo, GithubOne, AddOne, Bug } from '@icon-park/vue-next';
-import { mainStore } from '@/store';
-import Set from '@/components/Set.vue';
-import config from '@/../package.json';
+import { CloseOne, SettingTwo, GithubOne, AddOne, Bug } from "@icon-park/vue-next";
+import { mainStore } from "@/store";
+import Set from "@/components/Set.vue";
+import config from "@/../package.json";
 
 const store = mainStore();
 const closeShow = ref(false);
 
 // 站点链接
-const siteUrl = import.meta.env.VITE_SITE_URL.split('.');
+const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
 
 // 更新日志
 const upData = reactive({
   new: [
-    '采用 Vue 进行重构',
-    '音乐歌单支持快速自定义',
-    '壁纸支持个性化设置',
-    '音乐播放器支持音量控制',
+    "采用 Vue 进行重构",
+    "音乐歌单支持快速自定义",
+    "壁纸支持个性化设置",
+    "音乐播放器支持音量控制",
   ],
-  fix: ['修复天气 API', '时光胶囊显示错误', '移动端动画及细节', '图标更换为 IconPark'],
+  fix: ["修复天气 API", "时光胶囊显示错误", "移动端动画及细节", "图标更换为 IconPark"],
 });
 
 // 跳转源代码仓库
@@ -123,7 +123,7 @@ const jumpTo = (url) => {
 
       .logo {
         transform: translateY(-8%);
-        font-family: 'Pacifico-Regular';
+        font-family: "Pacifico-Regular";
         // line-height: 5rem;
         width: 100%;
         height: 260px;
@@ -145,7 +145,7 @@ const jumpTo = (url) => {
 
         .num {
           font-size: 2rem;
-          font-family: 'Pacifico-Regular';
+          font-family: "Pacifico-Regular";
         }
 
         .github {

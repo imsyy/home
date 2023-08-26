@@ -22,8 +22,8 @@
       <div class="name" v-show="!volumeShow">
         <span>{{
           store.getPlayerData.name
-            ? store.getPlayerData.name + ' - ' + store.getPlayerData.artist
-            : '未播放音乐'
+            ? store.getPlayerData.name + " - " + store.getPlayerData.artist
+            : "未播放音乐"
         }}</span>
       </div>
       <div class="volume" v-show="volumeShow">
@@ -77,9 +77,9 @@ import {
   VolumeMute,
   VolumeSmall,
   VolumeNotice,
-} from '@icon-park/vue-next';
-import Player from '@/components/Player.vue';
-import { mainStore } from '@/store';
+} from "@icon-park/vue-next";
+import Player from "@/components/Player.vue";
+import { mainStore } from "@/store";
 const store = mainStore();
 
 // 音量条数据
@@ -112,8 +112,8 @@ const changeMusicIndex = (type) => {
 
 onMounted(() => {
   // 空格键事件
-  window.addEventListener('keydown', (e) => {
-    if (e.code == 'Space') {
+  window.addEventListener("keydown", (e) => {
+    if (e.code == "Space") {
       changePlayState();
     }
   });

@@ -4,7 +4,7 @@
   "github": "https://github.com/imsyy/home",
   "home": "https://imsyy.top",
   "private": true,
-  "version": "4.1.0",
+  "version": "4.1.1",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
@@ -28,13 +28,15 @@
     "@vicons/fa": "^0.12.0",
     "@vicons/utils": "^0.1.4",
     "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.48.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "prettier": "^3.0.2",
     "sass": "^1.55.0",
     "terser": "^5.16.1",
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.8",
     "vite": "^4.4.5",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-pwa": "^0.14.1",
-    "prettier": "^3.0.2"
+    "vite-plugin-pwa": "^0.14.1"
   }
 }

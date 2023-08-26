@@ -24,13 +24,13 @@
 </template>
 
 <script setup>
-import { mainStore } from '@/store';
-import { Error } from '@icon-park/vue-next';
+import { mainStore } from "@/store";
+import { Error } from "@icon-park/vue-next";
 
 const store = mainStore();
 const bgUrl = ref(null);
 const imgTimeout = ref(null);
-const emit = defineEmits(['loadComplete']);
+const emit = defineEmits(["loadComplete"]);
 
 // 壁纸随机数
 // 请依据文件夹内的图片个数修改 Math.random() 后面的第一个数字
@@ -41,11 +41,11 @@ const changeBg = (type) => {
   if (type == 0) {
     bgUrl.value = `/images/background${bgRandom}.jpg`;
   } else if (type == 1) {
-    bgUrl.value = 'https://api.dujin.org/bing/1920.php';
+    bgUrl.value = "https://api.dujin.org/bing/1920.php";
   } else if (type == 2) {
-    bgUrl.value = 'https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images';
+    bgUrl.value = "https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images";
   } else if (type == 3) {
-    bgUrl.value = 'https://api.btstu.cn/sjbz/api.php?lx=dongman&format=images';
+    bgUrl.value = "https://api.btstu.cn/sjbz/api.php?lx=dongman&format=images";
   }
 };
 
@@ -61,19 +61,19 @@ const imgLoadComplete = () => {
 
 // 图片动画完成
 const imgAnimationEnd = () => {
-  console.log('壁纸加载且动画完成');
+  console.log("壁纸加载且动画完成");
   // 加载完成事件
-  emit('loadComplete');
+  emit("loadComplete");
 };
 
 // 图片显示失败
 const imgLoadError = () => {
-  console.error('壁纸加载失败：', bgUrl.value);
+  console.error("壁纸加载失败：", bgUrl.value);
   ElMessage({
-    message: '壁纸加载失败，已临时切换回默认',
+    message: "壁纸加载失败，已临时切换回默认",
     icon: h(Error, {
-      theme: 'filled',
-      fill: '#efefef',
+      theme: "filled",
+      fill: "#efefef",
     }),
   });
   bgUrl.value = `/images/background${bgRandom}.jpg`;

@@ -28,19 +28,19 @@
   </Transition>
 </template>
 <script setup>
-import { helloInit, checkDays } from '@/utils/getTime.js';
-import { HamburgerButton, CloseSmall } from '@icon-park/vue-next';
-import { mainStore } from '@/store';
-import { Icon } from '@vicons/utils';
-import Loading from '@/components/Loading.vue';
-import MainLeft from '@/views/Main/Left.vue';
-import MainRight from '@/views/Main/Right.vue';
-import Background from '@/components/Background.vue';
-import Footer from '@/components/Footer.vue';
-import Box from '@/views/Box/index.vue';
-import MoreSet from '@/views/MoreSet/index.vue';
-import cursorInit from '@/utils/cursor.js';
-import config from '@/../package.json';
+import { helloInit, checkDays } from "@/utils/getTime.js";
+import { HamburgerButton, CloseSmall } from "@icon-park/vue-next";
+import { mainStore } from "@/store";
+import { Icon } from "@vicons/utils";
+import Loading from "@/components/Loading.vue";
+import MainLeft from "@/views/Main/Left.vue";
+import MainRight from "@/views/Main/Right.vue";
+import Background from "@/components/Background.vue";
+import Footer from "@/components/Footer.vue";
+import Box from "@/views/Box/index.vue";
+import MoreSet from "@/views/MoreSet/index.vue";
+import cursorInit from "@/utils/cursor.js";
+import config from "@/../package.json";
 
 const store = mainStore();
 
@@ -76,7 +76,7 @@ onMounted(() => {
   // 屏蔽右键
   document.oncontextmenu = () => {
     ElMessage({
-      message: '为了浏览体验，本站禁用右键',
+      message: "为了浏览体验，本站禁用右键",
       grouping: true,
       duration: 2000,
     });
@@ -84,11 +84,11 @@ onMounted(() => {
   };
 
   // 鼠标中键事件
-  window.addEventListener('mousedown', (event) => {
+  window.addEventListener("mousedown", (event) => {
     if (event.button == 1) {
       store.backgroundShow = !store.backgroundShow;
       ElMessage({
-        message: `已${store.backgroundShow ? '开启' : '退出'}壁纸展示状态`,
+        message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
         grouping: true,
       });
     }
@@ -96,13 +96,13 @@ onMounted(() => {
 
   // 监听当前页面宽度
   getWidth();
-  window.addEventListener('resize', getWidth);
+  window.addEventListener("resize", getWidth);
 
   // 控制台输出
-  const styleTitle1 = 'font-size: 20px;font-weight: 600;color: rgb(244,167,89);';
-  const styleTitle2 = 'font-size:12px;color: rgb(244,167,89);';
-  const styleContent = 'color: rgb(30,152,255);';
-  const title1 = '無名の主页';
+  const styleTitle1 = "font-size: 20px;font-weight: 600;color: rgb(244,167,89);";
+  const styleTitle2 = "font-size:12px;color: rgb(244,167,89);";
+  const styleContent = "color: rgb(30,152,255);";
+  const title1 = "無名の主页";
   const title2 = `
  _____ __  __  _______     ____     __
 |_   _|  \\/  |/ ____\\ \\   / /\\ \\   / /
@@ -115,7 +115,7 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', getWidth);
+  window.removeEventListener("resize", getWidth);
 });
 </script>
 

@@ -12,10 +12,10 @@ function debounce(func, wait = 300, immediate = false) {
     timeout = setTimeout(function () {
       timeout = null;
     }, wait);
-    if (callNow) typeof func === 'function' && func();
+    if (callNow) typeof func === "function" && func();
   } else {
     timeout = setTimeout(function () {
-      typeof func === 'function' && func();
+      typeof func === "function" && func();
     }, wait);
   }
 }

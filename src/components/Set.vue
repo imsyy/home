@@ -60,23 +60,23 @@
 </template>
 
 <script setup>
-import { CheckSmall, CloseSmall, SuccessPicture } from '@icon-park/vue-next';
-import { mainStore } from '@/store';
-import { storeToRefs } from 'pinia';
+import { CheckSmall, CloseSmall, SuccessPicture } from "@icon-park/vue-next";
+import { mainStore } from "@/store";
+import { storeToRefs } from "pinia";
 
 const store = mainStore();
 const { coverType, siteStartShow, musicClick, playerLrcShow, footerBlur } = storeToRefs(store);
 
 // 默认选中项
-const activeName = ref('1');
+const activeName = ref("1");
 
 // 壁纸切换
 const radioChange = () => {
   ElMessage({
-    message: '壁纸设置成功，刷新后生效',
+    message: "壁纸设置成功，刷新后生效",
     icon: h(SuccessPicture, {
-      theme: 'filled',
-      fill: '#efefef',
+      theme: "filled",
+      fill: "#efefef",
     }),
   });
 };

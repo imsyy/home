@@ -28,16 +28,16 @@
 </template>
 
 <script setup>
-import { Icon } from '@vicons/utils';
-import { QuoteLeft, QuoteRight } from '@vicons/fa';
-import { Error } from '@icon-park/vue-next';
-import { mainStore } from '@/store';
+import { Icon } from "@vicons/utils";
+import { QuoteLeft, QuoteRight } from "@vicons/fa";
+import { Error } from "@icon-park/vue-next";
+import { mainStore } from "@/store";
 const store = mainStore();
 
 // 主页站点logo
 const siteLogo = import.meta.env.VITE_SITE_MAIN_LOGO;
 // 站点链接
-const siteUrl = import.meta.env.VITE_SITE_URL.split('.');
+const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
 
 // 简介区域文字
 const descriptionText = reactive({
@@ -51,11 +51,11 @@ const changeBox = () => {
     store.boxOpenState = !store.boxOpenState;
   } else {
     ElMessage({
-      message: '当前页面宽度不足以开启盒子',
+      message: "当前页面宽度不足以开启盒子",
       grouping: true,
       icon: h(Error, {
-        theme: 'filled',
-        fill: '#efefef',
+        theme: "filled",
+        fill: "#efefef",
       }),
     });
   }
@@ -92,7 +92,7 @@ watch(
       height: 142px;
       margin-left: 12px;
       transform: translateY(-8px);
-      font-family: 'Pacifico-Regular';
+      font-family: "Pacifico-Regular";
 
       .bg {
         font-size: 5rem;
@@ -136,7 +136,7 @@ watch(
 
         p {
           &:nth-of-type(1) {
-            font-family: 'Pacifico-Regular';
+            font-family: "Pacifico-Regular";
           }
         }
       }
