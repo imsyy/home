@@ -1,0 +1,26 @@
+[{
+    "name": "Github",
+    "icon": "/images/icon/github.png",
+    "tip": "去 Github 看看",
+    "url": "https://github.com/JLinms/"
+},  {
+    "name": "QQ",
+    "icon": "/images/icon/qq.png",
+    "tip": "有什么事吗",
+    "url": "https://res.abeim.cn/api/qq/?qq=153336174"
+}, {
+    "name": "Email",
+    "icon": "/images/icon/email.png",
+    "tip": "来封 Email ~",
+    "url": "mailto:i@bsgun.cn"
+}, {
+    "name": "Twitter",
+    "icon": "/images/icon/twitter.png",
+    "tip": "你懂的 ~",
+    "url": "hhttps://twitter.com/catalpabl"
+}, {
+    "name": "Telegram",
+    "icon": "/images/icon/telegram.png",
+    "tip": "你懂的 ~",
+    "url": "https://t.me/GlumeL"
+}]
