@@ -202,10 +202,11 @@ if (type == 0) {
 
 ### API
 
-* [MetingAPI By 武恩赐](https://api.wuenci.com/meting/api/)
+* [小歪 API](https://api.aixiaowai.cn)
 * [搏天 API](https://api.btstu.cn/doc/sjbz.php)
 * [高德开放平台](https://lbs.amap.com/)
 * [Hitokoto 一言](https://hitokoto.cn/)
+* [MetingAPI By 武恩赐](https://api.wuenci.com/meting/api/)
 * 
 ## Star History
 
