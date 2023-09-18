@@ -9,7 +9,7 @@
             -
           </span>
           {{ fullYear }}
-          <a :href="SiteUrl">{{ SiteAnthor }}</a>
+          <a :href="siteUrl">{{ siteAnthor }}</a>
         </span>
         <!-- 以下信息请不要修改哦 -->
         <span class="hidden">
@@ -48,8 +48,16 @@ const fullYear = new Date().getFullYear();
 // 加载配置数据
 const siteStartDate = ref(import.meta.env.VITE_SITE_START);
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
-const SiteAnthor = ref(import.meta.env.VITE_SITE_ANTHOR);
-const SiteUrl = ref(import.meta.env.VITE_SITE_URL);
+const siteAnthor = ref(import.meta.env.VITE_SITE_ANTHOR);
+const siteUrl = computed(() => {
+  const url = import.meta.env.VITE_SITE_URL;
+  if (!url) return "https://www.imsyy.top";
+  // 判断协议前缀
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+    return "//" + url;
+  }
+  return url;
+});
 </script>
 
 <style lang="scss" scoped>

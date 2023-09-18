@@ -62,7 +62,9 @@ p {
   background-color: #00000040;
   backdrop-filter: blur(10px);
   transform: scale(1);
-  transition: backdrop-filter 0.3s, transform 0.3s;
+  transition:
+    backdrop-filter 0.3s,
+    transform 0.3s;
   &:hover {
     transform: scale(1.01);
   }

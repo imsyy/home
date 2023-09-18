@@ -109,7 +109,9 @@ const siteName = import.meta.env.VITE_SITE_NAME;
   &.loaded {
     visibility: hidden;
     transform: translateY(-100%);
-    transition: transform 0.3s 1s ease-out, visibility 0.3s 1s ease-out;
+    transition:
+      transform 0.3s 1s ease-out,
+      visibility 0.3s 1s ease-out;
     .loader {
       .loader-circle,
       .loader-text {

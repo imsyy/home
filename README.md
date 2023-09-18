@@ -14,8 +14,8 @@
 >由于 CDN 缓存原因，查看最新效果可能需要 `Ctrl` + `F5` 强制刷新浏览器缓存
 
 - [無名の主页](https://www.imsyy.top)
-- [無名の主页 - Dev](https://dev.home-5iw.pages.dev/)
-- [無名の主页 - 备用线路](https://home-imsyy.vercel.app/)
+- [無名の主页 - Dev](https://home-imsyy.vercel.app)
+- [無名の主页 - 备用线路](https://home-5iw.pages.dev)
 
 ### 功能
 
@@ -202,10 +202,11 @@ if (type == 0) {
 
 ### API
 
-* [MetingAPI By 武恩赐](https://api.wuenci.com/meting/api/)
+* [小歪 API](https://api.aixiaowai.cn)
 * [搏天 API](https://api.btstu.cn/doc/sjbz.php)
 * [高德开放平台](https://lbs.amap.com/)
 * [Hitokoto 一言](https://hitokoto.cn/)
+* [MetingAPI By 武恩赐](https://api.wuenci.com/meting/api/)
 * 
 ## Star History
 

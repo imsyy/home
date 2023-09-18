@@ -6,8 +6,8 @@
     <span class="sm-hidden">
       &nbsp;{{
         weatherData.weather.winddirection?.endsWith("风")
-        ? weatherData.weather.winddirection
-        : weatherData.weather.winddirection + "风"
+          ? weatherData.weather.winddirection
+          : weatherData.weather.winddirection + "风"
       }}&nbsp;
     </span>
     <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;级</span>

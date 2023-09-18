@@ -37,7 +37,16 @@ const store = mainStore();
 // 主页站点logo
 const siteLogo = import.meta.env.VITE_SITE_MAIN_LOGO;
 // 站点链接
-const siteUrl = import.meta.env.VITE_SITE_URL.split(".");
+const siteUrl = computed(() => {
+  const url = import.meta.env.VITE_SITE_URL;
+  if (!url) return "imsyy.top".split(".");
+  // 判断协议前缀
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    const urlFormat = url.replace(/^(https?:\/\/)/, "");
+    return urlFormat.split(".");
+  }
+  return url.split(".");
+});
 
 // 简介区域文字
 const descriptionText = reactive({
@@ -72,7 +81,7 @@ watch(
       descriptionText.hello = import.meta.env.VITE_DESC_HELLO;
       descriptionText.text = import.meta.env.VITE_DESC_TEXT;
     }
-  }
+  },
 );
 </script>
 

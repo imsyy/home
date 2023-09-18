@@ -5,25 +5,12 @@ import { SpaCandle } from "@icon-park/vue-next";
 export const getCurrentTime = () => {
   let time = new Date();
   let year = time.getFullYear();
-  let month =
-    time.getMonth() + 1 < 10
-      ? "0" + (time.getMonth() + 1)
-      : time.getMonth() + 1;
+  let month = time.getMonth() + 1 < 10 ? "0" + (time.getMonth() + 1) : time.getMonth() + 1;
   let day = time.getDate() < 10 ? "0" + time.getDate() : time.getDate();
   let hour = time.getHours() < 10 ? "0" + time.getHours() : time.getHours();
-  let minute =
-    time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
-  let second =
-    time.getSeconds() < 10 ? "0" + time.getSeconds() : time.getSeconds();
-  let weekday = [
-    "星期日",
-    "星期一",
-    "星期二",
-    "星期三",
-    "星期四",
-    "星期五",
-    "星期六",
-  ];
+  let minute = time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
+  let second = time.getSeconds() < 10 ? "0" + time.getSeconds() : time.getSeconds();
+  let weekday = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
   let currentTime = {
     year,
     month,
@@ -122,7 +109,7 @@ export const checkDays = () => {
   const mon = myDate.getMonth() + 1;
   const date = myDate.getDate();
   const key = `${mon}.${date}`;
-  if (anniversaries.hasOwnProperty(key)) {
+  if (Object.prototype.hasOwnProperty.call(anniversaries, key)) {
     console.log(`今天是${anniversaries[key]}`);
     const gray = document.createElement("style");
     gray.innerHTML = "html{filter: grayscale(100%)}";
@@ -144,11 +131,11 @@ export const siteDateStatistics = (startDate) => {
   const differenceInYears = differenceInMonths / 12;
   if (differenceInYears >= 1) {
     return `本站已经苟活了 ${Math.floor(differenceInYears)} 年 ${Math.floor(
-      differenceInMonths % 12
+      differenceInMonths % 12,
     )} 月 ${Math.round(differenceInDays % 30)} 天`;
   } else if (differenceInMonths >= 1) {
     return `本站已经苟活了 ${Math.floor(differenceInMonths)} 月 ${Math.round(
-      differenceInDays % 30
+      differenceInDays % 30,
     )} 天`;
   } else {
     return `本站已经苟活了 ${Math.round(differenceInDays)} 天`;

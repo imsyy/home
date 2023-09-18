@@ -3,11 +3,7 @@
     <el-collapse class="collapse" v-model="activeName" accordion>
       <el-collapse-item title="个性壁纸" name="1">
         <div class="bg-set">
-          <el-radio-group
-            v-model="coverType"
-            text-color="#ffffff"
-            @change="radioChange"
-          >
+          <el-radio-group v-model="coverType" text-color="#ffffff" @change="radioChange">
             <el-radio label="0" size="large" border>默认壁纸</el-radio>
             <el-radio label="1" size="large" border>每日一图</el-radio>
             <el-radio label="2" size="large" border>随机风景</el-radio>
@@ -69,8 +65,7 @@ import { mainStore } from "@/store";
 import { storeToRefs } from "pinia";
 
 const store = mainStore();
-const { coverType, siteStartShow, musicClick, playerLrcShow, footerBlur } =
-  storeToRefs(store);
+const { coverType, siteStartShow, musicClick, playerLrcShow, footerBlur } = storeToRefs(store);
 
 // 默认选中项
 const activeName = ref("1");

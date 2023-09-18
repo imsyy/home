@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="box cards"
-    @mouseenter="closeShow = true"
-    @mouseleave="closeShow = false"
-  >
+  <div class="box cards" @mouseenter="closeShow = true" @mouseleave="closeShow = false">
     <transition name="el-fade-in-linear">
       <close-one
         class="close"
@@ -58,7 +54,9 @@ const closeShow = ref(false);
     right: 14px;
     width: 28px;
     height: 28px;
-    transition: transform 0.3s, opacity 0.3s;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
 
     &:hover {
       transform: scale(1.2);

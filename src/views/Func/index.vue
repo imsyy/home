@@ -18,11 +18,7 @@
               <span class="sm-hidden">{{ currentTime.weekday }}</span>
             </div>
             <div class="text">
-              <span>
-                {{ currentTime.hour }}:{{ currentTime.minute }}:{{
-                  currentTime.second
-                }}</span
-              >
+              <span> {{ currentTime.hour }}:{{ currentTime.minute }}:{{ currentTime.second }}</span>
             </div>
           </div>
           <Weather />

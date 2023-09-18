@@ -98,33 +98,31 @@ const props = defineProps({
 onMounted(() => {
   nextTick(() => {
     try {
-      getPlayerList(props.songServer, props.songType, props.songId).then(
-        (res) => {
-          console.log(res);
-          // 生成歌单信息
-          playIndex.value = Math.floor(Math.random() * res.length);
-          playListCount.value = res.length;
-          // 更改播放器加载状态
-          store.musicIsOk = true;
-          // 生成歌单
-          res.forEach((v) => {
-            playList.value.push({
-              title: v.name || v.title,
-              artist: v.artist || v.author,
-              src: v.url || v.src,
-              pic: v.pic,
-              lrc: v.lrc,
-            });
+      getPlayerList(props.songServer, props.songType, props.songId).then((res) => {
+        console.log(res);
+        // 生成歌单信息
+        playIndex.value = Math.floor(Math.random() * res.length);
+        playListCount.value = res.length;
+        // 更改播放器加载状态
+        store.musicIsOk = true;
+        // 生成歌单
+        res.forEach((v) => {
+          playList.value.push({
+            title: v.name || v.title,
+            artist: v.artist || v.author,
+            src: v.url || v.src,
+            pic: v.pic,
+            lrc: v.lrc,
           });
-          console.log(
-            "音乐加载完成",
-            playList.value,
-            playIndex.value,
-            playListCount.value,
-            props.volume
-          );
-        }
-      );
+        });
+        console.log(
+          "音乐加载完成",
+          playList.value,
+          playIndex.value,
+          playListCount.value,
+          props.volume,
+        );
+      });
     } catch (err) {
       console.error(err);
       store.musicIsOk = false;
@@ -146,10 +144,7 @@ const onPlay = () => {
   // 播放状态
   store.setPlayerState(player.value.audio.paused);
   // 储存播放器信息
-  store.setPlayerData(
-    player.value.currentMusic.title,
-    player.value.currentMusic.artist
-  );
+  store.setPlayerData(player.value.currentMusic.title, player.value.currentMusic.artist);
   ElMessage({
     message: store.getPlayerData.name + " - " + store.getPlayerData.artist,
     grouping: true,
@@ -172,9 +167,7 @@ const onTimeUp = () => {
     const currentLrcElement = playerRef.querySelector(".aplayer-lrc-current");
     const previousLrcElement = currentLrcElement?.previousElementSibling;
     const lrcContent =
-      currentLrcElement?.innerHTML ||
-      previousLrcElement?.innerHTML ||
-      "这句没有歌词";
+      currentLrcElement?.innerHTML || previousLrcElement?.innerHTML || "这句没有歌词";
     store.setPlayerLrc(lrcContent);
   }
 };
