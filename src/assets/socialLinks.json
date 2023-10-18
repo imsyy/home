@@ -3,7 +3,7 @@
     "name": "Github",
     "icon": "/images/icon/github.png",
     "tip": "去 Github 看看",
-    "url": "https://github.com/imsyy"
+    "url": "https://github.com/bkf777?tab=repositories"
   },
   {
     "name": "BiliBili",
@@ -18,21 +18,13 @@
     "url": "https://res.abeim.cn/api/qq/?qq=1539250352"
   },
   {
-    "name": "Email",
-    "icon": "/images/icon/email.png",
-    "tip": "来封 Email ~",
-    "url": "mailto:one@imsyy.top"
-  },
-  {
     "name": "Twitter",
     "icon": "/images/icon/twitter.png",
-    "tip": "你懂的 ~",
-    "url": "https://twitter.com/iimmsyy"
+    "tip": "你懂的 ~"
   },
   {
     "name": "Telegram",
     "icon": "/images/icon/telegram.png",
-    "tip": "你懂的 ~",
-    "url": "https://t.me/bottom_user"
+    "tip": "你懂的 ~"
   }
 ]
