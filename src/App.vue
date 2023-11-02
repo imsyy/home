@@ -17,7 +17,12 @@
         </section>
       </div>
       <!-- 移动端菜单按钮 -->
-      <Icon class="menu" size="24" @click="store.mobileOpenState = !store.mobileOpenState">
+      <Icon
+        class="menu"
+        size="24"
+        v-show="!store.backgroundShow"
+        @click="store.mobileOpenState = !store.mobileOpenState"
+      >
         <component :is="store.mobileOpenState ? CloseSmall : HamburgerButton" />
       </Icon>
       <!-- 页脚 -->
