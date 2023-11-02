@@ -183,7 +183,7 @@ onBeforeUnmount(() => {
     .i-icon {
       transform: translateY(2px);
     }
-    @media (min-width: 720px) {
+    @media (min-width: 721px) {
       display: none;
     }
   }
