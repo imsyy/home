@@ -1,5 +1,5 @@
 <template>
-  <div class="cover">
+  <div :class="store.backgroundShow ? 'cover show' : 'cover'">
     <img
       v-show="store.imgLoadStatus"
       class="bg"
@@ -98,6 +98,10 @@ onBeforeUnmount(() => {
   height: 100%;
   transition: 0.25s;
   z-index: -1;
+
+  &.show {
+    z-index: 1;
+  }
 
   .bg {
     position: absolute;
