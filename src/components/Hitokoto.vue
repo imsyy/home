@@ -18,10 +18,12 @@
       </div>
     </Transition>
     <!-- 一言内容 -->
-    <div class="content" @click="updateHitokoto">
-      <span class="text">{{ hitokotoData.text }}</span>
-      <span class="from">-「&nbsp;{{ hitokotoData.from }}&nbsp;」</span>
-    </div>
+    <Transition name="el-fade-in-linear" mode="out-in">
+      <div :key="hitokotoData.text" class="content" @click="updateHitokoto">
+        <span class="text">{{ hitokotoData.text }}</span>
+        <span class="from">-「&nbsp;{{ hitokotoData.from }}&nbsp;」</span>
+      </div>
+    </Transition>
   </div>
 </template>
 
