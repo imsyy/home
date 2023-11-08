@@ -59,13 +59,13 @@ const getHitokotoData = () => {
           fill: "#efefef",
         }),
       });
+      hitokotoData.text = "这里应该显示一句话";
+      hitokotoData.from = "無名";
     });
 };
 
 // 更新一言数据
 const updateHitokoto = () => {
-  hitokotoData.text = "新的一言正在赶来的路上";
-  hitokotoData.from = "来源加载中";
   // 防抖
   debounce(() => {
     getHitokotoData();
