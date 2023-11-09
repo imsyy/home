@@ -207,7 +207,7 @@ if (type == 0) {
 * [高德开放平台](https://lbs.amap.com/)
 * [Hitokoto 一言](https://hitokoto.cn/)
 * [MetingAPI By 武恩赐](https://api.wuenci.com/meting/api/)
-* 
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=imsyy/home&type=Date)](https://star-history.com/#imsyy/home&Date)

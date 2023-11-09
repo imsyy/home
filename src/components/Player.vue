@@ -16,6 +16,7 @@
     @pause="onPause"
     @timeupdate="onTimeUp"
     @onSelectSong="onSelectSong"
+    @error="loadMusicError"
   />
 </template>
 
@@ -36,6 +37,8 @@ const playList = ref([]);
 // 歌曲播放项
 const playIndex = ref(0);
 const playListCount = ref(0);
+
+const skipTimeout = ref(null);
 
 // 配置项
 const props = defineProps({
@@ -202,8 +205,39 @@ const changeSong = (type) => {
   });
 };
 
+// 加载音频错误
+const loadMusicError = () => {
+  let notice = "";
+  if (playList.value.length > 1) {
+    notice = "播放歌曲出现错误，播放器将在 2s 后进行下一首";
+    // 播放下一首
+    skipTimeout.value = setTimeout(() => {
+      changeSong(1);
+      if (!player.value.audio.paused) {
+        onPlay();
+      }
+    }, 2000);
+  } else {
+    notice = "播放歌曲出现错误";
+  }
+  ElMessage({
+    message: notice,
+    grouping: true,
+    icon: h(PlayWrong, {
+      theme: "filled",
+      fill: "#EFEFEF",
+      duration: 2000,
+    }),
+  });
+  console.error("播放歌曲: " + player.value.currentMusic.title + " 出现错误");
+};
+
 // 暴露子组件方法
 defineExpose({ playToggle, changeVolume, changeSong });
+
+onBeforeUnmount(() => {
+  clearTimeout(skipTimeout.value);
+});
 </script>
 
 <style lang="scss" scoped>
