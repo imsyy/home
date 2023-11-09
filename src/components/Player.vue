@@ -209,7 +209,7 @@ const changeSong = (type) => {
 const loadMusicError = () => {
   let notice = "";
   if (playList.value.length > 1) {
-    notice = "播放音频出现错误，播放器将在 2s 后进行跳转";
+    notice = "播放歌曲出现错误，播放器将在 2s 后进行下一首";
     // 播放下一首
     skipTimeout.value = setTimeout(() => {
       changeSong(1);
@@ -218,7 +218,7 @@ const loadMusicError = () => {
       }
     }, 2000);
   } else {
-    notice = "播放音频出现错误";
+    notice = "播放歌曲出现错误";
   }
   ElMessage({
     message: notice,
@@ -229,7 +229,7 @@ const loadMusicError = () => {
       duration: 2000,
     }),
   });
-  console.error("播放音乐: " + player.value.currentMusic.title + " 出现错误");
+  console.error("播放歌曲: " + player.value.currentMusic.title + " 出现错误");
 };
 
 // 暴露子组件方法
