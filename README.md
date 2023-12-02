@@ -5,7 +5,7 @@
 简单的小主页，原来的看够了，重新弄了一个
 </p>
 
-![無名の主页](https://s2.loli.net/2022/07/14/K5JigfvDoNewtuS.webp)
+![無名の主页](/screenshots/main.jpg)
 
 >主页的 Logo 字体已经过压缩，若用本站 Logo 以外的字母会变回默认字体，这里是 [完整字体](https://file.imsyy.top/font/Other/Pacifico-Regular.ttf)，若无法下载，可将字体目录下的 `Pacifico-Regular-all.ttf` 进行替换
 
@@ -28,7 +28,19 @@
 - [x] 音乐播放器
 - [x] 移动端适配
 
-### 部署
+### 自动部署
+
+如果遇到构建环境或者打包过程出现错误，则可以采用 `Github Actions` 来进行自动构建
+
+- 在成功 `fork` 仓库后，前往 `Actions` 页面，若您是首次开启，则会出现下面的提示，点击开启
+  
+  ![步骤1](/screenshots/step1.jpg)
+
+- 然后在仓库中进行任意修改后均会触发工作流的运行，在工作流完成后，会在下方生成一个可供下载的压缩包，这就是构建出的静态文件，可自行上传至服务器
+  
+  ![步骤2](/screenshots/step2.jpg)
+
+### 手动部署
 
 * **安装** [node.js](https://nodejs.org/zh-cn/) **环境**
 
