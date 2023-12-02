@@ -1,0 +1,38 @@
+# Dev 分支推送部署预览
+## 仅部署 Win 端
+name: Build Dev
+
+on:
+  push:
+    branches:
+      - dev
+      - master
+
+jobs:
+  release:
+    name: Build Website
+    runs-on: windows-latest
+
+    steps:
+      # 检出 Git 仓库
+      - name: Check out git repository
+        uses: actions/checkout@v4.1.1
+      # 安装 Node.js
+      - name: Install Node.js
+        uses: actions/setup-node@v4.0.0
+        with:
+          node-version: "18.x"
+      # 安装项目依赖
+      - name: Install Dependencies
+        run: npm install
+      # 构建程序
+      - name: Build Website
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      # 上传构建产物
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3.1.3
+        with:
+          name: Home
+          path: dist

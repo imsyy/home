@@ -54,12 +54,12 @@
             @click="musicListShow = false"
           />
           <Player
+            ref="playerRef"
             :songServer="playerData.server"
             :songType="playerData.type"
             :songId="playerData.id"
             :volume="volumeNum"
             :shuffle="false"
-            ref="playerRef"
           />
         </div>
       </Transition>
