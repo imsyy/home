@@ -65,6 +65,17 @@ pnpm build
 ```
 > 构建完成后，静态资源会在 **`dist` 目录** 中生成，可将 **`dist` 文件夹下的文件**上传至服务器，也可使用 `Vercel` 等托管平台一键导入并自动部署
 
+### Docker 部署
+
+> 安装及配置 Docker 将不在此处说明，请自行解决
+
+```bash
+// 构建
+docker build -t home .
+// 运行
+docker run -p 12445:12445 -d home
+```
+
 ### 网站链接
 
 在 `src/assets/siteLinks.json` 中可以自定义网站链接（以指向自己的网站）:

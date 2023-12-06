@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { defineConfig, loadEnv } from "vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { resolve } from "path";

@@ -10,7 +10,8 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.vue --fix"
   },
   "dependencies": {
     "aplayer": "^1.10.1",
