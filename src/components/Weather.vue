@@ -39,54 +39,47 @@ const weatherData = reactive({
 });
 
 // 获取天气数据
-const getWeatherData = () => {
-  // 获取地理位置信息
-  if (!mainKey) {
-    getOtherWeather()
-      .then((res) => {
-        console.log(res);
-        const data = res.result;
-        weatherData.adCode = {
-          city: data.city.name,
-          adcode: data.city.cityId,
-        };
-        weatherData.weather = {
-          weather: data.condition.condition,
-          temperature: data.condition.temp,
-          winddirection: data.condition.windDir,
-          windpower: data.condition.windLevel,
-        };
-      })
-      .catch((err) => {
-        console.error("天气信息获取失败:" + err);
-        onError("天气信息获取失败");
-      });
-  } else {
-    getAdcode(mainKey)
-      .then((res) => {
-        weatherData.adCode = {
-          city: res.city,
-          adcode: res.adcode,
-        };
-        // 获取天气信息
-        getWeather(mainKey, weatherData.adCode.adcode)
-          .then((res) => {
-            weatherData.weather = {
-              weather: res.lives[0].weather,
-              temperature: res.lives[0].temperature,
-              winddirection: res.lives[0].winddirection,
-              windpower: res.lives[0].windpower,
-            };
-          })
-          .catch((err) => {
-            console.error("天气信息获取失败:" + err);
-            onError("天气信息获取失败");
-          });
-      })
-      .catch((err) => {
-        console.error("地理位置获取失败:" + err);
-        onError("地理位置获取失败");
-      });
+const getWeatherData = async () => {
+  try {
+    // 获取地理位置信息
+    if (!mainKey) {
+      console.log("未配置，使用备用天气接口");
+      const result = await getOtherWeather();
+      console.log(result);
+      const data = result.result;
+      weatherData.adCode = {
+        city: data.city.city_name || "未知地区",
+        // adcode: data.city.cityId,
+      };
+      weatherData.weather = {
+        weather: data.condition.condition,
+        temperature: data.condition.temp,
+        winddirection: data.condition.windDir,
+        windpower: data.condition.windLevel,
+      };
+    } else {
+      // 获取 Adcode
+      const adCode = await getAdcode(mainKey);
+      console.log(adCode);
+      if (adCode.infocode !== "10000") {
+        throw "地区查询失败";
+      }
+      weatherData.adCode = {
+        city: adCode.city,
+        adcode: adCode.adcode,
+      };
+      // 获取天气信息
+      const result = await getWeather(mainKey, weatherData.adCode.adcode);
+      weatherData.weather = {
+        weather: result.lives[0].weather,
+        temperature: result.lives[0].temperature,
+        winddirection: result.lives[0].winddirection,
+        windpower: result.lives[0].windpower,
+      };
+    }
+  } catch (error) {
+    console.error("天气信息获取失败:" + error);
+    onError("天气信息获取失败");
   }
 };
 
