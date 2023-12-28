@@ -2,10 +2,10 @@
   {
     "icon": "Blog",
     "name": "博客",
-    "link": "https://blog.imsyy.top/"
+    "link": "https://blog.buzzchat.top/"
   },
   {
-    "icon": "Cloud",
+    "icon": "imsyy/home/public/images/icon/logo.png",
     "name": "网盘",
     "link": "https://pan.imsyy.top/"
   },
