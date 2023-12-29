@@ -23,6 +23,11 @@
           &amp;
           {{ siteIcp }}
         </a>
+        <a v-if="sitePsfr" :href="sitePsfrLink" target="_blank">
+          &amp;
+          <img src="/images/icon/psfr.png" width="17" height="17" />
+          {{ sitePsfr }}
+        </a>
       </div>
       <div v-else class="lrc">
         <Transition name="fade" mode="out-in">
@@ -48,6 +53,8 @@ const fullYear = new Date().getFullYear();
 // 加载配置数据
 const siteStartDate = ref(import.meta.env.VITE_SITE_START);
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
+const sitePsfr = ref(import.meta.env.VITE_SITE_PSFR);
+const sitePsfrLink = ref(import.meta.env.VITE_SITE_PSFR_LINK);
 const siteAnthor = ref(import.meta.env.VITE_SITE_ANTHOR);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
