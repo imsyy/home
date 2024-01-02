@@ -4,6 +4,9 @@ import App from "@/App.vue";
 // 引入 pinia
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+// swiper
+import "swiper/scss";
+import "swiper/scss/pagination";
 
 const app = createApp(App);
 const pinia = createPinia();

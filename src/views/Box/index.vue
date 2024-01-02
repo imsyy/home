@@ -21,7 +21,9 @@
       />
     </transition>
     <div class="content">
+      <!-- 可在此处自定义任意内容 -->
       <TimeCapsule />
+      <GithubProject />
     </div>
   </div>
 </template>
@@ -30,6 +32,7 @@
 import { CloseOne, SettingTwo } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import TimeCapsule from "@/components/TimeCapsule.vue";
+import GithubProject from "@/components/GithubProject.vue";
 
 const store = mainStore();
 const closeShow = ref(false);
@@ -40,6 +43,7 @@ const closeShow = ref(false);
   flex: 1 0 0%;
   margin-left: 0.75rem;
   height: 80%;
+  max-width: 50%;
   position: relative;
   animation: fade 0.5s;
 
