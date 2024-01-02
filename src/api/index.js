@@ -22,18 +22,18 @@ export const getPlayerList = async (server, type, id) => {
     ).replace("http://", "https://");
 
     return data.map((v, i) => ({
-      title: v.name || v.title,
+      name: v.name || v.title,
       artist: v.artist || v.author,
-      src: domain + jsonpData.req_0.data.midurlinfo[i].purl,
-      pic: v.pic,
+      url: domain + jsonpData.req_0.data.midurlinfo[i].purl,
+      cover: v.cover || v.pic,
       lrc: v.lrc,
     }));
   } else {
     return data.map((v) => ({
-      title: v.name || v.title,
+      name: v.name || v.title,
       artist: v.artist || v.author,
-      src: v.url,
-      pic: v.pic,
+      url: v.url,
+      cover: v.cover || v.pic,
       lrc: v.lrc,
     }));
   }
