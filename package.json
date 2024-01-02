@@ -14,7 +14,7 @@
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.vue --fix"
   },
   "dependencies": {
-    "@worstone/vue-aplayer": "^1.0.4",
+    "@worstone/vue-aplayer": "^1.0.6",
     "aplayer": "^1.10.1",
     "axios": "^1.6.3",
     "element-plus": "^2.4.4",

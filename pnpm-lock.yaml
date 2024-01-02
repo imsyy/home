@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@worstone/vue-aplayer':
-    specifier: ^1.0.4
-    version: 1.0.4
+    specifier: ^1.0.6
+    version: 1.0.6
   aplayer:
     specifier: ^1.10.1
     version: 1.10.1
@@ -1899,8 +1899,8 @@ packages:
       - vue
     dev: false
 
-  /@worstone/vue-aplayer@1.0.4:
-    resolution: {integrity: sha512-74zJaAsuNa20TjmDI4cpsk38vmP3v+mW+uTj5AhGjikzIEkPmVcHg+cNrX8G6ar7m8I+p4li/VRF0Ufu6JPJ5w==}
+  /@worstone/vue-aplayer@1.0.6:
+    resolution: {integrity: sha512-si0ShhO9xuENpFQdpJqKEWy3NR1Lt0r+T88u/gwZVw3b15CUizhrWpn8QdM08Ele+7FFkegsd2YDyANYhGtR6A==}
     dependencies:
       smoothscroll: 0.4.0
       vue: 3.4.3
