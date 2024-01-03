@@ -119,6 +119,9 @@ const changeMusicIndex = (type) => {
 onMounted(() => {
   // 空格键事件
   window.addEventListener("keydown", (e) => {
+    if (!store.musicIsOk) {
+      return ;
+    }
     if (e.code == "Space") {
       changePlayState();
     }
