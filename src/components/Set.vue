@@ -50,7 +50,34 @@
         </div>
       </el-collapse-item>
       <el-collapse-item title="播放器配置" name="3">
-        <div>设置内容待增加</div>
+        <div class="item">
+          <span class="text">自动播放</span>
+          <el-switch
+            v-model="playerAutoplay"
+            inline-prompt
+            :active-icon="CheckSmall"
+            :inactive-icon="CloseSmall"
+          />
+        </div>
+        <div class="item">
+          <span class="text">随机播放</span>
+          <el-switch
+            v-model="playerOrder"
+            inline-prompt
+            :active-icon="CheckSmall"
+            :inactive-icon="CloseSmall"
+            active-value="random"
+            inactive-value="list"
+          />
+        </div>
+        <div class="item">
+          <span class="text">循环模式</span>
+          <el-radio-group v-model="playerLoop" size="small" text-color="#FFFFFF">
+            <el-radio label="all" border>列表</el-radio>
+            <el-radio label="one" border>单曲</el-radio>
+            <el-radio label="none" border>不循环</el-radio>
+          </el-radio-group>
+        </div>
       </el-collapse-item>
       <el-collapse-item title="其他设置" name="4">
         <div>设置内容待增加</div>
@@ -65,7 +92,16 @@ import { mainStore } from "@/store";
 import { storeToRefs } from "pinia";
 
 const store = mainStore();
-const { coverType, siteStartShow, musicClick, playerLrcShow, footerBlur } = storeToRefs(store);
+const {
+  coverType,
+  siteStartShow,
+  musicClick,
+  playerLrcShow,
+  footerBlur,
+  playerAutoplay,
+  playerOrder,
+  playerLoop,
+} = storeToRefs(store);
 
 // 默认选中项
 const activeName = ref("1");
@@ -107,45 +143,54 @@ const radioChange = () => {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          flex-wrap: wrap;
           font-size: 14px;
           .el-switch__core {
             border-color: transparent;
             background-color: #ffffff30;
           }
-        }
-        .bg-set {
           .el-radio-group {
-            justify-content: space-between;
-
             .el-radio {
-              margin: 10px 16px;
-              background: #ffffff26;
-              border: 2px solid transparent;
-              border-radius: 8px;
+              margin: 2px 10px 2px 0;
+              border-radius: 5px;
 
-              .el-radio__label {
-                color: #fff;
+              &:last-child {
+                margin-right: 0;
               }
+            }
+          }
+        }
+        .el-radio-group {
+          justify-content: space-between;
 
+          .el-radio {
+            margin: 10px 16px;
+            background: #ffffff26;
+            border: 2px solid transparent;
+            border-radius: 8px;
+
+            .el-radio__label {
+              color: #fff;
+            }
+
+            .el-radio__inner {
+              background: #ffffff06 !important;
+              border: 2px solid #eeeeee !important;
+            }
+
+            &.is-checked {
+              background: #ffffff06 !important;
+              border: 2px solid #eeeeee !important;
+            }
+
+            .is-checked {
               .el-radio__inner {
-                background: #ffffff06 !important;
-                border: 2px solid #eeeeee !important;
+                background-color: #ffffff30 !important;
+                border-color: #fff !important;
               }
 
-              &.is-checked {
-                background: #ffffff06 !important;
-                border: 2px solid #eeeeee !important;
-              }
-
-              .is-checked {
-                .el-radio__inner {
-                  background-color: #ffffff30 !important;
-                  border-color: #fff !important;
-                }
-
-                & + .el-radio__label {
-                  color: #fff !important;
-                }
+              & + .el-radio__label {
+                color: #fff !important;
               }
             }
           }
