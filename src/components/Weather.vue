@@ -48,14 +48,14 @@ const getWeatherData = async () => {
       console.log(result);
       const data = result.result;
       weatherData.adCode = {
-        city: data.city.city_name || "未知地区",
+        city: data.city.City || "未知地区",
         // adcode: data.city.cityId,
       };
       weatherData.weather = {
-        weather: data.condition.condition,
-        temperature: data.condition.temp,
-        winddirection: data.condition.windDir,
-        windpower: data.condition.windLevel,
+        weather: data.condition.day_weather,
+        temperature: (+data.condition.max_degree + +data.condition.min_degree) / 2,
+        winddirection: data.condition.day_wind_direction,
+        windpower: data.condition.day_wind_power,
       };
     } else {
       // 获取 Adcode
