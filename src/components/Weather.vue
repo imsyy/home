@@ -38,6 +38,18 @@ const weatherData = reactive({
   },
 });
 
+// 取出天气平均值
+const getTemperature = (min, max) => {
+  try {
+    // 计算平均值并四舍五入
+    const average = (Number(min) + Number(max)) / 2;
+    return Math.round(average);
+  } catch (error) {
+    console.error("计算温度出现错误：", error);
+    return "NaN";
+  }
+};
+
 // 获取天气数据
 const getWeatherData = async () => {
   try {
@@ -53,7 +65,7 @@ const getWeatherData = async () => {
       };
       weatherData.weather = {
         weather: data.condition.day_weather,
-        temperature: (+data.condition.max_degree + +data.condition.min_degree) / 2,
+        temperature: getTemperature(data.condition.min_degree, data.condition.max_degree),
         winddirection: data.condition.day_wind_direction,
         windpower: data.condition.day_wind_power,
       };
