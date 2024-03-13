@@ -5,7 +5,7 @@ export const mainStore = defineStore("main", {
     return {
       imgLoadStatus: false, // 壁纸加载状态
       innerWidth: null, // 当前窗口宽度
-      coverType: "0", // 壁纸种类
+      coverType: "3", // 壁纸种类
       siteStartShow: false, // 建站日期显示
       musicClick: false, // 音乐链接是否跳转
       musicIsOk: false, // 音乐是否加载完成
@@ -24,7 +24,8 @@ export const mainStore = defineStore("main", {
       footerBlur: true, // 底栏模糊
       playerAutoplay: false, // 是否自动播放
       playerLoop: "all", // 循环播放 "all", "one", "none"
-      playerOrder: "list", // 循环顺序 "list", "random"
+      playerOrder: "random", // 循环顺序 "list", "random"
+      bgChangeIndex: 0,
     };
   },
   getters: {
