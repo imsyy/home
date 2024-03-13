@@ -1,5 +1,7 @@
 <template>
-  <div :class="store.backgroundShow ? 'cover show' : 'cover'">
+  <div :class="store.backgroundShow ? 'cover show' : 'cover'" 
+  @click="reloadBackground"
+  :key="bgKey">
     <img
       v-show="store.imgLoadStatus"
       :src="bgUrl"
@@ -29,6 +31,7 @@ import { Error } from "@icon-park/vue-next";
 
 const store = mainStore();
 const bgUrl = ref(null);
+const bgKey = ref(0); // 添加一个 key 用于触发重新渲染
 const imgTimeout = ref(null);
 const emit = defineEmits(["loadComplete"]);
 
@@ -47,6 +50,7 @@ const changeBg = (type) => {
   } else if (type == 3) {
     bgUrl.value = "https://api.aixiaowai.cn/api/api.php";
   }
+  bgKey.value++; // 修改 key 值触发重新渲染
 };
 
 // 图片加载完成
@@ -79,6 +83,11 @@ const imgLoadError = () => {
   bgUrl.value = `/images/background${bgRandom}.jpg`;
 };
 
+// 点击重新加载背景图片
+const reloadBackground = () => {
+  store.setImgLoadStatus(false);
+  changeBg(store.coverType); // 点击时重新加载图片
+};
 // 监听壁纸切换
 watch(
   () => store.coverType,
@@ -125,6 +134,7 @@ onBeforeUnmount(() => {
       transform 0.3s;
     animation: fade-blur-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     animation-delay: 0.45s;
+
   }
   .gray {
     opacity: 1;
