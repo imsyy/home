@@ -1,5 +1,5 @@
 <template>
-  <div class="more-content">您可在此编写任意内容</div>
+  <div class="more-content">放弃、不放弃，你患得患失，太在意从前，又太担心将来。有句话说得好，昨天是段历史，明天是个谜团，而今天是天赐的礼物，像珍惜礼物那样珍惜今天。</div>
 </template>
 
 <style lang="scss" scoped>
