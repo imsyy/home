@@ -87,27 +87,37 @@ export const mainStore = defineStore("main", {
       this.imgLoadStatus = value;
     },
   },
-  persist: {
-    key: "data",
-    storage: window.localStorage,
-    paths: [
-      "coverType",
-      "musicVolume",
-      "siteStartShow",
-      "musicClick",
-      "playerLrcShow",
-      "footerBlur",
-      "footerProgressBar",
-      "playerAutoplay",
-      "playerLoop",
-      "playerOrder",
-      "webSpeech",
-      "playerSpeechName",
-      "playerYrcShow",
-      "playerYrcShowPro",
-      "playerYrcATDB",
-      "playerYrcATDBF",
-      "seasonalEffects",
-    ],
-  },
+  persist: [
+    // 未存在这里的变量，刷新页面就会恢复默认值，主要用于状态
+    {
+      storage: localStorage,
+      pick: [
+        // 持久性存储，这里的变量永久存储于浏览器，用于存储用户的自定义设置
+        'coverType',
+        'musicVolume',
+        'siteStartShow',
+        'musicClick',
+        'playerLrcShow',
+        'footerBlur',
+        'footerProgressBar',
+        'playerAutoplay',
+        'playerLoop',
+        'playerOrder',
+        'webSpeech',
+        'playerSpeechName',
+        'playerYrcShow',
+        'playerYrcShowPro',
+        'playerYrcATDB',
+        'playerYrcATDBF',
+        'seasonalEffects',
+      ],
+    },
+    {
+      storage: sessionStorage,
+      pick: [
+        // 会话性存储，这里的变量在重新打开页面时恢复默认值，多个窗口不互通，用于存储一些特殊的仅本次生效的设置
+
+      ],
+    },
+  ],
 });
