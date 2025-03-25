@@ -1,7 +1,9 @@
 简体中文 | [English](./README_EN.md)
 
 > [!IMPORTANT]
+>
 > ## 致大家
+>
 > 此项目最初只是一个简单的主页。然而，随着越来越多的小伙伴发现了这个项目，它受到了大量本不应有的关注。而且，此项目作为初学前端的作品，其代码相当杂乱且质量低下。此外，该项目还遭到众多不明资源站或下载站的倒卖，致使许多不明真相的购买者从源代码中找到本人的联系方式进行问题咨询或提出功能需求。但由于目前个人生活方面的原因，且本人未曾从此项目获取任何收益，所以已无力维护此项目。该仓库不会存档，会积极接受各位大佬的 PR，不过不会针对任何新功能或 Bug 做出更新，敬请谅解！
 
 <p>
@@ -23,14 +25,14 @@
 
 ### 🎉 功能
 
-- [x] 载入动画
-- [x] 站点简介
-- [x] Hitokoto 一言
-- [x] 日期及时间
-- [x] 实时天气
-- [x] 时光进度条
-- [x] 音乐播放器
-- [x] 移动端适配
+- [X] 载入动画
+- [X] 站点简介
+- [X] Hitokoto 一言
+- [X] 日期及时间
+- [X] 实时天气
+- [X] 时光进度条
+- [X] 音乐播放器
+- [X] 移动端适配
 
 ### ⚙️ 自动部署
 
@@ -39,7 +41,6 @@
 - 在成功 `fork` 仓库后，前往 `Actions` 页面，若您是首次开启，则会出现下面的提示，点击开启
 
   ![步骤1](/screenshots/step1.jpg)
-
 - 然后在仓库中进行任意修改后均会触发工作流的运行，在工作流完成后，会在下方生成一个可供下载的压缩包，这就是构建出的静态文件，可自行上传至服务器
 
   ![步骤2](/screenshots/step2.jpg)
@@ -48,9 +49,9 @@
 
 - **安装** [node.js](https://nodejs.org/zh-cn/) **环境**
 
-  > node > 16.16.0  
+  > node > 16.16.0
   > npm > 8.15.0
-
+  >
 - 然后以 **管理员权限** 运行 `cmd` 终端，并 `cd` 到 项目根目录
 - 在 `终端` 中输入：
 
@@ -102,7 +103,7 @@ docker run -p 12445:12445 -d home
 },
 ```
 
-其中 `icon` 网站链接的图标可以在 `src/components/Links/index.vue` 中添加:
+其中 `icon` 网站链接的图标可以在 `src/components/Links.vue` 中添加:
 
 ```js
 // 可前往 https://www.xicons.org 自行挑选并在此处引入
@@ -146,7 +147,7 @@ const siteIcon = {
 
 ### 音乐
 
-> 本项目采用了基于 `MetingJS` 的 `Aplayer` 音乐播放器，可实现快速自定义歌单  
+> 本项目采用了基于 `MetingJS` 的 `Aplayer` 音乐播放器，可实现快速自定义歌单
 > \*仅支持 **中国大陆地区**
 
 请在 `.env` 文件中更改歌曲相关参数即可实现自定义歌单列表
@@ -245,4 +246,4 @@ if (type == 0) {
 
 [![Star History Chart](https://api.star-history.com/svg?repos=imsyy/home&type=Date)](https://star-history.com/#imsyy/home&Date)
 
-<a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.imsyy.top"><img src="https://img.shields.io/badge/MySSL-安全认证-brightgreen"></a>&nbsp;<a title="CDN" target="_blank" href="https://cdnjs.com/"><img src="https://img.shields.io/badge/CDN-Cloudflare-blue"></a>&nbsp;<a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2023-%E7%84%A1%E5%90%8D-red"></a>
+<a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.imsyy.top"><img src="https://img.shields.io/badge/MySSL-安全认证-brightgreen"></a> <a title="CDN" target="_blank" href="https://cdnjs.com/"><img src="https://img.shields.io/badge/CDN-Cloudflare-blue"></a> <a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2023-%E7%84%A1%E5%90%8D-red"></a>
