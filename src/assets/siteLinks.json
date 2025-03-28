@@ -2,17 +2,17 @@
   {
     "icon": "Blog",
     "name": "博客",
-    "link": "https://blog.imsyy.top/"
+    "link": "https://sangyufeiwan.com/"
   },
   {
-    "icon": "Cloud",
+    "icon": "Baidu Netdisk",
     "name": "网盘",
-    "link": "https://pan.imsyy.top/"
+    "link": "https://pan.baidu.com/disk/main#/index?category=all"
   },
   {
-    "icon": "CompactDisc",
+    "icon": "Cloud Music",
     "name": "音乐",
-    "link": "https://music.imsyy.top/"
+    "link": "https://music.163.com/"
   },
   {
     "icon": "Compass",
