@@ -3,13 +3,13 @@
     "name": "Github",
     "icon": "/images/icon/github.png",
     "tip": "去 Github 看看",
-    "url": "https://github.com/imsyy"
+    "url": "https://github.com/sangyu520/sangyu520"
   },
   {
     "name": "BiliBili",
     "icon": "/images/icon/bilibili.png",
     "tip": "(゜-゜)つロ 干杯 ~",
-    "url": "https://space.bilibili.com/98544142"
+    "url": "https://www.bilibili.com/"
   },
   {
     "name": "QQ",
@@ -21,18 +21,18 @@
     "name": "Email",
     "icon": "/images/icon/email.png",
     "tip": "来封 Email ~",
-    "url": "mailto:one@imsyy.top"
+    "url": "https://mail.qq.com/cgi-bin/frame_html?sid=Fx2So61OvPAVK1I1&r=c6de0ebd57da5cb9a3f27b79377d0080&lang=zh"
   },
   {
-    "name": "Twitter",
+    "name": "Chat gpt",
     "icon": "/images/icon/twitter.png",
     "tip": "你懂的 ~",
-    "url": "https://twitter.com/iimmsyy"
+    "url": "https://openai.com/chatgpt/overview/"
   },
   {
-    "name": "Telegram",
+    "name": "Tencent Video",
     "icon": "/images/icon/telegram.png",
-    "tip": "你懂的 ~",
-    "url": "https://t.me/bottom_user"
+    "tip": "刷剧 ~",
+    "url": "https://v.qq.com/channel/movie"
   }
 ]

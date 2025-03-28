@@ -34,7 +34,7 @@ const emit = defineEmits(["loadComplete"]);
 
 // 壁纸随机数
 // 请依据文件夹内的图片个数修改 Math.random() 后面的第一个数字
-const bgRandom = Math.floor(Math.random() * 10 + 1);
+const bgRandom = Math.floor(11);
 
 // 更换壁纸链接
 const changeBg = (type) => {
