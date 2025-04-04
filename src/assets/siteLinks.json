@@ -7,7 +7,7 @@
   {
     "icon": "Cloud",
     "name": "网盘",
-    "link": "https://pan.imsyy.top/"
+    "link": "http://159.75.161.133:5244/"
   },
   {
     "icon": "CompactDisc",
@@ -33,5 +33,10 @@
     "icon": "LaptopCode",
     "name": "站点监测",
     "link": "https://status.imsyy.top/"
+  },
+  {
+    "icon": "LaptopCode",
+    "name": "服务器监测",
+    "link": "http://nz.ming1.xyz/"
   }
 ]
