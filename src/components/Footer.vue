@@ -5,8 +5,7 @@
         <span>
           <span :class="startYear < fullYear ? 'c-hidden' : 'hidden'">Copyright&nbsp;</span>
           &copy;
-          <span v-if="startYear < fullYear"
-            class="site-start">
+          <span v-if="startYear < fullYear" class="site-start">
             {{ startYear }}
             -
           </span>
@@ -25,6 +24,15 @@
           &amp;
           <a v-if="siteIcp" href="https://beian.miit.gov.cn" target="_blank">
             {{ siteIcp }}
+          </a>
+        </span>
+        <span>
+          <!-- 站点公安网备备案 -->
+          &amp;
+          <a v-if="sitePsb" :href="`https://beian.mps.gov.cn/#/query/webSearch?code=${sitePsb.match(/\d+/)?.[0]}`"
+            target="_blank" rel="noopener noreferrer">
+            <img src="/public/images/icon/psb.png" style="height:20px;vertical-align:middle;margin-right:5px;">
+            {{ sitePsb }}
           </a>
         </span>
       </div>
@@ -52,10 +60,11 @@ const fullYear = new Date().getFullYear();
 // 加载配置数据
 // const siteStartDate = ref(import.meta.env.VITE_SITE_START);
 const startYear = ref(
-  import.meta.env.VITE_SITE_START?.length >= 4 ? 
-  import.meta.env.VITE_SITE_START.substring(0, 4) : null
+  import.meta.env.VITE_SITE_START?.length >= 4 ?
+    import.meta.env.VITE_SITE_START.substring(0, 4) : null
 );
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
+const sitePsb = ref(import.meta.env.VITE_SITE_PSB);
 const siteAuthor = ref(import.meta.env.VITE_SITE_AUTHOR);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
@@ -82,24 +91,29 @@ const siteUrl = computed(() => {
   // 文字不换行
   word-break: keep-all;
   white-space: nowrap;
+
   .power {
     animation: fade 0.3s;
   }
+
   .lrc {
     padding: 0 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
     .lrc-all {
       width: 98%;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
+
       .lrc-text {
         margin: 0 8px;
       }
+
       .i-icon {
         width: 18px;
         height: 18px;
@@ -107,26 +121,32 @@ const siteUrl = computed(() => {
       }
     }
   }
+
   &.blur {
     backdrop-filter: blur(10px);
     background: rgb(0 0 0 / 25%);
     font-size: 16px;
   }
+
   .fade-enter-active,
   .fade-leave-active {
     transition: opacity 0.15s ease-in-out;
   }
+
   @media (max-width: 720px) {
     font-size: 0.9rem;
+
     &.blur {
       font-size: 0.9rem;
     }
   }
+
   @media (max-width: 560px) {
     .c-hidden {
       display: none;
     }
   }
+
   @media (max-width: 480px) {
     .hidden {
       display: none;
