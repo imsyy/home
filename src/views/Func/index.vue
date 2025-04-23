@@ -49,6 +49,9 @@ const updateTimeData = () => {
   currentTime.value = getCurrentTime();
 };
 
+// 引入配置项
+const timefornt = ref(import.meta.env.VITE_TIME_FRONT); 
+
 onMounted(() => {
   updateTimeData();
   timeInterval.value = setInterval(updateTimeData, 1000);
@@ -125,7 +128,8 @@ onBeforeUnmount(() => {
           margin-top: 10px;
           font-size: 3.25rem;
           letter-spacing: 2px;
-          font-family: "UnidreamLED";
+          font-family: v-bind(timefornt); 
+          font-variant-numeric: tabular-nums; // 强制数字等宽
         }
         @media (min-width: 1201px) and (max-width: 1280px) {
           font-size: 1rem;

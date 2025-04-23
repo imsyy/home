@@ -27,6 +27,13 @@
             {{ siteIcp }}
           </a>
         </span>
+        <!-- 添加：公安备案 -->
+        <span>
+          &amp;
+          <a v-if="sitePsr" href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank">
+            {{ sitePsr }}
+          </a>
+        </span>
       </div>
       <div v-else class="lrc">
         <Transition name="fade" mode="out-in">
@@ -56,6 +63,8 @@ const startYear = ref(
   import.meta.env.VITE_SITE_START.substring(0, 4) : null
 );
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
+// 添加：公安备案
+const sitePsr = ref(import.meta.env.VITE_SITE_PSR); 
 const siteAuthor = ref(import.meta.env.VITE_SITE_AUTHOR);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
