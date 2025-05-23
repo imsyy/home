@@ -34,11 +34,7 @@
       </div>
       <div v-else class="lrc">
         <!-- 音乐进度条 -->
-        <div v-if="store.footerProgressBar" class="progress-bar">
-          <div class="progress" :style="{ width: progressBarWidth + '%' }">
-            <img v-if="showProgressIcon" src="/images/icon/ProgressBar.ico" class="progress-icon" />
-          </div>
-        </div>
+        <MusicProgressBar v-if="store.footerProgressBar" />
         <Transition name="fade" mode="out-in" :id="`lrc-line-${store.playerLrc[0][2]}`"
           v-if="!(!store.yrcEnable || store.yrcTemp.length == 0 || store.yrcLoading)">
           <!-- &amp; -->
@@ -100,7 +96,8 @@ import { Icon } from "@vicons/utils";
 import { Paw } from "@vicons/ionicons5";
 import { mainStore } from "@/store";
 import config from "@/../package.json";
-import { ref, watch, computed, onMounted, nextTick, onUpdated } from "vue";
+import { ref, watch, computed, onMounted, nextTick, onBeforeUnmount } from "vue";
+import MusicProgressBar from "./MusicProgressBar.vue";
 
 const store = mainStore();
 const fullYear = new Date().getFullYear();
@@ -108,65 +105,6 @@ const lrcContainer = ref(null);
 const scrollPosition = ref(0);
 const currentLine = ref(0);
 const showProgressIcon = ref(false);
-
-const handleMouseEnter = () => {
-  showProgressIcon.value = true;
-};
-
-const handleMouseLeave = () => {
-  showProgressIcon.value = false;
-};
-
-const progressIconPosition = ref({ x: 0 });
-const isDragging = ref(false);
-
-const handleDragStart = (event) => {
-  isDragging.value = true;
-  progressIconPosition.value.x = event.clientX;
-};
-
-const handleDrag = (event) => {
-  if (!isDragging.value) return;
-  const deltaX = event.clientX - progressIconPosition.value.x;
-  progressIconPosition.value.x += deltaX;
-  const progressIcon = document.querySelector('.progress-icon');
-  if (progressIcon) {
-    progressIcon.style.transform = `translateX(${progressIconPosition.value.x}px)`;
-  }
-};
-
-const handleDragEnd = (event) => {
-  isDragging.value = false;
-  const progressBar = document.querySelector('.progress-bar');
-  if (progressBar) {
-    const progressBarRect = progressBar.getBoundingClientRect();
-    const newProgress = (event.clientX - progressBarRect.left) / progressBarRect.width;
-    // 赋值步骤先留空，后面再补
-    //  = newProgress * store.playerDuration;
-  }
-  setTimeout(() => {
-    progressIconPosition.value.x = 0;
-    const progressIcon = document.querySelector('.progress-icon');
-    if (progressIcon) {
-      progressIcon.style.transform = `translateX(0)`;
-    }
-  }, 100);
-};
-
-onMounted(async () => {
-  await nextTick();
-  const progressBarShowCheck = document.querySelector('#footer');
-  if (progressBarShowCheck) {
-    progressBarShowCheck.addEventListener('mouseenter', handleMouseEnter);
-    progressBarShowCheck.addEventListener('mouseleave', handleMouseLeave);
-  };
-  const progressIcon = document.querySelector('.progress-icon');
-  if (progressIcon) {
-    progressIcon.addEventListener('mousedown', handleDragStart);
-    document.addEventListener('mousemove', handleDrag);
-    document.addEventListener('mouseup', handleDragEnd);
-  }
-});
 
 // 加载配置数据
 // const siteStartDate = ref(import.meta.env.VITE_SITE_START);
@@ -185,11 +123,6 @@ const siteUrl = computed(() => {
     return "//" + url;
   };
   return url;
-});
-
-const progressBarWidth = computed(() => {
-  if (!store.playerState) return 0;
-  return (store.playerCurrentTime / store.playerDuration) * 100;
 });
 
 // yrc part
@@ -541,39 +474,6 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
 
     .lrc-line.played {
       color: #aaa;
-    }
-  }
-
-  .progress-bar {
-    // 进度条样式
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1.5px;
-    opacity: 1;
-    background-color: rgba(240, 240, 240, 1);
-
-    .progress {
-      height: 100%;
-      width: 100%;
-      opacity: 1;
-      background-color: rgba(138, 43, 226, 1);
-      transition: width 0.1s linear;
-      position: relative;
-
-      .progress-icon {
-        // 进度条图标，请勿修改宽高和边距，这些参数是定嘶的！除非你有大改动的能力
-        position: absolute;
-        top: -16px;
-        right: -16px;
-        opacity: 1;
-        width: 32px;
-        height: 32px;
-        cursor: grab;
-        transform: translateX(var(--progress-icon-x, 0));
-        transition: transform 0.1s linear;
-      }
     }
   }
 
