@@ -102,12 +102,17 @@ onMounted(() => {
         grouping: true,
       });
       if (store.webSpeech) {
-        // 这部分原本是给禁用壁纸预览功能后提供的，如果有需要请自行修改喔！
-        // 可以跟上面的 ElMessage 一样使用 store.backgroundShow 判断，调用两个不同的音频。
-        // stopSpeech();
-        // const voice = import.meta.env.VITE_TTS_Voice;
-        // const vstyle = import.meta.env.VITE_TTS_Style;
-        // SpeechLocal("壁纸预览.mp3");
+        if (store.backgroundShow) {
+          stopSpeech();
+          const voice = import.meta.env.VITE_TTS_Voice;
+          const vstyle = import.meta.env.VITE_TTS_Style;
+          SpeechLocal("壁纸预览已启用.mp3");
+        } else {
+          stopSpeech();
+          const voice = import.meta.env.VITE_TTS_Voice;
+          const vstyle = import.meta.env.VITE_TTS_Style;
+          SpeechLocal("壁纸预览已退出.mp3");
+        };
       };
     }
   });

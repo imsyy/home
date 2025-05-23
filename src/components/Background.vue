@@ -30,6 +30,7 @@ let bgImageCount = 10; // PC 版壁纸
 let bgImageCountP = 2; // 移动版壁纸
 let bgRandom = 0;
 let bgRandomp = 0;
+let sest = 0;
 
 // 加载 config.json
 async function loadConfig() {
@@ -131,26 +132,39 @@ watch(
   },
 );
 
-const SeasonStyle = async () => {
+const SeasonStyle = async (type) => {
   if (store.seasonalEffects) {
     const month = new Date().getMonth() + 1; // 当前月份，1-12
-    if ([12, 1, 2].includes(month)) {
+    if (type == 0) {
+      if (sest == 1) return;
+      if ([12, 1, 2].includes(month)) {
+        initSnowfall();
+      } else if ([1, 2].includes(month)) {
+        await import("@/utils/season/lantern");
+      } else if ([7, 8, 9].includes(month)) {
+        initFirefly();
+      } else {
+        return;
+      };
+    } else if (type == 1) {
       initSnowfall();
-    };
-    if ([1, 2].includes(month)) {
+    } else if (type == 2) {
       await import("@/utils/season/lantern");
-    };
-    if ([7, 8, 9].includes(month)) {
+    } else if (type == 3) {
       initFirefly();
+    } else {
+      return;
     };
   };
+  sest = 1;
 };
+
 
 onMounted(async () => {
   // 加载壁纸
   changeBg(store.coverType);
   // 加载季节特效
-  SeasonStyle();
+  SeasonStyle(0);
 });
 
 onBeforeUnmount(() => {

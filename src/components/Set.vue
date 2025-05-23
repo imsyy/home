@@ -88,12 +88,16 @@
       <el-collapse-item title="其他设置" name="6">
         <div>暂时没有其它啦qwq</div>
       </el-collapse-item>
+      <el-collapse-item v-if="setV" title="开发设置" name="7">
+        <DevSet />
+      </el-collapse-item>
     </el-collapse>
   </div>
 </template>
 
 <script setup>
 import { CheckSmall, CloseSmall, SuccessPicture } from "@icon-park/vue-next";
+import DevSet  from "@/components/DevSet.vue";
 import { mainStore } from "@/store";
 import { storeToRefs } from "pinia";
 import { Speech, stopSpeech, SpeechLocal } from "@/utils/speech";
@@ -116,6 +120,7 @@ const {
   playerYrcATDBF,
   footerProgressBar,
   seasonalEffects,
+  setV,
 } = storeToRefs(store);
 
 // 默认选中项

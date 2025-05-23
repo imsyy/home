@@ -2,7 +2,7 @@
   <APlayer v-if="playList[0]" ref="player" :audio="playList" :autoplay="store.playerAutoplay" :theme="theme"
     :autoSwitch="false" :loop="store.playerLoop" :order="store.playerOrder" :volume="volume" :showLrc="true"
     :listFolded="listFolded" :listMaxHeight="listMaxHeight" :noticeSwitch="false" @play="onPlay" @pause="onPause"
-    @Loadstart="onLoadStart" @timeupdate="onTimeUp" @error="loadMusicError" />
+    @Loadstart="onLoadStart" @timeupdate="onTimeUp" @error="loadMusicError" @canplay="onCanplay" @waiting="onWaiting" />
 </template>
 
 <script setup>
@@ -11,7 +11,7 @@ import { getPlayerList } from "@/api";
 import { mainStore } from "@/store";
 import APlayer from "@worstone/vue-aplayer";
 import { Speech, stopSpeech, SpeechLocal } from "@/utils/speech";
-import { decodeYrc } from "../utils/decodeYrc";
+import { decodeYrc } from "@/utils/decodeYrc";
 
 const store = mainStore();
 let showYrcRunning = 0;
@@ -83,19 +83,16 @@ onMounted(() => {
         // 生成歌单
         playList.value = res;
         if ("mediaSession" in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: "Loading...",
+          });
           // 设置 Media Session 操作
-          navigator.mediaSession.setActionHandler("play", () => {
-            player.value.play();
-          });
-          navigator.mediaSession.setActionHandler("pause", () => {
-            player.value.pause();
-          });
-          navigator.mediaSession.setActionHandler("nexttrack", () => {
-            changeSong(1); // 1 表示下一首
-          });
-          navigator.mediaSession.setActionHandler("previoustrack", () => {
-            changeSong(0); // 0 表示上一首
-          });
+          navigator.mediaSession.setActionHandler("play", () => {player.value.play()});
+          navigator.mediaSession.setActionHandler("pause", () => {player.value.pause()});
+          navigator.mediaSession.setActionHandler("nexttrack", () => {changeSong(1)});
+          navigator.mediaSession.setActionHandler("previoustrack", () => {changeSong(0)});
+          navigator.mediaSession.setActionHandler("seekbackward", () => {seekbackward(5)});
+          navigator.mediaSession.setActionHandler("seekforward", () => {seekforward(5)});
         };
         console.log("音乐加载完成");
       });
@@ -124,6 +121,10 @@ onMounted(() => {
 const onPlay = () => {
   console.log("播放");
   playIndex.value = player.value.aplayer.index;
+  const currentTrack = playList.value[playIndex.value];
+  if (!currentTrack) {
+    return;
+  };
   // 播放状态
   store.setPlayerState(player.value.audioRef.paused);
   // 储存播放器信息
@@ -142,6 +143,7 @@ const onPlay = () => {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: store.getPlayerData.name,
       artist: store.getPlayerData.artist,
+      album: store.getPlayerData.album,
       artwork: [
         {
           src: playList.value[playIndex.value].cover, // 使用当前播放项的封面图像
@@ -150,6 +152,7 @@ const onPlay = () => {
         },
       ],
     });
+    updatePositionState();
   };
 
   if (store.webSpeech) {
@@ -170,6 +173,17 @@ const onPlay = () => {
   };
 };
 
+// 开始播放处理
+const onCanplay = () => {
+  // 播放状态
+  store.setPlayerCanplay(true);
+  updatePositionState();
+};
+
+const onWaiting = () => {
+  store.setPlayerCanplay(false);
+};
+
 // 暂停
 const onPause = () => {
   store.setPlayerState(player.value.audioRef.paused);
@@ -178,6 +192,7 @@ const onPause = () => {
 // 切换播放暂停事件
 const playToggle = () => {
   player.value.toggle();
+  updatePositionState();
 };
 
 // 切换音量事件
@@ -188,6 +203,8 @@ const changeVolume = (value) => {
 // 切换上下曲
 const changeSong = (type) => {
   type === 0 ? player.value.skipBack() : player.value.skipForward();
+  store.setPlayerCanplay(false);
+  updatePositionState();
   nextTick(() => {
     player.value.play();
   });
@@ -196,6 +213,49 @@ const changeSong = (type) => {
 // 切换歌曲列表状态
 const toggleList = () => {
   player.value.toggleList();
+};
+
+// 快退
+const seekbackward = (value) => {
+  const dur = player.value.audioStatus.duration;
+  const currentTime = player.value.audioStatus.playedTime;
+  const ti = currentTime - value;
+  if (ti > dur) {
+    changeSong(1);
+  } else if (ti < dur) {
+    player.value.aplayer.seek(0);
+  } else {
+    player.value.aplayer.seek(ti);
+  };
+  updatePositionState();
+};
+
+// 快进
+const seekforward = (value) => {
+  const dur = player.value.audioStatus.duration;
+  const currentTime = player.value.audioStatus.playedTime;
+  const ti = currentTime + value;
+  if (ti > dur) {
+    changeSong(1);
+  } else if (ti < dur) {
+    player.value.aplayer.seek(0);
+  } else {
+    player.value.aplayer.seek(ti);
+  };
+  updatePositionState();
+};
+
+// 跳转
+const seektime = (value) => {
+  const dur = player.value.audioStatus.duration;
+  if (value > dur) {
+    changeSong(1);
+  } else if (value < 0) {
+    player.value.aplayer.seek(0);
+  } else {
+    player.value.aplayer.seek(value);
+  };
+  updatePositionState();
 };
 
 // 加载音频错误
@@ -316,6 +376,13 @@ const onTimeUp = () => {
   if (showYrcRunning == 0 && player.value != null && player.value.aplayer != null) {
     requestAnimationFrame(syncYrcLrc);
   };
+};
+
+function updatePositionState() {
+  navigator.mediaSession.setPositionState({
+    duration: player.value.audioStatus.duration,
+    position: player.value.audioStatus.playedTime,
+  });
 };
 
 function syncYrcLrc() {

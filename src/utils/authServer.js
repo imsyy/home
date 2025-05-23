@@ -14,6 +14,9 @@ const f = () => Math.floor(Date.now() / 1000);
 const o = (v) => v.toString(16);
 
 async function gst() {
+    // 为什么这里要整一个模块用于获取网络时间呢...
+    // 因为客户端时间不可信，即使客户端会自动对时，也很难避免差个几十秒的情况...
+    // 而下面的签名 Token，有效期设置的都是几秒级别，所以优先使用网络时间。
     if (!x) {
         try {
             const { timestamp: t } = await (await fetch("https://nanorocky.top/time/")).json();
@@ -47,25 +50,25 @@ export async function gasA(p, s) {
 export async function gasB(u, s) {
     const { origin: ul, pathname: p } = new URL(u);
     const t = new Date((await gst()) * 1000 + 8 * 3600 * 1000).toISOString().replace(/[-T:]|(\..*)/g, "").substring(0, 12);
-    return `${ul}/${t}/${d(`${s}${t}/${p}`)}/${p}`;
+    return `${ul}/${t}/${d(`${s}${t}/${p.startsWith('/') ? p.slice(1) : p}`)}/${p.startsWith('/') ? p.slice(1) : p}`;
 };
 
 export async function gasC(u, s) {
     const { origin: ul, pathname: p } = new URL(u);
     const t = o((await gst()));
-    return `${ul}/${d(`${s}/${p}${t}`)}/${t}/${p}`;
+    return `${ul}/${d(`${s}/${p.startsWith('/') ? p.slice(1) : p}${t}`)}/${t}/${p.startsWith('/') ? p.slice(1) : p}`;
 };
 
 export async function gasDH(u, s) {
     const ul = new URL(u), p = ul.pathname, t = await gst();
-    ul.searchParams.set("sign", d(`${s}/${p}${t}`));
+    ul.searchParams.set("sign", d(`${s}/${p.startsWith('/') ? p.slice(1) : p}${t}`));
     ul.searchParams.set("t", t);
     return ul.toString();
 };
 
 export async function gasDI(u, s) {
     const ul = new URL(u), p = ul.pathname, t = o(await gst());
-    ul.searchParams.set("sign", d(`${s}/${p}${t}`));
+    ul.searchParams.set("sign", d(`${s}/${p.startsWith('/') ? p.slice(1) : p}${t}`));
     ul.searchParams.set("t", t);
     return ul.toString();
 };

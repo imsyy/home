@@ -16,9 +16,12 @@ export const mainStore = defineStore("main", {
     mobileOpenState: false, // 移动端开启状态
     mobileFuncState: false, // 移动端功能区开启状态
     setOpenState: false, // 设置页面开启状态
+    setV: false, // 不知道
     playerState: false, // 当前播放状态
+    playerCanplay: false, // 当前音乐是否完成加载
     playerTitle: null, // 当前播放歌曲名
     playerArtist: null, // 当前播放歌手名
+    playerAlbum: null, // 当前播放专辑名
     playerLrc: [[true, "歌词加载中"]], // 当前播放歌词
     playerLrcShow: true, // 是否显示底栏歌词
     footerBlur: true, // 底栏模糊
@@ -49,6 +52,7 @@ export const mainStore = defineStore("main", {
       return {
         name: state.playerTitle,
         artist: state.playerArtist,
+        album: state.playerAlbum,
       };
     },
     // 获取页面宽度
@@ -72,6 +76,10 @@ export const mainStore = defineStore("main", {
       } else {
         this.playerState = true;
       }
+    },
+    // 更改音乐加载状态
+    setPlayerCanplay(value) {
+      this.playerCanplay = value;
     },
     // 更改歌词
     setPlayerLrc(value) {
@@ -116,7 +124,7 @@ export const mainStore = defineStore("main", {
       storage: sessionStorage,
       pick: [
         // 会话性存储，这里的变量在重新打开页面时恢复默认值，多个窗口不互通，用于存储一些特殊的仅本次生效的设置
-
+        'setV',
       ],
     },
   ],

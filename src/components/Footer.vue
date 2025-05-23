@@ -21,20 +21,18 @@
         </span>
         <!-- 站点备案 -->
         <span>
-          &amp;
           <a v-if="siteIcp" href="https://beian.miit.gov.cn" target="_blank">
-            {{ siteIcp }}
+            &amp;&nbsp;{{ siteIcp }}
           </a>
-          &amp;
           <!-- 这备那备的真的很扫（bushi） -->
           <a v-if="siteMps" href="https://beian.mps.gov.cn" target="_blank">
-            {{ siteMps }}
+            &amp;&nbsp;{{ siteMps }}
           </a>
         </span>
       </div>
-      <div v-else class="lrc">
+      <div v-else class="lrc" @dblclick="toggleForceIcon">
         <!-- 音乐进度条 -->
-        <MusicProgressBar v-if="store.footerProgressBar" />
+        <ProgressBar v-if="store.footerProgressBar" :forceShowIcon="forceShowIcon" />
         <Transition name="fade" mode="out-in" :id="`lrc-line-${store.playerLrc[0][2]}`"
           v-if="!(!store.yrcEnable || store.yrcTemp.length == 0 || store.yrcLoading)">
           <!-- &amp; -->
@@ -91,20 +89,24 @@
 </template>
 
 <script setup>
+import ProgressBar from "@/components/ProgressBar.vue";
+import { Speech, stopSpeech, SpeechLocal } from "@/utils/speech";
 import { MusicOne } from "@icon-park/vue-next";
 import { Icon } from "@vicons/utils";
 import { Paw } from "@vicons/ionicons5";
 import { mainStore } from "@/store";
 import config from "@/../package.json";
 import { ref, watch, computed, onMounted, nextTick, onBeforeUnmount } from "vue";
-import MusicProgressBar from "./MusicProgressBar.vue";
+import { throttle } from "lodash";
 
 const store = mainStore();
 const fullYear = new Date().getFullYear();
 const lrcContainer = ref(null);
 const scrollPosition = ref(0);
 const currentLine = ref(0);
-const showProgressIcon = ref(false);
+const audio = ref(null);
+const icon = ref(null);
+const forceShowIcon = ref(false);
 
 // 加载配置数据
 // const siteStartDate = ref(import.meta.env.VITE_SITE_START);
@@ -124,6 +126,25 @@ const siteUrl = computed(() => {
   };
   return url;
 });
+
+const toggleForceIcon = () => {
+  forceShowIcon.value = !forceShowIcon.value;
+  ElMessage({
+    dangerouslyUseHTMLString: true,
+    message: `${forceShowIcon.value ? '诶？' : '进度 ICON 常驻已禁用'}`,
+  });
+  if (forceShowIcon.value) {
+    stopSpeech();
+    const voice = import.meta.env.VITE_TTS_Voice;
+    const vstyle = import.meta.env.VITE_TTS_Style;
+    SpeechLocal("启用进度图标常驻.mp3");
+  } else {
+    stopSpeech();
+    const voice = import.meta.env.VITE_TTS_Voice;
+    const vstyle = import.meta.env.VITE_TTS_Style;
+    SpeechLocal("禁用进度图标常驻.mp3");
+  };
+};
 
 // yrc part
 watch(() => store.getPlayerLrc, (_new, _old) => {
@@ -202,6 +223,7 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
 .yrc-char {
   display: inline-block;
   opacity: 0.6;
+  -webkit-transform: translateY(1px);
   transform: translateY(1px);
   -webkit-background-clip: text;
   background-clip: text;
@@ -214,6 +236,7 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
   &.fade-in-start {
     text-shadow: 0px 0px 2px rgba(255, 240, 245, 1);
     opacity: 0.6; // 初始显示的透明度
+    -webkit-transform: translateY(1px);
     transform: translateY(1px);
     transition:
       color 0.5s linear,
@@ -223,6 +246,7 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
 
   &.fade-in {
     opacity: 1;
+    -webkit-transform: translateY(-1px);
     transform: translateY(-1px);
     animation: colorFade 0.7s ease-in-out forwards;
     transition:
@@ -233,6 +257,7 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
 
   &.fade-out {
     opacity: 1;
+    -webkit-transform: translateY(-1px);
     transform: translateY(-1px);
     text-shadow: 0px 0px 6px rgba(255, 240, 245, 1),
       0px 0px 2px rgba(176, 224, 230, 1),
@@ -249,6 +274,7 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
 
   &.long-tone {
     opacity: 1;
+    -webkit-transform: translateY(-1px);
     transform: translateY(-1px);
     animation: pulse 1s ease-in-out forwards;
     transition:
@@ -281,10 +307,12 @@ watch(() => store.getPlayerLrc, (_new, _old) => {
 
 @keyframes float-up {
   from {
+    -webkit-transform: translateY(1px);
     transform: translateY(1px);
   }
 
   to {
+    -webkit-transform: translateY(-1px);
     transform: translateY(-1px);
   }
 }

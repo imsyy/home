@@ -47,6 +47,7 @@ export const getPlayerList = async (server, type, id, yrc) => {
     return data.map((v, i) => ({
       name: v.name || v.title,
       artist: v.artist || v.author,
+      album: v.album || import.meta.env.VITE_SITE_NAME,
       url: domain + jsonpData.req_0.data.midurlinfo[i].purl,
       cover: v.cover || v.pic,
       lrc: v.lrc,
@@ -55,6 +56,7 @@ export const getPlayerList = async (server, type, id, yrc) => {
     return data.map((v) => ({
       name: v.name || v.title,
       artist: v.artist || v.author,
+      album: v.album || import.meta.env.VITE_SITE_NAME,   // 没办法，Netease 的 SONG 接口压根不返回专辑名，搜索接口倒是有...
       url: v.url,
       cover: v.cover || v.pic,
       lrc: v.lrc,

@@ -239,7 +239,7 @@ const getHXHW = async () => {
     weather: result.data.type || result.data.night.type,
     temperature: getTemperature(result.data.low || result.data.night.low, result.data.high || result.data.night.high),
     winddirection: result.data.fengxiang || result.data.night.fengxiang,
-    windpower: result.data.fengli || result.data.night.fengli,
+    windpower: (!result.data.fengli || result.data.fengli.trim() === '级')? result.data.night?.fengli || '未知' : result.data.fengli,
   };
 };
 

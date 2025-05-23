@@ -20,13 +20,9 @@
           <Set />
         </div>
         <div class="version">
-          <div class="num">v&nbsp;{{ config.version }}</div>
-          <el-tooltip content="Powered by imsyy" placement="right" :show-arrow="false">
-            <github-one class="github" theme="outline" size="24" @click="jumpTo(config.github)" />
-          </el-tooltip>
-          <el-tooltip content="Extension Function Updates by NanoRocky" placement="right" :show-arrow="false">
-            <file-editing-one class="github" theme="outline" size="24" @click="jumpTo(config.efug)" />
-          </el-tooltip>
+          <div class="num" @dblclick="toggleVer">v&nbsp;{{ config.version }}</div>
+          <github-one class="github" theme="outline" size="24" @click="jumpTo(config.github)" />
+          <file-editing-one class="github" theme="outline" size="24" @click="jumpTo(config.efug)" />
         </div>
       </el-col>
     </el-row>
@@ -43,11 +39,13 @@
           <span class="sm">.{{ siteUrl[1] }}</span>
         </div>
         <div class="version">
-          <div class="num">v&nbsp;{{ config.version }}</div>
-          <el-tooltip content="Github 源代码仓库" placement="right" :show-arrow="false">
+          <el-tooltip content="Version" placement="top" :show-arrow="false">
+            <div class="num" @dblclick="toggleVer">v&nbsp;{{ config.version }}</div>
+          </el-tooltip>
+          <el-tooltip content="Github 源代码仓库" placement="top" :show-arrow="false">
             <github-one class="github" theme="outline" size="24" @click="jumpTo(config.github)" />
           </el-tooltip>
-          <el-tooltip content="扩展功能更新仓库" placement="right" :show-arrow="false">
+          <el-tooltip content="扩展功能更新仓库" placement="top" :show-arrow="false">
             <file-editing-one class="github" theme="outline" size="24" @click="jumpTo(config.efug)" />
           </el-tooltip>
         </div>
@@ -83,12 +81,14 @@
 
 <script setup>
 import { CloseOne, SettingTwo, GithubOne, AddOne, Bug, FileEditingOne } from "@icon-park/vue-next";
+import { Speech, stopSpeech, SpeechLocal } from "@/utils/speech";
 import { mainStore } from "@/store";
 import Set from "@/components/Set.vue";
 import config from "@/../package.json";
 
 const store = mainStore();
 const closeShow = ref(false);
+let chuover = 0;
 
 // 站点链接
 const siteUrl = computed(() => {
@@ -115,6 +115,30 @@ const upData = reactive({
   ],
   fix: ["消除依赖及功能弃用提示", "增强网页兼容性", "修复 Player 模块的故障"],
 });
+
+const toggleVer = () => {
+  chuover = chuover + 1;
+  if (chuover > 4) {
+    ElMessage({
+      dangerouslyUseHTMLString: true,
+      message: `怎么还在戳哇喂！有那么神秘嘛...？`,
+    });
+    stopSpeech();
+    const voice = import.meta.env.VITE_TTS_Voice;
+    const vstyle = import.meta.env.VITE_TTS_Style;
+    SpeechLocal("戳戳版本.mp3");
+    store.setV = true;
+  } else {
+    ElMessage({
+      dangerouslyUseHTMLString: true,
+      message: `诶？是在找...什么神秘的东西嘛？`,
+    });
+    stopSpeech();
+    const voice = import.meta.env.VITE_TTS_Voice;
+    const vstyle = import.meta.env.VITE_TTS_Style;
+    SpeechLocal("戳版本.mp3");
+  };
+};
 
 // 跳转源代码仓库
 const jumpTo = (url) => {
