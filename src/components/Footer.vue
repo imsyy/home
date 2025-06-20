@@ -3,15 +3,13 @@
     <Transition name="fade" mode="out-in">
       <div v-if="!store.playerState || !store.playerLrcShow" class="power">
         <span>
-          <span :class="startYear < fullYear ? 'c-hidden' : 'hidden'">Copyright&nbsp;</span>
-          &copy;
-          <span v-if="startYear < fullYear"
-            class="site-start">
-            {{ startYear }}
+          Copyright&nbsp;&copy;
+          <span v-if="siteStartDate?.length >= 4" class="site-start">
+            {{ siteStartDate.substring(0, 4) }}
             -
           </span>
           {{ fullYear }}
-          <a :href="siteUrl">{{ siteAuthor }}</a>
+          <a :href="siteUrl">{{ siteAnthor }}</a>
         </span>
         <!-- 以下信息请不要修改哦 -->
         <span class="hidden">
@@ -21,12 +19,10 @@
           </a>
         </span>
         <!-- 站点备案 -->
-        <span>
+        <a :href="siteIcpUrl" target="_blank">
           &amp;
-          <a v-if="siteIcp" href="https://beian.miit.gov.cn" target="_blank">
-            {{ siteIcp }}
-          </a>
-        </span>
+          {{ siteIcp }}
+        </a>
       </div>
       <div v-else class="lrc">
         <Transition name="fade" mode="out-in">
@@ -50,13 +46,10 @@ const store = mainStore();
 const fullYear = new Date().getFullYear();
 
 // 加载配置数据
-// const siteStartDate = ref(import.meta.env.VITE_SITE_START);
-const startYear = ref(
-  import.meta.env.VITE_SITE_START?.length >= 4 ? 
-  import.meta.env.VITE_SITE_START.substring(0, 4) : null
-);
+const siteStartDate = ref(import.meta.env.VITE_SITE_START);
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
-const siteAuthor = ref(import.meta.env.VITE_SITE_AUTHOR);
+const siteIcpUrl = ref(import.meta.env.VITE_SITE_ICP_URL);
+const siteAnthor = ref(import.meta.env.VITE_SITE_ANTHOR);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
   if (!url) return "https://www.imsyy.top";
@@ -79,9 +72,6 @@ const siteUrl = computed(() => {
   text-align: center;
   z-index: 0;
   font-size: 14px;
-  // 文字不换行
-  word-break: keep-all;
-  white-space: nowrap;
   .power {
     animation: fade 0.3s;
   }
@@ -117,14 +107,9 @@ const siteUrl = computed(() => {
     transition: opacity 0.15s ease-in-out;
   }
   @media (max-width: 720px) {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     &.blur {
-      font-size: 0.9rem;
-    }
-  }
-  @media (max-width: 560px) {
-    .c-hidden {
-      display: none;
+      font-size: 0.85rem;
     }
   }
   @media (max-width: 480px) {
