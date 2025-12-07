@@ -2,14 +2,13 @@
 
 > [!IMPORTANT]
 > ## 致大家
-> 此项目最初只是一个简单的主页。然而，随着越来越多的小伙伴发现了这个项目，它受到了大量本不应有的关注。而且，此项目作为初学前端的作品，其代码相当杂乱且质量低下。此外，该项目还遭到众多不明资源站或下载站的倒卖，致使许多不明真相的购买者从源代码中找到本人的联系方式进行问题咨询或提出功能需求。但由于目前个人生活方面的原因，且本人未曾从此项目获取任何收益，所以已无力维护此项目。该仓库不会存档，会积极接受各位大佬的 PR，不过不会针对任何新功能或 Bug 做出更新，敬请谅解！
+> 此项目基于已归档 [imsyy/home](https://github.com/imsyy/home) 项目 fork 出来。因为原作者已归档，所以要啥只能自己动手丰衣足食力。
+> 
+> 本项目遵循 [MIT](LICENSE) 与 [imsyy/LICENSE](imsyy_LICENSE) 持续开源 
 
-<p>
-<strong><h2>無名の主页</h2></strong>
-简单的小主页，原来的看够了，重新弄了一个
-</p>
+<strong><h2>WaveYo Home</h2></strong>
 
-![無名の主页](/screenshots/main.jpg)
+![WaveYo Home ScreenShot](screenshots/WaveYo-main.png)
 
 > 主页的 Logo 字体已经过压缩，若用本站 Logo 以外的字母会变回默认字体，这里是 [完整字体](https://file.imsyy.top/font/Other/Pacifico-Regular.ttf)，若无法下载，可将字体目录下的 `Pacifico-Regular-all.ttf` 进行替换
 
@@ -17,9 +16,7 @@
 
 > 由于 CDN 缓存原因，查看最新效果可能需要 `Ctrl` + `F5` 强制刷新浏览器缓存
 
-- [無名の主页](https://www.imsyy.top)
-- [無名の主页 - Dev](https://home-imsyy.vercel.app)
-- [無名の主页 - 备用线路](https://home-5iw.pages.dev)
+- [WaveYo Home](https://home.waveyo.cn)
 
 ### 🎉 功能
 
@@ -153,13 +150,13 @@ const siteIcon = {
 
 ```bash
 # 歌曲 API 地址
-VITE_SONG_API = "https://api-meting.imsyy.top"
+VITE_SONG_API = "https://music.waveyo.cn/api"
 # 歌曲服务器 ( netease-网易云, tencent-qq音乐 )
 VITE_SONG_SERVER = "netease"
 # 播放类型 ( song-歌曲, playlist-播放列表, album-专辑, search-搜索, artist-艺术家 )
 VITE_SONG_TYPE = "playlist"
 # 播放 ID
-VITE_SONG_ID = "7452421335"
+VITE_SONG_ID = "12752948320"
 ```
 
 ### 字体
@@ -241,8 +238,10 @@ if (type == 0) {
 - [高德开放平台](https://lbs.amap.com/)
 - [Hitokoto 一言](https://hitokoto.cn/)
 
-## Star History
+## imsyy/home Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=imsyy/home&type=Date)](https://star-history.com/#imsyy/home&Date)
 
-<a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.imsyy.top"><img src="https://img.shields.io/badge/MySSL-安全认证-brightgreen"></a>&nbsp;<a title="CDN" target="_blank" href="https://cdnjs.com/"><img src="https://img.shields.io/badge/CDN-Cloudflare-blue"></a>&nbsp;<a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2023-%E7%84%A1%E5%90%8D-red"></a>
+<a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.waveyo.cn"><img src="https://img.shields.io/badge/MySSL-安全认证-brightgreen"></a>&nbsp;
+<a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2023-%E7%84%A1%E5%90%8D-red"></a>&nbsp;
+<a title="Copyright" target="_blank" href="https://home.waveyo.cn/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202025--2025-WaveYo | Waves_Man-red"></a>&nbsp;
