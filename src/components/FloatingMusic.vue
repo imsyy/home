@@ -136,7 +136,6 @@
         <div class="player-ui" :class="{ open: listOpen }" v-show="listOpen">
           <Player
             ref="playerRef"
-            :key="listOpen ? 'list-open' : 'list-close'"
             :songServer="playerData.server"
             :songType="playerData.type"
             :songId="playerData.id"
