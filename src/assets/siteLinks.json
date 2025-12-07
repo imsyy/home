@@ -1,37 +1,27 @@
 [
   {
     "icon": "Blog",
-    "name": "博客",
-    "link": "https://blog.imsyy.top/"
+    "name": "WaveYo Blog",
+    "link": "http://blog.waveyo.cn/"
   },
   {
-    "icon": "Cloud",
-    "name": "网盘",
-    "link": "https://pan.imsyy.top/"
+    "icon": "Blog",
+    "name": "Global Blog",
+    "link": "http://global.waveyo.cn/"
   },
   {
-    "icon": "CompactDisc",
-    "name": "音乐",
-    "link": "https://music.imsyy.top/"
+    "icon":"StatusAcknowledge",
+    "name":"WaveYo 状态",
+    "link":"http://status.waveyo.cn"
   },
   {
-    "icon": "Compass",
-    "name": "起始页",
-    "link": "https://nav.imsyy.top/"
+    "icon":"Book",
+    "name":"Library",
+    "link":"http://library.waveyo.cn"
   },
   {
-    "icon": "Book",
-    "name": "网址集",
-    "link": "https://web.imsyy.top/"
-  },
-  {
-    "icon": "Fire",
-    "name": "今日热榜",
-    "link": "https://hot.imsyy.top/"
-  },
-  {
-    "icon": "LaptopCode",
-    "name": "站点监测",
-    "link": "https://status.imsyy.top/"
+    "icon": "Alipay",
+    "name": "赞助我",
+    "link": "http://dq.waveyo.cn"
   }
 ]

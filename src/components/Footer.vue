@@ -2,37 +2,20 @@
   <footer id="footer" :class="store.footerBlur ? 'blur' : null">
     <Transition name="fade" mode="out-in">
       <div v-if="!store.playerState || !store.playerLrcShow" class="power">
-        <span>
+        <span class="meta">
           <span :class="startYear < fullYear ? 'c-hidden' : 'hidden'">Copyright&nbsp;</span>
           &copy;
-          <span v-if="startYear < fullYear"
-            class="site-start">
-            {{ startYear }}
-            -
-          </span>
+          <span v-if="startYear < fullYear" class="site-start">{{ startYear }}-</span>
           {{ fullYear }}
           <a :href="siteUrl">{{ siteAuthor }}</a>
         </span>
-        <!-- 以下信息请不要修改哦 -->
-        <span class="hidden">
-          &amp;&nbsp;Made&nbsp;by
-          <a :href="config.github" target="_blank">
-            {{ config.author }}
-          </a>
+        <span class="sep" v-if="!footerCompact && siteIcp">&amp;</span>
+        <span class="meta" v-if="siteIcp">
+          <a href="https://beian.miit.gov.cn" target="_blank">{{ siteIcp }}</a>
         </span>
-        <!-- 站点备案 -->
-        <span>
-          &amp;
-          <a v-if="siteIcp" href="https://beian.miit.gov.cn" target="_blank">
-            {{ siteIcp }}
-          </a>
-        </span>
-        <!-- 添加：公安备案 -->
-        <span>
-          &amp;
-          <a v-if="sitePsr" href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank">
-            {{ sitePsr }}
-          </a>
+        <span class="sep" v-if="!footerCompact && sitePsr">&amp;</span>
+        <span class="meta" v-if="sitePsr">
+          <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank">{{ sitePsr }}</a>
         </span>
       </div>
       <div v-else class="lrc">
@@ -51,30 +34,26 @@
 <script setup>
 import { MusicOne } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
-import config from "@/../package.json";
 
 const store = mainStore();
 const fullYear = new Date().getFullYear();
 
-// 加载配置数据
-// const siteStartDate = ref(import.meta.env.VITE_SITE_START);
 const startYear = ref(
-  import.meta.env.VITE_SITE_START?.length >= 4 ? 
+  import.meta.env.VITE_SITE_START?.length >= 4 ?
   import.meta.env.VITE_SITE_START.substring(0, 4) : null
 );
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
-// 添加：公安备案
-const sitePsr = ref(import.meta.env.VITE_SITE_PSR); 
+const sitePsr = ref(import.meta.env.VITE_SITE_PSR);
 const siteAuthor = ref(import.meta.env.VITE_SITE_AUTHOR);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
-  if (!url) return "https://www.imsyy.top";
-  // 判断协议前缀
+  if (!url) return "https://home.waveyo.cn";
   if (!url.startsWith("http://") && !url.startsWith("https://")) {
     return "//" + url;
   }
   return url;
 });
+const footerCompact = computed(() => (store.getInnerWidth || window.innerWidth) < 560);
 </script>
 
 <style lang="scss" scoped>
@@ -83,16 +62,25 @@ const siteUrl = computed(() => {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 46px;
-  line-height: 46px;
+  min-height: 46px;
+  height: auto;
+  line-height: normal;
   text-align: center;
   z-index: 0;
   font-size: 14px;
-  // 文字不换行
   word-break: keep-all;
   white-space: nowrap;
   .power {
     animation: fade 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: normal;
+    line-height: 1.6;
+    .meta { display: inline-flex; align-items: center; gap: 4px; }
+    .sep { opacity: 0.85; }
   }
   .lrc {
     padding: 0 20px;
@@ -100,6 +88,7 @@ const siteUrl = computed(() => {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    line-height: 46px;
     .lrc-all {
       width: 98%;
       display: flex;

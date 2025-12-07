@@ -1,22 +1,5 @@
 <template>
-  <div
-    class="hitokoto cards"
-    v-show="!store.musicOpenState"
-    @mouseenter="openMusicShow = true"
-    @mouseleave="openMusicShow = false"
-    @click.stop
-  >
-    <!-- 打开音乐面板 -->
-    <Transition name="el-fade-in-linear">
-      <div
-        class="open-music"
-        v-show="openMusicShow && store.musicIsOk"
-        @click="store.musicOpenState = true"
-      >
-        <music-menu theme="filled" size="18" fill="#efefef" />
-        <span>打开音乐播放器</span>
-      </div>
-    </Transition>
+  <div class="hitokoto cards" @click.stop>
     <!-- 一言内容 -->
     <Transition name="el-fade-in-linear" mode="out-in">
       <div :key="hitokotoData.text" class="content" @click="updateHitokoto">
@@ -28,15 +11,12 @@
 </template>
 
 <script setup>
-import { MusicMenu, Error } from "@icon-park/vue-next";
+import { Error } from "@icon-park/vue-next";
 import { getHitokoto } from "@/api";
-import { mainStore } from "@/store";
 import debounce from "@/utils/debounce.js";
 
-const store = mainStore();
-
 // 开启音乐面板按钮显隐
-const openMusicShow = ref(false);
+// 已移除打开音乐入口
 
 // 一言数据
 const hitokotoData = reactive({

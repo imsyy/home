@@ -63,7 +63,7 @@ const closeShow = ref(false);
 // 站点链接
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
-  if (!url) return "imsyy.top".split(".");
+  if (!url) return "waveyo.cn".split(".");
   // 判断协议前缀
   if (url.startsWith("http://") || url.startsWith("https://")) {
     const urlFormat = url.replace(/^(https?:\/\/)/, "");
@@ -75,6 +75,9 @@ const siteUrl = computed(() => {
 // 更新日志
 const upData = reactive({
   new: [
+    "重建了一批Flex响应",
+    "重构了播放器UI",
+    "添加了完整的双备案显示",
     "采用 Vue 进行重构",
     "音乐歌单支持快速自定义",
     "壁纸支持个性化设置",

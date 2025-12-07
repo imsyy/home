@@ -2,6 +2,7 @@
   <APlayer
     v-if="playList[0]"
     ref="player"
+    :key="playerKey"
     :audio="playList"
     :autoplay="store.playerAutoplay"
     :theme="theme"
@@ -25,6 +26,7 @@ import { MusicOne, PlayWrong } from "@icon-park/vue-next";
 import { getPlayerList } from "@/api";
 import { mainStore } from "@/store";
 import APlayer from "@worstone/vue-aplayer";
+import { ElMessageBox } from "element-plus";
 
 const store = mainStore();
 
@@ -36,6 +38,13 @@ const playList = ref([]);
 
 // 歌曲播放项
 const playIndex = ref(0);
+
+// 播放进度
+const audioDuration = ref(0);
+const audioCurrent = ref(0);
+
+// 用于强制重建播放器以应用播放顺序/循环变更
+const playerKey = computed(() => `${store.playerLoop}-${store.playerOrder}`);
 
 // 配置项
 const props = defineProps({
@@ -88,14 +97,41 @@ onMounted(() => {
   nextTick(() => {
     try {
       getPlayerList(props.songServer, props.songType, props.songId).then((res) => {
-        console.log(res);
+        console.log('[Player] 播放列表加载完成', res);
         // 更改播放器加载状态
         store.musicIsOk = true;
         // 生成歌单
         playList.value = res;
-        console.log("音乐加载完成");
-        console.log(playList.value);
-        console.log(playIndex.value, playList.value.length, props.volume);
+        console.log('[Player] 初始化', {
+          listLength: playList.value.length,
+          volume: props.volume,
+          loop: store.playerLoop,
+          order: store.playerOrder,
+        });
+
+        // 首次选择是否自动播放（持久化）
+        if (!store.playerAutoplayConfirmed) {
+          ElMessageBox.confirm(
+            '是否开启自动播放音乐？',
+            '提示',
+            {
+              confirmButtonText: '是',
+              cancelButtonText: '否',
+              type: 'info',
+            },
+          )
+            .then(() => {
+              store.playerAutoplay = true;
+              store.playerAutoplayConfirmed = true;
+              player.value.play();
+              console.log('[Player] 用户选择自动播放: 开启');
+            })
+            .catch(() => {
+              store.playerAutoplay = false;
+              store.playerAutoplayConfirmed = true;
+              console.log('[Player] 用户选择自动播放: 关闭');
+            });
+        }
       });
     } catch (err) {
       console.error(err);
@@ -114,12 +150,23 @@ onMounted(() => {
 
 // 播放
 const onPlay = () => {
-  console.log("播放");
+  console.log('[Player] 播放');
   playIndex.value = player.value.aplayer.index;
   // 播放状态
   store.setPlayerState(player.value.audioRef.paused);
   // 储存播放器信息
-  store.setPlayerData(playList.value[playIndex.value].name, playList.value[playIndex.value].artist);
+  store.setPlayerData(
+    playList.value[playIndex.value].name,
+    playList.value[playIndex.value].artist,
+    playList.value[playIndex.value].cover
+  );
+  console.log('[Player] 当前曲目', {
+    index: playIndex.value,
+    name: playList.value[playIndex.value].name,
+    artist: playList.value[playIndex.value].artist,
+    loop: store.playerLoop,
+    order: store.playerOrder,
+  });
   ElMessage({
     message: store.getPlayerData.name + " - " + store.getPlayerData.artist,
     grouping: true,
@@ -133,10 +180,21 @@ const onPlay = () => {
 // 暂停
 const onPause = () => {
   store.setPlayerState(player.value.audioRef.paused);
+  console.log('[Player] 暂停');
 };
 
 // 音频时间更新事件
 const onTimeUp = () => {
+  // 更新时间
+  audioDuration.value = player.value.audioRef.duration;
+  audioCurrent.value = player.value.audioRef.currentTime;
+  if (Math.floor(audioCurrent.value) % 10 === 0) {
+    console.log('[Player] 进度', {
+      current: audioCurrent.value,
+      duration: audioDuration.value,
+    });
+  }
+  
   let lyrics = player.value.aplayer.lyrics[playIndex.value];
   let lyricIndex = player.value.aplayer.lyricIndex;
   if (!lyrics || !lyrics[lyricIndex]) {
@@ -154,11 +212,13 @@ const onTimeUp = () => {
 // 切换播放暂停事件
 const playToggle = () => {
   player.value.toggle();
+  console.log('[Player] 切换播放/暂停');
 };
 
 // 切换音量事件
 const changeVolume = (value) => {
   player.value.setVolume(value, false);
+  console.log('[Player] 音量', value);
 };
 
 // 切换上下曲
@@ -166,12 +226,14 @@ const changeSong = (type) => {
   type === 0 ? player.value.skipBack() : player.value.skipForward();
   nextTick(() => {
     player.value.play();
+    console.log('[Player] 切歌', type === 0 ? '上一首' : '下一首', '-> index', player.value.aplayer.index);
   });
 };
 
 // 切换歌曲列表状态
 const toggleList = () => {
   player.value.toggleList();
+  console.log('[Player] 列表显示切换');
 };
 
 // 加载音频错误
@@ -196,13 +258,36 @@ const loadMusicError = () => {
   );
 };
 
+// 监听播放模式变更日志
+watch(
+  () => store.playerLoop,
+  (val) => {
+    console.log('[Player] 循环模式变更', val);
+  },
+);
+watch(
+  () => store.playerOrder,
+  (val) => {
+    console.log('[Player] 播放顺序变更', val);
+  },
+);
+
 // 暴露子组件方法
-defineExpose({ playToggle, changeVolume, changeSong, toggleList });
+defineExpose({
+  playToggle,
+  changeVolume,
+  changeSong,
+  toggleList,
+  audioDuration,
+  audioCurrent,
+  player,
+});
 </script>
 
 <style lang="scss" scoped>
 .aplayer {
-  width: 80%;
+  width: 100%;
+  min-height: 270px;
   border-radius: 6px;
   font-family: "HarmonyOS_Regular", sans-serif !important;
   :deep(.aplayer-body) {
@@ -212,7 +297,7 @@ defineExpose({ playToggle, changeVolume, changeSong, toggleList });
     }
     .aplayer-info {
       margin-left: 0;
-      background-color: #ffffff40;
+      background-color: #ffffff20;
       border-color: transparent !important;
       .aplayer-music {
         flex-grow: initial;
@@ -260,8 +345,11 @@ defineExpose({ playToggle, changeVolume, changeSong, toggleList });
     }
   }
   :deep(.aplayer-list) {
-    margin-top: 6px;
+    margin-top: 8px;
+    min-height: 150px;
     height: v-bind(listHeight);
+    overflow-y: auto;
+    padding: 8px;
     background-color: transparent;
     ol {
       &::-webkit-scrollbar-track {
@@ -269,13 +357,18 @@ defineExpose({ playToggle, changeVolume, changeSong, toggleList });
       }
       li {
         border-color: transparent;
+        border-radius: 12px;
+        padding: 6px 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         &.aplayer-list-light {
-          background: #ffffff40;
-          border-radius: 6px;
+          background: #ffffff26;
+          border-radius: 12px;
         }
         &:hover {
-          background: #ffffff26 !important;
-          border-radius: 6px !important;
+          background: #ffffff33 !important;
+          border-radius: 12px !important;
         }
         .aplayer-list-index,
         .aplayer-list-author {

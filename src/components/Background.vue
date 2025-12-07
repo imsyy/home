@@ -36,15 +36,26 @@ const emit = defineEmits(["loadComplete"]);
 // 请依据文件夹内的图片个数修改 Math.random() 后面的第一个数字
 const bgRandom = Math.floor(Math.random() * 10 + 1);
 
-// 更换壁纸链接
+// 更换壁纸链接(WaveYo CDN)
+// const changeBg = (type) => {
+//   if (type == 0) {
+//     bgUrl.value = `https://cloud.waveyo.cn/Services/images/background/background${bgRandom}.jpg`;
+//   } else if (type == 1) {
+//     bgUrl.value = "https://api.dujin.org/bing/1920.php";
+//   } else if (type == 2) {
+//     bgUrl.value = "https://api.vvhan.com/api/wallpaper/views";
+//   } else if (type == 3) {
+//     bgUrl.value = "https://api.vvhan.com/api/wallpaper/acg";
+//   }
+// };
+
+// 更换壁纸链接(Normal)
 const changeBg = (type) => {
   if (type == 0) {
-    bgUrl.value = `/images/background${bgRandom}.jpg`;
-  } else if (type == 1) {
     bgUrl.value = "https://api.dujin.org/bing/1920.php";
-  } else if (type == 2) {
+  } else if (type == 1) {
     bgUrl.value = "https://api.vvhan.com/api/wallpaper/views";
-  } else if (type == 3) {
+  } else if (type == 2) {
     bgUrl.value = "https://api.vvhan.com/api/wallpaper/acg";
   }
 };

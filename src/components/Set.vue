@@ -49,7 +49,7 @@
           />
         </div>
       </el-collapse-item>
-      <el-collapse-item title="播放器配置" name="3">
+      <!-- <el-collapse-item title="播放器配置" name="3">
         <div class="item">
           <span class="text">自动播放</span>
           <el-switch
@@ -78,7 +78,7 @@
             <el-radio value="none" border>不循环</el-radio>
           </el-radio-group>
         </div>
-      </el-collapse-item>
+      </el-collapse-item> -->
       <el-collapse-item title="其他设置" name="4">
         <div>设置内容待增加</div>
       </el-collapse-item>

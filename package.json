@@ -1,8 +1,9 @@
 {
   "name": "home",
-  "author": "imsyy",
-  "github": "https://github.com/imsyy/home",
-  "home": "https://imsyy.top",
+  "author": "WavesMan",
+  "github": "https://github.com/WavesMan/home",
+  "home": "https://home.waveyo.cn",
+  "cp_home": "https://home-vercel.waveyo.cn",
   "private": true,
   "version": "4.1.4",
   "type": "module",
@@ -14,6 +15,7 @@
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.vue --fix"
   },
   "dependencies": {
+    "@vicons/carbon": "^0.13.0",
     "@worstone/vue-aplayer": "^1.0.6",
     "aplayer": "^1.10.1",
     "axios": "^1.6.8",
